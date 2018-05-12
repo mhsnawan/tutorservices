@@ -23,6 +23,10 @@
 			@yield('content')
 			</div>
 			<!-- Content End -->
+
+			<!-- Search Modal -->
+			@include('includes.searchmodal')
+			<!-- Seach Modal End -->
 			
 			<!-- Footer -->
 			<footer class="footer">
