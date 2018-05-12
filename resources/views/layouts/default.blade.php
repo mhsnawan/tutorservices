@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	@include('includes.head')
+	@include('partials.head')
 </head>
 <body class="shop">
 
 	<!-- Side Navigation Menu -->
 	<aside class="side-navigation-wrapper enter-right" data-no-scrollbar data-animation="scale-in">
-    @include('includes.sidebar')
+    @include('partials.sidebar')
 	</aside>
 	<!-- Side Navigation Menu End -->
 
@@ -15,7 +15,7 @@
 		<div class="wrapper-inner">
 
 			<!-- Header -->
-            @include('includes.header')
+            @include('partials.header')
 			<!-- Header End -->
 
 			<!-- Content -->
@@ -25,12 +25,12 @@
 			<!-- Content End -->
 
 			<!-- Search Modal -->
-			@include('includes.searchmodal')
+			@include('partials.searchmodal')
 			<!-- Seach Modal End -->
 			
 			<!-- Footer -->
 			<footer class="footer">
-			@include('includes.footer')
+			@include('partials.footer')
 			</footer>
 			<!-- Footer End -->
 
