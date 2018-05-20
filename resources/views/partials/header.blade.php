@@ -26,12 +26,18 @@
                 </nav>
                 <nav class="navigation nav-block primary-navigation nav-right">
                     <ul>
+                        @guest
                         <li>
                             <a href="/login">Sign In</a>
                         </li>
                         <li>
                             <a href="/register">Register</a>
-                        </li>
+                        </li> 
+                        @else
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        </li>  
+                        @endguest  
                     </ul>
                 </nav>
             </div>
