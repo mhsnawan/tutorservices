@@ -26,7 +26,7 @@
                 </nav>
                 <nav class="navigation nav-block primary-navigation nav-right">
                     <ul>
-                        @guest
+                    @guest
                         <li>
                             <a href="/login">Sign In</a>
                         </li>
@@ -36,8 +36,11 @@
                         @else
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                            </form>
                         </li>  
-                        @endguest  
+                    @endguest  
                     </ul>
                 </nav>
             </div>
