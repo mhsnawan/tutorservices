@@ -7,8 +7,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
 	
 	<!-- Css -->
-	<link rel="stylesheet" href="/css/core.min.css" />
-	<link rel="stylesheet" href="/css/skin.css" />
+	<link rel="stylesheet" href="css/core.min.css" />
+	<link rel="stylesheet" href="css/skin.css" />
 
 	<!--[if lt IE 9]>
     	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

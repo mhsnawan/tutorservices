@@ -8,7 +8,7 @@
                 <div class="tabs style-2">
                     <ul class="tab-nav">
                         <li class="active">
-                            <a href="#tabs-1-pane-1">Become Student</a>
+                            <a href="#tabs-1-pane-1">Registeration</a>
                         </li>
                     </ul>
                     <div class="tab-panes">
