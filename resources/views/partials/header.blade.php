@@ -28,10 +28,10 @@
                     <ul>
                     @guest
                         <li>
-                            <a href="/login">Sign In</a>
+                            <a href="{{ route('login') }}">Sign In</a>
                         </li>
                         <li>
-                            <a href="/register">Register</a>
+                            <a href="{{ route('register') }}">Register</a>
                         </li> 
                         @else
                         <li>
