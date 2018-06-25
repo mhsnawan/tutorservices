@@ -16,7 +16,7 @@
                             <div class="tab-content">
                                 <div class="billing-form-container">
                                     <form method="POST" action="{{ route('register') }}">
-                                    
+                                    @csrf
                                         <div class="row">
                                             <div class="column width-12">
                                                 <div class="column width-6">

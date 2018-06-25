@@ -29,4 +29,4 @@ Route::resource('account', 'UserController');
 
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');
 
-Route::post('/postaccountsetting', 'HomeController@saveProfileSetting')->name('postaccount');
+//Route::post('/postaccountsetting', 'HomeController@saveProfileSetting')->name('postaccount');
