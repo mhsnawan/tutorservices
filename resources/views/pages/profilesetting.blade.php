@@ -24,7 +24,8 @@
                     <div id="tabs-4-pane-1" class="active animate">
                         <div class="tab-content">
                             <div class="signup-form-container create-account horizontal">
-                                <form class="signup-form" action="#" method="post" novalidate>
+                                <form class="signup-form" method="POST" action="{{ route('account.store') }}" >
+                                    @csrf
                                     <div class="column width-12">
                                         <div class="column width-4">
                                             <div class="field-wrapper">
@@ -35,7 +36,7 @@
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Username</label>
-                                                <input type="text" name="username" class="form-password form-element large" placeholder="markjohn" tabindex="2" readonly>
+                                                {{--  <input type="text" name="username" class="form-password form-element large" placeholder="markjohn" tabindex="2" readonly>  --}}
                                             </div>
                                         </div>
                                     </div>

@@ -25,3 +25,6 @@ Route::get('/example', function(){
     return view('pages.example');
 });
 
+Route::resource('account', 'UserController');
+
+Route::post('/postaccountsetting', 'HomeController@saveProfileSetting')->name('postaccount');
