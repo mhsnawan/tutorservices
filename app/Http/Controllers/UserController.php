@@ -20,7 +20,7 @@ class UserController extends Controller
         $userid = Auth::user()->id;
         //$user = DB::table('users')->where('id', $userid)->first();
         $user = User::find($userid);
-        return view('pages.profilesetting')->with(compact('user'));
+        return view('pages.account')->with(compact('user'));
     }
 
     /**

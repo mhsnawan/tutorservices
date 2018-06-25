@@ -16,9 +16,11 @@
                     <li>
                         <a href="#tabs-4-pane-2">Educational Info</a>
                     </li>
+                    @if ($user['role']=='2')
                     <li>
                         <a href="#tabs-4-pane-3">Certifications</a>
                     </li>
+                    @endif
                 </ul>
                 <div class="tab-panes">
                     <div id="tabs-4-pane-1" class="active animate">
@@ -200,12 +202,14 @@
                                 </div>
                             </div>
                     </div>
+                    
                     <div id="tabs-4-pane-3">
                         <div class="tab-content">
                             <p class="lead">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
                             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
