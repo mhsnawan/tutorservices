@@ -30,13 +30,13 @@
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Full Name*</label>
-                                                <input type="text" name="name" class="form-email form-element large" placeholder="Mark Johnson" tabindex="1" required>
+                                                <input type="text" name="name" value={{ $user['name'] }} class="form-email form-element large" placeholder="Mark Johnson" tabindex="1" required>
                                             </div>
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Username</label>
-                                                {{--  <input type="text" name="username" class="form-password form-element large" placeholder="markjohn" tabindex="2" readonly>  --}}
+                                                <input type="text" name="username" value={{ $user['username'] }} class="form-password form-element large" placeholder="markjohn" tabindex="2" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -44,13 +44,13 @@
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>CNIC*</label>
-                                                <input type="text" name="cnic" class="form-email form-element large" placeholder="37408-2121454-3" tabindex="3" required>
+                                                <input type="text" name="cnic" value={{ $user['cnic'] }} class="form-email form-element large" placeholder="37408-2121454-3" tabindex="3" required>
                                             </div>
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Phone*</label>
-                                                <input type="text" name="phone" class="form-password form-element large" placeholder="+923453045874" tabindex="4" required>
+                                                <input type="text" name="phone" value={{ $user['phone'] }} class="form-password form-element large" placeholder="+923453045874" tabindex="4" required>
                                             </div>
                                         </div>
                                     </div>
@@ -69,13 +69,13 @@
                                         <div class="column width-2">
                                             <div class="field-wrapper">
                                                 <label>Age*</label>
-                                                <input type="number" name="age" class="form-password form-element large" placeholder="25" tabindex="6" required>
+                                                <input type="number" name="age" value={{ $user['age'] }} class="form-password form-element large" placeholder="25" tabindex="6" required>
                                             </div>
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Nationality*</label>
-                                                <input type="text" name="nationality" class="form-password form-element large" placeholder="Pakistani" tabindex="7" required>
+                                                <input type="text" name="nationality" value={{ $user['nationality'] }} class="form-password form-element large" placeholder="Pakistani" tabindex="7" required>
                                             </div>
                                         </div>
                                     </div>
@@ -83,13 +83,13 @@
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Adress Line 1*</label>
-                                                <input type="text" name="address1" class="form-password form-element large" placeholder="H#50 Lane 4" tabindex="8" required>
+                                                <input type="text" name="address1" value={{ $user['address1'] }} class="form-password form-element large" placeholder="H#50 Lane 4" tabindex="8" required>
                                             </div>
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Adress Line 2</label>
-                                                <input type="text" name="address2" class="form-password form-element large" placeholder="Sector F-10" tabindex="9">
+                                                <input type="text" name="address2" value={{ $user['address2'] }} class="form-password form-element large" placeholder="Sector F-10" tabindex="9">
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>City*</label>
-                                                <input type="text" name="city" class="form-password form-element large" placeholder="Islamabad" tabindex="10" required>
+                                                <input type="text" name="city" value={{ $user['city'] }} class="form-password form-element large" placeholder="Islamabad" tabindex="10" required>
                                             </div>
                                         </div>
                                     </div>

@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -16,7 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $userid = Auth::user()->id;
+        //$user = DB::table('users')->where('id', $userid)->first();
+        $user = User::find($userid);
+        return view('pages.profilesetting')->with(compact('user'));
     }
 
     /**
@@ -37,7 +41,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
         $user = Auth::user();
         //$user->name = $request['name'];
         $user->cnic = $request['cnic'];
@@ -49,11 +52,7 @@ class UserController extends Controller
         $user->address2 = $request['address2'];
         $user->city = $request['city'];
         $user->save();
-
-
-       
-        
-
+       // return redirect('home');
     }
 
     /**
@@ -64,7 +63,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('home');
     }
 
     /**
