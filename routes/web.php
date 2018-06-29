@@ -19,13 +19,9 @@ Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/example', function(){
-    return view('pages.example');
-});
-
 Route::resource('account', 'UserController');
+Route::resource('educationalinfo', 'EducationalInfoController');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');
 
