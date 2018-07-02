@@ -35,4 +35,8 @@ class User extends Authenticatable
     public function certifications(){
         return $this->hasMany('App\Certification');
     }
+
+    public function experiences(){
+        return $this->hasMany('App\Experience');
+    }
 }

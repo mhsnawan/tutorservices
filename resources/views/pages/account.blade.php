@@ -227,55 +227,61 @@
                     
                     <div id="tabs-4-pane-4">
                         <div class="tab-content">
-                            <form class="contact-form" action="{{ route('certification.store') }}" method="post" novalidate>
-                                <div class="row">
-                                    <div class="column width-6">
-                                        <div class="field-wrapper">
-                                            <input type="text" name="title" class="form-fname form-element large" placeholder="Work Title*" tabindex="1" required>
+                            <div class="signup-form-container create-account horizontal">
+                                <form class="signup-form" method="POST" action="{{ route('experience.store') }}" >
+                                    @csrf
+                                    <div class="column width-12">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Title*</label>
+                                                <input type="text" name="title" class="form-email form-element large" placeholder="Work Title" tabindex="1" required>
+                                            </div>
+                                        </div>
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Institute*</label>
+                                                <input type="text" name="company" class="form-email form-element large" placeholder="Work Company" tabindex="2" required>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="column width-6">
-                                        <div class="field-wrapper">
-                                            <input type="text" name="company" class="form-lname form-element large" placeholder="Work Company" tabindex="2">
+                                    <div class="column width-12">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Institute*</label>
+                                                <input type="text" name="duration" class="form-email form-element large" placeholder="Work Duration" tabindex="3" required>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="column width-6">
-                                        <div class="field-wrapper">
-                                            <input type="text" name="duration" class="form-email form-element large" placeholder="Work Duration*" tabindex="3" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+                                    <div class="column width-12">
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>Start Date</label>
-                                                <input type="date" name="startdate" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
+                                                <input type="date" name="startdate" class="form-email form-element large" placeholder="30/01/2018" tabindex="4" required>
                                             </div>
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <label>End Date</label>
-                                                <input type="date" name="enddate" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
+                                                <input type="date" name="enddate" class="form-email form-element large" placeholder="30/01/2018" tabindex="5" required>
                                             </div>
                                         </div>
-
+                                        
                                     </div>
-                                    <div class="column width-6">
-                                        <input type="text" name="honeypot" class="form-honeypot form-element">
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="column width-12">
                                         <div class="field-wrapper">
-                                            <textarea name="description" class="form-message form-element large" placeholder="Description*" tabindex="7" required></textarea>
+                                            <textarea name="description" class="form-message form-element large" placeholder="Description*" tabindex="6" required></textarea>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
+                                    
                                     <div class="column width-12">
                                         <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                     </div>
-                                </div>
-                            </form>
+                                    <div class="column width-12"><br><br></div>
+                                    
+                                    <input type="text" name="honeypot" class="form-honeypot form-element">
+                                </form>
+                                <div class="form-response show"></div>
+                            </div>
                         </div>
                     </div>
                     

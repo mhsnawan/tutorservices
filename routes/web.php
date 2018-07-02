@@ -22,11 +22,17 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::resource('account', 'UserController');
 Route::resource('edinfo', 'EdInfoController');
 Route::resource('certification', 'CertificationController');
+Route::resource('experience', 'ExperienceController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/postATution',function(){
 
     return view('postATution');
+});
+
+Route::get('/profile',function(){
+
+    return view('pages.profile');
 });
 
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');
