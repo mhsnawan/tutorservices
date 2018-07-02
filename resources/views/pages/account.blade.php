@@ -244,12 +244,20 @@
                                             <input type="text" name="duration" class="form-email form-element large" placeholder="Work Duration*" tabindex="3" required>
                                         </div>
                                     </div>
-                                    <br>
-                                    <div class="column width-6">
-                                        <div class="field-wrapper">
-                                            <input type="date" name="from" class="form-email form-element large" placeholder="From*" tabindex="3" required>To
-                                            <input type="date" name="to" class="form-email form-element large" placeholder="To*" tabindex="3" required>
+                                    <div class="row">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Start Date</label>
+                                                <input type="date" name="startdate" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
+                                            </div>
                                         </div>
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>End Date</label>
+                                                <input type="date" name="enddate" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="column width-6">
                                         <input type="text" name="honeypot" class="form-honeypot form-element">
