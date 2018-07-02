@@ -31,4 +31,8 @@ class User extends Authenticatable
     public function edinfos(){
         return $this->hasMany('App\EdInfo');
     }
+
+    public function certifications(){
+        return $this->hasMany('App\Certification');
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Certification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CertificationController extends Controller
 {
@@ -35,7 +36,16 @@ class CertificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user= Auth::user()->id;
+        Certification::create([
+            'user_id' => $user,
+            'title' => $request->title,
+            'institute' => $request->institute,
+            'startdate' => $request->startdate,
+            'enddate' => $request->enddate,
+            'percentage' => $request->percentage,
+        ]);
+        return redirect('/account');
     }
 
     /**

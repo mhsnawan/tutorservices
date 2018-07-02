@@ -18,11 +18,10 @@ class CreateCertificationsTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title')->nullable();
-            $table->string('company')->nullable();
-            $table->string('duration')->nullable();
+            $table->string('institute')->nullable();
             $table->date('startdate')->nullable();
             $table->date('enddate')->nullable();
-            $table->string('description')->nullable();
+            $table->string('percentage')->nullable();
         });
     }
 
