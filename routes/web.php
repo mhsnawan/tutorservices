@@ -21,6 +21,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::resource('account', 'UserController');
 Route::resource('edinfo', 'EdInfoController');
+Route::resource('certification', 'CertificationController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');

@@ -13,13 +13,16 @@
                     <li class="active">
                         <a href="#tabs-4-pane-1">Personal Info</a>
                     </li>
-                    @if ($user['role']=='2')
+                    
                     <li>
                         <a href="#tabs-4-pane-2">Educational Info</a>
                     </li>
-                    
+                    @if ($user['role']=='2')
                     <li>
-                        <a href="#tabs-4-pane-3">Certifications</a>
+                        <a href="#tabs-4-pane-3">Certification</a>
+                    </li>
+                    <li>
+                        <a href="#tabs-4-pane-4">Experience</a>
                     </li>
                     @endif
                 </ul>
@@ -119,7 +122,6 @@
                                 <div class="signup-form-container create-account horizontal">
                                     <form class="signup-form" method="POST" action="{{ route('edinfo.store') }}" >
                                         @csrf
-                                        
                                         <div class="column width-12">
                                             <div class="column width-4">
                                                 <div class="field-wrapper">
@@ -162,8 +164,47 @@
                     
                     <div id="tabs-4-pane-3">
                         <div class="tab-content">
-                            <p class="lead">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <form class="contact-form" action="{{ route('certification.store') }}" method="post" novalidate>
+                                <div class="row">
+                                    <div class="column width-6">
+                                        <div class="field-wrapper">
+                                            <input type="text" name="title" class="form-fname form-element large" placeholder="Work Title*" tabindex="1" required>
+                                        </div>
+                                    </div>
+                                    <div class="column width-6">
+                                        <div class="field-wrapper">
+                                            <input type="text" name="company" class="form-lname form-element large" placeholder="Work Company" tabindex="2">
+                                        </div>
+                                    </div>
+                                    <div class="column width-6">
+                                        <div class="field-wrapper">
+                                            <input type="text" name="duration" class="form-email form-element large" placeholder="Work Duration*" tabindex="3" required>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="column width-6">
+                                        <div class="field-wrapper">
+                                            <input type="date" name="from" class="form-email form-element large" placeholder="From*" tabindex="3" required>To
+                                            <input type="date" name="to" class="form-email form-element large" placeholder="To*" tabindex="3" required>
+                                        </div>
+                                    </div>
+                                    <div class="column width-6">
+                                        <input type="text" name="honeypot" class="form-honeypot form-element">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column width-12">
+                                        <div class="field-wrapper">
+                                            <textarea name="description" class="form-message form-element large" placeholder="Description*" tabindex="7" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column width-12">
+                                        <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     
