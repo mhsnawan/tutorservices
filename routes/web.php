@@ -27,6 +27,11 @@ Route::get('/example', function(){
 
 Route::resource('account', 'UserController');
 
+Route::get('/postATution',function(){
+
+    return view('postATution');
+});
+
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');
 
 //Route::post('/postaccountsetting', 'HomeController@saveProfileSetting')->name('postaccount');
