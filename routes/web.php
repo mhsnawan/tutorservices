@@ -19,13 +19,10 @@ Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/example', function(){
-    return view('pages.example');
-});
-
 Route::resource('account', 'UserController');
+Route::resource('edinfo', 'EdInfoController');
+Route::resource('certification', 'CertificationController');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/postATution',function(){
 

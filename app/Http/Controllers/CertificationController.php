@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\EducationalInfo;
+use App\Certification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class EducationalInfoController extends Controller
+class CertificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,16 +36,25 @@ class EducationalInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user= Auth::user()->id;
+        Certification::create([
+            'user_id' => $user,
+            'title' => $request->title,
+            'institute' => $request->institute,
+            'startdate' => $request->startdate,
+            'enddate' => $request->enddate,
+            'percentage' => $request->percentage,
+        ]);
+        return redirect('/account');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\Certification  $certification
      * @return \Illuminate\Http\Response
      */
-    public function show(EducationalInfo $educationalInfo)
+    public function show(Certification $certification)
     {
         //
     }
@@ -52,10 +62,10 @@ class EducationalInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\Certification  $certification
      * @return \Illuminate\Http\Response
      */
-    public function edit(EducationalInfo $educationalInfo)
+    public function edit(Certification $certification)
     {
         //
     }
@@ -64,10 +74,10 @@ class EducationalInfoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\Certification  $certification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EducationalInfo $educationalInfo)
+    public function update(Request $request, Certification $certification)
     {
         //
     }
@@ -75,10 +85,10 @@ class EducationalInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\Certification  $certification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EducationalInfo $educationalInfo)
+    public function destroy(Certification $certification)
     {
         //
     }
