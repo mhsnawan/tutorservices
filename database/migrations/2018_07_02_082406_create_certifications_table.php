@@ -20,8 +20,8 @@ class CreateCertificationsTable extends Migration
             $table->string('title')->nullable();
             $table->string('company')->nullable();
             $table->string('duration')->nullable();
-            $table->date('start')->nullable();
-            $table->date('end')->nullable();
+            $table->date('startdate')->nullable();
+            $table->date('enddate')->nullable();
             $table->string('description')->nullable();
         });
     }

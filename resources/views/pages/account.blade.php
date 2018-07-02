@@ -119,50 +119,113 @@
                     </div>
                     <div id="tabs-4-pane-2">
                         <div class="tab-content">
-                                <div class="signup-form-container create-account horizontal">
-                                    <form class="signup-form" method="POST" action="{{ route('edinfo.store') }}" >
-                                        @csrf
-                                        <div class="column width-12">
-                                            <div class="column width-4">
-                                                <div class="field-wrapper">
-                                                    <label>Title*</label>
-                                                    <input type="text" name="title" class="form-email form-element large" placeholder="Degree Title" tabindex="1" required>
-                                                </div>
-                                            </div>
-                                            <div class="column width-4">
-                                                <div class="field-wrapper">
-                                                    <label>Institute*</label>
-                                                    <input type="text" name="institute" class="form-email form-element large" placeholder="Institute" tabindex="1" required>
-                                                </div>
+                            <div class="signup-form-container create-account horizontal">
+                                <form class="signup-form" method="POST" action="{{ route('edinfo.store') }}" >
+                                    @csrf
+                                    <div class="column width-12">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Title*</label>
+                                                <input type="text" name="title" class="form-email form-element large" placeholder="Degree Title" tabindex="1" required>
                                             </div>
                                         </div>
-                                        <div class="column width-12">
-                                            <div class="column width-4">
-                                                <div class="field-wrapper">
-                                                    <label>Date</label>
-                                                    <input type="date" name="date" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
-                                                </div>
-                                            </div>
-                                            <div class="column width-4">
-                                                <div class="field-wrapper">
-                                                    <label>Percentage*</label>
-                                                    <input type="text" name="percentage" class="form-password form-element large" placeholder="Degree Percentage" tabindex="4" required>
-                                                </div>
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Institute*</label>
+                                                <input type="text" name="institute" class="form-email form-element large" placeholder="Institute" tabindex="1" required>
                                             </div>
                                         </div>
-                                        <div class="column width-12">
-                                            <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                                    </div>
+                                    <div class="column width-12">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Start Date</label>
+                                                <input type="date" name="startdate" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
+                                            </div>
                                         </div>
-                                        <div class="column width-12"><br><br></div>
-                                        
-                                        <input type="text" name="honeypot" class="form-honeypot form-element">
-                                    </form>
-                                    <div class="form-response show"></div>
-                                </div>
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>End Date</label>
+                                                <input type="date" name="enddate" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column width-12">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Percentage*</label>
+                                                <input type="text" name="percentage" class="form-password form-element large" placeholder="Degree Percentage" tabindex="4" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column width-12">
+                                        <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                                    </div>
+                                    <div class="column width-12"><br><br></div>
+                                    
+                                    <input type="text" name="honeypot" class="form-honeypot form-element">
+                                </form>
+                                <div class="form-response show"></div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div id="tabs-4-pane-3">
+                        <div class="tab-content">
+                            <div class="signup-form-container create-account horizontal">
+                                <form class="signup-form" method="POST" action="{{ route('certification.store') }}" >
+                                    @csrf
+                                    <div class="column width-12">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Title*</label>
+                                                <input type="text" name="title" class="form-email form-element large" placeholder="Certification Title" tabindex="1" required>
+                                            </div>
+                                        </div>
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Institute*</label>
+                                                <input type="text" name="institute" class="form-email form-element large" placeholder="Institute" tabindex="2" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column width-12">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Date</label>
+                                                <input type="date" name="startdate" class="form-email form-element large" placeholder="30/01/2018" tabindex="3" required>
+                                            </div>
+                                        </div>
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Date</label>
+                                                <input type="date" name="enddate" class="form-email form-element large" placeholder="30/01/2018" tabindex="4" required>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <label>Percentage*</label>
+                                                <input type="text" name="percentage" class="form-password form-element large" placeholder="Degree Percentage" tabindex="5" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="column width-12">
+                                        <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                                    </div>
+                                    <div class="column width-12"><br><br></div>
+                                    
+                                    <input type="text" name="honeypot" class="form-honeypot form-element">
+                                </form>
+                                <div class="form-response show"></div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div id="tabs-4-pane-3">
+                    <div id="tabs-4-pane-4">
                         <div class="tab-content">
                             <form class="contact-form" action="{{ route('certification.store') }}" method="post" novalidate>
                                 <div class="row">

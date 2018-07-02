@@ -41,7 +41,8 @@ class EdInfoController extends Controller
             'user_id' => $user,
             'title' => $request->title,
             'institute' => $request->institute,
-            'date' => $request->date,
+            'startdate' => $request->startdate,
+            'enddate' => $request->enddate,
             'percentage' => $request->percentage,
         ]);
         return redirect('/account');
