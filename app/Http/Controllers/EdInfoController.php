@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\EducationalInfo;
+use App\EdInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class EducationalInfoController extends Controller
+class EdInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,16 +36,24 @@ class EducationalInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user= Auth::user()->id;
+        EdInfo::create([
+            'user_id' => $user,
+            'title' => $request->title,
+            'institute' => $request->institute,
+            'date' => $request->date,
+            'percentage' => $request->percentage,
+        ]);
+        return redirect('/account');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\EdInfo  $edInfo
      * @return \Illuminate\Http\Response
      */
-    public function show(EducationalInfo $educationalInfo)
+    public function show(EdInfo $edInfo)
     {
         //
     }
@@ -52,10 +61,10 @@ class EducationalInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\EdInfo  $edInfo
      * @return \Illuminate\Http\Response
      */
-    public function edit(EducationalInfo $educationalInfo)
+    public function edit(EdInfo $edInfo)
     {
         //
     }
@@ -64,10 +73,10 @@ class EducationalInfoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\EdInfo  $edInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EducationalInfo $educationalInfo)
+    public function update(Request $request, EdInfo $edInfo)
     {
         //
     }
@@ -75,10 +84,10 @@ class EducationalInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\EducationalInfo  $educationalInfo
+     * @param  \App\EdInfo  $edInfo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EducationalInfo $educationalInfo)
+    public function destroy(EdInfo $edInfo)
     {
         //
     }

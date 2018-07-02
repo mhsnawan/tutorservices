@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::resource('account', 'UserController');
-Route::resource('educationalinfo', 'EducationalInfoController');
+Route::resource('edinfo', 'EdInfoController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');
