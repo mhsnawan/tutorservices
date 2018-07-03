@@ -32,7 +32,7 @@ Route::get('/postATution',function(){
 
 Route::get('/profile',function(){
 
-    return view('pages.profile');
+    return view('pages.account1');
 });
 
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');

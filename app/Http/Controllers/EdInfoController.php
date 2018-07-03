@@ -36,15 +36,17 @@ class EdInfoController extends Controller
      */
     public function store(Request $request)
     {
-        $user= Auth::user()->id;
+        // // $request->user_id = Auth::user()->id;
+        // $edinfo = EdInfo::create($request->all())->efinfos;
+        // $user= Auth::user()->id;
         EdInfo::create([
-            'user_id' => $user,
+            'user_id' => Auth::user()->id,
             'title' => $request->title,
             'institute' => $request->institute,
             'startdate' => $request->startdate,
             'enddate' => $request->enddate,
             'percentage' => $request->percentage,
-        ]);
+        ])->edinfos;
         return redirect('/account');
     }
 
