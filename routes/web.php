@@ -32,7 +32,8 @@ Route::get('/postATution',function(){
 
 Route::get('/profile',function(){
 
-    return view('pages.account1');
+    $users = App\User::find(1)->edinfos();
+        return $users;
 });
 
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');

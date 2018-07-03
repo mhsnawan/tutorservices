@@ -36,15 +36,15 @@ class CertificationController extends Controller
      */
     public function store(Request $request)
     {
-        $user= Auth::user()->id;
+        $user= Auth::user();
         Certification::create([
-            'user_id' => $user,
+            'user_id' => $user->id,
             'title' => $request->title,
             'institute' => $request->institute,
             'startdate' => $request->startdate,
             'enddate' => $request->enddate,
             'percentage' => $request->percentage,
-        ]);
+        ])->certifications;
         return redirect('/account');
     }
 
