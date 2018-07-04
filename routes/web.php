@@ -23,6 +23,7 @@ Route::resource('account', 'UserController');
 Route::resource('edinfo', 'EdInfoController');
 Route::resource('certification', 'CertificationController');
 Route::resource('experience', 'ExperienceController');
+Route::resource('course', 'CourseController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/postATution',function(){
