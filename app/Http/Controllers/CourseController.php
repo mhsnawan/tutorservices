@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.addcourse');
     }
 
     /**
@@ -35,7 +35,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Course::create($request->all());
     }
 
     /**
