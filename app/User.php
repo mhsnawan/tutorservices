@@ -28,6 +28,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function student(){
+        return $this->hasOne('App\Student');
+    }
+
+    public function teacher(){
+        return $this->hasOne('App\Teacher');
+    }
+
     public function edinfos(){
         return $this->hasMany('App\EdInfo');
     }
