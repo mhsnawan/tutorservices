@@ -27,9 +27,9 @@ Route::resource('course', 'CourseController');
 Route::resource('teacher', 'TeacherController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/postATution',function(){
+Route::get('/tution',function(){
 
-    return view('postATution');
+    return view('pages.tution');
 });
 
 Route::get('/profile',function(){

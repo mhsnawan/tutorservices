@@ -15,9 +15,9 @@ class CreateCourseTeacherTable extends Migration
     {
         Schema::create('course_teacher', function (Blueprint $table) {
             $table->Integer('teacher_id')->unsigned();
-            $table->foreign('teacher_id')->references('teacher_id')->on('teachers');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->Integer('course_id')->unsigned();
-            $table->foreign('course_id')->references('course_id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->Integer('fee')->unsigned();
             $table->string('type');
         });
