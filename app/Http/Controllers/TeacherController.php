@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Teacher;
 use Illuminate\Http\Request;
+use App\Course;
 
 class TeacherController extends Controller
 {
@@ -14,7 +15,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        return view('pages.posttution')->with(compact('courses'));
     }
 
     /**

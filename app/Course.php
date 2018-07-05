@@ -11,4 +11,9 @@ class Course extends Model
     ];
     
     public $timestamps = false;
+
+    public function teachers()
+    {
+        return $this->belongsToMany('App\Teacher');
+    }
 }

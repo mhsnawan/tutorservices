@@ -79,7 +79,7 @@ class RegisterController extends Controller
         if($data['role']=='1')
             Student::create(['user_id' => $userId]);
 
-        else
+        if($data['role']=='2')
             Teacher::create(['user_id' => $userId]);
 
         return $user;
