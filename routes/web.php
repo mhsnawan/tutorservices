@@ -38,11 +38,6 @@ Route::get('/example',function(){
     return view('pages.example');
 });
 
-Route::get('/admin',function(){
-
-    return view('admin.admin-pages.dashboard');
-});
-
 Route::get('/profile',function(){
 
     $users = App\User::find(1)->edinfos();
@@ -52,3 +47,13 @@ Route::get('/profile',function(){
 //Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');
 
 //Route::post('/postaccountsetting', 'HomeController@saveProfileSetting')->name('postaccount');
+
+// ============================ ADMIN ROUTES ======================================//
+
+Route::get('/admin',function(){
+
+    return view('admin.admin-pages.dashboard');
+});
+
+
+// ============================ END ADMIN ROUTES ======================================//

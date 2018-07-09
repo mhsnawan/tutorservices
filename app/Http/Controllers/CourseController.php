@@ -14,7 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('pages.addcourse');
+        $courses = Course::all();
+        return view('admin.admin-pages.courses')->with(compact('courses'));;
     }
 
     /**
