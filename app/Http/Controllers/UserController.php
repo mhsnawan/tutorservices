@@ -58,7 +58,7 @@ class UserController extends Controller
         $user->address2 = $request['address2'];
         $user->city = $request['city'];
         $user->save();
-       // return redirect('home');
+       return redirect('home');
     }
 
     /**

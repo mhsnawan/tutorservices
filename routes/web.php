@@ -29,7 +29,18 @@ Route::resource('teacher', 'TeacherController');
 
 Route::get('/tution',function(){
 
-    return view('pages.tution');
+    return view('pages.tutions');
+});
+
+
+Route::get('/example',function(){
+
+    return view('pages.example');
+});
+
+Route::get('/admin',function(){
+
+    return view('admin.admin-pages.dashboard');
 });
 
 Route::get('/profile',function(){

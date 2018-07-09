@@ -3,7 +3,7 @@
 @section('content')
 <br><br><br><br>
 <div class="signup-form-container create-account horizontal">
-        <form class="signup-form" method="POST" action="{{ route('teacher.store') }}" >
+        <form method="POST" action="{{ route('teacher.store') }}" >
         @csrf
         <div class="column width-12">
             <div class="column width-4">

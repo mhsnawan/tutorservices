@@ -37,15 +37,16 @@ class ExperienceController extends Controller
     public function store(Request $request)
     {
         $user= Auth::user()->id;
-        Experience::create([
+        $response = Experience::create([
             'user_id' => $user,
             'title' => $request->title,
             'company' => $request->institute,
             'duration' => $request->duration,
             'startdate' => $request->startdate,
-            'enddate' => $request->enddate,
+            'enddate' => $request->enddate
             
         ]);
+        json_encode($response);
         return redirect('/account');
     }
 

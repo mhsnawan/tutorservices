@@ -29,8 +29,8 @@
                 <div class="tab-panes">
                     <div id="tabs-4-pane-1" class="active animate">
                         <div class="tab-content">
-                            <div class="signup-form-container create-account horizontal">
-                                <form class="signup-form" method="POST" action="{{ route('account.store') }}" >
+                            <div class="signup-form-container d horizontal">
+                                <form method="POST" action="{{ route('account.store') }}" >
                                     @csrf
                                     <div class="column width-12">
                                         <div class="column width-4">
@@ -120,7 +120,7 @@
                     <div id="tabs-4-pane-2">
                         <div class="tab-content">
                             <div class="signup-form-container create-account horizontal">
-                                <form class="signup-form" method="POST" action="{{ route('edinfo.store') }}" >
+                                <form method="POST" action="{{ route('edinfo.store') }}" >
                                     @csrf
                                     <div class="column width-12">
                                         <div class="column width-4">
@@ -173,7 +173,7 @@
                     <div id="tabs-4-pane-3">
                         <div class="tab-content">
                             <div class="signup-form-container create-account horizontal">
-                                <form class="signup-form" method="POST" action="{{ route('certification.store') }}" >
+                                <form  method="POST" action="{{ route('certification.store') }}" >
                                     @csrf
                                     <div class="column width-12">
                                         <div class="column width-4">
@@ -227,8 +227,8 @@
                     
                     <div id="tabs-4-pane-4">
                         <div class="tab-content">
-                            <div class="signup-form-container create-account horizontal">
-                                <form class="signup-form" method="POST" action="{{ route('experience.store') }}" >
+                            <div class="horizontal">
+                                <form method="POST" action="{{ route('experience.store') }}" >
                                     @csrf
                                     <div class="column width-12">
                                         <div class="column width-4">
