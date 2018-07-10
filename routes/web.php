@@ -55,5 +55,15 @@ Route::get('/admin',function(){
     return view('admin.admin-pages.dashboard');
 });
 
+Route::get('/addcourse',function(){
+
+    return view('admin.admin-pages.courses.addcourse');
+});
+
+// Route::get('/editcourse/{$id}',function($id){
+//     $course = Course::find($id);
+//     return view('admin.admin-pages.courses.editcourse')->with(compact('course'));
+// });
+
 
 // ============================ END ADMIN ROUTES ======================================//

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class CourseController extends Controller
 {
@@ -15,7 +16,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('admin.admin-pages.courses')->with(compact('courses'));;
+        return view('admin.admin-pages.courses.courses')->with(compact('courses'));;
     }
 
     /**
@@ -37,6 +38,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         Course::create($request->all());
+        return redirect('course');
     }
 
     /**
@@ -58,7 +60,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        $courses = Course::find($course);
+        return view('admin.admin-pages.courses.editcourse')->with(compact('courses'));
     }
 
     /**
@@ -81,6 +84,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect('course');
     }
 }

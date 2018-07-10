@@ -5,7 +5,7 @@
 -->
   <div class="logo">
     <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-      Creative Tim
+      Online Tutor
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -21,6 +21,11 @@
           <i class="material-icons">person</i>
           <p>Courses</p>
         </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
       </li>
     </ul>
   </div>
