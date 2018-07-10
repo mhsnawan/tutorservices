@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-offset-8">
+            <div class="offset-md-10 col-md-1">
               <form method="GET" action="addcourse">
                 <input type="submit" class="btn btn-primary" href="addcourse" value="Add Course">
               </form>
