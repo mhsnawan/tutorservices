@@ -30,8 +30,7 @@
                   <td>{{ $course->course_name }}</td>
                   <td class="td-actions">
                     <div class="row">
-                      {{-- <form method="GET" action="{{ url("/course/".$course->id/. course) }}" }}"> --}}
-                        @csrf
+                      <form method="GET" action="{{ route('course.edit', $course->id) }}">
                         <button class="btn btn-primary" type="submit" rel="tooltip" class="btn btn-success">
                           <i class="material-icons">edit</i>
                         </button>

@@ -10,7 +10,7 @@
           {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
         </div>
         <div class="card-body">
-            <form method="POST" action=" {{ route('course.store') }}">
+            <form method="POST" action="{{ route('course.store') }}">
                 @csrf
                 <div class="row">
                     <div class="form-group col-md-6">

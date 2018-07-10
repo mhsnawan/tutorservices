@@ -60,10 +60,10 @@ Route::get('/addcourse',function(){
     return view('admin.admin-pages.courses.addcourse');
 });
 
-// Route::get('/editcourse/{$id}',function($id){
-//     $course = Course::find($id);
-//     return view('admin.admin-pages.courses.editcourse')->with(compact('course'));
-// });
+Route::get('/editcourse',function(){
+    // $course = Course::find($id);
+    return view('admin.admin-pages.courses.editcourse');
+});
 
 
 // ============================ END ADMIN ROUTES ======================================//
