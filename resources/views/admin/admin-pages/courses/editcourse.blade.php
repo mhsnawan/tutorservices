@@ -10,17 +10,18 @@
           {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('course.store') }}">
+            <form method="POST" action="{{ route('course.update', $courses[0]->id) }}">
                 @csrf
+                {{ method_field("PUT") }}
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="id">Course ID</label>
-                        <input type="text" class="form-control" name="id" id="id" disabled>
+                        <input type="text" class="form-control" name="id" id="id" value="{{ $courses[0]->id }}" disabled>   
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="course_name">Course Name</label>
-                    <input type="text" class="form-control" name="course_name" id="course_name" placeholder="Mathematics">
+                    <input type="text" class="form-control" name="course_name" id="course_name" value="{{ $courses[0]->course_name }}" placeholder="Mathematics">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>

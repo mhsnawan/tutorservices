@@ -73,7 +73,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        Course::findOrFail($course)->first()->fill($request->all())->save();
+        return redirect('course');
     }
 
     /**
