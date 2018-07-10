@@ -11,10 +11,11 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <form method="GET" action="addcourse">
-              <input type="submit" href="addcourse">
-            </form>
-            
+            <div class="col-offset-8">
+              <form method="GET" action="addcourse">
+                <input type="submit" class="btn btn-primary" href="addcourse" value="Add Course">
+              </form>
+            </div>
           </div>
           <div class="table-responsive">
             <table class="table table-hover">
