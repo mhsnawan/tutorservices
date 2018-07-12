@@ -32,20 +32,19 @@
                   <td class="td-actions">
                     <div class="row">
                       <form method="GET" action="{{ route('course.edit', $course->id) }}">
-                        <button class="btn btn-primary" type="submit" rel="tooltip" class="btn btn-success">
+                        <button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Edit Course">
                           <i class="material-icons">edit</i>
                         </button>
                       </form>
-                      <form method="post" action="{{ url("course/". $course->id) }}" }}">
+                      <form method="post" action="{{ url('course.destroy', $course->id) }}">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <button type="submit" rel="tooltip" class="btn btn-danger">
+                        <button type="submit" rel="tooltip" title="Delete Course" class="btn btn-danger btn-link btn-sm">
                           <i class="material-icons">close</i>
                         </button>
                       </form>
                     </div>
                 </td>
-        
                 </tr>
                 @endforeach
               </tbody>
