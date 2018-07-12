@@ -36,7 +36,7 @@
                           <i class="material-icons">edit</i>
                         </button>
                       </form>
-                      <form method="post" action="{{ url('course.destroy', $course->id) }}">
+                      <form method="post" action="{{ route('course.destroy', $course->id) }}">
                         @csrf
                         {{ method_field('DELETE') }}
                         <button type="submit" rel="tooltip" title="Delete Course" class="btn btn-danger btn-link btn-sm">
