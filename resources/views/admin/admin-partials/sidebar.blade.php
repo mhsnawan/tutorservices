@@ -28,13 +28,13 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./dashboard.html">
+        <a class="nav-link" href="{{ route('student.index') }}">
           <i class="material-icons">person</i>
           <p>Students</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./dashboard.html">
+        <a class="nav-link" href="{{ route('teacher.index') }}">
           <i class="material-icons">person</i>
           <p>Tutors</p>
         </a>

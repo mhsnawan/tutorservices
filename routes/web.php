@@ -25,6 +25,7 @@ Route::resource('certification', 'CertificationController');
 Route::resource('experience', 'ExperienceController');
 Route::resource('course', 'CourseController');
 Route::resource('teacher', 'TeacherController');
+Route::resource('student', 'StudentController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/tution',function(){
