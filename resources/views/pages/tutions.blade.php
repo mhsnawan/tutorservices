@@ -116,4 +116,9 @@
       </div>
     </div>
   </div>
+
+  <div>
+    @foreach $request as $requests
+    <li>{{ $requests }} </li>
+  </div>
   @endsection

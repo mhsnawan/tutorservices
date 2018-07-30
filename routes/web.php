@@ -68,9 +68,9 @@ Route::get('/editcourse',function(){
 
 // ============================ END ADMIN ROUTES ======================================//
 
-Route::get('/personalinfo',function(){
-    return view('tportal.tportal-pages.personalinfo');
-});
+// Route::get('/personalinfo',function(){
+//     return view('tportal.tportal-pages.personalinfo');
+// });
 Route::get('/educationalinfo',function(){
     return view('tportal.tportal-pages.educationalinfo');
 });
@@ -80,9 +80,9 @@ Route::get('/tutor',function(){
 Route::get('/availability',function(){
     return view('tportal.tportal-pages.availability');
 });
-Route::get('/certification',function(){
-    return view('tportal.tportal-pages.certification');
-});
+// Route::get('/certification',function(){
+//     return view('tportal.tportal-pages.certification');
+// });
 Route::get('/current-tutions',function(){
     return view('tportal.tportal-pages.current-tutions');
 });

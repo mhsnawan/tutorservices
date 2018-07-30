@@ -19,9 +19,7 @@ class CreateCertificationsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title')->nullable();
             $table->string('institute')->nullable();
-            $table->date('startdate')->nullable();
-            $table->date('enddate')->nullable();
-            $table->string('percentage')->nullable();
+            $table->string('year')->nullable();
         });
     }
 

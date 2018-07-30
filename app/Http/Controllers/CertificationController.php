@@ -15,7 +15,7 @@ class CertificationController extends Controller
      */
     public function index()
     {
-        //
+        return view('tportal.tportal-pages.certification');
     }
 
     /**
@@ -37,15 +37,15 @@ class CertificationController extends Controller
     public function store(Request $request)
     {
         $user= Auth::user();
+        // $request->user_id = $user->id;
         Certification::create([
             'user_id' => $user->id,
             'title' => $request->title,
             'institute' => $request->institute,
-            'startdate' => $request->startdate,
-            'enddate' => $request->enddate,
-            'percentage' => $request->percentage,
+            'year' => $request->year,
         ])->certifications;
-        return redirect('/account');
+        // Certification::create($request->all())->certifications;
+        return redirect('certification.index');
     }
 
     /**

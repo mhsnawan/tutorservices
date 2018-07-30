@@ -24,9 +24,9 @@ class UserController extends Controller
     public function index()
     {
         $userid = Auth::user()->id;
-        //$user = DB::table('users')->where('id', $userid)->first();
         $user = User::find($userid);
-        return view('pages.account')->with(compact('user'));
+        return view('tportal.tportal-pages.personalinfo')->with(compact('user'));
+        //return view('pages.account')->with(compact('user'));
     }
 
     /**
@@ -92,7 +92,19 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+            return view('pages.tutions');
+    //     $userid = $request->$user;
+    //     $userid->cnic = $request['cnic'];
+    //     $userid->phone = $request['phone'];
+    //     $userid->gender = $request['gender'];
+    //     $userid->age = $request['age'];
+    //     $userid->nationality = $request['nationality'];
+    //     $userid->address1 = $request['address1'];
+    //     $userid->address2 = $request['address2'];
+    //     $userid->city = $request['city'];
+    //     $userid->save();
+    // //    return redirect('home');
+    //     return view('tportal.tportal-pages.courses');
     }
 
     /**
