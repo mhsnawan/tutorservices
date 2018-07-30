@@ -48,22 +48,23 @@
                     <!-- Team Grid -->
                     <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
                         <div>
-                          <div class="signup-form-container create-account horizontal">
-    <form class="contact-form" action="php/send-email.php" method="post" novalidate>
+                          <div>
+                            <form method="POST" action="{{ route("experience.store") }}">
+                                @csrf
                       <div  class="column width-12">
                         <div class="column width-4">
                           <div class="field-wrapper">
-                            <input type="text" name="fname" class="form-fname form-element large" placeholder="Work Title*" tabindex="1" required>
+                            <input type="text" name="title" class="form-fname form-element large" placeholder="Work Title*" tabindex="1" required>
                           </div>
                         </div>
                         <div class="column width-4">
                           <div class="field-wrapper">
-                            <input type="text" name="lname" class="form-lname form-element large" placeholder="Work Company" tabindex="2">
+                            <input type="text" name="company" class="form-lname form-element large" placeholder="Work Company" tabindex="2">
                           </div>
                         </div>
                         <div class="column width-4">
                           <div class="field-wrapper">
-                            <input type="email" name="email" class="form-email form-element large" placeholder="Work Duration*" tabindex="3" required>
+                            <input type="text" name="duration" class="form-email form-element large" placeholder="Work Duration*" tabindex="3" required>
                           </div>
                         </div>
 
@@ -75,7 +76,7 @@
                         </div>
                         <div class="column width-5">
                             <div class="field-wrapper">
-                                <input type="date" name="email" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
+                                <input type="date" name="startdate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
                             </div>
                         </div>
                         <div class="column width-1">
@@ -85,20 +86,14 @@
                         </div>
                         <div class="column width-5">
                             <div class="field-wrapper">
-                                <input type="date" name="email" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
+                                <input type="date" name="enddate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
                             </div>
-                        </div>
-
-
-
-                        <div class="column width-4">
-                          <input type="text" name="honeypot" class="form-honeypot form-element">
                         </div>
                       </div>
                       <div class="column width-12">
                         <div class="column width-12">
                           <div class="field-wrapper">
-                            <textarea name="message" class="form-message form-element large" placeholder="Description*" tabindex="7" required></textarea>
+                            <textarea name="description" class="form-message form-element large" placeholder="Description*" tabindex="7" required></textarea>
                           </div>
                         </div>
 

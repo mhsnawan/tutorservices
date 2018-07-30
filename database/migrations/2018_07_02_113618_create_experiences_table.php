@@ -17,11 +17,12 @@ class CreateExperiencesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title')->nullable();
-            $table->string('company')->nullable();
-            $table->string('duration')->nullable();
-            $table->date('startdate')->nullable();
-            $table->date('enddate')->nullable();
+            $table->string('title');
+            $table->string('company');
+            $table->string('duration');
+            $table->date('startdate');
+            $table->date('enddate');
+            $table->string('description')->nullable();
         });
     }
 
