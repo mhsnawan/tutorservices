@@ -48,14 +48,15 @@
                     <!-- Team Grid -->
                     <div style="width:500; height:500;background-color:#daf2f2" class="row content-grid-2">
                         <div>
-                            <div class="signup-form-container create-account horizontal">
-                                <form class="contact-form" action="php/send-email.php" method="post" novalidate>
+                            <div>
+                                <form method="POST" action="{{ route("edinfo.store") }}">
+                                    @csrf
                                     <div class="column width-12" >
 
                                           <div class="field-wrapper">
                                        <fieldset>
                                        <legend>Degree Level</legend>
-                                       <select class="form-control dropdown" id="education" name="education">
+                                       <select class="form-control dropdown" id="education" name="degree_level">
                                             <option value="" selected="selected" disabled="disabled">-- select one --</option>
                                             <option value="No formal education">No formal education</option>
                                             <option value="Primary education">Primary education</option>
@@ -72,7 +73,7 @@
 
                                         <div class="column width-4">
                                             <div class="field-wrapper">
-                                                <input type="text" name="fname" class="form-email form-element large" placeholder="Degree Title*" tabindex="1" required>
+                                                <input type="text" name="title" class="form-email form-element large" placeholder="Degree Title*" tabindex="1" required>
                                             </div>
                                         </div>
                                         <div class="column width-1">
@@ -82,7 +83,7 @@
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
-                                                <input type="text" name="lname" class="form-lname form-element large" placeholder="Institute/university" tabindex="2">
+                                                <input type="text" name="institute" class="form-lname form-element large" placeholder="Institute/university" tabindex="2">
                                             </div>
                                         </div><br><br><br>
                                         <div class="column width-1">
@@ -92,7 +93,7 @@
                                         </div>
                                         <div class="column width-3">
                                             <div class="field-wrapper">
-                                                <input type="date" name="email" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
+                                                <input type="date" name="startdate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
                                             </div>
                                         </div>
                                         <div class="column width-1">
@@ -102,12 +103,12 @@
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
-                                                <input type="date" name="email" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
+                                                <input type="date" name="enddate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
                                             </div>
                                         </div>
                                         <div class="column width-4">
                                             <div class="field-wrapper">
-                                                <input type="Percentage" name="pass" class="form-email form-element large" placeholder="Percentage*" tabindex="3" required>
+                                                <input type="Percentage" name="percentage" class="form-email form-element large" placeholder="Percentage*" tabindex="3" required>
                                             </div>
                                         </div>
                                     </div>

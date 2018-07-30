@@ -37,14 +37,9 @@ class CertificationController extends Controller
     public function store(Request $request)
     {
         $user= Auth::user();
-        // $request->user_id = $user->id;
-        Certification::create([
-            'user_id' => $user->id,
-            'title' => $request->title,
-            'institute' => $request->institute,
-            'year' => $request->year,
-        ])->certifications;
-        // Certification::create($request->all())->certifications;
+        $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
+        Certification::create($input)->certifications;
         return redirect('certification');
     }
 
