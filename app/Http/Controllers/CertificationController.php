@@ -45,7 +45,7 @@ class CertificationController extends Controller
             'year' => $request->year,
         ])->certifications;
         // Certification::create($request->all())->certifications;
-        return redirect('certification.index');
+        return redirect('certification');
     }
 
     /**
