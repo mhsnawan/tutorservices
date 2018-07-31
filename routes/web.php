@@ -71,9 +71,9 @@ Route::get('/editcourse',function(){
 // Route::get('/personalinfo',function(){
 //     return view('tportal.tportal-pages.personalinfo');
 // });
-Route::get('/educationalinfo',function(){
-    return view('tportal.tportal-pages.educationalinfo');
-});
+// Route::get('/educationalinfo',function(){
+//     return view('tportal.tportal-pages.educationalinfo');
+// });
 Route::get('/tutor',function(){
     return view('tportal.tportal-pages.tportalpage');
 });
@@ -86,9 +86,9 @@ Route::get('/availability',function(){
 Route::get('/current-tutions',function(){
     return view('tportal.tportal-pages.current-tutions');
 });
-Route::get('/experience',function(){
-    return view('tportal.tportal-pages.experience');
-});
+// Route::get('/experience',function(){
+//     return view('tportal.tportal-pages.experience');
+// });
 Route::get('/rate',function(){
     return view('tportal.tportal-pages.rate');
 });

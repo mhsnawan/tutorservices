@@ -8,35 +8,15 @@
         <hr class="mt-20 mb-60">
         <div style="height:30px" class="tabs style-2 vertical left">
             <ul class="tab-nav">
-              <li>
-                  <a href="./personalinfo">Personal Info</a>
-              </li>
-              <li>
-                  <a href="./educationalinfo">Educational Info</a>
-              </li>
-
-              <li>
-                  <a href="./experience">Experience</a>
-              </li>
-              <li>
-                  <a href="./courses">Courses</a>
-              </li>
-              <li>
-                  <a href="./certification">Certification</a>
-              </li>
-              <li>
-                  <a href="./availability">Availablity</a>
-              </li>
-              <li>
-                  <a href="./current-tutions">Current-Tutions</a>
-              </li>
-              <li class="active">
-                  <a href="./rate">Rate</a>
-
-              </li>
-              <li>
-                  <a href="./uploads">Uploads</a>
-              </li>
+                <li class="active"><a href="{{ route('account.index') }}">Personal Info</a></li>
+                <li><a href="{{ route('edinfo.index') }}">Educational Info</a></li>
+                <li><a href="{{ route('experience.index') }}">Experience</a></li>
+                <li><a href="./courses">Courses</a></li>
+                <li><a href="./certification">Certification</a></li>
+                <li><a href="./availability">Availablity</a> </li>
+                <li><a href="./current-tutions">Current-Tutions</a></li>
+                <li><a href="./rate">Rate</a></li>
+                <li><a href="./uploads">Uploads</a></li>
             </ul>
         <div class="tab-panes left">
             <div id="tabs-team-pane-2" class="active animate">

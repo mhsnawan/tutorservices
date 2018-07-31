@@ -40,18 +40,7 @@ class ExperienceController extends Controller
         $input['user_id'] = Auth::user()->id;
         Experience::create($input)->experiences;
         return redirect('experience');
-        // $user= Auth::user()->id;
-        // $response = Experience::create([
-        //     'user_id' => $user,
-        //     'title' => $request->title,
-        //     'company' => $request->institute,
-        //     'duration' => $request->duration,
-        //     'startdate' => $request->startdate,
-        //     'enddate' => $request->enddate
-            
-        // ]);
         // json_encode($response);
-        // return redirect('/account');
     }
 
     /**

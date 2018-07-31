@@ -12,9 +12,9 @@
         <hr class="mt-20 mb-60">
         <div class="tabs style-2 vertical left">
             <ul class="tab-nav">
-                <li class="active"><a href="./personalinfo">Personal Info</a></li>
-                <li><a href="./educationalinfo">Educational Info</a></li>
-                <li><a href="./experience">Experience</a></li>
+                <li class="active"><a href="{{ route('account.index') }}">Personal Info</a></li>
+                <li><a href="{{ route('edinfo.index') }}">Educational Info</a></li>
+                <li><a href="{{ route('experience.index') }}">Experience</a></li>
                 <li><a href="./courses">Courses</a></li>
                 <li><a href="./certification">Certification</a></li>
                 <li><a href="./availability">Availablity</a> </li>

@@ -12,9 +12,9 @@
         <hr class="mt-20 mb-60">
         <div class="tabs style-2 vertical left">
             <ul class="tab-nav">
-                <li class="active"><a href="./personalinfo">Personal Info</a></li>
-                <li><a href="./educationalinfo">Educational Info</a></li>
-                <li><a href="./experience">Experience</a></li>
+                <li class="active"><a href="{{ route('account.index') }}">Personal Info</a></li>
+                <li><a href="{{ route('edinfo.index') }}">Educational Info</a></li>
+                <li><a href="{{ route('experience.index') }}">Experience</a></li>
                 <li><a href="./courses">Courses</a></li>
                 <li><a href="./certification">Certification</a></li>
                 <li><a href="./availability">Availablity</a> </li>
@@ -27,11 +27,8 @@
                     <div class="tab-content">
                         <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
                             <div>
-                                {{-- @foreach $users as $user
-                                <p>{{ $user }}</p>
-                                @endfor --}}
-                                <div class="signup-form-container create-account horizontal">
-                                    <form method="POST" action="{{ route('account.update', $user->id) }}">
+                                <div>
+                                    <form method="POST" action="{{ route('certification.store') }}">
                                         @csrf
                                         {{ method_field("PUT") }}
                                         <div class="column width-12">
@@ -44,7 +41,7 @@
                                             <div class="column width-4">
                                                 <div class="field-wrapper">
                                                     <label>Username</label>
-                                                    <input type="text" name="username" value="{{ $user->username }}" class="form-password form-element large" placeholder="markjohn"  tabindex="2" readonly>
+                                                    <input type="text" name="username" value="{{ $user->username }}" class="form-password form-element large" placeholder="markjohn" tabindex="2" readonly>
                                                 </div>
                                             </div>
                                         </div>
