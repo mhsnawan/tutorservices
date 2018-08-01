@@ -37,6 +37,10 @@ class ExperienceController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        if($request->experience_img != null){
+            $path = $request->file('experience_img')->store('uploads');
+            $input['experience_img'] = $path;
+        }
         $input['user_id'] = Auth::user()->id;
         Experience::create($input)->experiences;
         return redirect('experience');

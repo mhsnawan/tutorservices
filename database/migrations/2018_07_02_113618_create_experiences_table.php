@@ -23,6 +23,7 @@ class CreateExperiencesTable extends Migration
             $table->date('startdate');
             $table->date('enddate');
             $table->string('description')->nullable();
+            $table->string('experience_img')->nullable();
         });
     }
 

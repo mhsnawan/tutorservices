@@ -45,6 +45,10 @@ class EdInfoController extends Controller
     {
         $user= Auth::user();
         $input = $request->all();
+        if($request->experience_img != null){
+            $path = $request->file('degree_img')->store('uploads');
+            $input['degree_img'] = $path;
+        }
         $input['user_id'] = Auth::user()->id;
         Edinfo::create($input)->edinfos;
         return redirect('edinfo');

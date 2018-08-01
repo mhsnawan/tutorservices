@@ -23,6 +23,7 @@ class CreateEdInfosTable extends Migration
             $table->date('startdate')->nullable();
             $table->date('enddate')->nullable();
             $table->string('percentage')->nullable();
+            $table->string('degree_img')->nullable();
         });
     }
 

@@ -29,7 +29,7 @@
                     <div style="width:500; height:500;background-color:#daf2f2" class="row content-grid-2">
                         <div>
                             <div>
-                                <form method="POST" action="{{ route("edinfo.store") }}">
+                                <form method="POST" action="{{ route("edinfo.store") }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="column width-12" >
 
@@ -89,6 +89,11 @@
                                         <div class="column width-4">
                                             <div class="field-wrapper">
                                                 <input type="Percentage" name="percentage" class="form-email form-element large" placeholder="Percentage*" tabindex="3" required>
+                                            </div>
+                                        </div>
+                                        <div class="column width-4">
+                                            <div class="field-wrapper">
+                                                <input type="file" name="degree_img" class="form-email form-element large" placeholder="Upload Degree*" tabindex="3">
                                             </div>
                                         </div>
                                     </div>
