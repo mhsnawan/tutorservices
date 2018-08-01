@@ -37,8 +37,10 @@ class CertificationController extends Controller
     public function store(Request $request)
     {
         $user= Auth::user();
+        $path = $request->file('img')->store('uploads');
         $input = $request->all();
         $input['user_id'] = Auth::user()->id;
+        $input['path'] = $path;
         Certification::create($input)->certifications;
         return redirect('certification');
     }

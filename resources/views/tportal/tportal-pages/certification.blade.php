@@ -28,7 +28,7 @@
                         <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
                             <div>
                                 <div>
-                                    <form method="POST" action="{{ route("certification.store") }}">
+                                    <form method="POST" action="{{ route("certification.store") }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
                                             <div class="column width-12">
@@ -43,11 +43,10 @@
                                                     </div>
                                                 </div><br>
                                                 <div class="column width-4">
-                                                    {{-- <div class="column width-12">
+                                                    <div class="column width-12">
                                                         <br>
-                                                        <input type="file" name="fileToUpload" id="fileToUpload" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-                                                        <input type="submit" value="Upload File" name="submit"   class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-                                                    </div> --}}
+                                                        <input type="file" name="img" id="fileToUpload" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

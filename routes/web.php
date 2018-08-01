@@ -98,3 +98,7 @@ Route::get('/uploads',function(){
 Route::get('/courses',function(){
     return view('tportal.tportal-pages.courses');
 });
+Route::get('/tprofile',function(){
+
+    return view('tportal.tprofile-pages.tprofile-page');
+ });
