@@ -107,6 +107,14 @@
                                             </div>
                                         </div>
                                         <div class="column width-12">
+                                            <div class="column width-4">
+                                                <div class="field-wrapper">
+                                                    <label>Upload CNIC*</label>
+                                                    <input type="file" name="cnic_img" value="{{ $user->cnic_img }}" class="form-password form-element large" placeholder="Islamabad" tabindex="10" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column width-12">
                                             <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                         </div>
                                         <div class="column width-12"><br><br></div>

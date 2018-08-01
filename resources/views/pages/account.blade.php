@@ -30,8 +30,9 @@
                     <div id="tabs-4-pane-1" class="active animate">
                         <div class="tab-content">
                             <div class="signup-form-container d horizontal">
-                                <form method="POST" action="{{ route('account.store') }}" >
+                                <form method="POST" action="{{ route('account.update', $user['id']) }}" >
                                     @csrf
+                                        {{ method_field("PUT") }}
                                     <div class="column width-12">
                                         <div class="column width-4">
                                             <div class="field-wrapper">

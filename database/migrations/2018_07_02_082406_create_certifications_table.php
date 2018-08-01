@@ -20,7 +20,7 @@ class CreateCertificationsTable extends Migration
             $table->string('title')->nullable();
             $table->string('institute')->nullable();
             $table->string('year')->nullable();
-            $table->string('path')->nullable();
+            $table->string('certification_img')->nullable();
         });
     }
 

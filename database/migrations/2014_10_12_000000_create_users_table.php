@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('address1')->nullable();
             $table->string('address2')->nullable();
             $table->string('city')->nullable();
+            $table->string('cnic_img')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
