@@ -102,3 +102,29 @@ Route::get('/tprofile',function(){
 
     return view('tportal.tprofile-pages.tprofile-page');
  });
+
+ // ============================ student-portal ROUTES ======================================//
+Route::get('/scourses',function(){
+
+    return view('sportal.sportal-pages.courses');
+});
+Route::get('/student',function(){
+
+    return view('sportal.sportal-pages.sportalpage');
+});
+Route::get('/seducationalinfo',function(){
+
+    return view('sportal.sportal-pages.educationalinfo');
+});
+Route::get('/peertopeer',function(){
+
+    return view('sportal.sportal-pages.peertopeer');
+});
+Route::get('/spersonalinfo',function(){
+
+    return view('sportal.sportal-pages.personalinfo');
+});
+Route::get('/suploads',function(){
+
+    return view('sportal.sportal-pages.uploads');
+});

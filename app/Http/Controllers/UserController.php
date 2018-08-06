@@ -93,7 +93,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-            return view('pages.tutions');
+        // User::findOrFail($user)->first()->fill($request->all())->save();
+        // return redirect('course');
+        // $userid = find($user);
+        echo $user;
     //     $userid = $request->$user;
     //     $userid->cnic = $request['cnic'];
     //     $userid->phone = $request['phone'];

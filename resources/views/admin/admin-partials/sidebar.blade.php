@@ -28,7 +28,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('student.index') }}">
+        <a class="nav-link">
           <i class="material-icons">person</i>
           <p>Students</p>
         </a>

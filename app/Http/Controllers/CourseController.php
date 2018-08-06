@@ -8,6 +8,14 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class CourseController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('is_admin');
+    }
+    
+
     /**
      * Display a listing of the resource.
      *
