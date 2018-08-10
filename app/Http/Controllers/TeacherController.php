@@ -16,8 +16,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        return view('pages.posttution')->with(compact('courses'));
+        $userid = Auth::user()->id;
+        $teacher = Teacher::find($userid);
+        return view('tportal.tportal-pages.rate')->with(compact('teacher'));
     }
 
     /**
@@ -75,7 +76,8 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        Teacher::findOrFail($teacher)->first()->fill($request->all())->save();
+        return redirect('rate');
     }
 
     /**

@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Teacher;
 
 Route::get('/', function () {
     return view('welcome');
@@ -90,8 +91,18 @@ Route::get('/current-tutions',function(){
 //     return view('tportal.tportal-pages.experience');
 // });
 Route::get('/rate',function(){
-    return view('tportal.tportal-pages.rate');
+    $userid = Auth::user()->id;
+    $rate = Teacher::find($userid);
+    return view('tportal.tportal-pages.rate')->with(compact('rate'));
 });
+
+Route::post('/rate',function(Request $request){
+    echo $request;
+    // $userid = Auth::user()->id;
+    // $rate = Teacher::find($userid);
+    // return view('tportal.tportal-pages.rate')->with(compact('rate'));
+});
+
 Route::get('/uploads',function(){
     return view('tportal.tportal-pages.uploads');
 });
