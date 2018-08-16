@@ -99,6 +99,7 @@ class EdInfoController extends Controller
      */
     public function destroy(EdInfo $edInfo)
     {
-        //
+        $edInfo->delete();
+        return redirect('edinfo');
     }
 }

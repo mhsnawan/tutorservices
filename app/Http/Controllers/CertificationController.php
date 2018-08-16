@@ -15,7 +15,8 @@ class CertificationController extends Controller
      */
     public function index()
     {
-        return view('tportal.tportal-pages.certification');
+        $certifications = Certification::all();
+        return view('tportal.tportal-pages.certification')->with(compact('certifications'));
     }
 
     /**
@@ -80,7 +81,8 @@ class CertificationController extends Controller
      */
     public function update(Request $request, Certification $certification)
     {
-        //
+        Certification::findOrFail($certification)->first()->fill($request->all())->save();
+        return redirect('certification');
     }
 
     /**
@@ -91,6 +93,7 @@ class CertificationController extends Controller
      */
     public function destroy(Certification $certification)
     {
-        //
+        $certification->delete();
+        return redirect('certification');
     }
 }
