@@ -91,24 +91,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, string $user)
     {
-        // User::findOrFail($user)->first()->fill($request->all())->save();
-        // return redirect('course');
-        // $userid = find($user);
-        echo $user;
-    //     $userid = $request->$user;
-    //     $userid->cnic = $request['cnic'];
-    //     $userid->phone = $request['phone'];
-    //     $userid->gender = $request['gender'];
-    //     $userid->age = $request['age'];
-    //     $userid->nationality = $request['nationality'];
-    //     $userid->address1 = $request['address1'];
-    //     $userid->address2 = $request['address2'];
-    //     $userid->city = $request['city'];
-    //     $userid->save();
-    // //    return redirect('home');
-    //     return view('tportal.tportal-pages.courses');
+        User::findOrFail($user)->first()->fill($request->all())->save();
+        return redirect('account');
     }
 
     /**

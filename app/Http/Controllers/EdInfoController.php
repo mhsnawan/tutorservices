@@ -22,7 +22,9 @@ class EdInfoController extends Controller
 
     public function index()
     {
-        return view('tportal.tportal-pages.educationalinfo');
+        $edinfos = Edinfo::all();
+        return view('tportal.tportal-pages.educationalinfo')->with(compact('edinfos'));
+        // return view('tportal.tportal-pages.educationalinfo');
     }
 
     /**
@@ -83,9 +85,10 @@ class EdInfoController extends Controller
      * @param  \App\EdInfo  $edInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EdInfo $edInfo)
+    public function update(Request $request, string $edinfo)
     {
-        //
+        Edinfo::findOrFail($edinfo)->first()->fill($request->all())->save();
+        return redirect('edinfo');
     }
 
     /**
