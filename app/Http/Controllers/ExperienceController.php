@@ -15,7 +15,8 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        return view('tportal.tportal-pages.experience');
+        $experiences = Experience::all();
+        return view('tportal.tportal-pages.experience')->with(compact('experiences'));
     }
 
     /**
@@ -78,7 +79,8 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Experience::findOrFail($id)->first()->fill($request->all())->save();
+        return redirect('experience');
     }
 
     /**
@@ -89,6 +91,7 @@ class ExperienceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id->delete();
+        return redirect('experience');
     }
 }
