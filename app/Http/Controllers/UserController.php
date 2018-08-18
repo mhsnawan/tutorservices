@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -25,9 +26,7 @@ class UserController extends Controller
     {
         $userid = Auth::user()->id;
         $user = User::find($userid);
-        return view('tportal.tportal-pages.personalinfo')->with(compact('user'));
-    
-        //return view('pages.account')->with(compact('user'));
+        return view('tportal.tportal-pages.personalinfo')->with(compact(['user', 'teacher']));
     }
 
     /**

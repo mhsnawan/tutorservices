@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\EdInfo;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,9 +23,9 @@ class EdInfoController extends Controller
 
     public function index()
     {
-        $edinfos = Edinfo::all();
+        $id = Auth::user()->id;
+        $edinfos = User::find($id)->edinfos;
         return view('tportal.tportal-pages.educationalinfo')->with(compact('edinfos'));
-        // return view('tportal.tportal-pages.educationalinfo');
     }
 
     /**

@@ -70,6 +70,7 @@
                         </div>
 
                                             {{-- UPDATE --}}
+                        @if ($certifications)
                         @foreach ($certifications as $certification)
                         <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
                             <div>
@@ -119,6 +120,7 @@
                             </div>
                         </div>
                         @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Experience;
+use App\User;
 
 class ExperienceController extends Controller
 {
@@ -15,7 +16,8 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        $experiences = Experience::all();
+        $id = Auth::user()->id;
+        $experiences = User::find($id)->experiences;
         return view('tportal.tportal-pages.experience')->with(compact('experiences'));
     }
 

@@ -11,6 +11,7 @@
 |
 */
 use App\Teacher;
+use App\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,69 +28,48 @@ Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/tution',function(){
-
-    return view('pages.tutions');
-});
-
 
 Route::get('/example',function(){
-
     return view('pages.example');
 });
 
 Route::get('/profile',function(){
-
     $users = App\User::find(1)->edinfos();
-        return $users;
+    return $users;
 });
 
-//Route::post('/$id/accountcreate', 'UserController@store')->name('account.store');
-
-//Route::post('/postaccountsetting', 'HomeController@saveProfileSetting')->name('postaccount');
 
 // ============================ ADMIN ROUTES ======================================//
 
 Route::get('/admin',function(){
-
     return view('admin.admin-pages.dashboard');
 });
 
 Route::get('/addcourse',function(){
-
     return view('admin.admin-pages.courses.addcourse');
 });
 
 
 Route::get('/editcourse',function(){
-    // $course = Course::find($id);
     return view('admin.admin-pages.courses.editcourse');
 });
 
 
 // ============================ END ADMIN ROUTES ======================================//
 
-// Route::get('/personalinfo',function(){
-//     return view('tportal.tportal-pages.personalinfo');
-// });
-// Route::get('/educationalinfo',function(){
-//     return view('tportal.tportal-pages.educationalinfo');
-// });
+
 Route::get('/tutor',function(){
     return view('tportal.tportal-pages.tportalpage');
 });
 Route::get('/availability',function(){
     return view('tportal.tportal-pages.availability');
 });
-// Route::get('/certification',function(){
-//     return view('tportal.tportal-pages.certification');
-// });
+
 Route::get('/current-tutions',function(){
     return view('tportal.tportal-pages.current-tutions');
 });
-// Route::get('/experience',function(){
-//     return view('tportal.tportal-pages.experience');
-// });
+
+
 Route::get('/rate',function(){
     $userid = Auth::user()->id;
     $rate = Teacher::find($userid);
@@ -98,20 +78,16 @@ Route::get('/rate',function(){
 
 Route::post('/rate',function(Request $request){
     echo $request;
-    // $userid = Auth::user()->id;
-    // $rate = Teacher::find($userid);
-    // return view('tportal.tportal-pages.rate')->with(compact('rate'));
 });
 
-Route::get('/uploads',function(){
-    return view('tportal.tportal-pages.uploads');
-});
 Route::get('/courses',function(){
     return view('tportal.tportal-pages.courses');
 });
 Route::get('/tprofile',function(){
-
-    return view('tportal.tprofile-pages.tprofile-page');
+    $user= User::find(Auth::user()->id);
+    $teacher = Teacher::findOrFail(Auth::user()->id);
+    //echo $teacher;
+    return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher']));
  });
 
  // ============================ student-portal ROUTES ======================================//

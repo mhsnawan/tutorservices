@@ -41,7 +41,7 @@
                                             <option value="GED">GED</option>
                                             <option value="Vocational qualification">Vocational qualification</option>
                                             <option value="Bachelors degree">Bachelors degree</option>
-                                            <option value="Master's degree">Masters degree</option>
+                                            <option value="Masters degree">Masters degree</option>
                                             <option value="Doctorate or higher">Doctorate or higher</option>
                                         </select>
                                       </fieldset>
@@ -105,10 +105,13 @@
                     </div>
                     <!-- Team Grid End -->
 
-                    @foreach ($edinfos as $edinfo)
+                    
+                    
                     <div style="width:500; height:500;background-color:#daf2f2" class="row content-grid-2">
                         <div>
                             <div>
+                                @if($edinfos)
+                                @foreach ($edinfos as $edinfo)
                                 <form method="POST" action="{{ route("edinfo.update", $edinfo->id) }}" enctype="multipart/form-data" >
                                     @csrf
                                     {{ method_field("PUT") }}
@@ -183,11 +186,13 @@
                                     </div>
                                     <div class="column width-12"><br><br></div>
                                 </form>
+                                @endforeach
+                                @endif
                                 <div class="form-response show"></div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                   
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@
 
                 </div>
             </div>
-            <h2>Aqeel Ahmad khan</h2>
+            <h2>{{ $user->name }}</h2>
 
 
         </div>
@@ -86,11 +86,27 @@
 					<div class="row flex boxes">
 						<div class="column width-12">
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;" data-threshold="1">
-
-								<div class="feature-text">
-									<h5>Rate</h5>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-								</div>
+                                <div class="feature-text">
+                                    <div class="column width-3">
+                                        <h6>Hourly Rate</h6>
+                                        
+                                        <p>PKR @if($teacher){{ $teacher->hourly_rate }} @endif</p>
+                                    </div>
+                                    <div class="column width-3">
+                                        <h6>Daily Rate</h6>
+                                        <p>PKR @if($teacher){{ $teacher->daily_rate }}@endif</p>
+                                    </div>
+                                    <div class="column width-3">
+                                        <h6>Weekly Rate</h6>
+                                        <p>PKR @if($teacher){{ $teacher->weekly_rate }}@endif</p>
+                                    </div>
+                                    <div class="column width-3">
+                                        <h6>Monthly Rate</h6>
+                                        <p>PKR @if($teacher){{ $teacher->monthly_rate }}@endif</p>
+                                    </div>
+                                </div>
+                                
+                                
 							</div>
 						</div>
 						<div class="column width-6">
