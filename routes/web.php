@@ -84,10 +84,13 @@ Route::get('/courses',function(){
     return view('tportal.tportal-pages.courses');
 });
 Route::get('/tprofile',function(){
-    $user= User::find(Auth::user()->id);
-    $teacher = Teacher::findOrFail(Auth::user()->id);
-    //echo $teacher;
-    return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher']));
+    $id = Auth::user()->id;
+    $user= User::find($id);
+    $teacher = User::find($id)->teacher;
+    $edinfos = User::find($id)->edinfos;
+    $certifications = User::find($id)->certifications;
+    $experiences = User::find($id)->experiences;
+    return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
  });
 
  // ============================ student-portal ROUTES ======================================//

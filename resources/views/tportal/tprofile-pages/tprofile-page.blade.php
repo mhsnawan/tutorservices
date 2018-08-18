@@ -113,8 +113,11 @@
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
 
 								<div class="feature-text">
-									<h5>Education</h5>
-									<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
+                                    <h5>Education</h5>
+                                    @foreach ($edinfos as $edinfo)
+                                    <b>{{ $edinfo->degree_level}} - {{$edinfo->title }}</b>
+                                    <p>{{ $edinfo->institute}} - {{$edinfo->enddate }}</p>
+                                    @endforeach
 								</div>
 							</div>
 						</div>
@@ -123,7 +126,11 @@
 
 								<div class="feature-text">
 									<h5>Experience</h5>
-									<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. </p>
+									@foreach ($experiences as $experience)
+                                    <b>{{ $experience->title}} - {{$experience->company }}</b>
+                                    <p>{{ $experience->startdate}} - {{$experience->enddate }}</p>
+                                    
+                                    @endforeach
 								</div>
 							</div>
 						</div>
@@ -131,9 +138,11 @@
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
 
 								<div class="feature-text">
-									<h5>certification</h5>
-									<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
-								</div>
+                                    <h5>certification</h5>
+                                    @foreach ($certifications as $certification)
+									<b>{{ $certification->title}} - {{$certification->institute }}   {{ $certification->year }}</b><br>
+                                    @endforeach
+                                </div>
 							</div>
 						</div>
 						<div class="column width-6">
