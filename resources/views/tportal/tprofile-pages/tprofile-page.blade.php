@@ -127,9 +127,8 @@
 								<div class="feature-text">
 									<h5>Experience</h5>
 									@foreach ($experiences as $experience)
-                                    <b>{{ $experience->title}} - {{$experience->company }}</b>
-                                    <p>{{ $experience->startdate}} - {{$experience->enddate }}</p>
-                                    
+                                    <b>{{ $experience->title }} - {{ $experience->company }}</b>
+                                    <p>{{ $experience->startdate }} - {{ $experience->enddate }}</p>
                                     @endforeach
 								</div>
 							</div>

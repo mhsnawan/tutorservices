@@ -38,7 +38,7 @@
                                             <div class="column width-4">
                                                 <div class="field-wrapper">
                                                     <label>Username</label>
-                                                    <input type="text" name="username" value="{{ $user->username }}" class="form-password form-element large" placeholder="markjohn" tabindex="2" readonly>
+                                                    <input type="text" value="{{ $user->username }}" class="form-password form-element large" placeholder="markjohn" tabindex="2" readonly>
                                                 </div>
                                             </div>
                                         </div>

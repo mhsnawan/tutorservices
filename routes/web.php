@@ -72,7 +72,7 @@ Route::get('/current-tutions',function(){
 
 Route::get('/rate',function(){
     $userid = Auth::user()->id;
-    $rate = Teacher::find($userid);
+    $rate = User::find($userid)->teacher;
     return view('tportal.tportal-pages.rate')->with(compact('rate'));
 });
 
