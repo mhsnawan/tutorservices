@@ -93,6 +93,10 @@ Route::get('/tprofile',function(){
     return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
  });
 
+ Route::get('/posttution',function(){
+    return view('tportal.tportal-pages.posttution');
+});
+
  // ============================ student-portal ROUTES ======================================//
 Route::get('/scourses',function(){
 
