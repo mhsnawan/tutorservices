@@ -19,5 +19,10 @@ class Teacher extends Model
         return $this->belongsToMany('App\Course');
     }
 
+    public function course_teachers()
+    {
+        return $this->hasMany('App\CourseTeacher');
+    }
+
     public $timestamps = false;
 }

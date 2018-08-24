@@ -12,6 +12,7 @@
 */
 use App\Teacher;
 use App\User;
+use App\Course;
 
 Route::get('/', function () {
     return view('welcome');
@@ -93,9 +94,7 @@ Route::get('/tprofile',function(){
     return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
  });
 
- Route::get('/posttution',function(){
-    return view('tportal.tportal-pages.posttution');
-});
+ Route::resource('post-tution', 'CourseTeacherController');
 
  // ============================ student-portal ROUTES ======================================//
 Route::get('/scourses',function(){

@@ -3,16 +3,17 @@
 @section('content')
 <br><br><br><br>
 <div class="row">
-    <form method="POST" action="{{ route('teacher.store') }}" >
+    <form method="POST" action="{{ route('post-tution.store') }}" >
+        @csrf 
         <div class="column width-12">
             <div class="column width-4">
                 <div class="field-wrapper">
                     <label>Select Course</label>
-                    <select class="selectpicker" data-live-search="true" name="course" tabindex="1">
-                        <option value="English">English</option>
-                        <option value="Automata">Automata</option>
-                        <option value="Algorithm">Algorithm</option>
-                        <option data-tokens="ketchup mustard" value=""></option>
+                    <select class="selectpicker" data-live-search="true" name="course_id" tabindex="1">
+                        <option disabled selected>Choose Course</option>
+                        @foreach ($courses as $course)
+                        <option value={{ $course->id }}>{{ $course->course_name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -40,10 +41,10 @@
             <div class="column width-3">
                 <div class="field-wrapper">
                     <label>Availability</label>
-                    <select class="selectpicker" data-live-search="true" name="type">
-                        <option value="Student Home">Daily</option>
-                        <option value="Teacher Home">Weekly</option>
-                        <option value="Academy">Monthly</option>
+                    <select class="selectpicker" data-live-search="true" name="availability">
+                        <option value="Daily">Daily</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Monthly">Monthly</option>
                     </select>
                 </div>
             </div>
@@ -53,7 +54,7 @@
         </div>
         <div class="column width-12">
             <div class="field-wrapper">
-                <textarea name="message" class="form-message form-element large" placeholder="Description Here*" tabindex="7" required></textarea>
+                <textarea name="description" class="form-message form-element large" placeholder="Description Here*" tabindex="7" required></textarea>
             </div>
         </div>
         <div class="column width-12">

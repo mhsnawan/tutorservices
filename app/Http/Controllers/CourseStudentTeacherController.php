@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\CourseStudent;
+use App\CourseStudentTeacher;
 use Illuminate\Http\Request;
 
-class CourseStudentController extends Controller
+class CourseStudentTeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class CourseStudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\CourseStudent  $courseStudent
+     * @param  \App\CourseStudentTeacher  $courseStudentTeacher
      * @return \Illuminate\Http\Response
      */
-    public function show(CourseStudent $courseStudent)
+    public function show(CourseStudentTeacher $courseStudentTeacher)
     {
         //
     }
@@ -52,10 +52,10 @@ class CourseStudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\CourseStudent  $courseStudent
+     * @param  \App\CourseStudentTeacher  $courseStudentTeacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourseStudent $courseStudent)
+    public function edit(CourseStudentTeacher $courseStudentTeacher)
     {
         //
     }
@@ -64,10 +64,10 @@ class CourseStudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CourseStudent  $courseStudent
+     * @param  \App\CourseStudentTeacher  $courseStudentTeacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CourseStudent $courseStudent)
+    public function update(Request $request, CourseStudentTeacher $courseStudentTeacher)
     {
         //
     }
@@ -75,10 +75,10 @@ class CourseStudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\CourseStudent  $courseStudent
+     * @param  \App\CourseStudentTeacher  $courseStudentTeacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CourseStudent $courseStudent)
+    public function destroy(CourseStudentTeacher $courseStudentTeacher)
     {
         //
     }

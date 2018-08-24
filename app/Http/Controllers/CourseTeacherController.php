@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\CourseTeacher;
+use App\Course;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CourseTeacherController extends Controller
@@ -14,7 +17,9 @@ class CourseTeacherController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        //echo $course;
+        return view('tportal.tportal-pages.posttution')->with(compact('courses'));
     }
 
     /**
@@ -35,7 +40,13 @@ class CourseTeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $user_id = Auth::user()->id;
+        $teacher_id = User::find($user_id)->teacher;
+        $input['user_id'] = $user_id;
+        $input['teacher_id'] = $teacher_id->id;
+        CourseTeacher::create($input);
+        return redirect ('post-tution');
     }
 
     /**
