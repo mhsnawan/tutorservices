@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\CourseStudentTeacher;
+use App\CourseTeacher;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CourseStudentTeacherController extends Controller
@@ -14,7 +16,9 @@ class CourseStudentTeacherController extends Controller
      */
     public function index()
     {
-        //
+        $courses = CourseTeacher::all();
+        //echo $courses;
+        return view('tportal.tportal-pages.enroll')->with(compact('courses'));
     }
 
     /**
@@ -35,7 +39,10 @@ class CourseStudentTeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+        $input = $request->all();
+        $input['student_id'] = $id;
+        CourseStudentTeacher::create($input);
     }
 
     /**

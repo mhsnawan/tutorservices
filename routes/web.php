@@ -13,6 +13,7 @@
 use App\Teacher;
 use App\User;
 use App\Course;
+use App\CourseTeacher;
 
 Route::get('/', function () {
     return view('welcome');
@@ -95,6 +96,7 @@ Route::get('/tprofile',function(){
  });
 
  Route::resource('post-tution', 'CourseTeacherController');
+ Route::resource('enroll', 'CourseStudentTeacherController');
 
  // ============================ student-portal ROUTES ======================================//
 Route::get('/scourses',function(){

@@ -24,4 +24,6 @@ class CourseStudentTeacher extends Model
     {
         return $this->belongsTo('App\Course');
     }
+
+    public $timestamps = false;
 }

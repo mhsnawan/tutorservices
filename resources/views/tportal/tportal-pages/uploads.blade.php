@@ -50,6 +50,7 @@
                                                     <input type="submit" value="Upload Transcript" name="submit"   class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                           </div>
                         </div>
+                        <input type="file" name="fileToUpload" id="fileToUpload" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
 
                       </div>
                       <div class="column width-12"><br><br></div>
