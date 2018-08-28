@@ -1,24 +1,6 @@
 @extends('tportal.tportal-layouts.tportal-layout')
 
 @section('content')
-
-<div class="row">
-    <div class="column width-12">
-      <div style="height:30px" class="progress-bar large pill bkg-turquoise-light color-white">
-    <div class="bar border-turquoise color-white horizon" style="width:50%;" data-animate-in="transX:-400;duration:1000ms;delay:400ms;easing:swing;">
-      50%
-    </div>
-  </div>
-        <hr class="mt-20 mb-60">
-        <div class="tabs style-2 vertical left">
-            <ul class="tab-nav">
-                <li><a href="{{ route('account.index') }}">Personal Info</a></li>
-                <li><a href="{{ route('edinfo.index') }}">Educational Info</a></li>
-                <li class="active"><a href="{{ route('experience.index') }}">Experience</a></li>
-                <li><a href="./certification">Certification</a></li>
-                <li><a href="./availability">Availablity</a> </li>
-                <li><a href="./rate">Rate</a></li>
-              </ul>
         <div class="tab-panes left">
             <div id="tabs-team-pane-2" class="active animate">
                 <div class="tab-content">
@@ -167,10 +149,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-</div>
-
 
 
 
