@@ -12,7 +12,7 @@ class CourseController extends Controller
 
     public function __construct()
     {
-        $this->middleware('is_admin');
+        // $this->middleware('is_admin');
     }
     
 
