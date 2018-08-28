@@ -45,5 +45,21 @@
           <p>Users</p>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">supervised_user_circle</i>
+          <p>Dropdown</p>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a href="#">Action</a></li>
+          <li class="nav-item"><a href="#">Another action</a></li>
+          <li class="nav-item"><a href="#">Something  here</a></li>
+          <li class="nav-item"><a href="#">Something  here</a></li>
+          <li class="nav-item"><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+      
+      
     </ul>
   </div>
