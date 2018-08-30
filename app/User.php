@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use Searchable;
 
     const ADMIN_TYPE = '3';
     const DEFAULT_TYPE = 'default';
@@ -33,6 +35,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function searchableAs()
+    {
+        return 'name';
+    }
 
     public function student(){
         return $this->hasOne('App\Student');

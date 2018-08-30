@@ -1,6 +1,5 @@
 @extends('tportal.tportal-layouts.tportal-layout')
 @section('content')
-
   <div class="tab-panes left">
     <div id="tabs-team-pane-2" class="active animate">
       <div class="tab-content">
@@ -33,12 +32,12 @@
                     </div>
                   </div>
                 </div>
-              <div class="row">
-              </div>
-              <div class="column width-12">
-                <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-              </div>
-              <div class="column width-12"><br><br></div>
+                <div class="row">
+                </div>
+                <div class="column width-12">
+                  <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                </div>
+                <div class="column width-12"><br><br></div>
               </form>
               <div class="form-response show"></div>
             </div>
