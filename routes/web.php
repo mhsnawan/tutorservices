@@ -28,6 +28,9 @@ Route::resource('experience', 'ExperienceController');
 Route::resource('course', 'CourseController');
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
+Route::resource('post-tution', 'CourseTeacherController');
+Route::resource('enroll', 'CourseStudentTeacherController');
+Route::get('/search/{queryString}', 'CourseTeacherController@search');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -95,8 +98,7 @@ Route::get('/tprofile',function(){
     return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
  });
 
- Route::resource('post-tution', 'CourseTeacherController');
- Route::resource('enroll', 'CourseStudentTeacherController');
+
 
  // ============================ student-portal ROUTES ======================================//
 Route::get('/scourses',function(){
@@ -122,4 +124,19 @@ Route::get('/spersonalinfo',function(){
 Route::get('/suploads',function(){
 
     return view('sportal.sportal-pages.uploads');
+});
+
+// ============================ Blog ROUTES ======================================//
+Route::get('/blog',function(){
+
+    return view('blog.blog-pages.blog-page');
+});
+Route::get('/forum',function(){
+
+    return view('blog.blog-pages.forum');
+});
+
+Route::get('/posts',function(){
+
+    return view('admin.admin-pages.posts.add-post');
 });

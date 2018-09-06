@@ -16,6 +16,12 @@
           <p>Dashboard</p>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./posts">
+          <i class="material-icons">person</i>
+          <p>Posts</p>
+        </a>
+      </li>
       <li class="nav-item ">
         <a class="nav-link" href="{{ route('course.index') }}">
           <i class="material-icons">library_books</i>

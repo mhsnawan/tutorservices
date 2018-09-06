@@ -41,6 +41,15 @@ class User extends Authenticatable
         return 'name';
     }
 
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        // Customize array...
+
+        return $array;
+    }
+
     public function student(){
         return $this->hasOne('App\Student');
     }

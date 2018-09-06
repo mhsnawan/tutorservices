@@ -13,3 +13,5 @@
 <link href={{ asset("admin-assets/css/material-dashboard.css?v=2.1.0") }} rel="stylesheet" />
 <!-- CSS Just for demo purpose, dont include it in your project -->
 <link href={{ asset("admin-assets/demo/demo.css") }} rel="stylesheet" />
+<link href={{ asset("admin-assets/css/custom.css") }} rel="stylesheet" />
+
