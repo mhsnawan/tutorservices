@@ -3,7 +3,15 @@
 @section('content')
 <br><br><br><br>
 <div class="signup-form-container create-account horizontal">
-        <form method="POST" action="{{ route('teacher.store') }}" >
+        @foreach ($blogs as $blog)
+        <h1>{{ $blog->title }}<h1>
+        <h6>Description</h6>
+        {!! $blog->description !!}
+        <h6>Path img</h6>
+        {{$blog->img}}
+        
+    @endforeach}}
+        {{--  <form method="POST" action="{{ route('teacher.store') }}" >
         @csrf
         <div class="column width-12">
             <div class="column width-4">
@@ -50,6 +58,6 @@
         <input type="text" name="honeypot" class="form-honeypot form-element">
         
     </form>
-    <div class="form-response show"></div>
+    <div class="form-response show"></div>  --}}
 </div>
 @endsection

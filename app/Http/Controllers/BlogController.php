@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use Storage;
 
 class BlogController extends Controller
 {
@@ -14,7 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('admin.admin-pages.posts.posts');
+        $posts = Blog::all();
+        return view('admin.admin-pages.posts.posts')->with(compact('posts'));
     }
 
     /**
@@ -35,7 +37,15 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $input['author'] = 'admin';
+        echo $request->img;
+        if($request->img != null){
+            $path = $request->file('img')->store('uploads');
+            $input['img'] = $path;
+        }
+        Blog::create($input);
+        return redirect('posts');
     }
 
     /**
@@ -55,9 +65,11 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit(string $blog)
     {
-        //
+        $post = Blog::find($blog);
+        $url = Storage::url($post->img);
+        return view('admin.admin-pages.posts.editpost')->with(compact(['post', 'url']));
     }
 
     /**
@@ -67,9 +79,12 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, string $blog)
     {
-        //
+        //echo $blog;
+        Blog::findOrFail($blog)->first()->fill($request->all())->save();
+        
+        //return redirect('posts');
     }
 
     /**
@@ -78,8 +93,10 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect('posts');
     }
 }

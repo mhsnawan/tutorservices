@@ -21,21 +21,21 @@
           {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
         </div>
         <div class="card-body">
-          <form method="POST" action=" {{ route('course.store') }}">
+          <form method="POST" action=" {{ route('posts.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="row">
               <div class="col col-md-8">
                 <div class="form-group">
                     <label for="post_title">Post Name</label>
-                    <input type="text" class="form-control" name="post_title" id="post_title" placeholder="Title">
+                    <input type="text" class="form-control" name="title" id="post_title" placeholder="Title">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col col-md-8">
                 <div class="form-group">
-                  <label for="editor">Post Name</label>
-                  <textarea class="form-group" id="editor" style="height:300px;" placeholder="Write Content Here"></textarea>
+                  <label for="editor">Description</label>
+                  <textarea class="form-group" name="description" id="editor" style="height:300px;" placeholder="Write Content Here"></textarea>
                 </div>
               </div>
               <div class="col-md-4">
@@ -47,7 +47,7 @@
                     <div class="input-group-btn">
                       <div class="fileUpload btn btn-danger fake-shadow">
                         <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
-                        <input id="logo-id" name="logo" type="file" class="attachment_upload" onclick="uploadimg();">
+                        <input id="logo-id" name="img" type="file" class="attachment_upload" onclick="uploadimg();" required>
                       </div>
                     </div>
                   </div> 

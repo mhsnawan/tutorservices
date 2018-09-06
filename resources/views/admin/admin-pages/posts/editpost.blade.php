@@ -21,13 +21,14 @@
           {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
         </div>
         <div class="card-body">
-          <form method="POST" action=" {{ route('course.store') }}">
-            @csrf
+            <form method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
+              @csrf
+              {{ method_field("PUT") }}
             <div class="row">
               <div class="col col-md-8">
                 <div class="form-group">
                     <label for="post_title">Post Name</label>
-                    <input type="text" class="form-control" name="post_title" id="post_title" placeholder="Title">
+                    <input type="text" class="form-control" value="{{ $post->title }}" name="post_title" id="post_title" placeholder="Title">
                 </div>
               </div>
             </div>
@@ -35,19 +36,19 @@
               <div class="col col-md-8">
                 <div class="form-group">
                   <label for="editor">Post Name</label>
-                  <textarea class="form-group" id="editor" style="height:300px;" placeholder="Write Content Here"></textarea>
+                  <textarea class="form-group" id="editor" style="height:300px;" placeholder="Write Content Here">{!! $post->description !!}</textarea>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <div class="main-img-preview">
-                    <img class="thumbnail img-preview" src="{{ asset("admin-assets/img/featured-blog-post-image.jpg") }}" title="Preview Image">
+                    <img class="thumbnail img-preview" src="{{ url($url) }}" title="Preview Image">
                   </div>
                   <div class="input-group text-center">
                     <div class="input-group-btn">
                       <div class="fileUpload btn btn-danger fake-shadow">
                         <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
-                        <input id="logo-id" name="logo" type="file" class="attachment_upload" onclick="uploadimg();">
+                        <input id="logo-id" value="{{ $post->img }}" name="logo" type="file" class="attachment_upload" onclick="uploadimg();">
                       </div>
                     </div>
                   </div> 

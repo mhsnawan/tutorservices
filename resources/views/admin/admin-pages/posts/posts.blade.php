@@ -27,30 +27,30 @@
                 <th>Actions</th>
               </thead>
               <tbody>
-                
+                @foreach ($posts as $post)
                 <tr>
-                  <td>1</td>
-                  <td>Test Post</td>
+                  <td>{{ $post->id }}</td>
+                  <td>{{ $post->title }}</td>
                   <td>admin</td>
-                  <td>29-8-2018</td>
+                  <td>{{ $post->created_at }}</td>
                   <td class="td-actions">
                     <div class="row">
-                      <form method="GET" action="">
-                        <button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Edit Course">
+                      <form method="GET" action="{{ route('posts.edit', $post->id) }}">
+                        <button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Edit Post">
                           <i class="material-icons">edit</i>
                         </button>
                       </form>
-                      <form method="post>
+                      <form method="post" action="{{ route('posts.destroy', $post->id) }}">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <button type="submit" rel="tooltip" title="Delete Course" class="btn btn-danger btn-link btn-sm">
+                        <button type="submit" rel="tooltip" title="Delete Post" class="btn btn-danger btn-link btn-sm">
                           <i class="material-icons">close</i>
                         </button>
                       </form>
                     </div>
                 </td>
                 </tr>
-               
+              @endforeach
               </tbody>
             </table>
           </div>

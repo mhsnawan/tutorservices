@@ -16,11 +16,21 @@
           <p>Dashboard</p>
         </a>
       </li>
-      <li class="nav-item">
+      {{--  <li class="nav-item">
         <a class="nav-link" href="./posts">
           <i class="material-icons">person</i>
           <p>Posts</p>
         </a>
+      </li>  --}}
+      <li class="nav-item">
+        <a href="posts" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">supervised_user_circle</i>
+          <p>Posts</p>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a href="posts">All Posts</a></li>
+          <li class="nav-item"><a href="addpost">Add New</a></li>
+        </ul>
       </li>
       <li class="nav-item ">
         <a class="nav-link" href="{{ route('course.index') }}">
