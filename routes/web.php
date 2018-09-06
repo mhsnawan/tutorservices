@@ -30,6 +30,7 @@ Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
 Route::resource('post-tution', 'CourseTeacherController');
 Route::resource('enroll', 'CourseStudentTeacherController');
+Route::resource('posts', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -57,6 +58,10 @@ Route::get('/addcourse',function(){
 
 Route::get('/editcourse',function(){
     return view('admin.admin-pages.courses.editcourse');
+});
+
+Route::get('/addpost',function(){
+    return view('admin.admin-pages.posts.add-post');
 });
 
 
@@ -136,7 +141,7 @@ Route::get('/forum',function(){
     return view('blog.blog-pages.forum');
 });
 
-Route::get('/posts',function(){
+// Route::get('/posts',function(){
 
-    return view('admin.admin-pages.posts.add-post');
-});
+//     return view('admin.admin-pages.posts.add-post');
+// });
