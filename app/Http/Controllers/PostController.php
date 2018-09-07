@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Blog;
+use App\Post;
 use Illuminate\Http\Request;
 use Storage;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        
+        $posts = Post::all();
+        return view('admin.admin-pages.posts.posts')->with(compact('posts'));
     }
 
     /**
@@ -36,16 +37,24 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $input = $request->all();
+        $input['author'] = 'admin';
+        echo $request->img;
+        if($request->img != null){
+            $path = $request->file('img')->store('uploads');
+            $input['img'] = $path;
+        }
+        Post::create($input);
+        return redirect('posts');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Blog  $blog
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Post $post)
     {
         //
     }
@@ -53,35 +62,39 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Blog  $blog
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(string $blog)
+    public function edit(string $posts)
     {
-        
+        $post = Post::find($posts);
+        $url = Storage::url($post->img);
+        return view('admin.admin-pages.posts.editpost')->with(compact(['post', 'url']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Blog  $blog
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, string $blog)
+    public function update(Request $request, Post $post)
     {
-        //echo $blog;
-        
+        Post::findOrFail($post)->first()->fill($request->all())->save();
+        return redirect('posts');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Blog  $blog
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $id)
     {
-        
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('posts');
     }
 }

@@ -30,7 +30,7 @@ Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
 Route::resource('post-tution', 'CourseTeacherController');
 Route::resource('enroll', 'CourseStudentTeacherController');
-Route::resource('posts', 'BlogController');
+Route::resource('posts', 'PostController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
 // Route::get('/home', 'HomeController@index')->name('home');
 
