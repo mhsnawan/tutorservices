@@ -31,6 +31,7 @@ Route::resource('student', 'StudentController');
 Route::resource('post-tution', 'CourseTeacherController');
 Route::resource('enroll', 'CourseStudentTeacherController');
 Route::resource('posts', 'PostController');
+Route::resource('blog', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -132,13 +133,13 @@ Route::get('/suploads',function(){
 });
 
 // ============================ Blog ROUTES ======================================//
-Route::get('/blog',function(){
+// Route::get('/blog',function(){
 
-    return view('blog.blog-pages.blog-page');
-});
+//     return view('blog.blog-pages.blog-page');
+// });
 Route::get('/forum',function(){
 
-    return view('blog.blog-pages.forum');
+    return view('blog.blog-pages.blog-singlepost');
 });
 
 // Route::get('/posts',function(){

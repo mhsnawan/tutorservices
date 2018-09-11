@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Post;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -15,7 +16,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        
+        $posts = Post::all();
+        return view('blog.blog-pages.blog-page')->with(compact('posts'));
     }
 
     /**
@@ -45,9 +47,11 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(int $id)
     {
-        //
+        $blog = Post::find($id);
+        //echo $blog;
+        return view('blog.blog-pages.blog-singlepost')->with(compact('blog'));
     }
 
     /**
@@ -82,6 +86,10 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
+        
+    }
+
+    public function singlepost($id){
         
     }
 }

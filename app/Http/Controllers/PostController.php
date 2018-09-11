@@ -9,7 +9,7 @@ use Storage;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.XX
      *
      * @return \Illuminate\Http\Response
      */
@@ -91,7 +91,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $id)
+    public function destroy($id)
     {
         $post = Post::find($id);
         $post->delete();
