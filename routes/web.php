@@ -73,7 +73,9 @@ Route::get('/tutor',function(){
     return view('tportal.tportal-pages.tportalpage');
 });
 Route::get('/availability',function(){
-    return view('tportal.tportal-pages.availability');
+    $id = Auth::user()->id;
+    $user = User::find($id);
+    return view('tportal.tportal-pages.availability')->with(compact(['user']));
 });
 
 Route::get('/current-tutions',function(){
@@ -82,9 +84,10 @@ Route::get('/current-tutions',function(){
 
 
 Route::get('/rate',function(){
-    $userid = Auth::user()->id;
-    $rate = User::find($userid)->teacher;
-    return view('tportal.tportal-pages.rate')->with(compact('rate'));
+    $id = Auth::user()->id;
+    $user = User::find($id);
+    $rate = User::find($id)->teacher;
+    return view('tportal.tportal-pages.rate')->with(compact(['rate', 'user']));
 });
 
 Route::post('/rate',function(Request $request){
@@ -146,3 +149,15 @@ Route::get('/forum',function(){
 
 //     return view('admin.admin-pages.posts.add-post');
 // });
+
+//////////////////////////STUDENT ACCOUNT////////////////////////////
+Route::prefix('student')->group(function () {
+    Route::get('account', 'StudentController@account')->name('account');
+    Route::get('educationalinfo', 'StudentController@education')->name('education');
+});
+
+//Route::get('ajax', 'ConversationsController@ajax')->name('ajax');
+
+Route::get('/mudassar', function(){
+    return view('pages.adduser');
+});

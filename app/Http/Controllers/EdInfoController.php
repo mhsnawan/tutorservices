@@ -24,8 +24,9 @@ class EdInfoController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
+        $user = User::find($id);
         $edinfos = User::find($id)->edinfos;
-        return view('tportal.tportal-pages.educationalinfo')->with(compact('edinfos'));
+        return view('tportal.tportal-pages.educationalinfo')->with(compact(['edinfos', 'user']));
     }
 
     /**

@@ -83,4 +83,8 @@ class StudentController extends Controller
     {
         //
     }
+
+    public function account(){
+        echo 'hello';
+    }
 }

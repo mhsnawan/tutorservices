@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Certification;
 use App\User;
+use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,8 +18,9 @@ class CertificationController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
+        $user = User::find($id);
         $certifications = User::find($id)->certifications;
-        return view('tportal.tportal-pages.certification')->with(compact('certifications'));
+        return view('tportal.tportal-pages.certification')->with(compact(['certifications', 'user']));  
     }
 
     /**
