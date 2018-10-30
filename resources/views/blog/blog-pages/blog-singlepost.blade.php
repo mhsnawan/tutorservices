@@ -55,13 +55,13 @@
 				</div>
 				<article class="author-bio">
 					<div class="author-avatar">
-						<img src="images/blog/bio-avatar.jpg" alt="Avatar"/>
+						<img src={{ asset("images/blog/bio-avatar.jpg") }} alt="Avatar"/>
 					</div>
 					<div class="author-content">
 						<div class="row">
 							<div class="column width-12">
-								<h5 class="name">Pedro Nutini</h5>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+								<h5 class="name">Admin</h5>
+								{{--  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>  --}}
 							</div>
 						</div>
 					</div>

@@ -26,6 +26,9 @@
                 </nav>
                 <nav class="navigation nav-block primary-navigation nav-right">
                     <ul>
+                        <li>
+                            <a href="/blog">Blog</a>
+                        </li>
                     @guest
                         <li>
                             <a href="{{ route('login') }}">Sign In</a>
@@ -39,7 +42,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                             </form>
-                        </li>  
+                        </li>
+                         
                     @endguest  
                     </ul>
                 </nav>

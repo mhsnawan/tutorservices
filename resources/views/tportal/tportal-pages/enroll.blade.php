@@ -7,8 +7,14 @@
     <form method="POST" action="{{ route('enroll.store') }}" >
         @csrf 
         <div class="column width-12">
+                <div class="col-md-3">
+                        <h3>{{ $course->name }}</h3>
+                    </div>
             <div class="column width-4">
                 <div class="field-wrapper">
+                        <div class="row">
+                            
+                        </div>
                         <input type="text" value="{{ $course->teacher_id }}" name="teacher_id" hidden>
                         <input type="text" value="{{ $course->course_id }}" name="course_id" hidden>
                     <input type="submit" value="Enroll" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">

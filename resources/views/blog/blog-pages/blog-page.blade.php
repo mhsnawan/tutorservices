@@ -60,7 +60,7 @@
 					</div>
 				</div>
 				<div class="post-content with-background">
-					<p>{!! Str::words($post->description, $words = 200)  !!}</p>
+					<p>{!! $post->description !!}</p>
 					<a href="{{ route('blog.show', $post->id) }}" class="read-more"><span class="icon-right-open-mini"></span> More</a>
 				</div>
 			</div>

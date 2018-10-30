@@ -137,9 +137,9 @@ Route::get('/suploads',function(){
 
 // ============================ Blog ROUTES ======================================//
 // Route::get('/blog',function(){
-
 //     return view('blog.blog-pages.blog-page');
 // });
+
 Route::get('/forum',function(){
 
     return view('blog.blog-pages.blog-singlepost');
