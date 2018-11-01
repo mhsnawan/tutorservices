@@ -39,13 +39,14 @@ class PostController extends Controller
     {
         $input = $request->all();
         $input['author'] = 'admin';
-        echo $request->img;
+        //echo $request->img;
         if($request->img != null){
             $path = $request->file('img')->store('uploads');
             $input['img'] = $path;
         }
         Post::create($input);
-        return redirect('posts');
+        dd($input);
+        //return redirect('posts');
     }
 
     /**

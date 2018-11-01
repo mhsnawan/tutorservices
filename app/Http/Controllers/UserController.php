@@ -58,7 +58,7 @@ class UserController extends Controller
         $user->address2 = $request['address2'];
         $user->city = $request['city'];
         $user->save();
-       return redirect('home');
+        return redirect('home');
     }
 
     /**
@@ -92,7 +92,8 @@ class UserController extends Controller
      */
     public function update(Request $request, string $user)
     {
-        User::findOrFail($user)->first()->fill($request->all())->save();
+        
+        User::findOrFail($user)->fill($request->all())->save();
         return redirect('account');
     }
 

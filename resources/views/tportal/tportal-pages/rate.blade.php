@@ -8,8 +8,7 @@
             <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
               <div>
                 <div class="signup-form-container create-account horizontal">
-                  <form @if($rate)action="{{ route('teacher.update', $rate->user_id) }}"
-                      @else(!$rate)action="{{ route('teacher.store') }}"@endif method="post">
+                  <form method="POST" action="{{ route('teacher.update', $rate->user_id) }}">
                       @csrf
                       {{ method_field("PUT") }}
                     <div  class="column width-12">

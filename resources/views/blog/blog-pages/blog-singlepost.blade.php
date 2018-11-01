@@ -69,7 +69,7 @@
 			</div>
 			
 			<!-- Post Comments -->
-			<div class="post-comments">
+			{{--  <div class="post-comments">
 				<h3 class="comments-title">3 Comments</h3>
 				<div class="comments">
 					<ul class="comment-list">
@@ -119,8 +119,8 @@
 						</li>
 					</ul>
 				</div>
-			</div>
-			<div class="post-comment-respond">
+			</div>  --}}
+			{{--  <div class="post-comment-respond">
 				<h3 class="reply-title">Leave a Comment</h3>
 				<form class="comment-form" action="#" method="post" novalidate>
 					<div class="row">
@@ -144,7 +144,7 @@
 						</div>
 					</div>
 				</form>
-			</div>
+			</div>  --}}
 		</div>
 		<!-- Content Inner End -->
 

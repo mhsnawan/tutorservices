@@ -74,9 +74,17 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, string $teacher)
     {
-        Teacher::findOrFail($teacher)->first()->fill($request->all())->save();
+        // $abc = Teacher::where('user_id','=', $teacher)->get();
+        // $abc->hourly_rate = $request['hourly_rate'];
+        // $abc->daily_rate = $request['daily_rate'];
+        // $abc->weekly_rate = $request['weekly_rate'];
+        // $abc->monthly_rate = $request['monthly_rate'];
+        // $abc->save();
+        
+        Teacher::where('user_id','=', $teacher)->first()->fill($request->all())->save();
+        //Teacher::findOrFail($teacher)->first()->fill($request->all())->save();
         return redirect('rate');
     }
 
