@@ -28,14 +28,14 @@
                                         <div class="column width-12">
                                             <div class="column width-4">
                                                 <div class="field-wrapper">
-                                                    <label>CNIC*</label>
-                                                    <input type="text" name="cnic" value="{{ $user->cnic }}" class="form-email form-element large" placeholder="37408-2121454-3" tabindex="3" required>
+                                                    <label>CNIC* (Enter Without Dashes)</label>
+                                                    <input type="text" name="cnic" id="cnic" value="{{ $user->cnic }}" class="form-email form-element large" placeholder="37408-2121454-3" tabindex="3" maxlength="15" pattern="[0-9]{5}[-]{1}[0-9]{7}[-]{1}[0-9]{1}" title="Example: 12345-1234567-1" required onkeydown="addhyphen();">
                                                 </div>
                                             </div>
                                             <div class="column width-4">
                                                 <div class="field-wrapper">
                                                     <label>Phone*</label>
-                                                    <input type="text" name="phone" value="{{ $user->phone }}" class="form-password form-element large" placeholder="+923453045874" tabindex="4" required>
+                                                    <input type="text" name="phone" id="phone" value="{{ $user->phone }}" class="form-password form-element large" placeholder="0345-3045874" tabindex="4" maxlength="12" pattern="[0-9]{4}[-][0-9]{7}" title="Example: 0345-3045874" required onkeydown="phonee();">
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +90,7 @@
                                             <div class="column width-4">
                                                 <div class="field-wrapper">
                                                     <label>Upload CNIC*</label>
-                                                    <input type="file" name="cnic_img" value="{{ $user->cnic_img }}" class="form-password form-element large" placeholder="Islamabad" tabindex="10" required>
+                                                    <input type="file" name="cnic_img" value="{{ $user->cnic_img }}" class="form-password form-element large" placeholder="Upload CNIC Image" tabindex="10" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,4 +212,34 @@
                     </div>
                 </div>
             </div>  --}}
+
+            <script language="javascript">
+                function addhyphen()
+                {
+                    str = document.getElementById("cnic").value;
+                    if(str.length==5 && event.keyCode!=8){
+                        str = str + '-';
+                    }
+                    if(str.length==13 && event.keyCode!=8){
+                        str = str + '-';
+                    }
+                    if(str.length==15 && event.keyCode!=8){
+                        str = str + '-';
+                    }
+                    if(str.length <= 15){
+                        document.getElementById("cnic").value = str;
+                    }  
+                }
+
+                function phonee()
+                {
+                    str = document.getElementById("phone").value;
+                    if(str.length==4 && event.keyCode!=8){
+                        str = str + '-';
+                    }
+                    if(str.length <= 12){
+                        document.getElementById("phone").value = str;
+                    }
+                }    
+            </script>
 @endsection

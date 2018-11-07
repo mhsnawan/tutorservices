@@ -16,54 +16,56 @@
                             <form method="POST" action="{{ route("experience.store") }}" enctype="multipart/form-data">
                               @csrf
                               <div  class="column width-12">
-                                <div class="column width-4">
+                                <div class="column width-12">
                                   <div class="field-wrapper">
-                                    <input type="text" name="title" class="form-fname form-element large" placeholder="Work Title*" tabindex="1" required>
+                                    <input type="text" name="company" id="company" class="form-lname form-element large" placeholder="Company" tabindex="1">
                                   </div>
                                 </div>
-                                <div class="column width-4">
+                                <div class="column width-6">
                                   <div class="field-wrapper">
-                                    <input type="text" name="company" class="form-lname form-element large" placeholder="Work Company" tabindex="2">
+                                    <input type="text" name="location" class="form-lname form-element large" placeholder="Location" tabindex="2">
                                   </div>
                                 </div>
-                                <div class="column width-4">
+                                <div class="column width-6">
                                   <div class="field-wrapper">
-                                    <input type="text" name="duration" class="form-email form-element large" placeholder="Work Duration*" tabindex="3" required>
+                                    <input type="text" name="country" class="form-lname form-element large" placeholder="Country" tabindex="3">
                                   </div>
                                 </div>
-
-                                <br><br><br>
-                                <div class="column width-1">
+                                <div class="column width-12">
+                                  <div class="field-wrapper">
+                                    <input type="text" name="title" class="form-fname form-element large" placeholder="Title*" tabindex="4" required>
+                                  </div>
+                                </div>
+                                <div class="column width-6">
                                     <div class="field-wrapper">
-                                <span>From</span>
+                                        <label>To</label>
+                                        <input type="date" name="startdate" class="form-email form-element large" placeholder="To*" tabindex="5" required>
                                     </div>
                                 </div>
-                                <div class="column width-5">
+                                <div class="column width-6">
                                     <div class="field-wrapper">
-                                        <input type="date" name="startdate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
+                                        <label>From</label>
+                                        <input type="date" name="enddate" class="form-email form-element large" placeholder="From*" tabindex="6" >
                                     </div>
                                 </div>
-                                <div class="column width-1">
-                                    <div class="field-wrapper">
-                                <span>To</span>
-                                    </div>
-                                </div>
-                                <div class="column width-5">
-                                    <div class="field-wrapper">
-                                        <input type="date" name="enddate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
-                                    </div>
+                                <div class="column width-6"></div>
+                                <div class="column width-6 push-6">
+                                  <div class="coulumn width-2">
+                                      <input type="checkbox" class="custom-control-input" name="currently_working" id="currently_working">
+                                  </div>
+                                  <div class="column width-3">
+                                      <label for="currently_working">Currently Working</label>
+                                  </div>
                                 </div>
                               </div>
-                              <div class="column width-12">
+                              
                                 <div class="column width-12">
                                   <div class="field-wrapper">
                                     <textarea name="description" class="form-message form-element large" placeholder="Description*" tabindex="7" required></textarea>
                                   </div>
                                 </div>
-
-
-                              </div>
                               <div class="column width-12">
+                                <label>Upload Experience(Optional)</label>
                                 <div class="field-wrapper">
                                     <input type="file" name="experience_img" id="fileToUpload" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                 </div>
@@ -88,60 +90,65 @@
                             @csrf
                             {{ method_field("PUT") }}
                             <div  class="column width-12">
-                              <div class="column width-4">
-                                <div class="field-wrapper">
-                                  <input type="text" name="title" value="{{ $experience->title }}" class="form-fname form-element large" placeholder="Work Title*" tabindex="1" required>
-                                </div>
-                              </div>
-                              <div class="column width-4">
-                                <div class="field-wrapper">
-                                  <input type="text" name="company" value="{{ $experience->company }}" class="form-lname form-element large" placeholder="Work Company" tabindex="2">
-                                </div>
-                              </div>
-                              <div class="column width-4">
-                                <div class="field-wrapper">
-                                  <input type="text" name="duration" value="{{ $experience->duration }}" class="form-email form-element large" placeholder="Work Duration*" tabindex="3" required>
-                                </div>
-                              </div>
-
-                              <br><br><br>
-                              <div class="column width-1">
-                                <div class="field-wrapper">
-                                  <span>From</span>
-                                </div>
-                              </div>
-                              <div class="column width-5">
-                                <div class="field-wrapper">
-                                  <input type="date" name="startdate" value="{{ $experience->startdate }}" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
-                                </div>
-                              </div>
-                              <div class="column width-1">
-                                <div class="field-wrapper">
-                                  <span>To</span>
-                                </div>
-                              </div>
-                              <div class="column width-5">
-                                <div class="field-wrapper">
-                                  <input type="date" name="enddate" value="{{ $experience->enddate }}" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="column width-12">
                               <div class="column width-12">
                                 <div class="field-wrapper">
-                                  <textarea name="description" value="{{ $experience->description }}" class="form-message form-element large" placeholder="Description*" tabindex="7" required></textarea>
+                                  <input type="text" name="company" id="company" class="form-lname form-element large" value="{{ $experience->company }}" placeholder="Company" tabindex="1">
+                                </div>
+                              </div>
+                              <div class="column width-6">
+                                <div class="field-wrapper">
+                                  <input type="text" name="location" class="form-lname form-element large" value="{{ $experience->location }}" placeholder="Location" tabindex="2">
+                                </div>
+                              </div>
+                              <div class="column width-6">
+                                <div class="field-wrapper">
+                                  <input type="text" name="country" class="form-lname form-element large" value="{{ $experience->country }}" placeholder="Country" tabindex="3">
+                                </div>
+                              </div>
+                              <div class="column width-12">
+                                <div class="field-wrapper">
+                                  <input type="text" name="title" class="form-fname form-element large" value="{{ $experience->title }}" placeholder="Title*" tabindex="1" required>
+                                </div>
+                              </div>
+                              <div class="column width-6">
+                                  <div class="field-wrapper">
+                                      <label>To</label>
+                                      <input type="date" name="startdate" class="form-email form-element large" value="{{ $experience->startdate }}" placeholder="To*" tabindex="3" required>
+                                  </div>
+                              </div>
+                              <div class="column width-6">
+                                  <div class="field-wrapper">
+                                      <label>From</label>
+                                      <input type="date" name="enddate" id="enddate" class="form-email form-element large" value="{{ $experience->enddate }}" placeholder="From*" tabindex="3">
+                                  </div>
+                              </div>
+                              <div class="column width-6"></div>
+                              <div class="column width-6 push-6">
+                                <div class="coulumn width-2">
+                                    <input type="checkbox" class="custom-control-input" name="currently_working" id="defaultUnchecked">
+                                </div>
+                                <div class="column width-3">
+                                    <label for="defaultUnchecked">Currently Working</label>
                                 </div>
                               </div>
                             </div>
+                            
+                              <div class="column width-12">
+                                <div class="field-wrapper">
+                                  <textarea name="description" class="form-message form-element large" value="{{ $experience->description }}" placeholder="Description*" tabindex="7" required></textarea>
+                                </div>
+                              </div>
                             <div class="column width-12">
+                              <label>Upload Experience(Optional)</label>
                               <div class="field-wrapper">
-                                <input type="file" name="experience_img" value="{{ $experience->img }}" id="fileToUpload" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                                  <input type="file" name="experience_img" id="fileToUpload" value="{{ $experience->experience_img }}" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                               </div>
                             </div>
                             <div class="column width-12">
                               <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                             </div>
                             <div class="column width-12"><br><br></div>
+
                           </form>
                         </div>
                       </div>
@@ -157,6 +164,14 @@
         </div>
     </div>
   </div>
+
+  <script>
+    $(document).ready(function(){
+      $('#currently_working').change(function(){
+        $("#enddate").prop("disabled",false);
+    });
+    });
+    </script>
        
 @endsection
 

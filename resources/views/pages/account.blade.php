@@ -52,6 +52,9 @@
                                             <div class="field-wrapper">
                                                 <label>CNIC*</label>
                                                 <input type="text" name="cnic" value="{{ $user['cnic'] }}" class="form-email form-element large" placeholder="37408-2121454-3" tabindex="3" required>
+                                                <span class="invalid-feedback hidden">
+                                                    <strong>Invalid CNIC</strong>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="column width-4">
@@ -292,6 +295,8 @@
     </div>
 </div>
 <!-- Tabs Style 2 End -->
+
+
 
 
 @endsection
