@@ -1,5 +1,5 @@
 @extends('tportal.tportal-layouts.tportal-layout')
-
+@section('title', 'Charges')
 @section('content')
 
       <div class="tab-panes left">

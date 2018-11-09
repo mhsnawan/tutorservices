@@ -1,5 +1,5 @@
 @extends('tportal.tportal-layouts.tportal-layout')
-
+@section('title', 'Education History')
 @section('content')
     <div class="tab-panes left">
         <div id="tabs-team-pane-1" class="active animate">

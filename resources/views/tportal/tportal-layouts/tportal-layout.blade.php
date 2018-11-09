@@ -16,6 +16,11 @@
                 <div class="content clearfix">
                     <div class="section-block replicable-content team-2">
                         <div class="row">
+                            @if($user['role']=='1')
+                            <h3>Student Information</h3>
+                            @else
+                            <h3>Tutor Information</h3>
+                            @endif
                             <div class="column width-12">
                                 @include('tportal.tportal-partials.progressbar')
                                 <div class="tabs style-2 vertical left">
