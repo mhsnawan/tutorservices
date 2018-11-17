@@ -33,6 +33,8 @@ Route::resource('enroll', 'CourseStudentTeacherController');
 Route::resource('posts', 'PostController');
 Route::resource('blog', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
+Route::resource('degree', 'DegreeController');
+Route::resource('subdegree', 'SubDegreeController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -63,6 +65,14 @@ Route::get('/editcourse',function(){
 
 Route::get('/addpost',function(){
     return view('admin.admin-pages.posts.add-post');
+});
+
+Route::get('/adddegree',function(){
+    return view('admin.admin-pages.degree.add-degree');
+});
+
+Route::get('/addsubdegree',function(){
+    return view('admin.admin-pages.degree.subdegree.add-subdegree');
 });
 
 

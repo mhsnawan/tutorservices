@@ -17,7 +17,7 @@
                     <div class="section-block replicable-content team-2">
                         <div class="row">
                             @if($user['role']=='1')
-                            <h3>Student Information</h3>
+                            <h3>Student Information {{ Request::path() }}</h3>
                             @else
                             <h3>Tutor Information</h3>
                             @endif
