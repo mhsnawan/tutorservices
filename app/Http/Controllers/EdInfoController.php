@@ -28,9 +28,9 @@ class EdInfoController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         $edinfos = User::find($id)->edinfos;
-        $degree = Degree::all();
-        $subdegree = SubDegree::all();
-        return view('tportal.tportal-pages.educationalinfo')->with(compact(['edinfos', 'user', 'degree', 'subdegree']));
+        $degrees = Degree::all();
+        $subdegrees = SubDegree::all();
+        return view('tportal.tportal-pages.educationalinfo')->with(compact(['edinfos', 'user', 'degrees', 'subdegrees']));
     }
 
     /**

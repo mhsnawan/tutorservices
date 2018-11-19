@@ -15,6 +15,8 @@ use App\User;
 use App\Course;
 use App\CourseTeacher;
 use App\Degree;
+use App\SubDegree;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -172,4 +174,12 @@ Route::prefix('student')->group(function () {
 
 Route::get('/mudassar', function(){
     return view('pages.adduser');
+});
+
+// Route::post('ajax-subdegree', 'DegreeController@subDegree');
+
+Route::get('ajax-subdegree', function(Request $request){
+    $degree = Degree::find($request['degree_level'])->subdegrees;
+    return Response::json($degree);
+    //echo($degree);
 });

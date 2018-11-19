@@ -9,6 +9,9 @@
 	<!-- Css -->
 	<link href={{ asset("css/core.min.css") }} rel="stylesheet" />
 	<link href={{ asset("css/skin.css") }} rel="stylesheet" />
+	<!-- jQuery -->
+    <script src="{{ asset('/js/jquery-3.3.1.min.js') }}"></script>
+	
 
 	<!--[if lt IE 9]>
     	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

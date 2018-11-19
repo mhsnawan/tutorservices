@@ -12,7 +12,7 @@ class SubDegree extends Model
 
     public function degree()
     {
-        return $this->belongTo('App\Degree');
+        return $this->belongsTo('App\Degree');
     }
 
 }

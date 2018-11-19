@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Degree;
+use App\Cities;
 use Illuminate\Http\Request;
 
-class DegreeController extends Controller
+class CitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class DegreeController extends Controller
      */
     public function index()
     {
-        $degrees = Degree::all();
-        return view('admin.admin-pages.degree.degree')->with(compact('degrees'));;
+        //
     }
 
     /**
@@ -36,63 +35,51 @@ class DegreeController extends Controller
      */
     public function store(Request $request)
     {
-        Degree::create($request->all());
-        return redirect('degree');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Degree  $degree
+     * @param  \App\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function show(Degree $degree)
+    public function show(Cities $cities)
     {
-        return view('admin.admin-pages.degree.add-degree');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Degree  $degree
+     * @param  \App\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function edit(Degree $degree)
+    public function edit(Cities $cities)
     {
-        $degrees = Degree::find($degree);
-        return view('admin.admin-pages.degree.edit-degree')->with(compact('degrees'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Degree  $degree
+     * @param  \App\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Degree $degree)
+    public function update(Request $request, Cities $cities)
     {
-        Degree::findOrFail($degree)->first()->fill($request->all())->save();
-        return redirect('degree');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Degree  $degree
+     * @param  \App\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Degree $degree)
+    public function destroy(Cities $cities)
     {
-        $degree->delete();
-        return redirect('degree');
+        //
     }
-
-    public function subDegree(Request $request){
-        
-        echo $request;
-        //echo $id;
-
-    }
-
 }

@@ -21,16 +21,19 @@
                                                             <div class="field-wrapper">
                                                         <fieldset>
                                                         <legend>Degree Level</legend>
-                                                        <select class="form-control dropdown" id="education" name="degree_level">
+                                                        <select class="form-control dropdown" id="degree_level" name="degree_level">
                                                             <option value="" selected="selected" disabled="disabled">-- select one --</option>
-                                                            <option value="No formal education">No formal education</option>
+                                                            {{--  <option value="No formal education">No formal education</option>
                                                             <option value="Primary education">Primary education</option>
                                                             <option value="Secondary education">Secondary education or high school</option>
                                                             <option value="GED">GED</option>
                                                             <option value="Vocational qualification">Vocational qualification</option>
                                                             <option value="Bachelors degree">Bachelors degree</option>
                                                             <option value="Masters degree">Masters degree</option>
-                                                            <option value="Doctorate or higher">Doctorate or higher</option>
+                                                            <option value="Doctorate or higher">Doctorate or higher</option>  --}}
+                                                            @foreach ($degrees as $degree)
+                                                            <option value="{{ $degree->id }}}">{{ $degree->name }}</option>
+                                                            @endforeach
                                                         </select>
                                                         </fieldset>
                                                         </div>
@@ -38,7 +41,13 @@
                 
                                                         <div class="column width-4">
                                                             <div class="field-wrapper">
-                                                                <input type="text" name="title" class="form-email form-element large" placeholder="Degree Title*" tabindex="1" required>
+                                                                <label for="degree">Degree Name</label>
+                                                                <select class="form-control dropdown" id="degree" name="title">
+                                                                    @foreach ($subdegrees as $subdegree)
+                                                                    <option value="Primary education">{{ $subdegree->name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                {{--  <input type="text" name="title" class="form-email form-element large" placeholder="Degree Title*" tabindex="1" required>  --}}
                                                             </div>
                                                         </div>
                                                         <div class="column width-1">
@@ -48,7 +57,8 @@
                                                         </div>
                                                         <div class="column width-4">
                                                             <div class="field-wrapper">
-                                                                <input type="text" name="institute" class="form-lname form-element large" placeholder="Institute/university" tabindex="2">
+                                                                <label for="institute">Institute</label>
+                                                                <input type="text" name="institute" id="institute" class="form-lname form-element large" placeholder="Institute/university" tabindex="2">
                                                             </div>
                                                         </div><br><br><br>
                                                         <div class="column width-1">
@@ -187,6 +197,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#degree_level').on('change', function(e){
+            console.log(e);
+            var degree_level = e.target.value;
+            console.log('degree_level is '+ degree_level);
+            $.get('/ajax-subdegree?degree_level='+degree_level, function(data){
+                $('#degree').empty();
+                $.each(data, function(index, subDegreeObj){
+                    $('#degree').append('<option value="'+subDegreeObj.id+'">'+subDegreeObj.name+'</option>')
+                })
+            });
+        })
+    </script>
        
 @endsection
 
