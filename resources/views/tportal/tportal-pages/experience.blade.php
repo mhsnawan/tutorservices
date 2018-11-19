@@ -19,21 +19,25 @@
                               <div  class="column width-12">
                                 <div class="column width-12">
                                   <div class="field-wrapper">
+                                    <label>Company Name</label>
                                     <input type="text" name="company" id="company" class="form-lname form-element large" placeholder="Company" tabindex="1">
                                   </div>
                                 </div>
                                 <div class="column width-6">
                                   <div class="field-wrapper">
+                                      <label>Location</label>
                                     <input type="text" name="location" class="form-lname form-element large" placeholder="Location" tabindex="2">
                                   </div>
                                 </div>
                                 <div class="column width-6">
                                   <div class="field-wrapper">
+                                    <label>Country</label>
                                     <input type="text" name="country" class="form-lname form-element large" placeholder="Country" tabindex="3">
                                   </div>
                                 </div>
                                 <div class="column width-12">
                                   <div class="field-wrapper">
+                                      <label>Title</label>
                                     <input type="text" name="title" class="form-fname form-element large" placeholder="Title*" tabindex="4" required>
                                   </div>
                                 </div>
@@ -62,6 +66,7 @@
                               
                                 <div class="column width-12">
                                   <div class="field-wrapper">
+                                      <label>Description</label>
                                     <textarea name="description" class="form-message form-element large" placeholder="Description*" tabindex="7" required></textarea>
                                   </div>
                                 </div>

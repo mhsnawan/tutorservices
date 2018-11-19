@@ -17,45 +17,42 @@
                                                 <form method="POST" action="{{ route('certification.store') }}" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="row">
-                                                        <div class="column width-12">
+                                                        <div class="column width-10">
                                                             <div class="field-wrapper">
                                                                 <label>Certification Name</label>
                                                                 <input type="text" name="title" class="form-fname form-element large" placeholder="Certification or Reward*" tabindex="1" required>
                                                             </div>
-                                                            
                                                         </div>
-                                                        <div class="column width-12">
+                                                        <div class="column width-10">
                                                             <div class="field-wrapper">
                                                                 <label>Certified From</label>
                                                                 <input type="text" name="institute" class="form-lname form-element large" placeholder="Certified From (E.G. Adobe)" tabindex="2">
                                                             </div>
                                                         </div>
 
-                                                        <div class="row">
-                                                                <div class="column width-6">
-                                                                    <label>Year of Passing</label>
-                                                                    <div class="form-select form-element large">
-                                                                        <select name="year" tabindex="3" class="form-aux" data-label="Year">
-                                                                            @for ($i = 2018; $i >= 1960; $i--)
-                                                                            <option value="{{ $i }}">{{ $i }}</option>
-                                                                            @endfor
-                                                                        </select>
-                                                                    </div>
+                                                        <div class="column width-6">
+                                                            <div class="field-wrapper">
+                                                                <label>Year of Passing</label>
+                                                                <div class="form-select form-element large">
+                                                                    <select name="year" tabindex="3" class="form-aux" data-label="Year">
+                                                                        @for ($i = 2018; $i >= 1960; $i--)
+                                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                                        @endfor
+                                                                    </select>
                                                                 </div>
                                                             </div>
-                                                    
+                                                        </div>
+                                                    </div>     
+                                                    <div class="row">
                                                         <div class="column width-6">
                                                             <label>Upload Certification Image</label>
                                                             <input type="file" name="img" id="fileToUpload" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                                         </div>
-
                                                     </div>
-                                                    
-                                                    
                                                     <div class="column width-12">
                                                         <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                                     </div>
-                                                    <div class="column width-12"><br><br></div>
+                                                    <div class="column width-12"><br><br></div> 
                                                 </form>
                                             </div>
                                         </div>
