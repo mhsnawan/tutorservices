@@ -30,19 +30,27 @@
                             <a href="/blog">Blog</a>
                         </li>
                     @guest
+                        
                         <li>
                             <a href="{{ route('login') }}">Sign In</a>
                         </li>
                         <li>
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Join</a>
                         </li> 
                         @else
+                        <li>
+                            <a href="/account">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/post-tution">Post Tution</a>
+                        </li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                             </form>
                         </li> 
+                        
                     @endguest  
                     </ul>
                 </nav>
