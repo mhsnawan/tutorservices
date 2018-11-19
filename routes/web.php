@@ -38,6 +38,7 @@ Route::resource('blog', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
 Route::resource('degree', 'DegreeController');
 Route::resource('subdegree', 'SubDegreeController');
+Route::resource('city', 'CitiesController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -79,6 +80,14 @@ Route::get('/addsubdegree',function(){
     return view('admin.admin-pages.degree.subdegree.add-subdegree')->with(compact('degrees'));
 });
 
+Route::get('/addcity',function(){
+    return view('admin.admin-pages.cities.add-city');
+});
+
+
+Route::get('/editcity',function(){
+    return view('admin.admin-pages.cities.edit-city');
+});
 
 // ============================ END ADMIN ROUTES ======================================//
 

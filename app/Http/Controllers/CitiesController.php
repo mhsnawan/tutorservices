@@ -14,7 +14,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        //
+        $cities = Cities::all();
+        return view('admin.admin-pages.cities.cities')->with(compact('cities'));;
     }
 
     /**
@@ -24,7 +25,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,8 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cities::create($request->all());
+        return redirect('city');
     }
 
     /**
@@ -55,9 +57,10 @@ class CitiesController extends Controller
      * @param  \App\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cities $cities)
+    public function edit(string $cities)
     {
-        //
+        $city = Cities::find($cities);
+        return view('admin.admin-pages.cities.edit-city')->with(compact('city'));
     }
 
     /**
@@ -67,9 +70,10 @@ class CitiesController extends Controller
      * @param  \App\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cities $cities)
+    public function update(Request $request, string $cities)
     {
-        //
+        Cities::findOrFail($cities)->first()->fill($request->all())->save();
+        return redirect('city');
     }
 
     /**
@@ -80,6 +84,7 @@ class CitiesController extends Controller
      */
     public function destroy(Cities $cities)
     {
-        //
+        $cities->delete();
+        return redirect('city');
     }
 }
