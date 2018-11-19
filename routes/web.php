@@ -14,6 +14,7 @@ use App\Teacher;
 use App\User;
 use App\Course;
 use App\CourseTeacher;
+use App\Degree;
 
 Route::get('/', function () {
     return view('welcome');
@@ -72,7 +73,8 @@ Route::get('/adddegree',function(){
 });
 
 Route::get('/addsubdegree',function(){
-    return view('admin.admin-pages.degree.subdegree.add-subdegree');
+    $degrees = Degree::all();
+    return view('admin.admin-pages.degree.subdegree.add-subdegree')->with(compact('degrees'));
 });
 
 

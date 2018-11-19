@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\SubDegree;
+use App\Degree;
 use Illuminate\Http\Request;
 
 class SubDegreeController extends Controller
@@ -14,7 +15,8 @@ class SubDegreeController extends Controller
      */
     public function index()
     {
-        //
+        $subdegrees = SubDegree::all();
+        return view('admin.admin-pages.degree.subdegree.subdegree')->with(compact('subdegrees'));;
     }
 
     /**
@@ -35,7 +37,12 @@ class SubDegreeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $degree = Degree::find($input['degree_id']);
+        $degree->subdegrees()->create([
+            'name' => $input['name']
+        ]);
+        redirect('subdegree');
     }
 
     /**
@@ -55,9 +62,12 @@ class SubDegreeController extends Controller
      * @param  \App\SubDegree  $subDegree
      * @return \Illuminate\Http\Response
      */
-    public function edit(SubDegree $subDegree)
+    public function edit(string $subDegree)
     {
-        //
+        $degrees = SubDegree::find($subDegree);
+        $levels = Degree::all();
+        //echo $levels;
+        return view('admin.admin-pages.degree.subdegree.edit-subdegree')->with(compact('degrees', 'levels'));
     }
 
     /**
@@ -67,9 +77,10 @@ class SubDegreeController extends Controller
      * @param  \App\SubDegree  $subDegree
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SubDegree $subDegree)
+    public function update(Request $request, string $subDegree)
     {
-        //
+        SubDegree::findOrFail($subDegree)->first()->fill($request->all())->save();
+        return redirect('subdegree');
     }
 
     /**
@@ -80,6 +91,7 @@ class SubDegreeController extends Controller
      */
     public function destroy(SubDegree $subDegree)
     {
-        //
+        $subDegree->delete();
+        return redirect('subdegree');
     }
 }

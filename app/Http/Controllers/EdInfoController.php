@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\EdInfo;
 use App\User;
+use App\Degree;
+use App\SubDegree;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +28,9 @@ class EdInfoController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         $edinfos = User::find($id)->edinfos;
-        return view('tportal.tportal-pages.educationalinfo')->with(compact(['edinfos', 'user']));
+        $degree = Degree::all();
+        $subdegree = SubDegree::all();
+        return view('tportal.tportal-pages.educationalinfo')->with(compact(['edinfos', 'user', 'degree', 'subdegree']));
     }
 
     /**
