@@ -58,6 +58,7 @@ Route::get('/admin',function(){
     return view('admin.admin-pages.dashboard');
 });
 
+//-----------------Course----------------------------//
 Route::get('/addcourse',function(){
     return view('admin.admin-pages.courses.addcourse');
 });
@@ -67,10 +68,15 @@ Route::get('/editcourse',function(){
     return view('admin.admin-pages.courses.editcourse');
 });
 
+//-------------End Course----------------------------//
+
+//-----------------Blog----------------------------//
 Route::get('/addpost',function(){
     return view('admin.admin-pages.posts.add-post');
 });
+//-------------End Blog----------------------------//
 
+//-----------------Degree----------------------------//
 Route::get('/adddegree',function(){
     return view('admin.admin-pages.degree.add-degree');
 });
@@ -80,14 +86,22 @@ Route::get('/addsubdegree',function(){
     return view('admin.admin-pages.degree.subdegree.add-subdegree')->with(compact('degrees'));
 });
 
+Route::get('ajax-subdegree', function(Request $request){
+    $degree = Degree::find($request['degree_level'])->subdegrees;
+    return Response::json($degree);
+    //echo($degree);
+});
+//-----------------End Degree----------------------------//
+
+//-----------------Cities----------------------------//
 Route::get('/addcity',function(){
     return view('admin.admin-pages.cities.add-city');
 });
 
-
 Route::get('/editcity',function(){
     return view('admin.admin-pages.cities.edit-city');
 });
+//-----------------End Cities----------------------------//
 
 // ============================ END ADMIN ROUTES ======================================//
 
@@ -159,19 +173,12 @@ Route::get('/suploads',function(){
 });
 
 // ============================ Blog ROUTES ======================================//
-// Route::get('/blog',function(){
-//     return view('blog.blog-pages.blog-page');
-// });
 
 Route::get('/forum',function(){
 
     return view('blog.blog-pages.blog-singlepost');
 });
 
-// Route::get('/posts',function(){
-
-//     return view('admin.admin-pages.posts.add-post');
-// });
 
 //////////////////////////STUDENT ACCOUNT////////////////////////////
 Route::prefix('student')->group(function () {
@@ -179,16 +186,9 @@ Route::prefix('student')->group(function () {
     Route::get('educationalinfo', 'StudentController@education')->name('education');
 });
 
-//Route::get('ajax', 'ConversationsController@ajax')->name('ajax');
-
 Route::get('/mudassar', function(){
     return view('pages.adduser');
 });
 
-// Route::post('ajax-subdegree', 'DegreeController@subDegree');
 
-Route::get('ajax-subdegree', function(Request $request){
-    $degree = Degree::find($request['degree_level'])->subdegrees;
-    return Response::json($degree);
-    //echo($degree);
-});
+

@@ -72,6 +72,12 @@
           <li class="nav-item"><a href="subdegree">Subdegree</a></li>
         </ul>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/city">
+          <i class="material-icons">dashboard</i>
+          <p>Cities</p>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,6 +92,7 @@
           <li class="nav-item"><a href="#">Separated link</a></li>
         </ul>
       </li>
+      
       
       
     </ul>
