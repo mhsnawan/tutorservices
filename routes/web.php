@@ -278,3 +278,184 @@ Route::get('/live-messages', function(Request $request){
 
 
 
+/////////////////////////////////MUDASSAR ROUTES//////////////////////////////////////
+Route::any('/advancesearch',function()
+{
+
+     $cities = User::select('city')->distinct()->get();
+     $courses = Course::all();
+    
+    $data = new User;
+    $queries = [];
+
+    $columns = [
+        'gender','city'
+    ];
+    
+     foreach($columns as $column)
+     {
+         if(request()->has($column))
+         {
+             $data= $data->where($column, request($column));
+             $queries[$column] = request($column);
+
+         }
+
+
+     }
+
+    //  if(request()->has('subject')) 
+    //  {
+    //      $data = DB::table('course_teachers')->where('course_id' , request('subject'));
+    //      $queries['subject'] = request('subject');
+    //  } 
+
+     $data = $data->paginate(2)->appends($queries);
+     return  view('tportal.tportal-pages.searchresult')->with(compact(['data','cities','courses']));
+    
+    // if(request()->has('gender')) 
+    //  {
+    //      $data = User::where('gender', request('gender'))->paginate(2);
+    //      return  view('tportal.tportal-pages.searchresult')->withData($data); 
+    //  } 
+
+    //   if(request()->has('subject')) 
+    //  {
+    //      $data = DB::table('course_teachers')->where('id' , request('subject'));
+    //      return  view('tportal.tportal-pages.searchresult')->withData($data); 
+    //  } 
+
+});
+
+Route::any('/searchresult',function(){
+    //  dd(Input::get('search'));
+    $cities= User::select('city')->distinct()->get();
+    $courses = Course::all();
+    $message = "No Result Found";
+
+    
+    $search = Input::get('search');
+    if($search != '')
+    {
+        $data=User::where('name', 'LIKE', '%'.$search.'%')
+                        ->orWhere('city', 'LIKE', '%'.$search.'%')
+                        ->paginate(3)
+                        ->setpath('');
+                $data->appends(array(
+                    'search' => Input::get('search'),
+                )); 
+      
+                if(count($data) > 0)
+                {
+                    return  view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses']));
+                }    
+                return view('tportal.tportal-pages.searchresult')->with(compact(['message', 'cities','courses'])); 
+
+               
+
+     }
+   
+  $data = User::paginate(3);
+
+     return view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses']));
+
+
+
+});
+
+
+Route::get('/teacher',function(){
+    $teachers =User::all()->where('role', '2');
+    return view('admin.admin-pages.teachers.teachers')->with(compact('teachers'));
+});
+
+Route::get('/editteacher/{id}',function($id){
+    $teachers = User::find($id);
+    //echo $teachers;
+    return view('admin.admin-pages.teachers.editteacher')->with(compact('teachers'));
+});
+
+Route::put('/updateteacher/{id}',function(Request $request, $id){
+    // User::findOrFail($id)->first()->fill($request->all())->save();
+   
+    $user = User::find($id);
+    
+    // $user->fill($request->all())->save();
+    // return redirect('./teacher');
+    $input = $request->all();
+    
+
+    $user->fill($input)->save();
+    return redirect('./teacher');
+    //Session::flash('flash_message', 'Task successfully added!');
+
+    
+});
+
+Route::delete('/deleteteacher/{id}',function($id){
+    $user=User::find($id);
+    if (!is_null($user)) {
+        $user->delete();
+        return redirect('./teacher');
+
+    }
+});
+
+Route::get('/students',function(){
+    $students =User::all()->where('role', '1');
+    return view('admin.admin-pages.students.students')->with(compact('students'));
+});
+
+Route::get('/editstudent/{id}',function($id){
+    $students = User::find($id);
+    //echo $teachers;
+    return view('admin.admin-pages.students.editstudent')->with(compact('students'));
+});
+
+Route::put('/updatestudent/{id}',function(Request $request, $id){
+    // User::findOrFail($id)->first()->fill($request->all())->save();
+   
+    $user = User::find($id);
+    // $user->fill($request->all())->save();
+    // return redirect('./teacher');
+    $input = $request->all();
+
+    $user->fill($input)->save();
+    return redirect('./students');
+    //Session::flash('flash_message', 'Task successfully added!');
+
+    
+});
+
+Route::delete('/deletestudent/{id}',function($id){
+    $user=User::find($id);
+    if (!is_null($user)) {
+        $user->delete();
+        return redirect('./students');
+    }
+});
+
+
+Route::get('/user',function(){
+    $admins =User::all()->where('role', '3');
+    return view('admin.admin-pages.users.users')->with(compact('admins'));
+});
+
+Route::get('/adduser',function(){
+  
+    return view('admin.admin-pages.users.addusers');
+});
+
+Route::get('/edituser{id}',function($id){
+    $admins = User::find($id);
+    return view('admin.admin-pages.users.edituser')->with(compact('admins'));
+});
+
+Route::delete('/deleteuser/{id}',function($id){
+    $user=User::find($id);
+    if (!is_null($user)) {
+        $user->delete();
+        return redirect('./user');
+    }
+
+});

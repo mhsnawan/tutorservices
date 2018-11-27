@@ -44,22 +44,37 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link">
+        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">person</i>
           <p>Students</p>
         </a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a  href="./students">All students</a></li>
+          <!-- <li class="nav-item"><a href="#">abc</a></li> -->
+          </ul>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('teacher.index') }}">
+        <a href="#" class="nav-link " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">person</i>
           <p>Tutors</p>
         </a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a  href="./teacher">All tutors</a></li>
+          <li class="nav-item"><a href="#">Docs</a></li>
+          </ul>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="./dashboard.html">
+        <a href="#" class="nav-link " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">supervised_user_circle</i>
           <p>Users</p>
         </a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a href="./user">All users</a></li>
+          <li class="nav-item"><a href="./adduser">Add new</a></li>
+          <li class="nav-item"><a href="#">your profile</a></li>
+          </ul>
       </li>
 
       <li class="nav-item">
@@ -77,23 +92,6 @@
           <i class="material-icons">dashboard</i>
           <p>Cities</p>
         </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">supervised_user_circle</i>
-          <p>Dropdown</p>
-        </a>
-        <ul class="dropdown-menu">
-          <li class="nav-item"><a href="#">Action</a></li>
-          <li class="nav-item"><a href="#">Another action</a></li>
-          <li class="nav-item"><a href="#">Something  here</a></li>
-          <li class="nav-item"><a href="#">Something  here</a></li>
-          <li class="nav-item"><a href="#">Separated link</a></li>
-        </ul>
-      </li>
-      
-      
-      
+      </li>  
     </ul>
   </div>
