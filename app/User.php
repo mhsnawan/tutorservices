@@ -78,4 +78,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    ///////////////////Relations with chat///////////////////
+    public function conversations() {
+        return $this->belongsToMany('App\Conversations', 'conversation_users', 'user_id', 'conversation_id');
+    }
+
+
+    public function messages(){
+        return $this->hasMany('App\Messages', 'conversation_id', 'id');
+    }
+
+    ////////////////////////////////////////////////////////////
+
 }
