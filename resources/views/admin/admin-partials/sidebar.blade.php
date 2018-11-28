@@ -23,7 +23,8 @@
         </a>
       </li>  --}}
       <li class="nav-item">
-        <a href="posts" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <a href="posts" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">supervised_user_circle</i>
           <p>Posts</p>
         </a>
@@ -78,7 +79,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="degree" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="degree" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">supervised_user_circle</i>
           <p>Degree</p>
         </a>

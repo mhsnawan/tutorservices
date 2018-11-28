@@ -82,9 +82,9 @@ class RegisterController extends Controller
         if($data['role']=='2')
             Teacher::create(['user_id' => $userId]);
 
-        if($data['role']=='3'){
-            $redirectTo = '/account';
-        }
+        // if($data['role']=='3'){
+        //     $redirectTo = '/account';
+        // }
             
 
 

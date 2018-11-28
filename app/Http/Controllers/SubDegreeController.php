@@ -42,7 +42,7 @@ class SubDegreeController extends Controller
         $degree->subdegrees()->create([
             'name' => $input['name']
         ]);
-        redirect('subdegree');
+        return redirect('subdegree');
     }
 
     /**
@@ -89,9 +89,10 @@ class SubDegreeController extends Controller
      * @param  \App\SubDegree  $subDegree
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SubDegree $subDegree)
+    public function destroy($subDegree)
     {
-        $subDegree->delete();
+        $subdegree = SubDegree::find($subDegree);
+        $subdegree->delete();
         return redirect('subdegree');
     }
 }
