@@ -24,7 +24,7 @@
       </li>  --}}
       <li class="nav-item">
         
-        <a href="posts" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="{{ route('posts.index') }}" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">supervised_user_circle</i>
           <p>Posts</p>
         </a>
@@ -38,11 +38,6 @@
           <i class="material-icons">library_books</i>
           <p>Courses</p>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

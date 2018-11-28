@@ -138,6 +138,7 @@ Route::post('/rate',function(Request $request){
 Route::get('/courses',function(){
     return view('tportal.tportal-pages.courses');
 });
+
 Route::get('/tprofile',function(){
     $id = Auth::user()->id;
     $user= User::find($id);
@@ -147,8 +148,6 @@ Route::get('/tprofile',function(){
     $experiences = User::find($id)->experiences;
     return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
  });
-
-
 
  // ============================ student-portal ROUTES ======================================//
 Route::get('/scourses',function(){
@@ -334,7 +333,6 @@ Route::post('make-conversation', function(Request $request){
 /////////////////////////////////MUDASSAR ROUTES//////////////////////////////////////
 Route::any('/advancesearch',function()
 {
-
      $cities = User::select('city')->distinct()->get();
      $courses = Course::all();
     
@@ -351,10 +349,7 @@ Route::any('/advancesearch',function()
          {
              $data= $data->where($column, request($column));
              $queries[$column] = request($column);
-
          }
-
-
      }
 
     //  if(request()->has('subject')) 
@@ -385,15 +380,13 @@ Route::any('/searchresult',function(){
     $cities= User::select('city')->distinct()->get();
     $courses = Course::all();
     $message = "No Result Found";
-
-    
     $search = Input::get('search');
     if($search != '')
     {
         $data=User::where('name', 'LIKE', '%'.$search.'%')
-                        ->orWhere('city', 'LIKE', '%'.$search.'%')
-                        ->paginate(3)
-                        ->setpath('');
+                    ->orWhere('city', 'LIKE', '%'.$search.'%')
+                    ->paginate(3)
+                    ->setpath('');
                 $data->appends(array(
                     'search' => Input::get('search'),
                 )); 
@@ -403,17 +396,10 @@ Route::any('/searchresult',function(){
                     return  view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses']));
                 }    
                 return view('tportal.tportal-pages.searchresult')->with(compact(['message', 'cities','courses'])); 
-
-               
-
      }
    
-  $data = User::paginate(3);
-
+    $data = User::paginate(3);
      return view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses']));
-
-
-
 });
 
 
@@ -430,19 +416,13 @@ Route::get('/editteacher/{id}',function($id){
 
 Route::put('/updateteacher/{id}',function(Request $request, $id){
     // User::findOrFail($id)->first()->fill($request->all())->save();
-   
     $user = User::find($id);
-    
     // $user->fill($request->all())->save();
     // return redirect('./teacher');
     $input = $request->all();
-    
-
     $user->fill($input)->save();
     return redirect('./teacher');
-    //Session::flash('flash_message', 'Task successfully added!');
-
-    
+    //Session::flash('flash_message', 'Task successfully added!');  
 });
 
 Route::delete('/deleteteacher/{id}',function($id){
@@ -450,7 +430,6 @@ Route::delete('/deleteteacher/{id}',function($id){
     if (!is_null($user)) {
         $user->delete();
         return redirect('./teacher');
-
     }
 });
 
@@ -467,17 +446,13 @@ Route::get('/editstudent/{id}',function($id){
 
 Route::put('/updatestudent/{id}',function(Request $request, $id){
     // User::findOrFail($id)->first()->fill($request->all())->save();
-   
     $user = User::find($id);
     // $user->fill($request->all())->save();
     // return redirect('./teacher');
     $input = $request->all();
-
     $user->fill($input)->save();
     return redirect('./students');
-    //Session::flash('flash_message', 'Task successfully added!');
-
-    
+    //Session::flash('flash_message', 'Task successfully added!');   
 });
 
 Route::delete('/deletestudent/{id}',function($id){
@@ -495,7 +470,6 @@ Route::get('/user',function(){
 });
 
 Route::get('/adduser',function(){
-  
     return view('admin.admin-pages.users.addusers');
 });
 

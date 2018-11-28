@@ -42,6 +42,9 @@
                             <a href="/account">Dashboard</a>
                         </li>
                         <li>
+                            <a href="/inbox">Messages</a>
+                        </li>
+                        <li>
                             <a href="/post-tution">Post Tution</a>
                         </li>
                         <li>

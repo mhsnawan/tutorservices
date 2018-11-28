@@ -10,13 +10,6 @@
           {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
         </div>
         <div class="card-body">
-          <div class="row">
-            <div class="offset-md-10 col-md-1">
-              <form method="GET" action="">
-                <input type="submit" class="btn btn-primary" href="#" value="Add Teacher">
-              </form>
-            </div>
-          </div>
           <div class="table-responsive">
             <table class="table table-hover">
               <thead class="text-primary">
