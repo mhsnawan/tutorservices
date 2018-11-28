@@ -460,3 +460,6 @@ Route::delete('/deleteuser/{id}',function($id){
     }
 
 });
+
+/////////////////////////////AQEEKL AHMED////////////
+Route::get('/aqeel', function(){});
