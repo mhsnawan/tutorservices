@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('address2')->nullable();
             $table->string('city')->nullable();
             $table->string('cnic_img')->nullable();
+            $table->integer('verfied')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

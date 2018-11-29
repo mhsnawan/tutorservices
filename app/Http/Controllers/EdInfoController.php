@@ -57,6 +57,10 @@ class EdInfoController extends Controller
             $path = $request->file('degree_img')->store('uploads');
             $input['degree_img'] = $path;
         }
+        $degreeLevel = Degree::find($input['degree_level']);
+        $subLevel = SubDegree::find($input['title']);
+        $input['degree_level'] = $degreeLevel->name;
+        $input['title'] = $subLevel->name;
         $input['user_id'] = Auth::user()->id;
         Edinfo::create($input)->edinfos;
         return redirect('edinfo');
