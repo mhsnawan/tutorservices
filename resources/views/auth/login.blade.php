@@ -32,7 +32,7 @@
                                             <div class="column width-12">
                                                 <div class="field-wrapper">
                                                     <input type="password" name="password" class="form-email form-element large{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" tabindex="2" required>
-                                                
+
                                                     @if ($errors->has('password'))
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $errors->first('password') }}</strong>
@@ -45,8 +45,8 @@
                                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                 </div>
                                                 <div class="column width-3">
-                                                    <label for="remember">{{ __('Remember Me') }}</label> 
-                                                    
+                                                    <label for="remember">{{ __('Remember Me') }}</label>
+
                                                 </div>
                                                 <div class="column width-3">
                                                     <input type="submit" value="Sign In" class="form-submit button pill no-margin-bottom">
@@ -57,7 +57,7 @@
                                             </div>
 
                                         </div>
-                                            
+
                                         <input type="text" name="honeypot" class="form-honeypot form-element">
                                     </form>
                                 </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="column width-12">
             <hr>
         </div>

@@ -496,3 +496,21 @@ Route::get('/posttution',function(){
 
     return view('tprofile.tprofile-pages.posttution');
 });
+// ============================ course ROUTES ======================================//
+
+Route::get('/currentc',function(){
+
+    return view('current-tech-course.currentc');
+});
+Route::get('/currentr',function(){
+
+    return view('current-tech-course.course-request');
+});
+Route::get('/shcourse',function(){
+
+    return view('current-tech-course.show-courses');
+});
+Route::get('/clcourse',function(){
+
+    return view('current-tech-course.click-course');
+});
