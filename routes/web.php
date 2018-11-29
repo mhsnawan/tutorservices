@@ -124,14 +124,14 @@ Route::get('/current-tutions',function(){
 });
 
 
-Route::get('/rate',function(){
+Route::get('/charges',function(){
     $id = Auth::user()->id;
     $user = User::find($id);
     $rate = User::find($id)->teacher;
-    return view('tportal.tportal-pages.rate')->with(compact(['rate', 'user']));
+    return view('tportal.tportal-pages.charges')->with(compact(['rate', 'user']));
 });
 
-Route::post('/rate',function(Request $request){
+Route::post('/charges',function(Request $request){
     echo $request;
 });
 
