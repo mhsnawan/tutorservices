@@ -85,7 +85,7 @@ class TeacherController extends Controller
         
         Teacher::where('user_id','=', $teacher)->first()->fill($request->all())->save();
         //Teacher::findOrFail($teacher)->first()->fill($request->all())->save();
-        return redirect('rate');
+        return redirect('charges');
     }
 
     /**
