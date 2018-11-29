@@ -335,14 +335,14 @@ Route::any('/advancesearch',function()
 {
      $cities = User::select('city')->distinct()->get();
      $courses = Course::all();
-    
+
     $data = new User;
     $queries = [];
 
     $columns = [
         'gender','city'
     ];
-    
+
      foreach($columns as $column)
      {
          if(request()->has($column))
@@ -352,26 +352,26 @@ Route::any('/advancesearch',function()
          }
      }
 
-    //  if(request()->has('subject')) 
+    //  if(request()->has('subject'))
     //  {
     //      $data = DB::table('course_teachers')->where('course_id' , request('subject'));
     //      $queries['subject'] = request('subject');
-    //  } 
+    //  }
 
      $data = $data->paginate(2)->appends($queries);
      return  view('tportal.tportal-pages.searchresult')->with(compact(['data','cities','courses']));
-    
-    // if(request()->has('gender')) 
+
+    // if(request()->has('gender'))
     //  {
     //      $data = User::where('gender', request('gender'))->paginate(2);
-    //      return  view('tportal.tportal-pages.searchresult')->withData($data); 
-    //  } 
+    //      return  view('tportal.tportal-pages.searchresult')->withData($data);
+    //  }
 
-    //   if(request()->has('subject')) 
+    //   if(request()->has('subject'))
     //  {
     //      $data = DB::table('course_teachers')->where('id' , request('subject'));
-    //      return  view('tportal.tportal-pages.searchresult')->withData($data); 
-    //  } 
+    //      return  view('tportal.tportal-pages.searchresult')->withData($data);
+    //  }
 
 });
 
@@ -389,15 +389,15 @@ Route::any('/searchresult',function(){
                     ->setpath('');
                 $data->appends(array(
                     'search' => Input::get('search'),
-                )); 
-      
+                ));
+
                 if(count($data) > 0)
                 {
                     return  view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses']));
-                }    
-                return view('tportal.tportal-pages.searchresult')->with(compact(['message', 'cities','courses'])); 
+                }
+                return view('tportal.tportal-pages.searchresult')->with(compact(['message', 'cities','courses']));
      }
-   
+
     $data = User::paginate(3);
      return view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses']));
 });
@@ -422,7 +422,7 @@ Route::put('/updateteacher/{id}',function(Request $request, $id){
     $input = $request->all();
     $user->fill($input)->save();
     return redirect('./teacher');
-    //Session::flash('flash_message', 'Task successfully added!');  
+    //Session::flash('flash_message', 'Task successfully added!');
 });
 
 Route::delete('/deleteteacher/{id}',function($id){
@@ -452,7 +452,7 @@ Route::put('/updatestudent/{id}',function(Request $request, $id){
     $input = $request->all();
     $user->fill($input)->save();
     return redirect('./students');
-    //Session::flash('flash_message', 'Task successfully added!');   
+    //Session::flash('flash_message', 'Task successfully added!');
 });
 
 Route::delete('/deletestudent/{id}',function($id){
@@ -485,4 +485,14 @@ Route::delete('/deleteuser/{id}',function($id){
         return redirect('./user');
     }
 
+});
+
+// ============================ tprofile ROUTES ======================================//
+Route::get('/tprofile',function(){
+
+    return view('tprofile.tprofile-pages.tprofile-page');
+});
+Route::get('/posttution',function(){
+
+    return view('tprofile.tprofile-pages.posttution');
 });
