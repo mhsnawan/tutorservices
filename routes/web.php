@@ -488,9 +488,14 @@ Route::delete('/deleteuser/{id}',function($id){
 });
 
 // ============================ tprofile ROUTES ======================================//
-Route::get('/tprofile',function(){
-
-    return view('tprofile.tprofile-pages.tprofile-page');
+Route::get('/profile',function(){
+    $id = Auth::user()->id;
+    $user= User::find($id);
+    $teacher = User::find($id)->teacher;
+    $edinfos = User::find($id)->edinfos;
+    $certifications = User::find($id)->certifications;
+    $experiences = User::find($id)->experiences;
+    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
 });
 Route::get('/posttution',function(){
 

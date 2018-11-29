@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="column width-4">
-        <h2>Aqeel Ahmad khan</h2>
+        <h2>{{ $user->name }}</h2>
       </div>
       <div class="column width-2" >
         <p><span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span></p>
@@ -52,13 +52,37 @@
       </div>
     </div>
     <div class="column width-4">
+      @if(Auth::user()->id != $user->id)
       <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+      @endif
     </div>
     <div class="image" style="background-color:gray;width:1110px;height:1450px;left: 120px;">
       <!-- Boxed Feature Columns -->
       <div class="section-block pb-0 bkg-grey-ultralight">
         <div class="row flex boxes">
           <div class="column width-12">
+            <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;" data-threshold="1">
+              <div class="feature-text">
+                <div class="column width-3">
+                    <h6>Hourly Charges</h6>
+                    <p>PKR @if($teacher){{ $teacher->hourly_rate }} @endif</p>
+                </div>
+                <div class="column width-3">
+                    <h6>Daily Charges</h6>
+                    <p>PKR @if($teacher){{ $teacher->daily_rate }}@endif</p>
+                </div>
+                <div class="column width-3">
+                    <h6>Weekly Charges</h6>
+                    <p>PKR @if($teacher){{ $teacher->weekly_rate }}@endif</p>
+                </div>
+                <div class="column width-3">
+                    <h6>Monthly Charges</h6>
+                    <p>PKR @if($teacher){{ $teacher->monthly_rate }}@endif</p>
+                </div>
+              </div>                               
+            </div>
+          </div>
+          {{--  <div class="column width-12">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;" data-threshold="1">
               <div class="feature-text">
                 <h5>Rate</h5>
@@ -83,12 +107,12 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="column width-6">
+          </div>  --}}
+          {{--  <div class="column width-6">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
               <div class="feature-text">
                 <h5>Education</h5>
-                <div class="column width-2">	<p>	<span class="icon-graduation-cap icon-boxed color-grey circled xlarge bkg-navy border-hover-red"></p></div>
+                <div class="column width-2"><p><span class="icon-graduation-cap icon-boxed color-grey circled xlarge bkg-navy border-hover-red"></p></div>
                   <div class="column width-8">
                     <table class="table non-responsive">
                       <tbody>
@@ -105,10 +129,20 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>  --}}
           <div class="column width-6">
+            <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
+              <div class="feature-text">
+                <h5>Education</h5>
+                @foreach ($edinfos as $edinfo)
+                <b>{{ $edinfo->degree_level}} - {{$edinfo->title }}</b>
+                <p>{{ $edinfo->institute}} | {{ $edinfo->startdate }} - {{ $edinfo->enddate }}</p>
+                @endforeach
+              </div>
+            </div>
+					</div>
+          {{--  <div class="column width-6">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:400ms;" data-threshold="1">
-
               <div class="feature-text">
                 <h5>Experience</h5>
                 <div class="column width-2">	<p>	<span class="icon-briefcase icon-boxed color-grey circled xlarge bkg-navy border-hover-red"></p></div>
@@ -132,11 +166,17 @@
               </div>
               </div>
             </div>
-          </div>
+          </div>  --}}
           <div class="column width-6">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
-
               <div class="feature-text">
+                  <h5>Certifications</h5>
+                  @foreach ($certifications as $certification)
+                  <b>{{ $certification->title}}</b>
+                  <p> {{$certification->institute }}  | {{ $certification->year }}</p><br>
+                  @endforeach
+              </div>
+              {{--  <div class="feature-text">
                 <h5>certification</h5>
                 <div class="column width-2">	<p>	<span class="icon-shield icon-boxed color-grey circled xlarge bkg-navy border-hover-red"></p></div>
                 <div class="column width-8">
@@ -157,6 +197,17 @@
                   </tbody>
                 </table>
               </div>
+              </div>  --}}
+            </div>
+          </div>
+          <div class="column width-6">
+            <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
+                <div class="feature-text">
+                  <h5>Experience</h5>
+                    @foreach ($experiences as $experience)
+                    <b>{{ $experience->title }} - {{ $experience->company }}</b>
+                    <p>{{ $experience->startdate }} - {{ $experience->enddate }}</p>
+                    @endforeach
               </div>
             </div>
           </div>
