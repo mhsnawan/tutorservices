@@ -7,28 +7,11 @@ use Laravel\Scout\Searchable;
 
 class Course extends Model
 {
-
-    use Searchable;
-
     protected $fillable = [
         'id','course_name'
     ];
     
     public $timestamps = false;
-
-    public function searchableAs()
-    {
-        return 'course';
-    }
-
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        // Customize array...
-
-        return $array;
-    }
 
     public function teachers()
     {

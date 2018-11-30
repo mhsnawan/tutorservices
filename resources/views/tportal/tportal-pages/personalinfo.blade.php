@@ -90,7 +90,7 @@
                                     <div class="column width-4">
                                         <div class="field-wrapper">
                                             <label>Upload CNIC*</label>
-                                            <input type="file" name="cnic_img" value="{{ $user->cnic_img }}" class="form-password form-element large" placeholder="Upload CNIC Image" tabindex="10" required>
+                                            <input type="file" name="cnic_img" placeholder="Upload CNIC Image" tabindex="10" required>
                                         </div>
                                     </div>
                                 </div>

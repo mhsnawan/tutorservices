@@ -8,8 +8,8 @@
   </div>
     <div class="user clearfix">
       <div class="avatar">
-        <img src="images/team/team-member-8.jpg"class="img-thumbnail img-profile">
-        <input style="bottom:0;left:22%"  type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+        <img src="images/team/team-member-8.jpg" class="img-thumbnail img-profile">
+        <input style="bottom:0;left:22%" type="file" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
       </div>
       <br>
       <div class="column width-3">

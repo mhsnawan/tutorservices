@@ -92,9 +92,13 @@ class UserController extends Controller
      */
     public function update(Request $request, string $user)
     {
-        
-        User::findOrFail($user)->fill($request->all())->save();
-        return redirect('account');
+        $input = $request->all();
+        //return $input;
+        if ($request->hasFile('cnic_img')){
+            return $request->file->store('public/upload');
+        }
+        // User::findOrFail($user)->fill($request->all())->save();
+        // return redirect('account');
     }
 
     /**
