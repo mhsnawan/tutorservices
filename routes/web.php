@@ -43,6 +43,7 @@ Route::get('/search/{queryString}', 'CourseTeacherController@search');
 Route::resource('degree', 'DegreeController');
 Route::resource('subdegree', 'SubDegreeController');
 Route::resource('city', 'CitiesController');
+Route::resource('gigs', 'GigsController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -503,11 +504,7 @@ Route::get('/posttution',function(){
 });
 // ============================ course ROUTES ======================================//
 
-Route::get('/currentc',function(){
-
-    return view('current-tech-course.currentc');
-});
-Route::get('/currentr',function(){
+Route::get('/pending-request',function(){
 
     return view('current-tech-course.course-request');
 });

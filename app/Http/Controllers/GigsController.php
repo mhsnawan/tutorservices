@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\CourseTeacher;
-use App\Course;
-use App\User;
-use Illuminate\Support\Facades\Auth;
+use App\Gigs;
 use Illuminate\Http\Request;
 
-class CourseTeacherController extends Controller
+class GigsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class CourseTeacherController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        return view('tportal.tportal-pages.gigs.posttution')->with(compact('courses'));
+        return view('tportal.tportal-pages.gigs.gigs');
     }
 
     /**
@@ -39,23 +35,16 @@ class CourseTeacherController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        //return $input;
-        $user_id = Auth::user()->id;
-        $teacher_id = User::find($user_id)->teacher;
-        $input['user_id'] = $user_id;
-        $input['teacher_id'] = $teacher_id->id;
-        CourseTeacher::create($input);
-        return redirect ('post-tution');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\CourseTeacher  $courseTeacher
+     * @param  \App\Gigs  $gigs
      * @return \Illuminate\Http\Response
      */
-    public function show(CourseTeacher $courseTeacher)
+    public function show(Gigs $gigs)
     {
         //
     }
@@ -63,10 +52,10 @@ class CourseTeacherController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\CourseTeacher  $courseTeacher
+     * @param  \App\Gigs  $gigs
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourseTeacher $courseTeacher)
+    public function edit(Gigs $gigs)
     {
         //
     }
@@ -75,10 +64,10 @@ class CourseTeacherController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CourseTeacher  $courseTeacher
+     * @param  \App\Gigs  $gigs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CourseTeacher $courseTeacher)
+    public function update(Request $request, Gigs $gigs)
     {
         //
     }
@@ -86,18 +75,11 @@ class CourseTeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\CourseTeacher  $courseTeacher
+     * @param  \App\Gigs  $gigs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CourseTeacher $courseTeacher)
+    public function destroy(Gigs $gigs)
     {
         //
-    }
-
-    public function search($myQueryString)
-    {
-        $user = new User;
-        $result = $user->toSearchableArray();
-        var_dump($result) ;
     }
 }

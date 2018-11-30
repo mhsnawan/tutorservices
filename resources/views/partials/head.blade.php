@@ -5,7 +5,7 @@
 
 	<!-- Font -->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
-	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<!-- Css -->
 	<link href={{ asset("css/core.min.css") }} rel="stylesheet" />
 	<link href={{ asset("css/skin.css") }} rel="stylesheet" />

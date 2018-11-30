@@ -19,9 +19,16 @@ class CreateCourseTeachersTable extends Migration
             $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->Integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
+            $table->string('title');
+            $table->string('area');
+            $table->string('city');
+            $table->string('class');
             $table->Integer('fee')->unsigned();
             $table->string('type');
-            $table->string('availability');
+            $table->string('day_from');
+            $table->string('day_to');
+            $table->string('time_from');
+            $table->string('time_to');
             $table->string('description');
         });
     }
