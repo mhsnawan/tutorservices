@@ -4,8 +4,8 @@
             <div class="column width-12 nav-bar-inner">
                 <div class="logo">
                     <div class="logo-inner">
-                        <a href="/"><img src="images/logo-dark.png" alt="Tutor Services" /></a>
-                        <a href="/"><img src="images/logo.png" alt="Tutor Services" /></a>
+                        <a href="/"><img src={{ asset("images/logo-dark.png") }} alt="Tutor Services" /></a>
+                        <a href="/"><img src={{ asset("images/logo.png") }} alt="Tutor Services" /></a>
                     </div>
                 </div>
                 <nav class="navigation nav-block secondary-navigation nav-right">

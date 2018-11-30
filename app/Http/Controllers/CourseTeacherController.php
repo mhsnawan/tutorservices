@@ -31,7 +31,7 @@ class CourseTeacherController extends Controller
     public function create()
     {
         $courses = Course::all();
-        return view('tportal.tportal-pages.posttution')->with(compact('courses'));
+        return view('tportal.tportal-pages.gigs.create-gig')->with(compact('courses'));
     }
 
     /**
@@ -71,7 +71,9 @@ class CourseTeacherController extends Controller
      */
     public function edit(string $courseTeacher)
     {
-        echo $courseTeacher;
+        $tution = CourseTeacher::find($courseTeacher);
+        $courses = Course::all();
+        return view('tportal.tportal-pages.gigs.edit-gig')->with(compact('courses', 'tution'));
     }
 
     /**
@@ -81,9 +83,15 @@ class CourseTeacherController extends Controller
      * @param  \App\CourseTeacher  $courseTeacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CourseTeacher $courseTeacher)
+    public function update(Request $request, string $courseTeacher)
     {
-        //
+        // $input = $request->all();
+        // return $input;
+        //CourseTeacher::findOrFail($courseTeacher)->first()->fill($request->all())->save();
+        $input = $request->all();
+        $data = CourseTeacher::find($courseTeacher);
+        $data->fill($input)->save();
+        return redirect('gigs');
     }
 
     /**
@@ -94,7 +102,9 @@ class CourseTeacherController extends Controller
      */
     public function destroy($courseTeacher)
     {
-        dd($courseTeacher);
+        $gig = CourseTeacher::find($courseTeacher);
+        $gig->delete();
+        return redirect('gigs');
     }
 
 }

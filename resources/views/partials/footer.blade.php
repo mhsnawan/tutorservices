@@ -1,4 +1,4 @@
-<div class="footer-top two-columns-on-tablet">
+{{--  <div class="footer-top two-columns-on-tablet">
     <div class="row flex">
         <div class="column width-3">
             <div class="widget">
@@ -95,4 +95,23 @@
             </div>
         </div>
     </div>
-</div>
+</div>  --}}
+
+<div class="footer-top">
+        <div class="row flex">
+            <div class="column width-6 offset-3 center">
+                <div class="widget">
+                    <h4 class="widget-title">Warhol</h4>
+                    <address>324 West Broadway<br>New York, NY 10013</address>
+                    <ul class="social-list list-horizontal center">
+                        <li><a href="#"><span class="icon-twitter-with-circle medium"></span></a></li>
+                        <li><a href="#"><span class="icon-facebook-with-circle medium"></span></a></li>
+                        <li><a href="#"><span class="icon-dribbble-with-circle medium"></span></a></li>
+                    </ul>
+                    <p class="copyright clear-float">
+                        &copy; ThemeMountain. All Rights Reserved. Est. MMXI. <a href="#" class="scroll-to-top" data-no-hide>Back Top</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
