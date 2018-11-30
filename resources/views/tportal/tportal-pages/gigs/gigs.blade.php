@@ -22,6 +22,7 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach($tutions as $tution)
 							<tr class="cart-item">
 								{{--  <td class="product-remove center">
 									<a href="#" class="product-remove icon-cancel"></a>
@@ -32,170 +33,26 @@
 									</a>
 								</td>  --}}
 								<td class="product-name">
-									<a href="" class="product-title">Automata</a>
+									<a href="" class="product-title">{{ $tution->title }}</a>
 								</td>
 								<td class="product-price">
-									<span class="amount">15.00</span>
+									<span class="amount">{{ $tution->area }}, {{ $tution->city }}</span>
 								</td>
 								<td class="product-quantity">
-									<span class="amount">15.00</span>
+									<span class="amount">1</span>
 								</td>
 								<td class="product-quantity">
-									<span class="amount">1500</span>
+									<span class="amount">{{ $tution->fee }}</span>
 								</td>
 								<td class="product-quantity">
-									<span class="amount">Online</span>
+									<span class="amount">{{ $tution->type }}</span>
 								</td>
 								<td>
-									<a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
-									<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
+									<a href="{{ route('gigs.edit', $tution->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
+									<a href="{{ route('gigs.destroy', $tution->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
 								</td>
 							</tr>
-							<tr class="cart-item">
-								{{--  <td class="product-remove center">
-									<a href="#" class="product-remove icon-cancel"></a>
-								</td>  --}}
-								{{--  <td class="product-thumbnail">
-									<a href="#">
-										<img src="images/shop/cart/cart-thumb-large.jpg" alt="" />
-									</a>
-								</td>  --}}
-								<td class="product-name">
-									<a href="" class="product-title">Automata</a>
-								</td>
-								<td class="product-price">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">1500</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">Online</span>
-								</td>
-								<td>
-									<a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
-									<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
-								</td>
-							</tr>
-							<tr class="cart-item">
-								{{--  <td class="product-remove center">
-									<a href="#" class="product-remove icon-cancel"></a>
-								</td>  --}}
-								{{--  <td class="product-thumbnail">
-									<a href="#">
-										<img src="images/shop/cart/cart-thumb-large.jpg" alt="" />
-									</a>
-								</td>  --}}
-								<td class="product-name">
-									<a href="" class="product-title">Automata</a>
-								</td>
-								<td class="product-price">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">1500</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">Online</span>
-								</td>
-								<td>
-									<a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
-									<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
-								</td>
-							</tr>
-							<tr class="cart-item">
-								{{--  <td class="product-remove center">
-									<a href="#" class="product-remove icon-cancel"></a>
-								</td>  --}}
-								{{--  <td class="product-thumbnail">
-									<a href="#">
-										<img src="images/shop/cart/cart-thumb-large.jpg" alt="" />
-									</a>
-								</td>  --}}
-								<td class="product-name">
-									<a href="" class="product-title">Automata</a>
-								</td>
-								<td class="product-price">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">1500</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">Online</span>
-								</td>
-								<td>
-									<a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
-									<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
-								</td>
-							</tr>
-							<tr class="cart-item">
-								{{--  <td class="product-remove center">
-									<a href="#" class="product-remove icon-cancel"></a>
-								</td>  --}}
-								{{--  <td class="product-thumbnail">
-									<a href="#">
-										<img src="images/shop/cart/cart-thumb-large.jpg" alt="" />
-									</a>
-								</td>  --}}
-								<td class="product-name">
-									<a href="" class="product-title">Automata</a>
-								</td>
-								<td class="product-price">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">1500</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">Online</span>
-								</td>
-								<td>
-									<a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
-									<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
-								</td>
-							</tr>
-							<tr class="cart-item">
-								{{--  <td class="product-remove center">
-									<a href="#" class="product-remove icon-cancel"></a>
-								</td>  --}}
-								{{--  <td class="product-thumbnail">
-									<a href="#">
-										<img src="images/shop/cart/cart-thumb-large.jpg" alt="" />
-									</a>
-								</td>  --}}
-								<td class="product-name">
-									<a href="" class="product-title">Automata</a>
-								</td>
-								<td class="product-price">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">15.00</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">1500</span>
-								</td>
-								<td class="product-quantity">
-									<span class="amount">Online</span>
-								</td>
-								<td>
-									<a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
-									<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
-								</td>
-							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>

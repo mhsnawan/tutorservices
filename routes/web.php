@@ -35,7 +35,7 @@ Route::resource('experience', 'ExperienceController');
 Route::resource('course', 'CourseController');
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
-Route::resource('post-tution', 'CourseTeacherController');
+Route::resource('gigs', 'CourseTeacherController');
 Route::resource('enroll', 'CourseStudentTeacherController');
 Route::resource('posts', 'PostController');
 Route::resource('blog', 'BlogController');
@@ -43,7 +43,7 @@ Route::get('/search/{queryString}', 'CourseTeacherController@search');
 Route::resource('degree', 'DegreeController');
 Route::resource('subdegree', 'SubDegreeController');
 Route::resource('city', 'CitiesController');
-Route::resource('gigs', 'GigsController');
+//Route::resource('gigs', 'GigsController');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 

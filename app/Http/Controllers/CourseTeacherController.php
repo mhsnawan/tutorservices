@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CourseTeacher;
+use App\Teacher;
 use App\Course;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,9 @@ class CourseTeacherController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        return view('tportal.tportal-pages.gigs.posttution')->with(compact('courses'));
+        $id = Auth::user()->id;
+        $tutions = Teacher::find($id)->course_teachers;
+        return view('tportal.tportal-pages.gigs.gigs')->with(compact('tutions'));
     }
 
     /**
@@ -28,7 +30,8 @@ class CourseTeacherController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Course::all();
+        return view('tportal.tportal-pages.posttution')->with(compact('courses'));
     }
 
     /**
@@ -46,7 +49,7 @@ class CourseTeacherController extends Controller
         $input['user_id'] = $user_id;
         $input['teacher_id'] = $teacher_id->id;
         CourseTeacher::create($input);
-        return redirect ('post-tution');
+        return redirect ('gigs');
     }
 
     /**
@@ -66,9 +69,9 @@ class CourseTeacherController extends Controller
      * @param  \App\CourseTeacher  $courseTeacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourseTeacher $courseTeacher)
+    public function edit(string $courseTeacher)
     {
-        //
+        echo $courseTeacher;
     }
 
     /**
@@ -89,15 +92,9 @@ class CourseTeacherController extends Controller
      * @param  \App\CourseTeacher  $courseTeacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CourseTeacher $courseTeacher)
+    public function destroy($courseTeacher)
     {
-        //
+        dd($courseTeacher);
     }
 
-    public function search($myQueryString)
-    {
-        $user = new User;
-        $result = $user->toSearchableArray();
-        var_dump($result) ;
-    }
 }

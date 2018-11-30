@@ -45,7 +45,7 @@
                             <a href="/inbox">Messages</a>
                         </li>
                         <li>
-                            <a href="/post-tution">Post Tution</a>
+                            <a href="{{ route('gigs.create') }}">Post Tution</a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>

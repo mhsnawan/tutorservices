@@ -3,7 +3,7 @@
 @section('content')
 <br><br><br><br>
 <div class="row">
-    <form method="POST" action="{{ route('post-tution.store') }}" >
+    <form method="POST" action="{{ route('gigs.store') }}" >
         @csrf 
         <div class="row">
             <div class="column width-8">
