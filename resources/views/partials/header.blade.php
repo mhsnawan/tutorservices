@@ -30,7 +30,7 @@
                             <a href="/blog">Blog</a>
                         </li>
                     @guest
-                        
+                         
                         <li>
                             <a href="{{ route('login') }}">Sign In</a>
                         </li>
@@ -39,20 +39,52 @@
                         </li> 
                         @else
                         <li>
-                            <a href="/account">Dashboard</a>
+                            <a href="#" class="contains-sub-menu">Pages</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="about-style-one.html">About Original</a>
+                                </li>
+                                <li>
+                                    <a href="about-style-two.html">About Style 2</a>
+                                </li>
+                            </ul>
                         </li>
+                        
                         <li>
                             <a href="/inbox">Messages</a>
                         </li>
                         <li>
-                            <a href="{{ route('gigs.create') }}">Post Tution</a>
+                            <a href="#">Requests</a>
                         </li>
                         <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                            </form>
-                        </li> 
+                            <a href="{{ route('gigs.index') }}">Gigs</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="{{ route('gigs.index') }}">Gigs</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('gigs.create') }}">Create New</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="contains-sub-menu profile-image">
+                            <img src="http://placehold.it/30x30" class="img-circle special-img"></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/account">Dashboard</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li></li>
+                        
                         
                     @endguest  
                     </ul>

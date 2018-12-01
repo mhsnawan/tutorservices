@@ -78,3 +78,11 @@ body{margin-top:20px;}
     line-height: 1.2;
   }
 }
+
+.special-img 
+{
+    position: relative;
+    top: -5px;
+    float: left;
+    left: -5px;
+}
