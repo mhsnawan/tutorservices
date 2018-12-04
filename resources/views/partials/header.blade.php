@@ -37,25 +37,9 @@
                         <li>
                             <a href="{{ route('register') }}">Join</a>
                         </li> 
-                        @else
-                        <li>
-                            <a href="#" class="contains-sub-menu">Pages</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="about-style-one.html">About Original</a>
-                                </li>
-                                <li>
-                                    <a href="about-style-two.html">About Style 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li>
-                            <a href="/inbox">Messages</a>
-                        </li>
-                        <li>
-                            <a href="#">Requests</a>
-                        </li>
+                        @else      
+                        <li><a href="/inbox">Messages</a></li>
+                        <li><a href="#">Requests</a></li>
                         <li>
                             <a href="{{ route('gigs.index') }}">Gigs</a>
                             <ul class="sub-menu">
@@ -67,14 +51,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <li></li>
                         <li>
                             <a href="#" class="contains-sub-menu profile-image">
                             <img src="http://placehold.it/30x30" class="img-circle special-img"></a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="/account">Dashboard</a>
+                                    <a href="/profile">My Profile</a>
                                 </li>
-                                <li class="divider"></li>
+                                <li>
+                                    <a href="/account">Account Setting</a>
+                                </li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -83,6 +70,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <li></li>
                         <li></li>
                         
                         

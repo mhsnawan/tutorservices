@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
 @section('content')
+<br><br><br><br>
 <div class="container">
     <h3 class=" text-center">Messaging</h3>
     <div class="messaging">

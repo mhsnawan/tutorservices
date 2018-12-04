@@ -97,8 +97,8 @@ class UserController extends Controller
         if ($request->hasFile('cnic_img')){
             return $request->file->store('public/upload');
         }
-        // User::findOrFail($user)->fill($request->all())->save();
-        // return redirect('account');
+        User::findOrFail($user)->fill($request->all())->save();
+        return redirect('account');
     }
 
     /**

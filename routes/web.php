@@ -197,6 +197,7 @@ Route::get('/mudassar', function(){
 //////////////////////////CHAT////////////////////////////////
 Route::get('/inbox', function(){
     $id = Auth::user()->id;
+    $user = User::find($id);
     $data = array();
     $conversations = User::find($id)->conversations; //getting all the conversation in which this user is participating
 
@@ -225,7 +226,7 @@ Route::get('/inbox', function(){
                 );
         }
     }
-    return view('chat.inbox')->with(compact('data'));
+    return view('chat.inbox')->with(compact('data', 'user'));
 });
 
 //Getting conversation in box
@@ -378,6 +379,7 @@ Route::any('/advancesearch',function()
 
 Route::any('/searchresult',function(){
     //  dd(Input::get('search'));
+    $user = User::find(Auth::user()->id);
     $cities= User::select('city')->distinct()->get();
     $courses = Course::all();
     $message = "No Result Found";
@@ -400,7 +402,7 @@ Route::any('/searchresult',function(){
      }
 
     $data = User::paginate(3);
-     return view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses']));
+     return view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses', 'user']));
 });
 
 
@@ -515,4 +517,22 @@ Route::get('/shcourse',function(){
 Route::get('/clcourse',function(){
 
     return view('current-tech-course.click-course');
+});
+
+
+Route::get('/join', function(){
+    $MyObject = new User;   
+    $MyObjects = array();
+
+   $datas = Course::find(2)->course_teachers;
+   foreach($datas as $data){
+        $result = Teacher::find($data->teacher_id)->user();
+        $MyObject->id = $result->id;
+        $MyObjects[] = $MyObject;
+      
+   }
+
+   echo $MyObjects;
+
+   
 });
