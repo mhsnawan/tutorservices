@@ -516,3 +516,8 @@ Route::get('/clcourse',function(){
 
     return view('current-tech-course.click-course');
 });
+// ============================ Feedback ROUTES ======================================//
+Route::get('/feedback',function(){
+
+    return view('feedback.pfeedback');
+});
