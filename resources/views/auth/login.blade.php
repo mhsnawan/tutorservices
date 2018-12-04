@@ -4,6 +4,8 @@
 <div class="section-block cart-overview">
     <div class="row">
         <div class="push-3 column width-6">
+          <p style="Margin-top:-50px"><p><h2>Log in to Online Tutor</h2></p>
+            <h5>Tutors and students can log in here...</h5></p>
             <div class="payment-details box large">
                 <div class="tabs style-2">
                     <ul class="tab-nav">
@@ -21,6 +23,7 @@
                                         <div class="row">
                                             <div class="column width-12">
                                                 <div class="field-wrapper">
+                                                  <p style="Margin-bottom:3px">Email/Username</p>
                                                     <input type="text" name="email" class="form-name form-element large{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" value="{{ old('email') }}" tabindex="1" required autofocus>
                                                     @if ($errors->has('email'))
                                                     <span class="invalid-feedback">
@@ -31,6 +34,7 @@
                                             </div>
                                             <div class="column width-12">
                                                 <div class="field-wrapper">
+                                                  <p style="Margin-bottom:3px">Password</p>
                                                     <input type="password" name="password" class="form-email form-element large{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" tabindex="2" required>
 
                                                     @if ($errors->has('password'))
