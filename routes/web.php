@@ -85,7 +85,7 @@ Route::group(['prefix'=>'admin'],function(){
     });
     /////////////////STUDENT ROUTE END/////////////////////
 
-    ////////////////TEACHER ROUTE//////////////////////////
+    /////////////////TEACHER ROUTE//////////////////////////
     Route::get('/teacher',function(){
         $teachers =User::all()->where('role', '2');
         return view('admin.admin-pages.teachers.teachers')->with(compact('teachers'));
@@ -148,91 +148,9 @@ Route::get('ajax-subdegree', function(Request $request){
     $degree = Degree::find($request['degree_level'])->subdegrees;
     return Response::json($degree);
 });
+//----------------- AJAX Degree For EdInfo END----------------------------//
 
-Route::get('/tutor',function(){
-    return view('tportal.tportal-pages.tportalpage');
-});
-Route::get('/availability',function(){
-    $id = Auth::user()->id;
-    $user = User::find($id);
-    return view('tportal.tportal-pages.availability')->with(compact(['user']));
-});
-
-Route::get('/current-tutions',function(){
-    return view('tportal.tportal-pages.current-tutions');
-});
-
-
-Route::get('/charges',function(){
-    $id = Auth::user()->id;
-    $user = User::find($id);
-    $rate = User::find($id)->teacher;
-    return view('tportal.tportal-pages.charges')->with(compact(['rate', 'user']));
-});
-
-Route::post('/charges',function(Request $request){
-    echo $request;
-});
-
-Route::get('/courses',function(){
-    return view('tportal.tportal-pages.courses');
-});
-
-Route::get('/tprofile',function(){
-    $id = Auth::user()->id;
-    $user= User::find($id);
-    $teacher = User::find($id)->teacher;
-    $edinfos = User::find($id)->edinfos;
-    $certifications = User::find($id)->certifications;
-    $experiences = User::find($id)->experiences;
-    return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
- });
-
- // ============================ student-portal ROUTES ======================================//
-Route::get('/scourses',function(){
-
-    return view('sportal.sportal-pages.courses');
-});
-Route::get('/student',function(){
-
-    return view('sportal.sportal-pages.sportalpage');
-});
-Route::get('/seducationalinfo',function(){
-
-    return view('sportal.sportal-pages.educationalinfo');
-});
-Route::get('/peertopeer',function(){
-
-    return view('sportal.sportal-pages.peertopeer');
-});
-Route::get('/spersonalinfo',function(){
-
-    return view('sportal.sportal-pages.personalinfo');
-});
-Route::get('/suploads',function(){
-
-    return view('sportal.sportal-pages.uploads');
-});
-
-// ============================ Blog ROUTES ======================================//
-
-Route::get('/forum',function(){
-
-    return view('blog.blog-pages.blog-singlepost');
-});
-
-
-//////////////////////////STUDENT ACCOUNT////////////////////////////
-Route::prefix('student')->group(function () {
-    Route::get('account', 'StudentController@account')->name('account');
-    Route::get('educationalinfo', 'StudentController@education')->name('education');
-});
-
-Route::get('/mudassar', function(){
-    return view('pages.adduser');
-});
-
-//////////////////////////CHAT////////////////////////////////
+// ============================================= CHAT ======================================================//
 Route::get('/inbox', function(){
     $id = Auth::user()->id;
     $user = User::find($id);
@@ -366,7 +284,94 @@ Route::post('make-conversation', function(Request $request){
 
 })->name('make-conversation');
 
-//////////////////////////////////CHAT END///////////////////////////////////
+// ======================================= END CHAT =================================================//
+
+Route::get('/tutor',function(){
+    $id = Auth::user()->id;
+    $user = User::find($id);
+    return view('tportal.tportal-pages.tportalpage')->with(compact(['user']));
+});
+Route::get('/availability',function(){
+    $id = Auth::user()->id;
+    $user = User::find($id);
+    return view('tportal.tportal-pages.availability')->with(compact(['user']));
+});
+
+Route::get('/current-tutions',function(){
+    return view('tportal.tportal-pages.current-tutions');
+});
+
+
+Route::get('/charges',function(){
+    $id = Auth::user()->id;
+    $user = User::find($id);
+    $rate = User::find($id)->teacher;
+    return view('tportal.tportal-pages.charges')->with(compact(['rate', 'user']));
+});
+
+Route::post('/charges',function(Request $request){
+    echo $request;
+});
+
+Route::get('/courses',function(){
+    return view('tportal.tportal-pages.courses');
+});
+
+Route::get('/tprofile',function(){
+    $id = Auth::user()->id;
+    $user= User::find($id);
+    $teacher = User::find($id)->teacher;
+    $edinfos = User::find($id)->edinfos;
+    $certifications = User::find($id)->certifications;
+    $experiences = User::find($id)->experiences;
+    return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
+ });
+
+ // ============================ student-portal ROUTES ======================================//
+Route::get('/scourses',function(){
+
+    return view('sportal.sportal-pages.courses');
+});
+Route::get('/student',function(){
+
+    return view('sportal.sportal-pages.sportalpage');
+});
+Route::get('/seducationalinfo',function(){
+
+    return view('sportal.sportal-pages.educationalinfo');
+});
+Route::get('/peertopeer',function(){
+
+    return view('sportal.sportal-pages.peertopeer');
+});
+Route::get('/spersonalinfo',function(){
+
+    return view('sportal.sportal-pages.personalinfo');
+});
+Route::get('/suploads',function(){
+
+    return view('sportal.sportal-pages.uploads');
+});
+
+// ============================ Blog ROUTES ======================================//
+
+Route::get('/forum',function(){
+
+    return view('blog.blog-pages.blog-singlepost');
+});
+
+
+//////////////////////////STUDENT ACCOUNT////////////////////////////
+Route::prefix('student')->group(function () {
+    Route::get('account', 'StudentController@account')->name('account');
+    Route::get('educationalinfo', 'StudentController@education')->name('education');
+});
+
+Route::get('/mudassar', function(){
+    return view('pages.adduser');
+});
+
+
 
 
 
