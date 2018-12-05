@@ -38,13 +38,6 @@ Route::resource('gigs', 'CourseTeacherController');
 Route::resource('enroll', 'CourseStudentTeacherController');
 Route::resource('blog', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
-// Route::resource('degree', 'DegreeController');
-// Route::resource('subdegree', 'SubDegreeController');
-// Route::resource('city', 'CitiesController');
-// Route::resource('gigs', 'GigsController');
-// Route::resource('posts', 'PostController');
-// Route::resource('course', 'CourseController');
-
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/example',function(){
@@ -57,7 +50,7 @@ Route::get('/profile',function(){
 });
 
 
-// ============================ ADMIN ROUTES ======================================//
+// ====================================== ADMIN ROUTES ==================================================//
 Route::group(['prefix'=>'admin'],function(){
     Route::resource('posts', 'PostController');
     Route::resource('course', 'CourseController');
@@ -80,38 +73,81 @@ Route::group(['prefix'=>'admin'],function(){
         $user = User::find($id);
         $input = $request->all();
         $user->fill($input)->save();
-        return redirect('./students');
+        return redirect('admin/students');
     });
     
     Route::delete('/deletestudent/{id}',function($id){
         $user=User::find($id);
         if (!is_null($user)){
             $user->delete();
-            return redirect('./students');
+            return redirect('admin/students');
         }
     });
+    /////////////////STUDENT ROUTE END/////////////////////
+
+    ////////////////TEACHER ROUTE//////////////////////////
+    Route::get('/teacher',function(){
+        $teachers =User::all()->where('role', '2');
+        return view('admin.admin-pages.teachers.teachers')->with(compact('teachers'));
+    });
+    
+    Route::get('/editteacher/{id}',function($id){
+        $teachers = User::find($id);
+        return view('admin.admin-pages.teachers.editteacher')->with(compact('teachers'));
+    });
+    
+    Route::put('/updateteacher/{id}',function(Request $request, $id){
+        $user = User::find($id);
+        $input = $request->all();
+        $user->fill($input)->save();
+        return redirect('./teacher');
+    });
+    
+    Route::delete('/deleteteacher/{id}',function($id){
+        $user=User::find($id);
+        if (!is_null($user)) {
+            $user->delete();
+            return redirect('./teacher');
+        }
+    });
+    ////////////////////////TEACHER ROUTE END/////////////////////////////
+
+    ////////////////////////ADMIN USER ROUTE//////////////////////////////
+    Route::get('/user',function(){
+        $admins =User::all()->where('role', '3');
+        return view('admin.admin-pages.users.users')->with(compact('admins'));
+    });
+    
+    Route::get('/adduser',function(){
+        return view('admin.admin-pages.users.addusers');
+    });
+    
+    Route::get('/edituser{id}',function($id){
+        $admins = User::find($id);
+        return view('admin.admin-pages.users.edituser')->with(compact('admins'));
+    });
+    
+    Route::delete('/deleteuser/{id}',function($id){
+        $user=User::find($id);
+        if (!is_null($user)) {
+            $user->delete();
+            return redirect('./user');
+        }
+    });
+    //////////////////////////ADMIN USER ROUTE END////////////////////////////////
 });
+
+// ========================================= END ADMIN ROUTES =================================================//
 
 Route::get('/admin',function(){
     return view('admin.admin-pages.dashboard');
 });
 
-//-----------------Degree----------------------------//
+//----------------- AJAX Degree For EdInfo----------------------------//
 Route::get('ajax-subdegree', function(Request $request){
     $degree = Degree::find($request['degree_level'])->subdegrees;
     return Response::json($degree);
 });
-//-----------------End Degree----------------------------//
-
-//-----------------Cities----------------------------//
-
-Route::get('/editcity',function(){
-    return view('admin.admin-pages.cities.edit-city');
-});
-//-----------------End Cities----------------------------//
-
-// ============================ END ADMIN ROUTES ======================================//
-
 
 Route::get('/tutor',function(){
     return view('tportal.tportal-pages.tportalpage');
@@ -330,7 +366,7 @@ Route::post('make-conversation', function(Request $request){
 
 })->name('make-conversation');
 
-//////////////////////////////////CHAT///////////////////////////////////
+//////////////////////////////////CHAT END///////////////////////////////////
 
 
 
@@ -408,59 +444,6 @@ Route::any('/searchresult',function(){
 });
 
 
-Route::get('/teacher',function(){
-    $teachers =User::all()->where('role', '2');
-    return view('admin.admin-pages.teachers.teachers')->with(compact('teachers'));
-});
-
-Route::get('/editteacher/{id}',function($id){
-    $teachers = User::find($id);
-    //echo $teachers;
-    return view('admin.admin-pages.teachers.editteacher')->with(compact('teachers'));
-});
-
-Route::put('/updateteacher/{id}',function(Request $request, $id){
-    // User::findOrFail($id)->first()->fill($request->all())->save();
-    $user = User::find($id);
-    // $user->fill($request->all())->save();
-    // return redirect('./teacher');
-    $input = $request->all();
-    $user->fill($input)->save();
-    return redirect('./teacher');
-    //Session::flash('flash_message', 'Task successfully added!');
-});
-
-Route::delete('/deleteteacher/{id}',function($id){
-    $user=User::find($id);
-    if (!is_null($user)) {
-        $user->delete();
-        return redirect('./teacher');
-    }
-});
-
-
-Route::get('/user',function(){
-    $admins =User::all()->where('role', '3');
-    return view('admin.admin-pages.users.users')->with(compact('admins'));
-});
-
-Route::get('/adduser',function(){
-    return view('admin.admin-pages.users.addusers');
-});
-
-Route::get('/edituser{id}',function($id){
-    $admins = User::find($id);
-    return view('admin.admin-pages.users.edituser')->with(compact('admins'));
-});
-
-Route::delete('/deleteuser/{id}',function($id){
-    $user=User::find($id);
-    if (!is_null($user)) {
-        $user->delete();
-        return redirect('./user');
-    }
-
-});
 
 // ============================ tprofile ROUTES ======================================//
 Route::get('/profile',function(){
