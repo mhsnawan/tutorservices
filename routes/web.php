@@ -534,6 +534,7 @@ Route::get('/join', function(){
 
    echo $MyObjects;
 });
+
 // ============================ Feedback ROUTES ======================================//
 Route::get('/feedback',function(){
 

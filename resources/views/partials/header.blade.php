@@ -39,6 +39,7 @@
                         </li> 
                         @else      
                         <li><a href="/inbox">Messages</a></li>
+                        @if ($user['role']=='2')
                         <li><a href="#">Requests</a></li>
                         <li>
                             <a href="{{ route('gigs.index') }}">Gigs</a>
@@ -51,6 +52,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
                         <li></li>
                         <li>
                             <a href="#" class="contains-sub-menu profile-image">
