@@ -34,7 +34,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.admin-pages.courses.addcourse');
     }
 
     /**
@@ -46,7 +46,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         Course::create($request->all());
-        return redirect('course');
+        return redirect('admin/course');
     }
 
     /**
@@ -57,7 +57,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        //return view('admin.admin-pages.courses.editcourse');
     }
 
     /**
@@ -82,7 +82,7 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         Course::findOrFail($course)->first()->fill($request->all())->save();
-        return redirect('course');
+        return redirect('admin/course');
     }
 
     /**
@@ -94,6 +94,6 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         $course->delete();
-        return redirect('course');
+        return redirect('admin/course');
     }
 }

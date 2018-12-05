@@ -12,8 +12,8 @@
         <div class="card-body">
           <div class="row">
             <div class="offset-md-10 col-md-1">
-              <form method="GET" action="addcity">
-                <input type="submit" class="btn btn-primary" href="addcity" value="Add City">
+              <form method="GET" action="{{ route('city.create') }}">
+                <input type="submit" class="btn btn-primary" href="{{ route('city.create') }}" value="Add City">
               </form>
             </div>
           </div>

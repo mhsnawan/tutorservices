@@ -46,7 +46,7 @@
                   <div class="input-group text-center">
                     <div class="input-group-btn">
                       <div class="fileUpload btn btn-danger fake-shadow">
-                        <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
+                        <span><i class="glyphicon glyphicon-upload"></i> Upload Picture</span>
                         <input id="logo-id" name="img" type="file" class="attachment_upload" onclick="uploadimg();" required>
                       </div>
                     </div>

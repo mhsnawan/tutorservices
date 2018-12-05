@@ -25,7 +25,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.admin-pages.cities.add-city');
     }
 
     /**
@@ -37,7 +37,7 @@ class CitiesController extends Controller
     public function store(Request $request)
     {
         Cities::create($request->all());
-        return redirect('city');
+        return redirect('admin/city');
     }
 
     /**
@@ -72,8 +72,9 @@ class CitiesController extends Controller
      */
     public function update(Request $request, string $cities)
     {
-        Cities::findOrFail($cities)->first()->fill($request->all())->save();
-        return redirect('city');
+        $city = Cities::findOrFail($cities);
+        $city->fill($request->all())->save();
+        return redirect('admin/city');
     }
 
     /**
@@ -82,9 +83,10 @@ class CitiesController extends Controller
      * @param  \App\Cities  $cities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cities $cities)
+    public function destroy($cities)
     {
-        $cities->delete();
-        return redirect('city');
+        $city = Cities::find($cities);
+        $city->delete();
+        return redirect('admin/city');
     }
 }

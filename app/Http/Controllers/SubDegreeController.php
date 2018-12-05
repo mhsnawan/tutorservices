@@ -26,7 +26,8 @@ class SubDegreeController extends Controller
      */
     public function create()
     {
-        //
+        $degrees = Degree::all();
+        return view('admin.admin-pages.degree.subdegree.add-subdegree')->with(compact('degrees'));
     }
 
     /**
@@ -42,7 +43,7 @@ class SubDegreeController extends Controller
         $degree->subdegrees()->create([
             'name' => $input['name']
         ]);
-        return redirect('subdegree');
+        return redirect('admin/subdegree');
     }
 
     /**
@@ -79,8 +80,9 @@ class SubDegreeController extends Controller
      */
     public function update(Request $request, string $subDegree)
     {
-        SubDegree::findOrFail($subDegree)->first()->fill($request->all())->save();
-        return redirect('subdegree');
+        $sdegree = SubDegree::findOrFail($subDegree);
+        $sdegree->fill($request->all())->save();
+        return redirect('admin/subdegree');
     }
 
     /**
@@ -93,6 +95,6 @@ class SubDegreeController extends Controller
     {
         $subdegree = SubDegree::find($subDegree);
         $subdegree->delete();
-        return redirect('subdegree');
+        return redirect('admin/subdegree');
     }
 }

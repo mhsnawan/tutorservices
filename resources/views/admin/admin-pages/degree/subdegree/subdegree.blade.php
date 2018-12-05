@@ -12,8 +12,8 @@
         <div class="card-body">
           <div class="row">
             <div class="offset-md-10 col-md-1">
-              <form method="GET" action="addsubdegree">
-                <input type="submit" class="btn btn-primary" href="addsubdegree" value="Sub Degree">
+              <form method="GET" action="{{ route('subdegree.create') }}">
+                <input type="submit" class="btn btn-primary" href="{{ route('subdegree.create') }}" value="Sub Degree">
               </form>
             </div>
           </div>

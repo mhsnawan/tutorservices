@@ -25,7 +25,7 @@ class DegreeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.admin-pages.degree.add-degree');
     }
 
     /**
@@ -37,7 +37,7 @@ class DegreeController extends Controller
     public function store(Request $request)
     {
         Degree::create($request->all());
-        return redirect('degree');
+        return redirect('admin/degree');
     }
 
     /**
@@ -73,7 +73,7 @@ class DegreeController extends Controller
     public function update(Request $request, Degree $degree)
     {
         Degree::findOrFail($degree)->first()->fill($request->all())->save();
-        return redirect('degree');
+        return redirect('admin/degree');
     }
 
     /**
@@ -85,7 +85,7 @@ class DegreeController extends Controller
     public function destroy(Degree $degree)
     {
         $degree->delete();
-        return redirect('degree');
+        return redirect('admin/degree');
     }
 
     public function subDegree(Request $request){

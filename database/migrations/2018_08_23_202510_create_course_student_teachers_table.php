@@ -21,6 +21,7 @@ class CreateCourseStudentTeachersTable extends Migration
             $table->foreign('student_id')->references('id')->on('students');
             $table->Integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
+            $table->integer('verfied')->default(0);
         });
     }
 

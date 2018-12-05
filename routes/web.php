@@ -32,20 +32,20 @@ Route::resource('account', 'UserController');
 Route::resource('edinfo', 'EdInfoController');
 Route::resource('certification', 'CertificationController');
 Route::resource('experience', 'ExperienceController');
-Route::resource('course', 'CourseController');
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
 Route::resource('gigs', 'CourseTeacherController');
 Route::resource('enroll', 'CourseStudentTeacherController');
-Route::resource('posts', 'PostController');
 Route::resource('blog', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
-Route::resource('degree', 'DegreeController');
-Route::resource('subdegree', 'SubDegreeController');
-Route::resource('city', 'CitiesController');
-//Route::resource('gigs', 'GigsController');
-// Route::get('/home', 'HomeController@index')->name('home');
+// Route::resource('degree', 'DegreeController');
+// Route::resource('subdegree', 'SubDegreeController');
+// Route::resource('city', 'CitiesController');
+// Route::resource('gigs', 'GigsController');
+// Route::resource('posts', 'PostController');
+// Route::resource('course', 'CourseController');
 
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/example',function(){
     return view('pages.example');
@@ -58,50 +58,52 @@ Route::get('/profile',function(){
 
 
 // ============================ ADMIN ROUTES ======================================//
+Route::group(['prefix'=>'admin'],function(){
+    Route::resource('posts', 'PostController');
+    Route::resource('course', 'CourseController');
+    Route::resource('degree', 'DegreeController');
+    Route::resource('subdegree', 'SubDegreeController');
+    Route::resource('city', 'CitiesController');
+
+    /////////////////////STUDENTS/////////////////////
+    Route::get('/students',function(){
+        $students =User::all()->where('role', '1');
+        return view('admin.admin-pages.students.students')->with(compact('students'));
+    })->name('admin.students');
+    
+    Route::get('/editstudent/{id}',function($id){
+        $students = User::find($id);
+        return view('admin.admin-pages.students.editstudent')->with(compact('students'));
+    });
+    
+    Route::put('/updatestudent/{id}',function(Request $request, $id){
+        $user = User::find($id);
+        $input = $request->all();
+        $user->fill($input)->save();
+        return redirect('./students');
+    });
+    
+    Route::delete('/deletestudent/{id}',function($id){
+        $user=User::find($id);
+        if (!is_null($user)){
+            $user->delete();
+            return redirect('./students');
+        }
+    });
+});
 
 Route::get('/admin',function(){
     return view('admin.admin-pages.dashboard');
 });
 
-//-----------------Course----------------------------//
-Route::get('/addcourse',function(){
-    return view('admin.admin-pages.courses.addcourse');
-});
-
-
-Route::get('/editcourse',function(){
-    return view('admin.admin-pages.courses.editcourse');
-});
-
-//-------------End Course----------------------------//
-
-//-----------------Blog----------------------------//
-Route::get('/addpost',function(){
-    return view('admin.admin-pages.posts.add-post');
-});
-//-------------End Blog----------------------------//
-
 //-----------------Degree----------------------------//
-Route::get('/adddegree',function(){
-    return view('admin.admin-pages.degree.add-degree');
-});
-
-Route::get('/addsubdegree',function(){
-    $degrees = Degree::all();
-    return view('admin.admin-pages.degree.subdegree.add-subdegree')->with(compact('degrees'));
-});
-
 Route::get('ajax-subdegree', function(Request $request){
     $degree = Degree::find($request['degree_level'])->subdegrees;
     return Response::json($degree);
-    //echo($degree);
 });
 //-----------------End Degree----------------------------//
 
 //-----------------Cities----------------------------//
-Route::get('/addcity',function(){
-    return view('admin.admin-pages.cities.add-city');
-});
 
 Route::get('/editcity',function(){
     return view('admin.admin-pages.cities.edit-city');
@@ -433,36 +435,6 @@ Route::delete('/deleteteacher/{id}',function($id){
     if (!is_null($user)) {
         $user->delete();
         return redirect('./teacher');
-    }
-});
-
-Route::get('/students',function(){
-    $students =User::all()->where('role', '1');
-    return view('admin.admin-pages.students.students')->with(compact('students'));
-});
-
-Route::get('/editstudent/{id}',function($id){
-    $students = User::find($id);
-    //echo $teachers;
-    return view('admin.admin-pages.students.editstudent')->with(compact('students'));
-});
-
-Route::put('/updatestudent/{id}',function(Request $request, $id){
-    // User::findOrFail($id)->first()->fill($request->all())->save();
-    $user = User::find($id);
-    // $user->fill($request->all())->save();
-    // return redirect('./teacher');
-    $input = $request->all();
-    $user->fill($input)->save();
-    return redirect('./students');
-    //Session::flash('flash_message', 'Task successfully added!');
-});
-
-Route::delete('/deletestudent/{id}',function($id){
-    $user=User::find($id);
-    if (!is_null($user)) {
-        $user->delete();
-        return redirect('./students');
     }
 });
 

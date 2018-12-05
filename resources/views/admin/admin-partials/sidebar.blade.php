@@ -45,7 +45,7 @@
           <p>Students</p>
         </a>
         <ul class="dropdown-menu">
-          <li class="nav-item"><a  href="./students">All students</a></li>
+          <li class="nav-item"><a  href="{{ route('admin.students') }}">All students</a></li>
           <!-- <li class="nav-item"><a href="#">abc</a></li> -->
           </ul>
       </li>
@@ -79,12 +79,12 @@
           <p>Degree</p>
         </a>
         <ul class="dropdown-menu">
-          <li class="nav-item"><a href="degree">Degree</a></li>
-          <li class="nav-item"><a href="subdegree">Subdegree</a></li>
+          <li class="nav-item"><a href="{{ route('degree.index') }}">Degree</a></li>
+          <li class="nav-item"><a href="{{ route('subdegree.index') }}">Subdegree</a></li>
         </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/city">
+        <a class="nav-link" href="{{ route('city.index') }}">
           <i class="material-icons">dashboard</i>
           <p>Cities</p>
         </a>

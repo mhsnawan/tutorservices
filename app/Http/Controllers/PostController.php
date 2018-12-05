@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.admin-pages.posts.add-post');
     }
 
     /**
@@ -45,8 +45,7 @@ class PostController extends Controller
             $input['img'] = $path;
         }
         Post::create($input);
-        dd($input);
-        //return redirect('posts');
+        return redirect('admin/posts');
     }
 
     /**
@@ -83,7 +82,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         Post::findOrFail($post)->first()->fill($request->all())->save();
-        return redirect('posts');
+        return redirect('admin/posts');
     }
 
     /**
@@ -96,6 +95,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect('posts');
+        return redirect('admin/posts');
     }
 }
