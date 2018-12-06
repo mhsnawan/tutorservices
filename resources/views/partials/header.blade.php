@@ -30,17 +30,17 @@
                             <a href="/blog">Blog</a>
                         </li>
                     @guest
-                         
+
                         <li>
                             <a href="{{ route('login') }}">Sign In</a>
                         </li>
                         <li>
                             <a href="{{ route('register') }}">Join</a>
-                        </li> 
-                        @else      
+                        </li>
+                        @else
                         <li><a href="/inbox">Messages</a></li>
                         <li><a href="{{ route('courses') }}">Courses</a></li>
-                        <li><a href="{{ route('pending.request') }}">Requests</a></li>
+                        <li><a  href="{{ route('pending.request') }}" >Requests</a></li>
                         <li>
                             <a href="{{ route('gigs.index') }}">Gigs</a>
                             <ul class="sub-menu">
@@ -52,7 +52,7 @@
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li></li>
                         <li>
                             <a href="#" class="contains-sub-menu profile-image">
@@ -74,9 +74,9 @@
                         </li>
                         <li></li>
                         <li></li>
-                        
-                        
-                    @endguest  
+
+
+                    @endguest
                     </ul>
                 </nav>
             </div>

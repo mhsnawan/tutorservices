@@ -65,19 +65,19 @@ Route::group(['prefix'=>'admin'],function(){
         $students =User::all()->where('role', '1');
         return view('admin.admin-pages.students.students')->with(compact('students'));
     })->name('admin.students');
-    
+
     Route::get('/editstudent/{id}',function($id){
         $students = User::find($id);
         return view('admin.admin-pages.students.editstudent')->with(compact('students'));
     });
-    
+
     Route::put('/updatestudent/{id}',function(Request $request, $id){
         $user = User::find($id);
         $input = $request->all();
         $user->fill($input)->save();
         return redirect('admin/students');
     });
-    
+
     Route::delete('/deletestudent/{id}',function($id){
         $user=User::find($id);
         if (!is_null($user)){
@@ -92,19 +92,19 @@ Route::group(['prefix'=>'admin'],function(){
         $teachers =User::all()->where('role', '2');
         return view('admin.admin-pages.teachers.teachers')->with(compact('teachers'));
     });
-    
+
     Route::get('/editteacher/{id}',function($id){
         $teachers = User::find($id);
         return view('admin.admin-pages.teachers.editteacher')->with(compact('teachers'));
     });
-    
+
     Route::put('/updateteacher/{id}',function(Request $request, $id){
         $user = User::find($id);
         $input = $request->all();
         $user->fill($input)->save();
         return redirect('./teacher');
     });
-    
+
     Route::delete('/deleteteacher/{id}',function($id){
         $user=User::find($id);
         if (!is_null($user)) {
@@ -119,16 +119,16 @@ Route::group(['prefix'=>'admin'],function(){
         $admins =User::all()->where('role', '3');
         return view('admin.admin-pages.users.users')->with(compact('admins'));
     });
-    
+
     Route::get('/adduser',function(){
         return view('admin.admin-pages.users.addusers');
     });
-    
+
     Route::get('/edituser{id}',function($id){
         $admins = User::find($id);
         return view('admin.admin-pages.users.edituser')->with(compact('admins'));
     });
-    
+
     Route::delete('/deleteuser/{id}',function($id){
         $user=User::find($id);
         if (!is_null($user)) {
@@ -502,7 +502,7 @@ Route::get('/clcourse',function(){
 
 
 Route::get('/join', function(){
-    $MyObject = new User;   
+    $MyObject = new User;
     $MyObjects = array();
 
    $datas = Course::find(2)->course_teachers;
@@ -510,7 +510,7 @@ Route::get('/join', function(){
         $result = Teacher::find($data->teacher_id)->user();
         $MyObject->id = $result->id;
         $MyObjects[] = $MyObject;
-      
+
    }
    echo $MyObjects;
 });
@@ -521,7 +521,7 @@ Route::get('/feedback',function(){
     return view('feedback.pfeedback');
 });
 
+Route::get('/sprofile',function(){
 
-
-
-
+    return view('sprofile.sprofile-pages.sprofile-page');
+});
