@@ -477,6 +477,24 @@ Route::any('/searchresult',function(){
 Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
 Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
 
+Route::get('/courses',function(){
+    $courses = CourseTeacher::all();
+    return view('current-tech-course.courses')->with(compact('courses'));
+});
+
+Route::get('course/{id}',function($id){
+    $course = CourseTeacher::find($id);
+    $user = User::find($course->user_id)->first();
+    $subject = Course::find($course->course_id)->first();
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject'));
+})->name('course.view');
+
+Route::get('show-course', function(){
+    return view('current-tech-course.show-courses');
+});
+
+
+//=============================================================================///
 Route::get('/clcourse',function(){
 
     return view('current-tech-course.click-course');
@@ -504,20 +522,6 @@ Route::get('/feedback',function(){
 });
 
 
-Route::get('/courses',function(){
-    $courses = CourseTeacher::all();
-    return view('current-tech-course.courses')->with(compact('courses'));
-});
 
-Route::get('course/{id}',function($id){
-    $course = CourseTeacher::find($id);
-    $user = User::find($course->user_id)->first();
-    $subject = Course::find($course->course_id)->first();
-    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject'));
-})->name('course.view');
-
-Route::get('show-course', function(){
-    return view('current-tech-course.show-courses');
-});
 
 
