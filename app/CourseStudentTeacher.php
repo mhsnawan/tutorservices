@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CourseStudentTeacher extends Model
 {
     protected $fillable = [
-        'id','teacher_id', 'student_id', 'course_id', 'verified'
+        'id','course_teacher_id', 'teacher_id', 'student_id', 'course_id', 'verified'
     ];
 
     public function course_teacher()
@@ -25,5 +25,4 @@ class CourseStudentTeacher extends Model
         return $this->belongsTo('App\Course');
     }
 
-    public $timestamps = false;
 }

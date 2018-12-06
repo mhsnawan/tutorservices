@@ -97,6 +97,7 @@
 								<form method="POST" action="{{ route('enroll.store') }}" >
 									@csrf
 									<div class="field-wrapper">
+										<input type="text" value="{{ $course->id }}" name="course_teacher_id" hidden>
 										<input type="text" value="{{ $course->teacher_id }}" name="teacher_id" hidden>
 										<input type="text" value="{{ $course->course_id }}" name="course_id" hidden>
 										<input type="submit" value="Enroll Noww" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
