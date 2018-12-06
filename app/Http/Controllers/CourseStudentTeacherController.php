@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\CourseStudentTeacher;
 use App\CourseTeacher;
 use App\Student;
+use App\Course;
 use App\Teacher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class CourseStudentTeacherController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $courses = CourseTeacher::all();
@@ -105,7 +106,7 @@ class CourseStudentTeacherController extends Controller
         $teacher = Teacher::where('user_id', $id)->first();
         $courseTeacher = CourseStudentTeacher::where('teacher_id', $teacher->id)->where('verified', 0)->get();
         foreach ($courseTeacher as $item){
-            $student = Student::find($item->student_id)->user; 
+            $student = Student::find($item->student_id)->user;
             $course = Course::find($item->course_id);
             $teacherCourse = CourseTeacher::find($item->course_teacher_id);
             $data[] = array(
@@ -132,5 +133,5 @@ class CourseStudentTeacherController extends Controller
         return redirect('/pending-request');
     }
 
-    
+
 }
