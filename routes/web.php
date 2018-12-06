@@ -46,10 +46,10 @@ Route::get('/example',function(){
     return view('pages.example');
 });
 
-Route::get('/profile',function(){
-    $users = App\User::find(1)->edinfos();
-    return $users;
-});
+// Route::get('/profile',function(){
+//     $users = App\User::find(1)->edinfos();
+//     return $users;
+// });
 
 
 // ====================================== ADMIN ROUTES ==================================================//
@@ -480,7 +480,7 @@ Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify
 Route::get('/courses',function(){
     $courses = CourseTeacher::all();
     return view('current-tech-course.courses')->with(compact('courses'));
-});
+})->name('courses');
 
 Route::get('course/{id}',function($id){
     $course = CourseTeacher::find($id);

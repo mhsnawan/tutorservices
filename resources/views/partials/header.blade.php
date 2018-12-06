@@ -39,7 +39,7 @@
                         </li> 
                         @else      
                         <li><a href="/inbox">Messages</a></li>
-                        
+                        <li><a href="{{ route('courses') }}">Courses</a></li>
                         <li><a href="{{ route('pending.request') }}">Requests</a></li>
                         <li>
                             <a href="{{ route('gigs.index') }}">Gigs</a>
