@@ -470,10 +470,7 @@ Route::get('/pending-request',function(){
 
     return view('current-tech-course.course-request');
 });
-Route::get('/shcourse',function(){
 
-    return view('current-tech-course.show-courses');
-});
 Route::get('/clcourse',function(){
 
     return view('current-tech-course.click-course');
@@ -500,3 +497,29 @@ Route::get('/feedback',function(){
 
     return view('feedback.pfeedback');
 });
+
+
+Route::get('/courses',function(){
+    $courses = CourseTeacher::all();
+    return view('current-tech-course.courses')->with(compact('courses'));
+});
+
+Route::get('course/{id}',function($id){
+    $course = CourseTeacher::find($id);
+    $user = User::find($course->user_id)->first();
+    $subject = Course::find($course->course_id)->first();
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject'));
+})->name('course.view');
+
+Route::get('show-course', function(){
+    return view('current-tech-course.show-courses');
+});
+
+Route::get('profile/{id}', function($id){
+    $user= User::find($id);
+    $teacher = User::find($id)->teacher;
+    $edinfos = User::find($id)->edinfos;
+    $certifications = User::find($id)->certifications;
+    $experiences = User::find($id)->experiences;
+    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+})->name('profile.id');

@@ -12,7 +12,6 @@
 
 <script>
     function getMessages(user_id){
-        console.log('im in func');
         $.ajax({
             url: "{{ route('get-con') }}",
             data: {

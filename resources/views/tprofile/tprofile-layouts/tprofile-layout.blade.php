@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-
-<link rel="stylesheet" href="css/a.css" />
+<link rel="stylesheet" href={{ asset("css/a.css") }}>
     	@include('partials.head')
-
-
-
       <style type="text/css">
       .imag{
       display: block;
@@ -138,7 +132,7 @@ div.avatar input {
 <!-- Js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?v=3"></script>
-<script src="js/timber.master.min.js"></script>
+<script src="{{ asset("js/timber.master.min.js") }}"></script>
 <!-- Js proofile -->
 
 

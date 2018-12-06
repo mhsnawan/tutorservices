@@ -19,6 +19,8 @@ class CreateCourseTeachersTable extends Migration
             $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->Integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
+            $table->Integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->string('area');
             $table->string('city');
@@ -30,6 +32,7 @@ class CreateCourseTeachersTable extends Migration
             $table->string('time_from');
             $table->string('time_to');
             $table->string('description');
+            $table->timestamps();
         });
     }
 

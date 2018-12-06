@@ -63,6 +63,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    public function course_teachers(){
+        return $this->hasMany('App\CourseTeacher');
+    }
     ///////////////////Relations with chat///////////////////
     public function conversations() {
         return $this->belongsToMany('App\Conversations', 'conversation_users', 'user_id', 'conversation_id');
@@ -72,6 +75,8 @@ class User extends Authenticatable
     public function messages(){
         return $this->hasMany('App\Messages', 'conversation_id', 'id');
     }
+
+    
 
     ////////////////////////////////////////////////////////////
 
