@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CourseStudentTeacher;
 use App\CourseTeacher;
+use App\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,8 @@ class CourseStudentTeacherController extends Controller
     {
         $id = Auth::user()->id;
         $input = $request->all();
-        $input['student_id'] = $id;
+        $s = Student::where('user_id', $id)->first();
+        $input['student_id'] = $s->id;
         CourseStudentTeacher::create($input);
     }
 

@@ -92,12 +92,27 @@
 		<aside class="column width-3 sidebar right">
 			<div class="sidebar-inner">
 				<div class="widget widget-top-rated-products">
-					<h3 class="widget-title">More Jobs For U</h3>
+					<div class="row">
+							<div class="button-group">
+								<form method="POST" action="{{ route('enroll.store') }}" >
+									@csrf
+									<div class="field-wrapper">
+										<input type="text" value="{{ $course->teacher_id }}" name="teacher_id" hidden>
+										<input type="text" value="{{ $course->course_id }}" name="course_id" hidden>
+										<input type="submit" value="Enroll Noww" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
+									</div>
+								</form>
+								
+								<a href="#" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
+							</div>
+							
+					</div>
+					{{--  <h3 class="widget-title">More Jobs For U</h3>
 					<ul class="product-list list-group">
 						<li>
 							<a href="#">
 								<span class="product-thumbnail">
-								{{--  <img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />  --}}
+								<img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />
 							</span>
 								<span class="product-title">Need Chemistry<br> for 2nd year</span>
 							</a>
@@ -106,7 +121,7 @@
 						<li>
 							<a href="#">
 								<span class="product-thumbnail">
-								{{--  <img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />  --}}
+								<img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />
 							</span>
 								<span class="product-title">Need Chemistry<br> for 2nd year</span>
 							</a>
@@ -114,7 +129,7 @@
 						<li>
 							<a href="#">
 								<span class="product-thumbnail">
-									{{--  <img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />  --}}
+									<img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />
 								</span>
 								<span class="product-title">Need Spoken <br>English</span>
 							</a>
@@ -122,12 +137,12 @@
 						<li>
 							<a href="#">
 								<span class="product-thumbnail">
-									{{--  <img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />  --}}
+									<img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />
 								</span>
 								<span class="product-title">Need Spoken English</span>
 							</a>
 						</li>
-					</ul>
+					</ul>  --}}
 				</div>
 			</div>
 		</aside>

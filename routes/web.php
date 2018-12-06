@@ -286,6 +286,28 @@ Route::post('make-conversation', function(Request $request){
 
 // ======================================= END CHAT =================================================//
 
+// ============================ TUTOR PROFILE ROUTES ======================================//
+Route::get('/profile',function(){
+    $id = Auth::user()->id;
+    $user= User::find($id);
+    $teacher = User::find($id)->teacher;
+    $edinfos = User::find($id)->edinfos;
+    $certifications = User::find($id)->certifications;
+    $experiences = User::find($id)->experiences;
+    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+});
+
+Route::get('profile/{id}', function($id){
+    $user= User::find($id);
+    $teacher = User::find($id)->teacher;
+    $edinfos = User::find($id)->edinfos;
+    $certifications = User::find($id)->certifications;
+    $experiences = User::find($id)->experiences;
+    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+})->name('profile.id');
+
+//===================================TUTOR PROFILE END=========================================//
+
 Route::get('/tutor',function(){
     $id = Auth::user()->id;
     $user = User::find($id);
@@ -317,15 +339,15 @@ Route::get('/courses',function(){
     return view('tportal.tportal-pages.courses');
 });
 
-Route::get('/tprofile',function(){
-    $id = Auth::user()->id;
-    $user= User::find($id);
-    $teacher = User::find($id)->teacher;
-    $edinfos = User::find($id)->edinfos;
-    $certifications = User::find($id)->certifications;
-    $experiences = User::find($id)->experiences;
-    return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
- });
+// Route::get('/tprofile',function(){
+//     $id = Auth::user()->id;
+//     $user= User::find($id);
+//     $teacher = User::find($id)->teacher;
+//     $edinfos = User::find($id)->edinfos;
+//     $certifications = User::find($id)->certifications;
+//     $experiences = User::find($id)->experiences;
+//     return view('tportal.tprofile-pages.tprofile-page')->with(compact(['user', 'edinfos', 'certifications', 'experiences', 'teacher']));
+//  });
 
  // ============================ student-portal ROUTES ======================================//
 Route::get('/scourses',function(){
@@ -450,25 +472,13 @@ Route::any('/searchresult',function(){
 
 
 
-// ============================ tprofile ROUTES ======================================//
-Route::get('/profile',function(){
-    $id = Auth::user()->id;
-    $user= User::find($id);
-    $teacher = User::find($id)->teacher;
-    $edinfos = User::find($id)->edinfos;
-    $certifications = User::find($id)->certifications;
-    $experiences = User::find($id)->experiences;
-    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-});
-Route::get('/posttution',function(){
 
-    return view('tprofile.tprofile-pages.posttution');
-});
+
+
 // ============================ course ROUTES ======================================//
 
 Route::get('/pending-request',function(){
-
-    return view('current-tech-course.course-request');
+    return view('tportal.tportal-pages.requests.course-request');
 });
 
 Route::get('/clcourse',function(){
@@ -488,7 +498,6 @@ Route::get('/join', function(){
         $MyObjects[] = $MyObject;
       
    }
-
    echo $MyObjects;
 });
 
@@ -515,11 +524,4 @@ Route::get('show-course', function(){
     return view('current-tech-course.show-courses');
 });
 
-Route::get('profile/{id}', function($id){
-    $user= User::find($id);
-    $teacher = User::find($id)->teacher;
-    $edinfos = User::find($id)->edinfos;
-    $certifications = User::find($id)->certifications;
-    $experiences = User::find($id)->experiences;
-    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-})->name('profile.id');
+
