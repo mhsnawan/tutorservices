@@ -203,7 +203,7 @@
         				<div class="section-block pt-50">
         					<div class="row flex">
         						<div class="column width-5 right center-on-mobile">
-        							<p class="title-xlarge font-alt-2 weight-light color-theme pu-20 mb-10">20+ years</p>
+        							<p class="title-xlarge font-alt-2 weight-light color-theme pu-20 mb-10">5+ years</p>
         							<p class="weight-bold tex-large pu-20 mb-mobile-50">Our Combined Experience</p>
         						</div>
         						<div class="column width-5 offset-1">
@@ -328,7 +328,7 @@
                 							<div class="feature-column">
                 								<div class="stat">
                 									<div class="stat-inner">
-                										<h4 class="mb-20 font-alt-2 weight-light"><em>Projects Completed</em></h4>
+                										<h4 class="mb-20 font-alt-2 weight-light"><em>Tutors</em></h4>
                 										<p class="counter"><strong><span class="stat-counter" data-count-from="1100" data-count-to="1234">1,100</span>+</strong></p>
                 										<p class="description mt-10">Since Creation in 2013</p>
                 									</div>
@@ -339,7 +339,7 @@
                 							<div class="feature-column">
                 								<div class="stat">
                 									<div class="stat-inner">
-                										<h4 class="mb-20 font-alt-2 weight-light"><em>Awards &amp; Mentions</em></h4>
+                										<h4 class="mb-20 font-alt-2 weight-light"><em>Students</em></h4>
                 										<p class="counter"><strong><span class="stat-counter" data-count-from="1440" data-count-to="1640">1440</span>+</strong></p>
                 										<p class="description mt-10">Best Design/Developer</p>
                 									</div>

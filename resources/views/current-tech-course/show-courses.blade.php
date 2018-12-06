@@ -1,3 +1,4 @@
+
 <!-- Intro Title Section 2 End -->
 @extends('current-tech-course.clayouts.clayout')
 
@@ -35,196 +36,81 @@
 					<div class="row">
 						<div class="column width-12">
 							<div class="row grid content-grid-3">
-								<div class="grid-item product portrait grid-sizer">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<span class="onsale"></span>
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-1-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
+								<div class="row flex boxes">
+						<div class="column width-12">
+							<div class="cart-totals box xlarge bkg-grey-ultralight">
+                 <p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >Need Coparete Law Development &amp; Illustration Tutor.  "</p>
+                  <div class="column width-3">
+							       	<p class="mb-0">Posted By:Aqeel Ahmad<br>Posted 2018-10-5</p>
+							      </div>
+                  <div class="column width-3">
+								       <span class="text-small weight-bold"><span class="icon-location"></span>Islamabad ExpressWay</span>
 									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												<span class="font-alt-2">&amp;</span> Database
-											</a>
-										</h3>
-										<span class="product-price price"><del><span class="amount"></span></del><ins><span class="amount">0065.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
+											 <br>
+                   <div class="column width-6">
+							          <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
+								         <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">View Details</a>
 										</div>
+	                    	<a href="#">Requirements</a>
+						  	</div>
+						</div>
+						<div class="column width-12">
+							<div class="cart-totals box xlarge bkg-grey-ultralight">
+                 <p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >Need Coparete Law Development &amp; Illustration Tutor.  "</p>
+                  <div class="column width-3">
+							       	<p class="mb-0">Posted By:Aqeel Ahmad<br>Posted 2018-10-5</p>
+							      </div>
+                  <div class="column width-3">
+								       <span class="text-small weight-bold"><span class="icon-location"></span>Islamabad ExpressWay</span>
 									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-2-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
+											 <br>
+                   <div class="column width-6">
+							          <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
+								         <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">View Details</a>
 										</div>
+	                    	<a href="#">Requirements</a>
+						  	</div>
+						</div>
+						<div class="column width-12">
+							<div class="cart-totals box xlarge bkg-grey-ultralight">
+                 <p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >Need Coparete Law Development &amp; Illustration Tutor.  "</p>
+                  <div class="column width-3">
+							       	<p class="mb-0">Posted By:Aqeel Ahmad<br>Posted 2018-10-5</p>
+							      </div>
+                  <div class="column width-3">
+								       <span class="text-small weight-bold"><span class="icon-location"></span>Islamabad ExpressWay</span>
 									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												Networking
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">5.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
+											 <br>
+                   <div class="column width-6">
+							          <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
+								         <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">View Details</a>
 										</div>
+	                    	<a href="#">Requirements</a>
+						  	</div>
+						</div>
+						<div class="column width-12">
+							<div class="cart-totals box xlarge bkg-grey-ultralight">
+                 <p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >Need Coparete Law Development &amp; Illustration Tutor.  "</p>
+                  <div class="column width-3">
+							       	<p class="mb-0">Posted By:Aqeel Ahmad<br>Posted 2018-10-5</p>
+							      </div>
+                  <div class="column width-3">
+								       <span class="text-small weight-bold"><span class="icon-location"></span>Islamabad ExpressWay</span>
 									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-5-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
+											 <br>
+                   <div class="column width-6">
+							          <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
+								         <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">View Details</a>
 										</div>
-									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-													<span class="font-alt-2">&amp;</span> OS
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">125.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-10-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												asds
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">35.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-4-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												Phs
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">55.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">study</a>
-										</div>
-									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-6-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												Fdfsdf
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">47.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-7-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												Hipster Nylon <span class="font-alt-2">&amp;</span> Architecture
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">99.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-3-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												Cotton <span class="font-alt-2">&amp;</span>
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">135.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-								</div>
-								<div class="grid-item product portrait">
-									<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
-										<a class="overlay-link" href="single-product.html">
-											<img src="images/shop/grid/large-margins/product-9-portrait.jpg" alt=""/>
-										</a>
-										<div class="product-actions center">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-									<div class="product-details center">
-										<h3 class="product-title">
-											<a href="#">
-												chemistry
-											</a>
-										</h3>
-										<span class="product-price price"><ins><span class="amount">129.00</span></ins></span>
-										<div class="product-actions-mobile">
-											<a href="#" class="button pill add-to-cart-button medium">Study</a>
-										</div>
-									</div>
-								</div>
+	                    	<a href="#">Requirements</a>
+						  	</div>
+						</div>
+
+
+
+					</div>
+
+
 							</div>
 						</div>
 					</div>
@@ -235,42 +121,8 @@
 			<!-- Sidebar -->
 			<aside class="column width-3 sidebar right">
 				<div class="sidebar-inner">
-					<div class="widget widget-product-categories">
-						<h3 class="widget-title">Categories</h3>
-						<ul class="product-categories">
-							<li><a href="#">All Courses</a></li>
-							<li><a href="#">Computer Science</a></li>
-							<li><a href="#">Data Scineces</a></li>
-							<li><a href="#">Arts</a></li>
-							<li><a href="#">Medical Sceinces</a></li>
-							<li><a href="#"Eng. Sciences</a></li>
-						</ul>
-					</div>
-					<div class="widget widget-top-rated-products">
-						<h3 class="widget-title">Top Rated</h3>
-						<ul class="product-list list-group">
-							<li>
-								<a href="#">
-									<span class="product-thumbnail">
-										<img src="images/shop/cart/cart-thumb-small-4.jpg" alt="" />
-									</span>
-									<span class="product-title">Comuter</span>
-								</a>
-								<span class="star-rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-outlined"></span></span>
-								<span class="product-price price"><del><span class="amount"></span></del><ins><span class="amount">17.00</span></ins></span>
-							</li>
-							<li>
-								<a href="#">
-									<span class="product-thumbnail">
-										<img src="images/shop/cart/cart-thumb-small-5.jpg" alt="" />
-									</span>
-									<span class="product-title">Medical science</span>
-								</a>
-								<span class="star-rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-outlined"></span><span class="icon-star-outlined"></span></span>
-								<span class="product-price price"><ins><span class="amount">17.00</span></ins></span>
-							</li>
-						</ul>
-					</div>
+
+
 					<div class="widget widget-product-tag-cloud">
 						<h3 class="widget-title">Corse Tags</h3>
 						<ul class="product-tag-cloud tag-cloud">
@@ -310,7 +162,7 @@
 								</a>
 								<span class="product-price price"><ins><span class="amount">17.00</span></ins></span>
 							</li>
-							
+
 							<li class="cart-actions">
 								<a href="cart.html" class="view-cart fade-location">View Cart</a>
 								<a href="checkout.html" class="checkout fade-location"><span class="icon-check"></span> Checkout</a>
@@ -341,12 +193,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="widget">
-						<div class="box bkg-grey-ultralight mb-50">
-							<h3 class="widget-title">Shipping Options</h3>
-							<p><strong>Starting a new business?</strong> Then Warhol is for you! Warhol comes with a multitude of carfully designed page layouts and purpose built content blocks that when pieced together create stunning, professional layouts.<p>
-						</div>
-					</div>
+
 				</div>
 			</aside>
 			<!-- Sidebar End -->
