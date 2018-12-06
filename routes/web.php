@@ -474,35 +474,8 @@ Route::any('/searchresult',function(){
 
 // ============================ course ROUTES ======================================//
 
-Route::get('/pending-request',function(){
-    $data = array();
-    $id = Auth::user()->id;
-    $teacher = Teacher::where('user_id', $id)->first();
-    $courseTeacher = CourseStudentTeacher::where('teacher_id', $teacher->id)->where('verified', 0)->get();
-    foreach ($courseTeacher as $item){
-        $student = Student::find($item->student_id)->user; 
-        $course = Course::find($item->course_id);
-        $teacherCourse = CourseTeacher::find($item->course_teacher_id);
-        $data[] = array(
-            'id' => $course->id,
-            'tution_title' => $teacherCourse->title,
-            'tution_area' => $teacherCourse->area,
-            'tution_city' => $teacherCourse->city,
-            'course_id' => $course->id,
-            'course_name' => $course->course_name,
-            'teacher_id' => $item->teacher_id,
-            'student_user_id' => $student->id,
-            'student_name' => $student->name,
-            'student_phone' => $student->phone,
-            'created_at' => $item->created_at
-            );
-    }
-    return view('tportal.tportal-pages.requests.course-request')->with(compact('data'));
-})->name('pending.request');
-
-Route::get('accept/{$id}', function($id){
-    return view('feedback.pfeedback');
-})->name('accept.course');
+Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
+Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
 
 Route::get('/clcourse',function(){
 

@@ -43,7 +43,7 @@
 								</td>
 								<td>
 									<div class="row">
-										<form method="GET" action="{{ route('accept.course', $item['id']) }}">
+										<form method="GET" action="{{ route('verify.enroll', $item['id']) }}">
 											<button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Verify User">
 												<i class="material-icons">verified_user</i>
 											</button>
