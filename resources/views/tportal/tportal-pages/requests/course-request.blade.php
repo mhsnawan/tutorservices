@@ -24,7 +24,7 @@
 							@foreach ($data as $item)
 							<tr class="cart-item">
 								<td class="product-name">
-									<a href="" class="product-title">{{ $item['tution_title'] }}</a>
+									<a href="{{ route('course.view', $item['course_id']) }}" class="product-title">{{ $item['tution_title'] }}</a>
 								</td>
 								<td class="product-price">
 									<span class="amount">{{ $item['student_name'] }}</span>
@@ -36,14 +36,14 @@
 									<span class="amount">{{ $item['tution_area'] }}, {{ $item['tution_city'] }}</span>
 								</td>
 								<td class="product-subtotal">
-									<span class="amount">Date and time</span>
+									<span class="amount">{{ $item['created_at'] }}</span>
 								</td>
 								<td class="product-subtotal">
 									<span class="amount">Not Verified</span>
 								</td>
 								<td>
 									<div class="row">
-										<form method="GET" action="">
+										<form method="GET" action="{{ route('accept.course', $item['id']) }}">
 											<button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Verify User">
 												<i class="material-icons">verified_user</i>
 											</button>

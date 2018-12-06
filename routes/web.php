@@ -472,11 +472,6 @@ Route::any('/searchresult',function(){
      return view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses', 'user']));
 });
 
-
-
-
-
-
 // ============================ course ROUTES ======================================//
 
 Route::get('/pending-request',function(){
@@ -499,10 +494,15 @@ Route::get('/pending-request',function(){
             'student_user_id' => $student->id,
             'student_name' => $student->name,
             'student_phone' => $student->phone,
+            'created_at' => $item->created_at
             );
     }
     return view('tportal.tportal-pages.requests.course-request')->with(compact('data'));
-});
+})->name('pending.request');
+
+Route::get('accept/{$id}', function($id){
+    return view('feedback.pfeedback');
+})->name('accept.course');
 
 Route::get('/clcourse',function(){
 
