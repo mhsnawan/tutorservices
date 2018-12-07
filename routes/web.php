@@ -148,6 +148,16 @@ Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function()
     Route::resource('gigs', 'CourseTeacherController');
     Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
     Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
+    Route::get('/charges',function(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $rate = User::find($id)->teacher;
+        return view('tportal.tportal-pages.charges')->with(compact(['rate', 'user']));
+    });
+    
+    Route::post('/charges',function(Request $request){
+        echo $request;
+    });
 });
 
 // ========================================= END TUTOR ROUTES =================================================//
@@ -336,16 +346,7 @@ Route::get('/current-tutions',function(){
 });
 
 
-Route::get('/charges',function(){
-    $id = Auth::user()->id;
-    $user = User::find($id);
-    $rate = User::find($id)->teacher;
-    return view('tportal.tportal-pages.charges')->with(compact(['rate', 'user']));
-});
 
-Route::post('/charges',function(Request $request){
-    echo $request;
-});
 
 Route::get('/courses',function(){
     return view('tportal.tportal-pages.courses');

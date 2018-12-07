@@ -38,8 +38,13 @@
                             <a href="{{ route('register') }}">Join</a>
                         </li>
                         @else
-                        <li><a href="/inbox">Messages</a></li>
+                        
                         <li><a href="{{ route('courses') }}">Courses</a></li>
+                        <li><a href="/inbox">Messages</a></li>
+                        @if (Auth::user()->role == 1)
+                        <li><a href="#">Enrolled In</a></li>
+                        @endif
+                        @if(Auth::user()->role == 2)
                         <li><a  href="{{ route('pending.request') }}" >Requests</a></li>
                         <li>
                             <a href="{{ route('gigs.index') }}">Gigs</a>
@@ -52,6 +57,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
 
                         <li></li>
                         <li>

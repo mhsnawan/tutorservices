@@ -16,7 +16,7 @@ class StudentMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && $request->user()->type != 1)
+        if ($request->user() && $request->user()->role != 1)
         {
         return new Response(view('unauthorized')->with('role', 'STUDENT'));
         }

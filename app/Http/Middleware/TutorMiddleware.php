@@ -16,7 +16,7 @@ class TutorMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && $request->user()->type != 2)
+        if ($request->user() && $request->user()->role != 2)
         {
         return new Response(view('unauthorized')->with('role', 'TUTOR'));
         }
