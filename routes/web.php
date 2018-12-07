@@ -17,6 +17,7 @@ use App\Course;
 use App\CourseTeacher;
 use App\Degree;
 use App\SubDegree;
+use App\EdInfo;
 use App\ConversationUser;
 use App\Messages;
 use App\Conversations;
@@ -528,3 +529,37 @@ Route::get('/sprofile',function(){
 
     return view('sprofile.sprofile-pages.sprofile-page');
 });
+
+Route::get('/admin/documents/{id}',function($id)
+{ 
+    $teacher = User::find($id);
+     $ed = EdInfo::where('user_id', $id)->get();
+    //  echo $ed;
+    return view('admin.admin-pages.documents')->with(compact('teacher','ed'));
+});
+
+Route::post('/adminsearch',function()
+{
+    $search = Input::get('search');
+    if($search != '')
+    {
+        $data=User::where('name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('city', 'LIKE', '%'.$search.'%')
+                    ->paginate(3)
+                    ->setpath('');
+                $data->appends(array(
+                    'search' => Input::get('search'),
+                ));
+
+                if(count($data) > 0)
+                {
+                    return  view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
+                }
+                return view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
+     }
+
+    $data = User::paginate(3);
+     return view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
+
+
+})->name('adminsearch');

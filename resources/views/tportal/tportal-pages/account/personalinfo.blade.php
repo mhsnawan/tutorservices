@@ -8,7 +8,7 @@
                 <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
                     <div>
                         <div>
-                            <form method="POST" action="{{ route('account.update', $user->id) }}">
+                            <form method="POST" action="{{ route('account.update', $user->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 {{ method_field("PUT") }}
                                 <div class="column width-12">

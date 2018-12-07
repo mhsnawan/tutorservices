@@ -10,12 +10,41 @@
                 </div>
                 <nav class="navigation nav-block secondary-navigation nav-right">
                     <ul>
-                        <li>
+                            <li style="">
+                                    <!-- Search -->
+                                   
+                                               <a  onclick="myFunction()" type="submit">
+                                                    <span class="icon-magnifying-glass"></span>       
+                                               </a> 
+                                       
+                                    <div style=" width:100%;margin-top:-25px;margin-left:-162px;" id="myDIV">
+                                            <form action="./searchresult" method="post">
+                                                {{csrf_field()}}
+                                                    
+                                                    <input style="border-radius:40px;height:5px;width:222px;" type="text" class="form-control" id="search" name="search" placeholder="search">
+                                                    
+                                            </form>
+                                            </div>
+                                            <script>
+                                                    function myFunction() {
+                                                        var x = document.getElementById("myDIV");
+                                                        if (x.style.display === "none") {
+                                                            x.style.display = "block";
+                                                        } else {
+                                                            x.style.display = "none";
+                                                        }
+                                                    }
+                                                    </script>
+                                    {{-- <a href="#search-modal" data-content="inline" data-toolbar="" data-aux-classes="tml-search-modal" data-modal-mode data-modal-width="1000" data-lightbox-animation="fade" data-nav-exit="false" class="lightbox-link nav-icon">
+                                        <span class="icon-magnifying-glass"></span>
+                                    </a> --}}
+                                </li>
+                        {{--  <li>
                             <!-- Search -->
                             <a href="#search-modal" data-content="inline" data-toolbar="" data-aux-classes="tml-search-modal" data-modal-mode data-modal-width="1000" data-lightbox-animation="fade" data-nav-exit="false" class="lightbox-link nav-icon">
                                 <span class="icon-magnifying-glass"></span>
                             </a>
-                        </li>
+                        </li>  --}}
                         <li class="aux-navigation hide">
                             <!-- Aux Navigation -->
                             <a href="#" class="navigation-show side-nav-show nav-icon">
@@ -61,8 +90,10 @@
 
                         <li></li>
                         <li>
-                            <a href="#" class="contains-sub-menu profile-image">
-                            <img src="http://placehold.it/30x30" class="img-circle special-img"></a>
+                                <a style="" href="#" class="contains-sub-menu profile-image">
+                                        <i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }}
+                                <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;"
+                                src="storage/{{Auth::user()->cnic_img}}" class="img-circle special-img"></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/profile">My Profile</a>

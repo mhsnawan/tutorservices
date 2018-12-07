@@ -54,8 +54,10 @@ class EdInfoController extends Controller
         $user= Auth::user();
         $input = $request->all();
         if($request->degree_img != null){
-            $path = $request->file('degree_img')->store('uploads');
-            $input['degree_img'] = $path;
+            $filename =  $request->degree_img->getClientOriginalName();
+            $path = $request->file('degree_img')->storeAs('public/uploads',$filename);
+            $second =  $request->file('degree_img')->storeAs('uploads',$filename);
+            $input['degree_img'] = $second;
         }
         $degreeLevel = Degree::find($input['degree_level']);
         $subLevel = SubDegree::find($input['title']);

@@ -16,14 +16,21 @@
                 <th>Picture</th>
                 <th>ID</th>
                 <th>Teacher Name</th>
+                <th>Documents</th>
                 <th>Actions</th>
               </thead>
               <tbody>
                   @foreach ($teachers as $teacher)
                 <tr>
-                    <td style="width:70px;height:70px;cover;border-radius:50%;"><img  src="abc.png" class="img-responsive" ></td>
+                    <td >
+                      <img style="width:70px;height:70px;cover;border-radius:50%;" src="{{asset("storage/$teacher->cnic_img")}}" class="img-responsive" >
+                    </td>
+                    
                     <td>{{ $teacher->id }}</td>
                     <td>{{ $teacher->name }}</td>
+                    <td>
+                        <form method="GET" action="./documents/{{ $teacher->id }}"><input type="submit" value="documents"></input></form>
+                    </td>
                     <td>
                         <div class="row">
                             <form method="GET" action="./editteacher/{{ $teacher->id }}">
