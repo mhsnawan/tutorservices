@@ -92,6 +92,12 @@ class UserController extends Controller
      */
     public function update(Request $request, string $user)
     {
+
+        // $this->validate($request,[
+        //     'cnic_img'  =>
+        //     'required|image|mimes:jpeg,png,jpg,png|max:3072'
+
+        // ]);
         $input = $request->all();
       
         if($request->cnic_img != null){
