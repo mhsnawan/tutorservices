@@ -1,4 +1,4 @@
-@extends('tportal.tportal-layouts.tportal-layout')
+@extends('tportal.tportal-layouts.forsearchresults')
 
 @section('content')
 <!-- Product Details -->
