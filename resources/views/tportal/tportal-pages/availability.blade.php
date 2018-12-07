@@ -4,7 +4,7 @@
     <div id="tabs-team-pane-2" class="active animate">
       <div class="tab-content">
         <!-- Team Grid -->
-        <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
+        <div class="row content-grid-2">
           <div>
             <div class="signup-form-container create-account horizontal">
               <form class="contact-form" action="php/send-email.php" method="post" novalidate>

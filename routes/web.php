@@ -32,11 +32,10 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::resource('account', 'UserController');
 Route::resource('edinfo', 'EdInfoController');
-Route::resource('certification', 'CertificationController');
-Route::resource('experience', 'ExperienceController');
+
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
-Route::resource('gigs', 'CourseTeacherController');
+
 Route::resource('enroll', 'CourseStudentTeacherController');
 Route::resource('blog', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
@@ -141,6 +140,17 @@ Route::group(['prefix'=>'admin'],function(){
 
 // ========================================= END ADMIN ROUTES =================================================//
 
+
+// ========================================= TUTOR ROUTES =================================================//
+Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function(){
+    Route::resource('certification', 'CertificationController');
+    Route::resource('experience', 'ExperienceController');
+    Route::resource('gigs', 'CourseTeacherController');
+    Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
+    Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
+});
+
+// ========================================= END TUTOR ROUTES =================================================//
 Route::get('/admin',function(){
     return view('admin.admin-pages.dashboard');
 });
@@ -473,9 +483,6 @@ Route::any('/searchresult',function(){
 });
 
 // ============================ course ROUTES ======================================//
-
-Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
-Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
 
 Route::get('/courses',function(){
     $courses = CourseTeacher::all();

@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Http\Response;
 
 use Closure;
 
-class IsAdmin
+class TutorMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,10 +16,10 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->isAdmin()) {
-            return $next($request);
+        if ($request->user() && $request->user()->type != 2)
+        {
+        return new Response(view('unauthorized')->with('role', 'TUTOR'));
         }
-        return redirect('home');
-        
+        return $next($request);
     }
 }
