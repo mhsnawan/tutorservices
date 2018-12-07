@@ -93,7 +93,7 @@
                                 <a style="" href="#" class="contains-sub-menu profile-image">
                                         <i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }}
                                 <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;"
-                                src="storage/{{Auth::user()->cnic_img}}" class="img-circle special-img"></a>
+                                src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img"></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="/profile">My Profile</a>

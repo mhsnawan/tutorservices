@@ -2,14 +2,24 @@
 @section('content')
 <br><br><br>
 <div class="profile clearfix">
-  <div  class="imag">
-    <img src="images/team/team-member-8.jpg" class="img-cover">
+  <div class="imag">
+    <img src="storage/{{Auth::user()->cover_img}}" class="img-cover">
+    <form id="cover" method="post" action={{ route('ucover') }} enctype="multipart/form-data">
+      @csrf
+      <input type="hidden" value="{{ $user->id }}" name="id">
+      <input style="bottom:0;left:22%" type="file" name="cover_img" id="cover_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+    </form>
     <input style="top:5%;right:82%" type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
   </div>
     <div class="user clearfix">
       <div class="avatar">
-        <img src="images/team/team-member-8.jpg" class="img-thumbnail img-profile">
-        <input style="bottom:0;left:22%" type="file" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+        <img src="storage/{{Auth::user()->profile_img}}" class="img-thumbnail img-profile">
+        <form id="target" method="post" action={{ route('uprofile') }} enctype="multipart/form-data">
+          @csrf
+          <input type="hidden" value="{{ $user->id }}" name="id">
+          <input style="bottom:0;left:22%" type="file" name="profile_img" id="profile_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+        </form>
+        
       </div>
       <br>
       <div class="column width-3">
@@ -278,5 +288,15 @@
       </div>
    </div>
 </div>
+
+<script>
+    $('#profile_img').change(function() {
+      $('#target').submit();
+    });
+
+    $('#cover_img').change(function() {
+      $('#cover').submit();
+    });
+</script>
 
 @endsection

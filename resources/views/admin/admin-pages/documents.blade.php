@@ -1,7 +1,5 @@
 
 <p>{{ $teacher->name }} CNIC</p>
-
-
 <div class="row">
 <img style="height:500px;width:500px;" class="img-responsive" 
 src=" {{asset("storage/$teacher->cnic_img")}}" alt="{{ $teacher->name }}" >

@@ -30,6 +30,8 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('cnic_img')->nullable();
             $table->integer('verfied')->default(0);
+            $table->string('profile_img')->default('uploads/default.png');
+            $table->string('cover_img')->default('uploads/default-cover.png');
             $table->rememberToken();
             $table->timestamps();
         });

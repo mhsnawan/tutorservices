@@ -42,6 +42,32 @@ Route::resource('blog', 'BlogController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
 // Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('uprofile', function(Request $request){
+    $input = $request->all();
+        if($request->profile_img != null){
+           $fileName =  $request->profile_img->getClientOriginalName();
+            $path = $request->file('profile_img')->storeAs('public/uploads',$fileName);
+            $second =  $request->file('profile_img')->storeAs('uploads',$fileName);
+            $input['profile_img'] = $second;
+        }
+        $user = User::findOrFail($input['id']);
+        $user->fill($input)->save();
+        return redirect('profile');
+})->name('uprofile');
+
+Route::post('ucover', function(Request $request){
+    $input = $request->all();
+        if($request->cover_img != null){
+           $fileName =  $request->cover_img->getClientOriginalName();
+            $path = $request->file('cover_img')->storeAs('public/uploads',$fileName);
+            $second =  $request->file('cover_img')->storeAs('uploads',$fileName);
+            $input['cover_img'] = $second;
+        }
+        $user = User::findOrFail($input['id']);
+        $user->fill($input)->save();
+        return redirect('profile');
+})->name('ucover');
+
 Route::get('/example',function(){
     return view('pages.example');
 });
