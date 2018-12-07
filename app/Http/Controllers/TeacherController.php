@@ -82,15 +82,7 @@ class TeacherController extends Controller
      */
     public function update(Request $request, string $teacher)
     {
-        // $abc = Teacher::where('user_id','=', $teacher)->get();
-        // $abc->hourly_rate = $request['hourly_rate'];
-        // $abc->daily_rate = $request['daily_rate'];
-        // $abc->weekly_rate = $request['weekly_rate'];
-        // $abc->monthly_rate = $request['monthly_rate'];
-        // $abc->save();
-        
         Teacher::where('user_id','=', $teacher)->first()->fill($request->all())->save();
-        //Teacher::findOrFail($teacher)->first()->fill($request->all())->save();
         return redirect('charges');
     }
 
@@ -104,4 +96,18 @@ class TeacherController extends Controller
     {
         //
     }
+
+    public function availability(){
+        $id = Auth::user()->id;
+        $user = Teacher::find($id);
+        return view('tportal.tportal-pages.account.availability')->with(compact(['user']));
+    }
+
+    public function availability_update(Request $request){
+        $input = $request->all();
+        $availability = Teacher::find($input['id'])->first();
+        $availability->fill($input)->save();
+        return redirect('availability');
+    }
+    
 }
