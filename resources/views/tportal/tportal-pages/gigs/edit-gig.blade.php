@@ -113,7 +113,7 @@
                             <select class="form-control dropdown" id="time_from" name="time_from" tabindex="10" required>
                                 <option value="" selected="selected" disabled="disabled">Select One</option>
                                 @for ($a=0; $a<=23; $a++)
-                                <option value="{{ $a }}:00" @if($tution->time_from == "{{$a }}:00") selected @endif>{{ $a }}:00</option> 
+                                <option value="{{ $a }}:00" @if($tution->time_from == $a.':00') selected @endif>{{ $a }}:00</option> 
                                 @endfor       
                             </select>
                         </div>
@@ -122,7 +122,7 @@
                             <select class="form-control dropdown" id="time_to" name="time_to" tabindex="11" required>
                                 <option value="" selected="selected" disabled="disabled">Select One</option>
                                 @for ($a=0; $a<=23; $a++)
-                                <option value="{{ $a }}:00" @if($tution->time_to == "{{ $a }}:00") selected @endif>{{ $a }}:00</option> 
+                                <option value="{{ $a }}:00" @if($tution->time_to == $a.':00') selected @endif>{{ $a }}:00</option> 
                                 @endfor       
                             </select>
                         </div>
