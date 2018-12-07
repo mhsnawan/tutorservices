@@ -25,7 +25,7 @@ class ExperienceController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         $experiences = User::find($id)->experiences;
-        return view('tportal.tportal-pages.experience')->with(compact(['experiences', 'user']));
+        return view('tportal.tportal-pages.account.experience')->with(compact(['experiences', 'user']));
     }
 
     /**

@@ -152,7 +152,13 @@ Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function()
         $id = Auth::user()->id;
         $user = User::find($id);
         $rate = User::find($id)->teacher;
-        return view('tportal.tportal-pages.charges')->with(compact(['rate', 'user']));
+        return view('tportal.tportal-pages.account.charges')->with(compact(['rate', 'user']));
+    });
+
+    Route::get('/availability',function(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('tportal.tportal-pages.account.availability')->with(compact(['user']));
     });
     
     Route::post('/charges',function(Request $request){
@@ -335,11 +341,7 @@ Route::get('/tutor',function(){
     $user = User::find($id);
     return view('tportal.tportal-pages.tportalpage')->with(compact(['user']));
 });
-Route::get('/availability',function(){
-    $id = Auth::user()->id;
-    $user = User::find($id);
-    return view('tportal.tportal-pages.availability')->with(compact(['user']));
-});
+
 
 Route::get('/current-tutions',function(){
     return view('tportal.tportal-pages.current-tutions');

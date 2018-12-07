@@ -26,7 +26,7 @@ class CertificationController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         $certifications = User::find($id)->certifications;
-        return view('tportal.tportal-pages.certification')->with(compact(['certifications', 'user']));  
+        return view('tportal.tportal-pages.account.certification')->with(compact(['certifications', 'user']));  
     }
 
     /**
