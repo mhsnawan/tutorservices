@@ -607,6 +607,7 @@ Route::get('all-enrolled-students', function(){
             'student_id' => $item->student_id,
             'student_name' => $student_record->name,
             'student_profile_img' => $student_record->profile_img,
+            'student_contact' => $student_record->phone,
             'course_name' => $course->course_name,
             'tution_type' => $course_teacher->type,
             'tution_area' => $course_teacher->area,

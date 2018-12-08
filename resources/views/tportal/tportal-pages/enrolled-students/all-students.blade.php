@@ -11,6 +11,7 @@
                                 <th class="product-thumbnail"></th>
                                 <th class="product-name">Student Name</th>
                                 <th class="product-price">Course</th>
+                                <th class="product-price">Contact</th>
                                 <th class="product-quantity">Location</th>
                                 <th class="product-quantity">Tution Type</th>
                                 <th class="product-quantity">Enrolled Date</th>
@@ -29,6 +30,9 @@
                                 </td>
                                 <td class="product-price">
                                     <span class="amount">{{ $item['course_name'] }}</span>
+                                </td>
+                                <td class="product-price">
+                                    <span class="amount">{{ $item['student_contact'] }}</span>
                                 </td>
                                 <td class="product-quantity">
                                     <span class="amount">{{ $item['tution_area'] }}, {{ $item['tution_city'] }}</span>

@@ -1,3 +1,6 @@
-.post-title a{
-color: #e711111;
+.avatar {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
