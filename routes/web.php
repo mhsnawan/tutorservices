@@ -597,7 +597,22 @@ Route::post('/adminsearch',function()
 Route::get('all-enrolled-students', function(){
     $id = Auth::user()->id;
     $teacher_id = Teacher::find($id);
-    $students = CourseStudentTeacher::where('teacher_id', $teacher_id->id)->where('verified', 1)->get();
-    echo $students;
-    //return view('tportal.tportal-pages.enrolled-students.all-students');
+    $students = CourseStudentTeacher::where('teacher_id', $teacher_id->id)->where('verified', 1)->distinct('student_id')->get();
+    $data = array();
+    foreach ($students as $item){
+        $student_record = Student::find($item->student_id)->user; //getting student info
+        $course_teacher = CourseTeacher::find($item->course_teacher_id);
+        $course = Course::find($item->course_id);
+        $data[] = array(
+            'student_id' => $item->student_id,
+            'student_name' => $student_record->name,
+            'student_profile_img' => $student_record->profile_img,
+            'course_name' => $course->course_name,
+            'tution_type' => $course_teacher->type,
+            'tution_area' => $course_teacher->area,
+            'tution_city' => $course_teacher->city,
+            'created_at' =>$item->updated_at
+            );
+    }
+    return view('tportal.tportal-pages.enrolled-students.all-students')->with(compact('data'));
 })->name('all-enrolled-students');

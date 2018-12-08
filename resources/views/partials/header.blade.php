@@ -100,7 +100,7 @@
                         <li></li>
                         <li>
                             <a style="" href="#" class="contains-sub-menu profile-image">
-                                <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img">
+                                <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{ Auth::user()->profile_img }}" class="img-circle special-img">
                                 <i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }}
                             </a>
                             <ul class="sub-menu">

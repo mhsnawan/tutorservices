@@ -17,28 +17,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $item)
                             <tr class="cart-item">
                                 <td class="product-thumbnail">
                                     <a href="#">
-                                        <img src="images/shop/cart/cart-thumb-small.jpg" class="avatar" alt="" />
+                                        <img src="storage/{{ $item['student_profile_img'] }}" class="avatar" alt="" />
                                     </a>
                                 </td>
                                 <td class="product-name">
-                                    <a href="" class="product-title">Aqeel</a>
+                                    <a href="" class="product-title">{{ $item['student_name'] }}</a>
                                 </td>
                                 <td class="product-price">
-                                    <span class="amount">Automata Theory</span>
+                                    <span class="amount">{{ $item['course_name'] }}</span>
                                 </td>
                                 <td class="product-quantity">
-                                    <span class="amount">Chakala Scheme 3, Rawalpindi</span>
+                                    <span class="amount">{{ $item['tution_area'] }}, {{ $item['tution_city'] }}</span>
                                 </td>
                                 <td class="product-subtotal">
-                                    <span class="amount">Online Tution</span>
+                                    <span class="amount">{{ $item['tution_type'] }}</span>
                                 </td>
                                 <td class="product-quantity">
                                     <span class="amount">15 Oct, 2018</span>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

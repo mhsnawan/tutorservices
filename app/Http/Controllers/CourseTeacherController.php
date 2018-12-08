@@ -6,6 +6,7 @@ use App\CourseTeacher;
 use App\Teacher;
 use App\Course;
 use App\User;
+use App\CourseStudentTeacher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class CourseTeacherController extends Controller
     {
         $id = Auth::user()->id;
         $tutions = Teacher::find($id)->course_teachers;
-        return view('tportal.tportal-pages.gigs.gigs')->with(compact('tutions'));
+        return view('tportal.tportal-pages.gigs.gigs')->with(compact('tutions', 'enrolled'));
     }
 
     /**
