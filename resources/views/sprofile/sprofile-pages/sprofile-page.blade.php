@@ -5,6 +5,7 @@
 <br>
 <br>
 <br>
+<div class="row" >
 <div class="profile clearfix">
         <div  class="imag">
             <img src="images/team/team-member-8.jpg" class="img-cover">
@@ -59,7 +60,7 @@
         <div class="column width-4">
           <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
        </div>
-    <div class="image"style="background-color:gray;width:1110px;height:1000px;left: 120px;">
+    <div class="image"style="background-color:#E7DFDD ;width:1000px;height:1000px;left: 120px;">
       <!-- Boxed Feature Columns -->
 				<div class="section-block pb-0 bkg-grey-ultralight">
 
@@ -69,7 +70,9 @@
 
 								<div class="feature-text">
 									<h5>Education</h5>
-								<div class="column width-2">	<p>	<span class="icon-graduation-cap icon-boxed color-grey circled xlarge bkg-navy border-hover-red"></p></div>
+								<div class="column width-2">	  <a style="" href="#" class="contains-sub-menu profile-image">
+                      <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img">
+                  </a></div>
               	<div class="column width-8">
                   <table class="table non-responsive">
                  <tbody>
@@ -96,7 +99,8 @@
 
 								<div class="feature-text">
 									<h5>Teachers</h5>
-                  <div class="column width-2">	<p>	<span class="icon-graduation-cap icon-boxed color-grey circled xlarge bkg-navy border-hover-red"></p></div>
+                  <div class="column width-2">	 <a style="" href="#" class="contains-sub-menu profile-image">
+                        <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img"></div>
                 	<div class="column width-8">
                     <table class="table non-responsive">
                    <tbody>
@@ -120,7 +124,8 @@
 
 								<div class="feature-text">
 									<h5>Tutions</h5>
-                  <div class="column width-2">	<p>	<span class="icon-briefcase icon-boxed color-grey circled xlarge bkg-navy border-hover-red"></p></div>
+                  <div class="column width-2">	 <a style="" href="#" class="contains-sub-menu profile-image">
+                        <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img"></div>
                 	<div class="column width-8">
                     <table class="table non-responsive">
                    <tbody>
@@ -158,5 +163,5 @@
       </div>
    </div>
 </div>
-
+</div>
   @endsection

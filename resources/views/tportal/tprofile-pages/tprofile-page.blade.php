@@ -6,8 +6,10 @@
 <br>
 <br>
 <div class="profile clearfix">
-        <div class="image">
+        <div class="imag">
             <img src="images/team/team-member-8.jpg" class="img-cover">
+            <input style="top:5%;
+          right:82%"  type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
         </div>
         <div class="user clearfix">
             <div class="avatar">
@@ -89,7 +91,7 @@
                                 <div class="feature-text">
                                     <div class="column width-3">
                                         <h6>Hourly Rate</h6>
-                                        
+
                                         <p>PKR @if($teacher){{ $teacher->hourly_rate }} @endif</p>
                                     </div>
                                     <div class="column width-3">
@@ -105,8 +107,8 @@
                                         <p>PKR @if($teacher){{ $teacher->monthly_rate }}@endif</p>
                                     </div>
                                 </div>
-                                
-                                
+
+
 							</div>
 						</div>
 						<div class="column width-6">
