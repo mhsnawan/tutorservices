@@ -5,7 +5,8 @@
     <div class="tab-panes left">
         <div id="tabs-team-pane-1" class="active animate">
             <div class="tab-content">
-                <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
+              <div class="cart-totals box xlarge bkg-grey-ultralight">
+                <div style="width:500; height:500;"class="row content-grid-2">
                     <div>
                         <div>
                             <form method="POST" action="{{ route('account.update', $user->id) }}" enctype="multipart/form-data">
@@ -99,12 +100,13 @@
                                 </div>
                                 <div class="column width-12"><br><br></div>
                             </form>
-                    
+
                             <div class="form-response show"></div>
                         </div>
                     </div>
                 </div>
             </div>
+          </div>
         </div>
     </div>
             {{--  <div class="tab-panes left">
@@ -204,7 +206,7 @@
                                         </div>
                                         <div class="column width-12"><br><br></div>
                                     </form>
-                          
+
                                     <div class="form-response show"></div>
                                 </div>
                             </div>
@@ -228,7 +230,7 @@
                     }
                     if(str.length <= 15){
                         document.getElementById("cnic").value = str;
-                    }  
+                    }
                 }
 
                 function phonee()
@@ -240,6 +242,6 @@
                     if(str.length <= 12){
                         document.getElementById("phone").value = str;
                     }
-                }    
+                }
             </script>
 @endsection

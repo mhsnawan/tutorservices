@@ -7,6 +7,7 @@
           <p style="Margin-top:-50px"><p><h2>Log in to Online Tutor</h2></p>
             <h5>Tutors and students can log in here...</h5></p>
             <div class="payment-details box large">
+              <div class="cart-totals box xlarge bkg-grey-ultralight">
                 <div class="tabs style-2">
                     <ul class="tab-nav">
                         <li class="active">
@@ -75,6 +76,7 @@
         <div class="column width-12">
             <hr>
         </div>
+      </div>
     </div>
     <!-- Checkout End -->
 </div>

@@ -2,8 +2,9 @@
 
 @section('content')
 <br><br><br><br>
-<div class="row">
 
+<div class="row">
+<div style="background-color:E7DFDD">
         <form method="POST" action="{{ route('teacher.store') }}" >
 
         <div class="column width-12">
@@ -75,6 +76,7 @@
 
     </form>
     <div class="form-response show"></div>
+</div>
 </div>
 </div>
 <br>

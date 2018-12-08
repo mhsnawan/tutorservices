@@ -63,7 +63,7 @@
 											@csrf
 											{{ method_field('DELETE') }}
 											<button type="submit" rel="tooltip" title="Delete Course" class="btn btn-danger btn-link btn-sm">
-												<i class="material-icons">close</i>
+												<i class="material-icons small">close</i>
 											</button>
 										</form>
 									</div>
@@ -71,7 +71,7 @@
 								{{--  <td>
 									<a href="{{ route('gigs.destroy', $tution->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
 									<a href="{{ route('gigs.edit', $tution->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
-									
+
 								</td>  --}}
 							</tr>
 							@endforeach

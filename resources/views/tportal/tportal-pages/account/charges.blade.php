@@ -4,7 +4,8 @@
   <div class="tab-panes left">
     <div id="tabs-team-pane-2" class="active animate">
       <div class="tab-content">
-        <div style="width:500; height:500;background-color:#daf2f2"class="row content-grid-2">
+        <div class="cart-totals box xlarge bkg-grey-ultralight">
+        <div style="width:500; height:500;"class="row content-grid-2">
           <div>
             <div class="signup-form-container create-account horizontal">
               <form method="POST" action="{{ route('teacher.update', $rate->user_id) }}">
@@ -43,6 +44,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>

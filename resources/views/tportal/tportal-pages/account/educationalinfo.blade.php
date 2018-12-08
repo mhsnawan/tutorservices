@@ -5,6 +5,7 @@
         <div id="tabs-team-pane-1" class="active animate">
             <div class="tab-content">
                 <!-- Accordions Style Default -->
+                <div class="cart-totals box xlarge bkg-grey-ultralight">
                 <div class="section-block pt-0 pb-0">
                     <div class="row">
                         <div class="column width-12">
@@ -37,8 +38,8 @@
                                                                     <option value="" selected="selected" disabled="disabled">-- Select One --</option>
                                                                 </select>
                                                             </div>
-                                                        </div>       
-                        
+                                                        </div>
+
                                                         <div class="column width-10">
                                                             <div class="field-wrapper">
                                                                 <label for="institute">Institute</label>
@@ -59,7 +60,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="row">
                                                         <div class="column width-3">
                                                             <div class="field-wrapper">
@@ -75,8 +76,8 @@
                                                                 <input type="file" name="degree_img" id="degree_img" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white" placeholder="Upload Degree*" tabindex="3">
                                                             </div>
                                                         </div>
-                                                    </div> 
-                                                    
+                                                    </div>
+
                                                     <div class="column width-12">
                                                         <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                                     </div>
@@ -96,7 +97,7 @@
                                                     @csrf
                                                     {{ method_field("PUT") }}
                                                     <div class="column width-12" >
-                
+
                                                             <div class="field-wrapper">
                                                         <fieldset>
                                                         <legend>Degree Level</legend>
@@ -115,8 +116,8 @@
                                                         </div>
                                                         </fieldset>
                                                         </div>
-                
-                
+
+
                                                         <div class="column width-4">
                                                             <div class="field-wrapper">
                                                                 <input type="text" name="title" value="{{ $edinfo->title }}" class="form-email form-element large" placeholder="Degree Title*" tabindex="1" required>
@@ -168,7 +169,7 @@
                                                     </div>
                                                     <div class="column width-12"><br><br></div>
                                                 </form>
-                        
+
                                             </div>
                                         </div>
                                     </li>
@@ -180,10 +181,11 @@
                     </div>
                 </div>
                 <!-- Accordions Style Default -->
+              </div>
             </div>
         </div>
-    </div>
 
+</div>
     <script>
         $('#degree_level').on('change', function(e){
             console.log(e);
@@ -197,6 +199,5 @@
             });
         })
     </script>
-       
-@endsection
 
+@endsection

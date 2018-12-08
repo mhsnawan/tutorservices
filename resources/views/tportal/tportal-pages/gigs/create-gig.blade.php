@@ -3,8 +3,9 @@
 @section('content')
 <br><br><br><br>
 <div class="row">
+  <div class="cart-totals box xlarge bkg-grey-ultralight">
     <form method="POST" action="{{ route('gigs.store') }}" >
-        @csrf 
+        @csrf
         <div class="row">
             <div class="column width-8">
                 <div class="field-wrapper">
@@ -78,26 +79,26 @@
                             <label>From</label>
                             <select class="form-control dropdown" name="day_from" tabindex="8" required>
                                 <option value="" selected="selected" disabled="disabled">Select One</option>
-                                <option value="Monday">Monday</option> 
-                                <option value="Tuesday">Tuesday</option>  
-                                <option value="Wednesday">Wednesday</option>  
-                                <option value="Thursday">Thursday</option>  
-                                <option value="Friday">Friday</option>  
-                                <option value="Saturday">Saturday</option>  
-                                <option value="Sunday">Sunday</option>      
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
                             </select>
                         </div>
                         <div class="column width-6">
                             <label>To</label>
                             <select class="form-control dropdown" name="day_to" tabindex="9" required>
                                 <option value="" selected="selected" disabled="disabled">Select One</option>
-                                <option value="Monday">Monday</option> 
-                                <option value="Tuesday">Tuesday</option>  
-                                <option value="Wednesday">Wednesday</option>  
-                                <option value="Thursday">Thursday</option>  
-                                <option value="Friday">Friday</option>  
-                                <option value="Saturday">Saturday</option>  
-                                <option value="Sunday">Sunday</option>      
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
                             </select>
                         </div>
                     </fieldset>
@@ -112,8 +113,8 @@
                             <select class="form-control dropdown" id="time_from" name="time_from" tabindex="10" required>
                                 <option value="" selected="selected" disabled="disabled">Select One</option>
                                 @for ($a=0; $a<=23; $a++)
-                                <option value="{{ $a }}:00">{{ $a }}:00</option> 
-                                @endfor       
+                                <option value="{{ $a }}:00">{{ $a }}:00</option>
+                                @endfor
                             </select>
                         </div>
                         <div class="column width-6">
@@ -121,8 +122,8 @@
                             <select class="form-control dropdown" id="time_to" name="time_to" tabindex="11" required>
                                 <option value="" selected="selected" disabled="disabled">Select One</option>
                                 @for ($a=0; $a<=23; $a++)
-                                <option value="{{ $a }}:00">{{ $a }}:00</option> 
-                                @endfor       
+                                <option value="{{ $a }}:00">{{ $a }}:00</option>
+                                @endfor
                             </select>
                         </div>
                     </fieldset>
@@ -148,6 +149,7 @@
         <div class="column width-4"><br><br></div>
     </form>
     <div class="form-response show"></div>
+  </div>
 </div>
 <br>
 

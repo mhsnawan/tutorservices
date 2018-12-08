@@ -1,4 +1,4 @@
-<header class="header header-fixed header-fixed-on-mobile" data-bkg-threshold="100" data-compact-threshold="100">
+<header  class="header header-fixed header-fixed-on-mobile" data-bkg-threshold="100" data-compact-threshold="100">
     <div class="header-inner">
         <div class="row nav-bar">
             <div class="column width-12 nav-bar-inner">
@@ -12,17 +12,17 @@
                     <ul>
                             <li style="">
                                     <!-- Search -->
-                                   
+
                                                <a  onclick="myFunction()" type="submit">
-                                                    <span class="icon-magnifying-glass"></span>       
-                                               </a> 
-                                       
+                                                    <span class="icon-magnifying-glass"></span>
+                                               </a>
+
                                     <div style=" width:100%;margin-top:-25px;margin-left:-162px;" id="myDIV">
                                             <form action="./searchresult" method="post">
                                                 {{csrf_field()}}
-                                                    
+
                                                     <input style="border-radius:40px;height:5px;width:222px;" type="text" class="form-control" id="search" name="search" placeholder="search">
-                                                    
+
                                             </form>
                                             </div>
                                             <script>
@@ -67,7 +67,7 @@
                             <a href="{{ route('register') }}">Join</a>
                         </li>
                         @else
-                        
+
                         <li><a href="{{ route('courses') }}">Courses</a></li>
                         <li><a href="/inbox">Messages</a></li>
                         @if (Auth::user()->role == 1)

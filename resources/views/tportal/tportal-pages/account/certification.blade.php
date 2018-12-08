@@ -5,6 +5,7 @@
         <div id="tabs-team-pane-1" class="active animate">
             <div class="tab-content">
                 <!-- Accordions Style Default -->
+                <div class="cart-totals box xlarge bkg-grey-ultralight">
                 <div class="section-block pt-0 pb-0">
                     <div class="row">
                         <div class="column width-12">
@@ -42,7 +43,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>     
+                                                    </div>
                                                     <div class="row">
                                                         <div class="column width-6">
                                                             <label>Upload Certification Image</label>
@@ -52,7 +53,7 @@
                                                     <div class="column width-12">
                                                         <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                                     </div>
-                                                    <div class="column width-12"><br><br></div> 
+                                                    <div class="column width-12"><br><br></div>
                                                 </form>
                                             </div>
                                         </div>
@@ -87,7 +88,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="row">
                                                         <div class="column width-6">
                                                             <div class="form-select form-element large">
@@ -103,7 +104,7 @@
                                                     <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                                                     </div>
                                                     <div class="column width-12"><br><br></div>
-                                                </form>   
+                                                </form>
                                             </div>
                                         </div>
                                     </li>
@@ -115,8 +116,9 @@
                     </div>
                 </div>
                 <!-- Accordions Style Default -->
+              </div>
             </div>
         </div>
     </div>
-       
+
 @endsection

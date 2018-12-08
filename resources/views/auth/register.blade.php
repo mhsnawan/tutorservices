@@ -6,6 +6,7 @@
         <div class="push-3 column width-6">
           <p style="margin-top:-50px"><h4>Get yourself Register and enjoy Tutor Services.....</h4></p>
             <div class="payment-details box large">
+                <div class="cart-totals box xlarge bkg-grey-ultralight">
                 <div class="tabs style-2">
                     <ul class="tab-nav">
                         <li class="active">
@@ -76,6 +77,7 @@
                         </div>
                     </div>
                 </div>
+              </div>
             </div>
         </div>
 
