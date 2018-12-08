@@ -36,29 +36,23 @@
 					<div class="row">
 						@foreach ($courses as $course)
 						<div class="column width-12">
-							<div class="row grid content-grid-3">
-								<div class="row flex boxes">
-									<div class="column width-12">
-										<div class="cart-totals box xlarge bkg-grey-ultralight">
-											<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course->title }}</p>
-											<div class="column width-3">
-												<p class="mb-0">Posted By:Aqeel Ahmad<br>Posted 2018-10-5</p>
-											</div>
-											<div class="column width-3">
-												<span class="text-small weight-bold"><span class="icon-location"></span>{{ $course->area }}, {{ $course->city }}</span>
-											</div>
-											<br>
-											<div class="column width-6">
-												<a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
-												<a href="{{ route('course.view', $course->id) }}" class="button pill checkout no-margin-bottom fade-location">View Details</a>
-											</div>
-											<a href="#">Requirements</a>
-										</div>
-									</div>
+							<div class="cart-totals box xlarge bkg-grey-ultralight">
+                 				<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course->title }}</p>
+                  				<div class="column width-3">
+							       	<p class="mb-0">Posted By:Aqeel Ahmad<br>Posted 2018-10-5</p>
+							    </div>
+                  				<div class="column width-3">
+								    <span class="text-small weight-bold"><span class="icon-location"></span>{{ $course->area }}, {{ $course->city }}</span>
 								</div>
-							</div>
+								<br>
+                   				<div class="column width-6">
+							        <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
+								    <a href="{{ route('course.view', $course->id) }}" class="button pill checkout no-margin-bottom fade-location">View Details</a>
+								</div>
+	                    		<a href="#">Requirements</a>
+						  	</div>
 						</div>
-						@endforeach
+						@endforeach	
 					</div>
 				</div>
 			</div>

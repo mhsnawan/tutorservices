@@ -347,11 +347,14 @@ Route::get('/profile',function(){
 
 Route::get('profile/{id}', function($id){
     $user= User::find($id);
-    $teacher = User::find($id)->teacher;
-    $edinfos = User::find($id)->edinfos;
-    $certifications = User::find($id)->certifications;
-    $experiences = User::find($id)->experiences;
-    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+    if($user->role == 2){
+        $teacher = User::find($id)->teacher;
+        $edinfos = User::find($id)->edinfos;
+        $certifications = User::find($id)->certifications;
+        $experiences = User::find($id)->experiences;
+        return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+    }
+    
 })->name('profile.id');
 
 //===================================TUTOR PROFILE END=========================================//
@@ -509,6 +512,7 @@ Route::any('/searchresult',function(){
 
 Route::get('/courses',function(){
     $courses = CourseTeacher::all();
+    //return $courses;
     return view('current-tech-course.courses')->with(compact('courses'));
 })->name('courses');
 
@@ -589,3 +593,11 @@ Route::post('/adminsearch',function()
 
 
 })->name('adminsearch');
+
+Route::get('all-enrolled-students', function(){
+    $id = Auth::user()->id;
+    $teacher_id = Teacher::find($id);
+    $students = CourseStudentTeacher::where('teacher_id', $teacher_id->id)->where('verified', 1)->get();
+    echo $students;
+    //return view('tportal.tportal-pages.enrolled-students.all-students');
+})->name('all-enrolled-students');

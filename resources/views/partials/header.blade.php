@@ -67,17 +67,28 @@
                         @else
 
                         <li><a href="{{ route('courses') }}">Courses</a></li>
-                        <li><a href="/inbox">Messages</a></li>
+                        
                         @if (Auth::user()->role == 1)
                         <li><a href="#">Enrolled In</a></li>
                         @endif
                         @if(Auth::user()->role == 2)
                         <li><a  href="{{ route('pending.request') }}" >Requests</a></li>
                         <li>
-                            <a href="{{ route('gigs.index') }}">Gigs</a>
+                            <a href="{{ route('all-enrolled-students') }}">Enrolled Students</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ route('gigs.index') }}">Gigs</a>
+                                    <a href="{{ route('all-enrolled-students') }}">All Students</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('gigs.create') }}">Student by Course</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ route('gigs.index') }}">Tutions</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="{{ route('gigs.index') }}">Tutions</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('gigs.create') }}">Create New</a>
@@ -85,12 +96,12 @@
                             </ul>
                         </li>
                         @endif
-
+                        <li><a href="/inbox">Messages</a></li>
                         <li></li>
                         <li>
                             <a style="" href="#" class="contains-sub-menu profile-image">
-                                <i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }}
                                 <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img">
+                                <i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }}
                             </a>
                             <ul class="sub-menu">
                                 <li>

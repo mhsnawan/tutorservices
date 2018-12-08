@@ -102,15 +102,16 @@ class CourseStudentTeacherController extends Controller
 
     public function pending_request(){
         $data = array();
-        $id = Auth::user()->id;
-        $teacher = Teacher::where('user_id', $id)->first();
-        $courseTeacher = CourseStudentTeacher::where('teacher_id', $teacher->id)->where('verified', 0)->get();
-        foreach ($courseTeacher as $item){
-            $student = Student::find($item->student_id)->user;
-            $course = Course::find($item->course_id);
+        $id = Auth::user()->id;  //getting user id
+        $teacher = Teacher::where('user_id', $id)->first(); //Getting teacher id
+        $courseTeacher = CourseStudentTeacher::where('teacher_id', $teacher->id)->where('verified', 0)->get(); //Getting enrolled students records of verification=0
+        foreach ($courseTeacher as $item){  //loop over verified=0
+            $student = Student::find($item->student_id)->user; //getting student info
+            $course = Course::find($item->course_id); //getting course info
             $teacherCourse = CourseTeacher::find($item->course_teacher_id);
+            echo $teacherCourse->title;
             $data[] = array(
-                'id' => $course->id,
+                'id' => $item->id,
                 'tution_title' => $teacherCourse->title,
                 'tution_area' => $teacherCourse->area,
                 'tution_city' => $teacherCourse->city,
@@ -123,11 +124,12 @@ class CourseStudentTeacherController extends Controller
                 'created_at' => $item->created_at
                 );
         }
+        //return $data;
         return view('tportal.tportal-pages.requests.course-request')->with(compact('data'));
     }
 
     public function verify($id){
-        $course = CourseStudentTeacher::findOrFail($id)->first();
+        $course = CourseStudentTeacher::find($id);
         $course['verified'] = 1;
         $course->save();
         return redirect('/pending-request');
