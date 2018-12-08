@@ -17,18 +17,22 @@
                 <th>ID</th>
                 <th>Student Name</th>
                 <th>Documents</th>
+                <th>Status</th>
                 <th>Actions</th>
               </thead>
               <tbody>
               @foreach ($students as $student)
                 <tr>
                     <td >
-                        <img style="width:70px;height:70px;cover;border-radius:50%;" src="{{asset("storage/$student->profile_img")}}" class="img-responsive" >
+                        <img src="{{asset("storage/$student->profile_img")}}" class="img-responsive avatar_all_students" >
                       </td>
                     <td>{{ $student->id }}</td>
                     <td>{{ $student->name }}</td>
                     <td>
                         <form method="GET" action="./documents/{{ $student->id }}"><input type="submit" value="documents"></input></form>
+                    </td>
+                    <td>
+                        @if($student->verified == 0) Not Verified @else Verified @endif
                     </td>
                     <td>
                         <div class="row">
@@ -45,12 +49,14 @@
                             <i class="material-icons">close</i>
                           </button>
                             </form>
-
-                            <form method="GET" action="#">
-                          <button type="submit" rel="tooltip" title="Verify" class="btn btn-danger btn-link btn-sm">
-                              <i class="material-icons">done</i>
+                          @if($student->verified == 0)
+                          <form method="GET" action="{{ route('verify.student', $student->id) }}">
+                            @csrf
+                            <button type="submit" rel="tooltip" title="Verify" class="btn btn-danger btn-link btn-sm">
+                             <i class="material-icons">done</i>
                             </button>
-                            </form>
+                          </form>
+                          @endif
                             
                         </div>
                     </td>

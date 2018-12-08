@@ -90,7 +90,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/students',function(){
         $students =User::all()->where('role', '1');
         return view('admin.admin-pages.students.students')->with(compact('students'));
-    })->name('admin.students');
+    })->name('admin-students');
 
     Route::get('/editstudent/{id}',function($id){
         $students = User::find($id);
@@ -111,49 +111,63 @@ Route::group(['prefix'=>'admin'],function(){
             return redirect('admin/students');
         }
     });
+
+    Route::get('verify-student/{id}', function($id){
+        $user = User::find($id);
+        $user->verified = 1;
+        $user->save();
+        return redirect('/admin/students');
+    })->name('verify.student');
     /////////////////STUDENT ROUTE END/////////////////////
 
     /////////////////TEACHER ROUTE//////////////////////////
-    Route::get('/teacher',function(){
+    Route::get('/tutors',function(){
         $teachers =User::all()->where('role', '2');
         return view('admin.admin-pages.teachers.teachers')->with(compact('teachers'));
-    });
+    })->name('admin-tutors');
 
-    Route::get('/editteacher/{id}',function($id){
+    Route::get('/edit-tutor/{id}',function($id){
         $teachers = User::find($id);
         return view('admin.admin-pages.teachers.editteacher')->with(compact('teachers'));
-    });
+    })->name('admin-tutor.edit');
 
-    Route::put('/updateteacher/{id}',function(Request $request, $id){
+    Route::put('/update-tutor/{id}',function(Request $request, $id){
         $user = User::find($id);
         $input = $request->all();
         $user->fill($input)->save();
-        return redirect('./teacher');
-    });
+        return redirect('/admin/tutors');
+    })->name('admin-tutor.update');
 
-    Route::delete('/deleteteacher/{id}',function($id){
+    Route::delete('/delete-tutor/{id}',function($id){
         $user=User::find($id);
         if (!is_null($user)) {
             $user->delete();
-            return redirect('./teacher');
+            return redirect('/admin/tutors');
         }
-    });
+    })->name('admin-tutor.destroy');
+
+    Route::get('verify-tutor/{id}', function($id){
+        $user = User::find($id);
+        $user->verified = 1;
+        $user->save();
+        return redirect('/admin/tutors');
+    })->name('verify.tutor');
     ////////////////////////TEACHER ROUTE END/////////////////////////////
 
     ////////////////////////ADMIN USER ROUTE//////////////////////////////
     Route::get('/user',function(){
         $admins =User::all()->where('role', '3');
         return view('admin.admin-pages.users.users')->with(compact('admins'));
-    });
+    })->name('admin-users');
 
     Route::get('/adduser',function(){
         return view('admin.admin-pages.users.addusers');
-    });
+    })->name('admin-user.create');
 
     Route::get('/edituser{id}',function($id){
         $admins = User::find($id);
         return view('admin.admin-pages.users.edituser')->with(compact('admins'));
-    });
+    })->name('admin-user.edit');
 
     Route::delete('/deleteuser/{id}',function($id){
         $user=User::find($id);
@@ -161,7 +175,7 @@ Route::group(['prefix'=>'admin'],function(){
             $user->delete();
             return redirect('./user');
         }
-    });
+    })->name('admin-user.destroy');
     //////////////////////////ADMIN USER ROUTE END////////////////////////////////
 });
 

@@ -10,15 +10,15 @@
               {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
             </div>
             <div class="card-body col-md-12">
-            <form method="POST" action="../updateteacher/{{ $teachers->id }}">
-                        @csrf
-                        {{ method_field("PUT") }}
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="id">User ID</label>
-                            <input type="text" class="form-control" name="id" id="id" value="{{ $teachers->id }}" disabled>   
-                            </div>
+                <form method="POST" action="{{ route('admin-tutor.update', $teachers->id) }}">
+                    @csrf
+                    {{ method_field("PUT") }}
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="id">User ID</label>
+                        <input type="text" class="form-control" name="id" id="id" value="{{ $teachers->id }}" disabled>   
                         </div>
+                    </div>
                     <div class="row">
                         <div class="row form-group col-md-6">
                             <label for="course_name">Full Name</label>
@@ -69,12 +69,11 @@
                         <input type="text" class="form-control" name="city" id="" value="{{ $teachers->city }}" placeholder="Islamabad">
                         </div>
                     </div>    
-
-                        <button type="submit" class="btn btn-primary">Add</button>
-                    </form>
-                </div>
-              </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
             </div>
-          </div>
+        </div>
+    </div>
+</div>
         
           @endsection

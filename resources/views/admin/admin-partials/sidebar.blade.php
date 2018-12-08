@@ -29,8 +29,8 @@
           <p>Posts</p>
         </a>
         <ul class="dropdown-menu">
-          <li class="nav-item"><a href="posts">All Posts</a></li>
-          <li class="nav-item"><a href="addpost">Add New</a></li>
+          <li class="nav-item"><a href="{{ route('posts.index') }}">All Posts</a></li>
+          <li class="nav-item"><a href="{{ route('posts.create') }}">Add New</a></li>
         </ul>
       </li>
       <li class="nav-item ">
@@ -45,7 +45,7 @@
           <p>Students</p>
         </a>
         <ul class="dropdown-menu">
-          <li class="nav-item"><a  href="{{ route('admin.students') }}">All students</a></li>
+          <li class="nav-item"><a  href="{{ route('admin-students') }}">All students</a></li>
           <!-- <li class="nav-item"><a href="#">abc</a></li> -->
           </ul>
       </li>
@@ -56,7 +56,7 @@
           <p>Tutors</p>
         </a>
         <ul class="dropdown-menu">
-          <li class="nav-item"><a  href="./teacher">All tutors</a></li>
+          <li class="nav-item"><a  href="{{ route('admin-tutors') }}">All tutors</a></li>
           <li class="nav-item"><a href="#">Docs</a></li>
           </ul>
       </li>
@@ -67,8 +67,8 @@
           <p>Users</p>
         </a>
         <ul class="dropdown-menu">
-          <li class="nav-item"><a href="./user">All users</a></li>
-          <li class="nav-item"><a href="./adduser">Add new</a></li>
+          <li class="nav-item"><a href="{{ route('admin-users') }}">All users</a></li>
+          <li class="nav-item"><a href="{{ route('admin-user.create') }}">Add new</a></li>
           <li class="nav-item"><a href="#">your profile</a></li>
           </ul>
       </li>

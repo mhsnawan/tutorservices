@@ -28,27 +28,26 @@
               <tbody>
               @foreach ($admins as $admin)
                 <tr>
-                    <td style="width:70px;height:70px;cover;border-radius:50%;"><img  src="abc.png" class="img-responsive" ></td>
-                    <td>{{ $admin->id }}</td>
-                    <td>{{ $admin->name }}</td>
-                    <td>
-                        <div class="row">
-                            <form method="GET" action="./edituser/{{ $admin->id }}">
+                  <td><img class="img-responsive avatar_all_students" ></td>
+                  <td>{{ $admin->id }}</td>
+                  <td>{{ $admin->name }}</td>
+                  <td>
+                    <div class="row">
+                      <form method="GET" action="./edituser/{{ $admin->id }}">
                         <button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Edit User">
-                            <i class="material-icons">edit</i>
-                          </button>
-                            </form>
+                          <i class="material-icons">edit</i>
+                        </button>
+                      </form>
 
-                          <form method="POST" action="./deleteuser/{{ $admin->id }}">
-                            @csrf
-                            {{ method_field('DELETE') }}
-                          <button type="submit" rel="tooltip" title="Delete User" class="btn btn-danger btn-link btn-sm">
-                            <i class="material-icons">close</i>
-                          </button>
-                            </form>
-                            
-                        </div>
-                    </td>
+                      <form method="POST" action="./deleteuser/{{ $admin->id }}">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <button type="submit" rel="tooltip" title="Delete User" class="btn btn-danger btn-link btn-sm">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </form>  
+                    </div>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>
