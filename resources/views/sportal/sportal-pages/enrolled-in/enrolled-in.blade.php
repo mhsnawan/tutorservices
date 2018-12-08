@@ -22,17 +22,17 @@
                             <tr class="cart-item">
                                 <td class="product-thumbnail">
                                     <a href="#">
-                                        <img src="storage/{{ $item['student_profile_img'] }}" class="avatar_all_students" alt="" />
+                                        <img src="storage/{{ $item['tutor_profile_img'] }}" class="avatar_all_students" alt="" />
                                     </a>
                                 </td>
                                 <td class="product-name">
-                                    <a href="" class="product-title">{{ $item['student_name'] }}</a>
+                                    <a href="{{ route('profile.id', $item['tutor_user_id']) }}" class="product-title">{{ $item['tutor_name'] }}</a>
                                 </td>
                                 <td class="product-price">
                                     <span class="amount">{{ $item['course_name'] }}</span>
                                 </td>
                                 <td class="product-price">
-                                    <span class="amount">{{ $item['student_contact'] }}</span>
+                                    <span class="amount">{{ $item['tutor_contact'] }}</span>
                                 </td>
                                 <td class="product-quantity">
                                     <span class="amount">{{ $item['tution_area'] }}, {{ $item['tution_city'] }}</span>
@@ -41,7 +41,7 @@
                                     <span class="amount">{{ $item['tution_type'] }}</span>
                                 </td>
                                 <td class="product-quantity">
-                                    <span class="amount">15 Oct, 2018</span>
+                                    <span class="amount">{{ $item['created_at']->format('d-m-Y') }}</span>
                                 </td>
                             </tr>
                             @endforeach

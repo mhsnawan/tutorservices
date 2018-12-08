@@ -617,3 +617,30 @@ Route::get('all-enrolled-students', function(){
     }
     return view('tportal.tportal-pages.enrolled-students.all-students')->with(compact('data'));
 })->name('all-enrolled-students');
+
+
+///////////////////////////////Sudent Enrolled In///////////////////////////////////////////
+Route::get('enrolled-in', function(){
+    $id = Auth::user()->id;
+    $sid = Student::where('user_id', $id)->first();
+    $cst = CourseStudentTeacher::where('student_id', $sid['id'])->get();
+    $data = array();
+    foreach ($cst as $item){
+        $course = Course::find($item->course_id);
+        $tutor = Teacher::find($item->teacher_id)->user;
+        $st = CourseTeacher::find($item->course_teacher_id);
+        $data[] = array(
+            'tutor_id' => $item->teacher_id,
+            'tutor_user_id' => $tutor->id,
+            'tutor_name' => $tutor->name,
+            'tutor_profile_img' => $tutor->profile_img,
+            'tutor_contact' => $tutor->phone,
+            'course_name' => $course->course_name,
+            'tution_type' => $st->type,
+            'tution_area' => $st->area,
+            'tution_city' => $st->city,
+            'created_at' =>$st->updated_at
+            );
+    }
+    return view('sportal.sportal-pages.enrolled-in.enrolled-in')->with(compact('data'));
+})->name('enrolledin');

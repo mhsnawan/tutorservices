@@ -1,6 +1,17 @@
-.avatar {
+.avatar_all_students {
     vertical-align: middle;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+.profile-img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 184px;
+    height: 174px;
+}
+
+.cover-img {
+    object-fit: cover;
 }

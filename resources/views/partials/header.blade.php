@@ -69,7 +69,7 @@
                         <li><a href="{{ route('courses') }}">Courses</a></li>
                         
                         @if (Auth::user()->role == 1)
-                        <li><a href="#">Enrolled In</a></li>
+                        <li><a href="{{ route('enrolledin') }}">Enrolled In</a></li>
                         @endif
                         @if(Auth::user()->role == 2)
                         <li><a  href="{{ route('pending.request') }}" >Requests</a></li>
