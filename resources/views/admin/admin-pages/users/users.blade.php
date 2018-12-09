@@ -12,8 +12,8 @@
         <div class="card-body">
           <div class="row">
             <div class="offset-md-10 col-md-1">
-              <form method="GET" action="">
-                <input type="submit" class="btn btn-primary" href="" value="Add User">
+              <form method="GET" action="{{ route('admin-user.create') }}">
+                <input type="submit" class="btn btn-primary" href="{{ route('admin-user.create') }}" value="Add User">
               </form>
             </div>
           </div>

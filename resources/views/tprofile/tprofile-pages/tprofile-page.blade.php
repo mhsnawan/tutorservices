@@ -33,7 +33,7 @@
         <h2>{{ $user->name }}</h2>
       </div>
       <div class="column width-2" >
-        <p><span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span></p>
+        <p>@if(Auth::user()->verified == 1) <span class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>@endif</p>
       </div>
     </div>
     <div class="column width-2">

@@ -26,7 +26,9 @@ class CourseTeacherController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        $tutions = Teacher::find($id)->course_teachers;
+        $teacher_id = Teacher::where('user_id', $id)->get();
+        $tid = $teacher_id[0]->id;
+        $tutions = Teacher::find($tid)->course_teachers;
         return view('tportal.tportal-pages.gigs.gigs')->with(compact('tutions', 'enrolled'));
     }
 

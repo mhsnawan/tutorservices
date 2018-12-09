@@ -239,8 +239,9 @@ Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function()
     ///////////////////////////ALL ENROLLED STUDENTS START//////////////////////
     Route::get('all-enrolled-students', function(){
         $id = Auth::user()->id;
-        $teacher_id = Teacher::find($id);
-        $students = CourseStudentTeacher::where('teacher_id', $teacher_id->id)->where('verified', 1)->distinct('student_id')->get();
+        $teacher_id = Teacher::where('user_id', $id)->get();
+        $tid = $teacher_id[0]->id;
+        $students = CourseStudentTeacher::where('teacher_id', $tid)->where('verified', 1)->distinct('student_id')->get();
         $data = array();
         foreach ($students as $item){
             $student_record = Student::find($item->student_id)->user; //getting student info

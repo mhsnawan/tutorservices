@@ -16,13 +16,13 @@
                     <input type="hidden" class="form-control" name="role" value="3" placeholder="">
                     <div class="form-group col-md-6">
                         <label >Full Name</label>
-                        <input type="text" class="form-control" name="fullname" id="" value="" placeholder="Mark johnson">
+                        <input type="text" class="form-control" name="fullname" value="" placeholder="Mark johnson">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label >Email</label>
-                        <input type="text" class="form-control" name="email" id="" value="" placeholder="johnson123@gmail.com">
+                        <input type="text" class="form-control" name="email" value="" placeholder="johnson123@gmail.com">
                         @if ($errors->has('email'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('email') }}</strong>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="row form-group col-md-6">
                         <label >Username</label>
-                        <input type="text" class="form-control" name="username" id="" value="" placeholder="johnson">
+                        <input type="text" class="form-control" name="username" value="" placeholder="johnson">
                         @if ($errors->has('username'))
                         <span class="invalid-feedback">
                             <strong>{{ $errors->first('username') }}</strong>
@@ -42,7 +42,7 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label >Password</label>
-                        <input type="password" class="form-control" name="password" id="" value="" placeholder="password">
+                        <input type="password" class="form-control" name="password" value="" placeholder="password">
                         @if ($errors->has('password'))
                         <span class="invalid-feedback">
                             <strong>{{ $errors->first('password') }}</strong>

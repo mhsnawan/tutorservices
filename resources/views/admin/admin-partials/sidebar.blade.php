@@ -45,6 +45,12 @@
           <p>Students</p>
         </a>
       </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('admin-tutors') }}">
+          <i class="material-icons">person</i>
+          <p>Tutors</p>
+        </a>
+      </li>
       {{--  <li class="nav-item">
         <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">person</i>
@@ -56,7 +62,7 @@
           </ul>
       </li>  --}}
 
-      <li class="nav-item">
+      {{--  <li class="nav-item">
         <a href="#" class="nav-link " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">person</i>
           <p>Tutors</p>
@@ -65,7 +71,7 @@
           <li class="nav-item"><a  href="{{ route('admin-tutors') }}">All tutors</a></li>
           <li class="nav-item"><a href="#">Docs</a></li>
           </ul>
-      </li>
+      </li>  --}}
 
       <li class="nav-item">
         <a href="#" class="nav-link " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
