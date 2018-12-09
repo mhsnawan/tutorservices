@@ -618,14 +618,34 @@ Route::any('/searchresult',function(){
 // ============================ course ROUTES ======================================//
 
 Route::get('/courses',function(){
-    $courses = CourseTeacher::all();
-    //return $courses;
+    $courseTeacher = CourseTeacher::all();
+    $courses = array();
+    foreach($courseTeacher as $course){
+        $user = Teacher::find($course->teacher_id)->user;
+        $courses[] = array(
+            'id' => $course->id,
+            'teacher_id' => $course->teacher_id,
+            'course_id' => $course->course_id,
+            'title' => $course->title,
+            'area' => $course->area,
+            'city' => $course->city,
+            'class' => $course->class,
+            'fee' => $course->fee,
+            'created_at' => $course->created_at,
+            'type' => $course->type,
+            'user_id' => $user->id,
+            'tutor_name' => $user->name
+        );
+    };
+    // $courses = json_encode($data);;
+    // echo $courses;
     return view('current-tech-course.courses')->with(compact('courses'));
 })->name('courses');
 
 Route::get('course/{id}',function($id){
     $course = CourseTeacher::find($id);
-    $user = User::find($course->user_id)->first();
+    $user = Teacher::find($course->teacher_id)->user;
+    //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
     return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject'));
 })->name('course.view');

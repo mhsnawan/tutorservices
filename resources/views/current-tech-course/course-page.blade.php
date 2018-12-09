@@ -15,15 +15,16 @@
 							<div style="left:200px" class="column width-12  left-on-mobile">
 								<div class="pu-100">
 									<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course->title }}</p>
-									<p class="mb-0">Posted By:{{ $user->name }}|Posted {{ $course->created_at->format('d/m/y') }}|Email<span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>|Phone
-										<span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>|Status</p><hr>
+									<p class="mb-0">Posted By : {{ $user->name }}  |  Posted On : {{ $course->created_at->format('d/m/y') }}
+										{{--  |Email<span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>|Phone  --}}
+										<span  ></span></p><hr>
 										<h4>Description</h4>
 										<p>{{ $course->description }}</p>
 										<hr>
 									<div class="row">
 										<div class="column width-6">
 											<h3>Course Information</h3>
-                       	<div class="column width-8">
+                       						<div class="column width-8">
 												<p class="project-attribute">
 													<span class="project-label">Course Name: </span><span class="project-value"> {{ $subject->course_name }}</span>
 												</p>

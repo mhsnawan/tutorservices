@@ -4,7 +4,7 @@
 <div class="row">
 <div class="profile clearfix">
   <div class="imag">
-    <img src="storage/{{Auth::user()->cover_img}}" class="img-cover cover-img">
+    <img src="/storage/{{Auth::user()->cover_img}}" class="img-cover cover-img">
     <form id="cover" method="post" action={{ route('ucover') }} enctype="multipart/form-data">
       @csrf
       <input type="hidden" value="{{ $user->id }}" name="id">
@@ -15,7 +15,7 @@
   </div>
     <div class="user clearfix">
       <div class="avatar">
-        <img src="storage/{{Auth::user()->profile_img}}" class="img-thumbnail img-profile profile-img">
+        <img src="/storage/{{Auth::user()->profile_img}}" class="img-thumbnail img-profile profile-img">
         <form id="target" method="post" action={{ route('uprofile') }} enctype="multipart/form-data">
           @csrf
           <input type="hidden" value="{{ $user->id }}" name="id">
