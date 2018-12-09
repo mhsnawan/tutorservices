@@ -177,30 +177,150 @@ Route::group(['prefix'=>'admin'],function(){
         }
     })->name('admin-user.destroy');
     //////////////////////////ADMIN USER ROUTE END////////////////////////////////
+
+    ///////////////////////////ADMIN SEARCH START////////////////////////////////
+    Route::post('/adminsearch',function(){
+        $search = Input::get('search');
+        if($search != ''){
+            $data=User::where('name', 'LIKE', '%'.$search.'%')
+                        ->orWhere('city', 'LIKE', '%'.$search.'%')
+                        ->paginate(3)
+                        ->setpath('');
+            $data->appends(array(
+                'search' => Input::get('search'),
+            ));
+            if(count($data) > 0){
+                return  view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
+            }
+            return view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
+        }
+        $data = User::paginate(3);
+        return view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
+    })->name('adminsearch');
+    /////////////////////////////////ADMIN SEARCH END//////////////////////////////////////////
+
+    /////////////////////////////////ADMIN DOCUMENTS START/////////////////////////////////////
+    Route::get('/admin/documents/{id}',function($id){ 
+        $teacher = User::find($id);
+        $ed = EdInfo::where('user_id', $id)->get();
+        return view('admin.admin-pages.documents')->with(compact('teacher','ed'));
+    });
+    /////////////////////////////////ADMIN DOCUMENTS END///////////////////////////////////////
 });
 
 // ========================================= END ADMIN ROUTES =================================================//
 
 
-// ========================================= TUTOR ROUTES =================================================//
+// ========================================= TUTOR ROUTES =====================================================//
 Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function(){
-    Route::resource('certification', 'CertificationController');
+
+    ////////////////////////////TUTOR ACCOUNT START//////////////////////////////
     Route::resource('experience', 'ExperienceController');
-    Route::resource('gigs', 'CourseTeacherController');
-    Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
-    Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
+    Route::resource('certification', 'CertificationController');
+    Route::get('availability', 'TeacherController@availability')->name('availability.get');
+    Route::put('availability', 'TeacherController@availability_update')->name('availability.update');
     Route::get('/charges',function(){
         $id = Auth::user()->id;
         $user = User::find($id);
         $rate = User::find($id)->teacher;
         return view('tportal.tportal-pages.account.charges')->with(compact(['rate', 'user']));
     });
-    Route::get('availability', 'TeacherController@availability')->name('availability.get');
-    Route::put('availability', 'TeacherController@availability_update')->name('availability.update');
-    //Route::get('availability', 'TeacherController@availability')->name('availability.get');
+    ////////////////////////////TUTOR ACCOUNT END////////////////////////////////
+
+    ////////////////////////////TUTOR GIGS START//////////////////////////////
+    Route::resource('gigs', 'CourseTeacherController');
+    ////////////////////////////TUTOR GIGS END////////////////////////////////
+
+    ////////////////////////////TUTOR PENDING REQUEST START/////////////////////
+    Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
+    Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
+    ////////////////////////////TUTOR PENDING REQUEST END///////////////////////
+
+    ///////////////////////////ALL ENROLLED STUDENTS START//////////////////////
+    Route::get('all-enrolled-students', function(){
+        $id = Auth::user()->id;
+        $teacher_id = Teacher::find($id);
+        $students = CourseStudentTeacher::where('teacher_id', $teacher_id->id)->where('verified', 1)->distinct('student_id')->get();
+        $data = array();
+        foreach ($students as $item){
+            $student_record = Student::find($item->student_id)->user; //getting student info
+            $course_teacher = CourseTeacher::find($item->course_teacher_id);
+            $course = Course::find($item->course_id);
+            $data[] = array(
+                'student_id' => $item->student_id,
+                'student_name' => $student_record->name,
+                'student_profile_img' => $student_record->profile_img,
+                'student_contact' => $student_record->phone,
+                'course_name' => $course->course_name,
+                'tution_type' => $course_teacher->type,
+                'tution_area' => $course_teacher->area,
+                'tution_city' => $course_teacher->city,
+                'created_at' =>$item->updated_at
+                );
+        }
+        return view('tportal.tportal-pages.enrolled-students.all-students')->with(compact('data'));
+    })->name('all-enrolled-students');
+    ///////////////////////////ALL ENROLLED STUDENTS END//////////////////////
+
+    /////////////////////////// TUTOR PROFILE START /////////////////////////
+    Route::get('/profile',function(){
+        $id = Auth::user()->id;
+        $user= User::find($id);
+        $teacher = User::find($id)->teacher;
+        $edinfos = User::find($id)->edinfos;
+        $certifications = User::find($id)->certifications;
+        $experiences = User::find($id)->experiences;
+        return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+    });
+    
+    Route::get('profile/{id}', function($id){
+        $user= User::find($id);
+        if($user->role == 2){
+            $teacher = User::find($id)->teacher;
+            $edinfos = User::find($id)->edinfos;
+            $certifications = User::find($id)->certifications;
+            $experiences = User::find($id)->experiences;
+            return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+        } 
+    })->name('profile.id');
+    /////////////////////////// END TUTOR PROFILE /////////////////////////
+
 });
 
-// ========================================= END TUTOR ROUTES =================================================//
+/// ========================================= END TUTOR ROUTES =====================================================//
+
+// ========================================== STUDENT ROUTES START ===============================================//
+
+    ////////////////////////////STUDENT ENROLLED IN START///////////////////////////////////
+    Route::get('enrolled-in', function(){
+        $id = Auth::user()->id;
+        $sid = Student::where('user_id', $id)->first();
+        $cst = CourseStudentTeacher::where('student_id', $sid['id'])->get();
+        $data = array();
+        foreach ($cst as $item){
+            $course = Course::find($item->course_id);
+            $tutor = Teacher::find($item->teacher_id)->user;
+            $st = CourseTeacher::find($item->course_teacher_id);
+            $data[] = array(
+                'tutor_id' => $item->teacher_id,
+                'tutor_user_id' => $tutor->id,
+                'tutor_name' => $tutor->name,
+                'tutor_profile_img' => $tutor->profile_img,
+                'tutor_contact' => $tutor->phone,
+                'course_name' => $course->course_name,
+                'tution_type' => $st->type,
+                'tution_area' => $st->area,
+                'tution_city' => $st->city,
+                'created_at' =>$st->updated_at
+                );
+        }
+        return view('sportal.sportal-pages.enrolled-in.enrolled-in')->with(compact('data'));
+    })->name('enrolledin');
+    ////////////////////////////STUDENT ENROLLED IN END///////////////////////////////////
+
+// =========================================END STUDENT ROUTES ===============================================//
+
+
 Route::get('/admin',function(){
     return view('admin.admin-pages.dashboard');
 });
@@ -348,30 +468,8 @@ Route::post('make-conversation', function(Request $request){
 
 // ======================================= END CHAT =================================================//
 
-// ============================ TUTOR PROFILE ROUTES ======================================//
-Route::get('/profile',function(){
-    $id = Auth::user()->id;
-    $user= User::find($id);
-    $teacher = User::find($id)->teacher;
-    $edinfos = User::find($id)->edinfos;
-    $certifications = User::find($id)->certifications;
-    $experiences = User::find($id)->experiences;
-    return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-});
+// ============================ TUTOR PROFILE ROUTES ===============================================================//
 
-Route::get('profile/{id}', function($id){
-    $user= User::find($id);
-    if($user->role == 2){
-        $teacher = User::find($id)->teacher;
-        $edinfos = User::find($id)->edinfos;
-        $certifications = User::find($id)->certifications;
-        $experiences = User::find($id)->experiences;
-        return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-    }
-    
-})->name('profile.id');
-
-//===================================TUTOR PROFILE END=========================================//
 
 Route::get('/tutor',function(){
     $id = Auth::user()->id;
@@ -384,12 +482,6 @@ Route::get('/current-tutions',function(){
     return view('tportal.tportal-pages.current-tutions');
 });
 
-
-
-
-Route::get('/courses',function(){
-    return view('tportal.tportal-pages.courses');
-});
 
 // Route::get('/tprofile',function(){
 //     $id = Auth::user()->id;
@@ -574,87 +666,6 @@ Route::get('/sprofile',function(){
     return view('sprofile.sprofile-pages.sprofile-page');
 });
 
-Route::get('/admin/documents/{id}',function($id)
-{ 
-    $teacher = User::find($id);
-     $ed = EdInfo::where('user_id', $id)->get();
-    //  echo $ed;
-    return view('admin.admin-pages.documents')->with(compact('teacher','ed'));
-});
-
-Route::post('/adminsearch',function()
-{
-    $search = Input::get('search');
-    if($search != '')
-    {
-        $data=User::where('name', 'LIKE', '%'.$search.'%')
-                    ->orWhere('city', 'LIKE', '%'.$search.'%')
-                    ->paginate(3)
-                    ->setpath('');
-                $data->appends(array(
-                    'search' => Input::get('search'),
-                ));
-
-                if(count($data) > 0)
-                {
-                    return  view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
-                }
-                return view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
-     }
-
-    $data = User::paginate(3);
-     return view('admin.admin-pages.admin-searchresults')->with(compact(['data']));
 
 
-})->name('adminsearch');
 
-Route::get('all-enrolled-students', function(){
-    $id = Auth::user()->id;
-    $teacher_id = Teacher::find($id);
-    $students = CourseStudentTeacher::where('teacher_id', $teacher_id->id)->where('verified', 1)->distinct('student_id')->get();
-    $data = array();
-    foreach ($students as $item){
-        $student_record = Student::find($item->student_id)->user; //getting student info
-        $course_teacher = CourseTeacher::find($item->course_teacher_id);
-        $course = Course::find($item->course_id);
-        $data[] = array(
-            'student_id' => $item->student_id,
-            'student_name' => $student_record->name,
-            'student_profile_img' => $student_record->profile_img,
-            'student_contact' => $student_record->phone,
-            'course_name' => $course->course_name,
-            'tution_type' => $course_teacher->type,
-            'tution_area' => $course_teacher->area,
-            'tution_city' => $course_teacher->city,
-            'created_at' =>$item->updated_at
-            );
-    }
-    return view('tportal.tportal-pages.enrolled-students.all-students')->with(compact('data'));
-})->name('all-enrolled-students');
-
-
-///////////////////////////////Sudent Enrolled In///////////////////////////////////////////
-Route::get('enrolled-in', function(){
-    $id = Auth::user()->id;
-    $sid = Student::where('user_id', $id)->first();
-    $cst = CourseStudentTeacher::where('student_id', $sid['id'])->get();
-    $data = array();
-    foreach ($cst as $item){
-        $course = Course::find($item->course_id);
-        $tutor = Teacher::find($item->teacher_id)->user;
-        $st = CourseTeacher::find($item->course_teacher_id);
-        $data[] = array(
-            'tutor_id' => $item->teacher_id,
-            'tutor_user_id' => $tutor->id,
-            'tutor_name' => $tutor->name,
-            'tutor_profile_img' => $tutor->profile_img,
-            'tutor_contact' => $tutor->phone,
-            'course_name' => $course->course_name,
-            'tution_type' => $st->type,
-            'tution_area' => $st->area,
-            'tution_city' => $st->city,
-            'created_at' =>$st->updated_at
-            );
-    }
-    return view('sportal.sportal-pages.enrolled-in.enrolled-in')->with(compact('data'));
-})->name('enrolledin');

@@ -9,7 +9,8 @@
       <span class="navbar-toggler-icon icon-bar"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end">
-      <form class="navbar-form">
+      <form class="navbar-form" method="POST" action="{{ route('adminsearch') }}">
+        @csrf
         <div class="input-group no-border">
           <input type="text" value="" class="form-control" placeholder="Search...">
           <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -19,7 +20,10 @@
         </div>
       </form>
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item">   </li>
+        <li></li>
+        <li></li>
+        {{--  <li class="nav-item">
           <a class="nav-link" href="#pablo">
             <i class="material-icons">dashboard</i>
             <p class="d-lg-none d-md-block">
@@ -50,7 +54,7 @@
               Account
             </p>
           </a>
-        </li>
+        </li>  --}}
       </ul>
     </div>
   </div>
