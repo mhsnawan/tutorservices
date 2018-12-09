@@ -25,7 +25,7 @@
       <li class="nav-item">
         
         <a href="{{ route('posts.index') }}" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">supervised_user_circle</i>
+          <i class="material-icons">message</i>
           <p>Posts</p>
         </a>
         <ul class="dropdown-menu">
@@ -47,7 +47,7 @@
       </li>
       <li class="nav-item ">
         <a class="nav-link" href="{{ route('admin-tutors') }}">
-          <i class="material-icons">person</i>
+          <i class="material-icons">group</i>
           <p>Tutors</p>
         </a>
       </li>
