@@ -8,11 +8,11 @@
 
 			<!-- Filter -->
 			<div class="section-block pt-0 pb-50">
-				<div class="row">
+			<!--	<div class="row">-->
 					<!-- Content -->
 					<div class="section-block replicable-content pb-0">
 						<div class="row">
-							<div class="column width-12 center left-on-mobile">
+							<div style="left:200px" class="column width-12  left-on-mobile">
 								<div class="pu-100">
 									<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course->title }}</p>
 									<p class="mb-0">Posted By:{{ $user->name }}|Posted {{ $course->created_at->format('d/m/y') }}|Email<span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>|Phone
@@ -21,9 +21,9 @@
 										<p>{{ $course->description }}</p>
 										<hr>
 									<div class="row">
-										<div class="column width-5">
+										<div class="column width-6">
 											<h3>Course Information</h3>
-											<div class="column width-12">
+                       	<div class="column width-8">
 												<p class="project-attribute">
 													<span class="project-label">Course Name: </span><span class="project-value"> {{ $subject->course_name }}</span>
 												</p>
@@ -66,7 +66,7 @@
 											</p>
 										</div>
 									</div>
-									
+
 								</div><hr>
 								{{--  <div class="column width-12">
 									<p class="project-attribute">
@@ -82,8 +82,8 @@
 							</div>
 						</div>
 					</div>
-					<!-- Content -->
-				</div>
+					<!-- Content
+				</div>-->
 			</div>
 			<!-- Filter End -->
 		</div>
@@ -105,10 +105,10 @@
 										@endif
 									</div>
 								</form>
-								
+
 								<a href="#" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
 							</div>
-							
+
 					</div>
 					{{--  <h3 class="widget-title">More Jobs For U</h3>
 					<ul class="product-list list-group">

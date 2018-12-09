@@ -24,7 +24,7 @@
 
       </div>
       <br>
-      <div class="column width-3">
+      <div class="column width-2">
         <div class="widget" >
             <h4 class="widget-title weight-light"><a href=""></a></h4>
         </div>
@@ -68,10 +68,11 @@
       <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
       @endif
     </div>
-    <div class="image" style="background-color:#E7DFDD;width:1000px;height:1450px;left: 120px;">
-      <!-- Boxed Feature Columns -->
-      <div class="section-block pb-0 bkg-grey-ultralight">
+   <div class="image" style="background-color:#E7DFDD;width:1000px;height:1450px;left:120px;">
+      <!-- Boxed Feature Columns
+      <div class="section-block pb-0 bkg-grey-ultralight">-->
         <div class="row flex boxes">
+
           <div class="column width-12">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;" data-threshold="1">
               <div class="feature-text">
@@ -278,8 +279,6 @@
             </div>
           </div>
         </div>
-      </div>
-				<!-- Boxed Feature Columns End -->
         <br>
         <br>
         <div class="column width-6">
@@ -287,8 +286,11 @@
        </div>
        <div class="column width-6">
          <input type="submit" value="post a review" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-      </div>
    </div>
+      </div>
+				<!-- Boxed Feature Columns End -->
+
+  <!--   </div>-->
 </div>
 </div>
 

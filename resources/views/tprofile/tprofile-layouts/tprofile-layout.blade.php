@@ -49,7 +49,7 @@
 
 .profile .user .avatar {
   position: absolute;
-  left: 200px;
+  left: 170px;
   top: -85px;
   z-index: 2;
 }

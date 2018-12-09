@@ -19,7 +19,7 @@
                left:22%"  type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
             </div>
             <br>
-            <div class="column width-3">
+            <div class="column width-2">
               <div class="widget" >
                   <h4 class="widget-title weight-light"><a href=""></a></h4>
               </div>
@@ -60,9 +60,9 @@
         <div class="column width-4">
           <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
        </div>
-    <div class="image"style="background-color:#E7DFDD ;width:1000px;height:1000px;left: 120px;">
-      <!-- Boxed Feature Columns -->
-				<div class="section-block pb-0 bkg-grey-ultralight">
+    <div class="image"style="background-color:#E7DFDD ;width:1000px;height:1200px;left: 120px;">
+      <!-- Boxed Feature Columns
+				<div class="section-block pb-0 bkg-grey-ultralight">-->
 
 					<div class="row flex boxes">
 						<div class="column width-12">
@@ -94,15 +94,14 @@
 								</div>
 							</div>
 						</div>
-						<div class="column width-6">
+						<div class="column width-12">
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
 
 								<div class="feature-text">
-									<h5>Teachers</h5>
-                  <div class="column width-2">	 <a style="" href="#" class="contains-sub-menu profile-image">
-                        <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img"></div>
+									<h5>Tutors</h5>
+
                 	<div class="column width-8">
-                    <table class="table non-responsive">
+                    <!--   <table class="table non-responsive">
                    <tbody>
                      <tr class="cart-order-total">
                        <th>T_Name</th>
@@ -114,21 +113,104 @@
                      </tr>
 
                    </tbody>
-                 </table>
+                 </table>-->
+                 <!
+					-- Products Similar -->
+					<div class="row products-similar">
+						<div class="column width-12">
+							<hr>
+
+							<div id="product-grid" class="grid-container products fade-in-progressively no-padding-top" data-layout-mode="masonry" data-grid-ratio="1.5" data-animate-resize data-animate-resize-duration="0">
+								<div class="row">
+									<div class="column width-12">
+										<div class="row grid content-grid-3">
+											<div class="grid-item grid-sizer product design">
+												<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
+													<span class="onsale">ABC</span>
+													<a class="overlay-link" href="single-product.html">
+														<img src="images/shop/grid/large-margins/product-related-1.jpg" alt=""/>
+													</a>
+													<div class="product-actions center">
+														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
+													</div>
+												</div>
+												<div class="product-details center">
+													<h3 class="product-title">
+														<a href="#">
+															Aqeel
+														</a>
+													</h3>
+
+													<div class="product-actions-mobile">
+														<a href="#" class="button pill add-to-cart-button medium">Contactt</a>
+													</div>
+												</div>
+											</div>
+											<div class="grid-item product design identity">
+												<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
+													<span class="outofstock">AAAAAAAAA</span>
+													<a class="overlay-link" href="single-product.html">
+														<img src="images/shop/grid/large-margins/product-related-2.jpg" alt=""/>
+													</a>
+													<div class="product-actions center">
+														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
+													</div>
+												</div>
+												<div class="product-details center">
+													<h3 class="product-title">
+														<a href="#">
+															Mohsin
+														</a>
+													</h3>
+
+													<div class="product-actions-mobile">
+														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
+													</div>
+												</div>
+											</div>
+											<div class="grid-item product design identity">
+												<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
+													<a class="overlay-link" href="single-product.html">
+														<img src="images/shop/grid/large-margins/product-related-3.jpg" alt=""/>
+													</a>
+													<div class="product-actions center">
+														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
+													</div>
+												</div>
+												<div class="product-details center">
+													<h3 class="product-title">
+														<a href="#">
+															Mudassar
+														</a>
+													</h3>
+
+													<div class="product-actions-mobile">
+														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Products Similar End -->
+
                </div>
 								</div>
 							</div>
 						</div>
-						<div class="column width-6">
+						<div class="column width-12">
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:400ms;" data-threshold="1">
 
 								<div class="feature-text">
 									<h5>Tutions</h5>
                   <div class="column width-2">	 <a style="" href="#" class="contains-sub-menu profile-image">
                         <img style="width:32px;height:32px;position:inline;top:25px;left:10px;border-radius:50%;" src="storage/{{Auth::user()->profile_img}}" class="img-circle special-img"></div>
-                	<div class="column width-8">
-                    <table class="table non-responsive">
-                   <tbody>
+                	<div class="column width-12">
+                  <table class="table non-responsive">
+                  <tbody>
                      <tr class="cart-subtotal">
                        <th>Subject</th>
                        <td><span class="amount">English</span></td>
@@ -150,17 +232,18 @@
 
 
 
-					</div>
+				<!--	</div>-->
 				</div>
-				<!-- Boxed Feature Columns End -->
         <br>
         <br>
         <div class="column width-6">
           <input type="submit" value="Join a tution" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-       </div>
-       <div class="column width-6">
+        </div>
+        <div class="column width-6">
          <input type="submit" value="post a review" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-      </div>
+        </div>
+				<!-- Boxed Feature Columns End -->
+
    </div>
 </div>
 </div>
