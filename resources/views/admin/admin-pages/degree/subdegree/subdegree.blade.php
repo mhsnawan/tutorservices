@@ -21,22 +21,26 @@
             <table class="table table-hover">
               <thead class="text-primary">
                 <th>ID</th>
+                <th>Degree Level</th>
                 <th>Sub Degree Name</th>
+                <th>Created At</th>
                 <th>Actions</th>
               </thead>
               <tbody>
                 @foreach ($subdegrees as $subdegree)
                 <tr>
-                  <td>{{ $subdegree->id }}</td>
-                  <td>{{ $subdegree->name }}</td>
+                  <td>{{ $subdegree['id'] }}</td>
+                  <td>{{ $subdegree['degree_name'] }}</td>
+                  <td>{{ $subdegree['name'] }}</td>
+                  <td>{{ $subdegree['created_at']->format('d-m-Y') }}</td>
                   <td class="td-actions">
                     <div class="row">
-                      <form method="GET" action="{{ route('subdegree.edit', $subdegree->id) }}">
+                      <form method="GET" action="{{ route('subdegree.edit', $subdegree['id']) }}">
                         <button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Edit Degree">
                           <i class="material-icons">edit</i>
                         </button>
                       </form>
-                      <form method="post" action="{{ route('subdegree.destroy', $subdegree->id) }}">
+                      <form method="post" action="{{ route('subdegree.destroy', $subdegree['id']) }}">
                         @csrf
                         {{ method_field('DELETE') }}
                         <button type="submit" rel="tooltip" title="Delete Degree" class="btn btn-danger btn-link btn-sm">

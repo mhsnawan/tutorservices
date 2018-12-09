@@ -22,6 +22,7 @@
               <thead class="text-primary">
                 <th>ID</th>
                 <th>City</th>
+                <th>Created At</th>
                 <th>Actions</th>
               </thead>
               <tbody>
@@ -29,6 +30,7 @@
                 <tr>
                   <td>{{ $city->id }}</td>
                   <td>{{ $city->name }}</td>
+                  <td>{{ $city->created_at->format('d-m-Y') }}</td>
                   <td class="td-actions">
                     <div class="row">
                       <form method="GET" action="{{ route('city.edit', $city->id) }}">

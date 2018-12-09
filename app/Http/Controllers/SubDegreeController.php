@@ -15,7 +15,18 @@ class SubDegreeController extends Controller
      */
     public function index()
     {
-        $subdegrees = SubDegree::all();
+        $sdegrees = SubDegree::all();
+        $subdegrees = array();
+        foreach($sdegrees as $sub){
+            $degree = Degree::find($sub->degree_id);
+            $subdegrees[]= array(
+                'id' => $sub->id,
+                'degree_id' => $sub->degree_id,
+                'degree_name' => $degree->name,
+                'name' => $sub->name,
+                'created_at' => $sub->created_at
+            );
+        }
         return view('admin.admin-pages.degree.subdegree.subdegree')->with(compact('subdegrees'));;
     }
 

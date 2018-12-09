@@ -39,7 +39,13 @@
           <p>Courses</p>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('admin-students') }}">
+          <i class="material-icons">person</i>
+          <p>Students</p>
+        </a>
+      </li>
+      {{--  <li class="nav-item">
         <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="material-icons">person</i>
           <p>Students</p>
@@ -48,7 +54,7 @@
           <li class="nav-item"><a  href="{{ route('admin-students') }}">All students</a></li>
           <!-- <li class="nav-item"><a href="#">abc</a></li> -->
           </ul>
-      </li>
+      </li>  --}}
 
       <li class="nav-item">
         <a href="#" class="nav-link " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
