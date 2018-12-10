@@ -4,24 +4,31 @@
 <div class="row">
 <div class="profile clearfix">
   <div class="imag">
-    <img src="storage/{{Auth::user()->cover_img}}" class="img-cover cover-img">
+    <img src="/storage/{{ $user->cover_img}}" class="img-cover cover-img">
+    @if (Auth::user()->id == $user->id)
     <form id="cover" method="post" action={{ route('ucover') }} enctype="multipart/form-data">
       @csrf
       <input type="hidden" value="{{ $user->id }}" name="id">
       <div class="column width-2">
+<<<<<<< HEAD
       <input style="bottom:0%;left:40%" type="file" name="cover_img" id="cover_img" value="Update" class="form-submit button pill small border-theme bkg-hover-theme color-theme color-hover-white"></div>
+=======
+      <input style="bottom:80%;left:40%" type="file" name="cover_img" id="cover_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white"></div>
+>>>>>>> 837cecb712fdb84afbd9e314b6b8e09e2daa793b
     </form>
-    <input style="top:5%;right:82%" type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+    @endif
+    {{--  <input style="top:5%;right:82%" type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">  --}}
   </div>
     <div class="user clearfix">
       <div class="avatar">
-        <img src="storage/{{Auth::user()->profile_img}}" class="img-thumbnail img-profile profile-img">
+        <img src="/storage/{{ $user->profile_img}}" class="img-thumbnail img-profile profile-img">
+        @if (Auth::user()->id == $user->id)
         <form id="target" method="post" action={{ route('uprofile') }} enctype="multipart/form-data">
           @csrf
           <input type="hidden" value="{{ $user->id }}" name="id">
           <input style="bottom:0;left:22%" type="file" name="profile_img" id="profile_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
         </form>
-
+        @endif
       </div>
       <br>
       <div class="column width-2">
@@ -33,7 +40,7 @@
         <h2>{{ $user->name }}</h2>
       </div>
       <div class="column width-2" >
-        <p>@if(Auth::user()->verified == 1) <span class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>@endif</p>
+        <p>@if($user->verified == 1) <span class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>@endif</p>
       </div>
     </div>
     <div class="column width-2">
@@ -65,7 +72,7 @@
     </div>
     <div class="column width-4">
       @if(Auth::user()->id != $user->id)
-      <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+      <input type="button" onclick="getMessages({{ $user->id }})" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
       @endif
     </div>
    <div class="image" style="background-color:#E7DFDD;width:1000px;height:950px;left:120px;">
@@ -78,19 +85,19 @@
               <div class="feature-text">
                 <div class="column width-3">
                     <h6>Hourly Charges</h6>
-                    <p>PKR @if($teacher){{ $teacher->hourly_rate }} @endif</p>
+                    <p>PKR @if($teacher){{ $teacher->hourly_charges }} @endif</p>
                 </div>
                 <div class="column width-3">
                     <h6>Daily Charges</h6>
-                    <p>PKR @if($teacher){{ $teacher->daily_rate }}@endif</p>
+                    <p>PKR @if($teacher){{ $teacher->daily_charges }}@endif</p>
                 </div>
                 <div class="column width-3">
                     <h6>Weekly Charges</h6>
-                    <p>PKR @if($teacher){{ $teacher->weekly_rate }}@endif</p>
+                    <p>PKR @if($teacher){{ $teacher->weekly_charges }}@endif</p>
                 </div>
                 <div class="column width-3">
                     <h6>Monthly Charges</h6>
-                    <p>PKR @if($teacher){{ $teacher->monthly_rate }}@endif</p>
+                    <p>PKR @if($teacher){{ $teacher->monthly_charges }}@endif</p>
                 </div>
               </div>
             </div>
@@ -213,7 +220,7 @@
               </div>  --}}
             </div>
           </div>
-          <div class="column width-6">
+          <div class="column width-12">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
                 <div class="feature-text">
                   <h5>Experience</h5>
@@ -224,7 +231,7 @@
               </div>
             </div>
           </div>
-          <div class="column width-6">
+          {{--  <div class="column width-6">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:400ms;" data-threshold="1">
 
               <div class="feature-text">
@@ -250,7 +257,7 @@
               </div>
               </div>
             </div>
-          </div>
+          </div>  --}}
           <div class="column width-12">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:400ms;" data-threshold="1">
 
@@ -279,14 +286,14 @@
             </div>
           </div>
         </div>
-        <br>
+        {{--  <br>
         <br>
         <div class="column width-6">
           <input type="submit" value="Join a tution" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
        </div>
        <div class="column width-6">
          <input type="submit" value="post a review" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-   </div>
+   <  /div>  --}}
       </div>
 				<!-- Boxed Feature Columns End -->
 
@@ -295,6 +302,28 @@
 </div>
 
 <script>
+    function getMessages(user_id){
+      $.ajax({
+          url: "{{ route('get-con') }}",
+          data: {
+              _token: '{{ csrf_token() }}',
+              user_id: user_id
+              },
+          success: function(data){
+              if(data.check == 1){
+                  window.location = "/inbox";
+                  console.log('check is 1');
+              }
+              else{
+                  window.location = "/new-chat/"+data.user2;
+              }
+
+          },
+          error: function(){
+          }
+      });
+  }
+
     $('#profile_img').change(function() {
       $('#target').submit();
     });

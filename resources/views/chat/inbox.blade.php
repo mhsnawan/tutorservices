@@ -3,7 +3,7 @@
 @section('content')
 <br><br><br><br>
 <div class="container">
-    <h3 class=" text-center">Messaging</h3>
+    {{--  <h3 class=" text-center">Messaging</h3>  --}}
     <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people">
@@ -13,7 +13,7 @@
             </div>
             <div class="srch_bar">
               <div class="stylish-input-group">
-                <input type="text" class="search-bar"  placeholder="Search" >
+                {{--  <input type="text" class="search-bar"  placeholder="Search" >  --}}
                 <span class="input-group-addon">
                 <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
                 </span> </div>
@@ -24,7 +24,7 @@
             @foreach($data as $item)
             <div class="chat_list {{ $item['conversation_id'] }}" onclick="clickConversation({{ $item['user1_id'] }}, {{ $item['conversation_id'] }})">
               <div class="chat_people">
-                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_img"> <img src="/storage/{{ $item['user2_profile_img']}}" alt="sunil"> </div>
                 <div class="chat_ib">
                   <h5>{{ $item['user2_name'] }} <span class="chat_date">{{ $item['created_at']->format('h:i | d M') }}</span></h5>
                   <p>{{ $item['message'] }}</p>
@@ -36,7 +36,7 @@
 
         </div>
         <div class="mesgs">
-          <div class="msg_history">
+          <div class="msg_history" id="data">
             {{-- Incoming and outgoing messages will come here   --}}
           </div>
           <div class="type_msg">
@@ -72,6 +72,7 @@
                     },
                 success: function(data){
                     messages = data.messages;
+                    profile = data.user2_profile;
                     messages.forEach(function(entry) {
                         var timestamp = entry['created_at'];
                         date = timestamp.substr(0,timestamp.indexOf(' '));
@@ -88,7 +89,7 @@
                         else{
                             $('.msg_history').append(`
                             <div class="incoming_msg">
-                                <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                                <div class="incoming_msg_img"> <img src="/storage/`+profile+`" alt="sunil"> </div>
                                 <div class="received_msg">
                                     <div class="received_withd_msg">
                                     <p>`+entry['message']+`</p>
@@ -172,6 +173,11 @@
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////
+        window.setInterval(function() {
+            var elem = document.getElementById('data');
+            elem.scrollTop = elem.scrollHeight;
+          }, 100);
+          
     </script>
 
     @endsection

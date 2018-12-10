@@ -37,19 +37,19 @@
 						@foreach ($courses as $course)
 						<div class="column width-12">
 							<div class="cart-totals box xlarge bkg-grey-ultralight">
-                 				<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course->title }}</p>
+                 				<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course['title'] }}</p>
                   				<div class="column width-3">
-							       	<p class="mb-0">Posted By:Aqeel Ahmad<br>Posted 2018-10-5</p>
+							       	<p class="mb-0">Posted By : {{ $course['tutor_name'] }}<br>Posted : {{ $course['created_at']->format('d-m-Y') }}</p>
 							    </div>
                   				<div class="column width-3">
-								    <span class="text-small weight-bold"><span class="icon-location"></span>{{ $course->area }}, {{ $course->city }}</span>
+								    <span class="text-small weight-bold"><span class="icon-location"></span>{{ $course['area'] }}, {{ $course['city'] }}</span>
 								</div>
 								<br>
                    				<div class="column width-6">
-							        <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
-								    <a href="{{ route('course.view', $course->id) }}" class="button pill checkout no-margin-bottom fade-location">View Details</a>
+					@if(Auth::user()->id != $course['user_id'])<a onclick="getMessages({{ $course['user_id'] }})" class="button pill checkout no-margin-bottom fade-location">Send Message</a> @endif
+								    <a href="{{ route('course.view', $course['id']) }}" class="button pill checkout no-margin-bottom fade-location">View Details</a>
 								</div>
-	                    		<a href="#">Requirements</a>
+	                    		{{--  <a href="#">Requirements</a>  --}}
 						  	</div>
 						</div>
 						@endforeach
@@ -124,11 +124,11 @@
 					},
 				success: function(data){
 					if(data.check == 1){
-						window.location = "result";
+						window.location = "/inbox";
 						console.log('check is 1');
 					}
 					else{
-						window.location = "new-chat/"+data.user2;
+						window.location = "/new-chat/"+data.user2;
 					}
 
 				},

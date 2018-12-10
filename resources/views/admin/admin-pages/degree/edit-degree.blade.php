@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="course_name">Degree Name</label>
+                    <label for="name">Degree Name</label>
                     <input type="text" class="form-control" name="name" id="name" value="{{ $degrees[0]->name }}" placeholder="Mathematics">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>

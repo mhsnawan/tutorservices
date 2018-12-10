@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
 @section('content')
 <div class="container">
@@ -20,7 +20,15 @@
           </div>
 
           <div class="inbox_chat">
-            {{ $user }}
+            <div class="chat_list">
+              <div class="chat_people active_chat">
+                <div class="chat_img"> <img src="/storage/{{ $user->profile_img}}" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>{{ $user->name }} <span class="chat_date"></span></h5>
+                  <p></p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

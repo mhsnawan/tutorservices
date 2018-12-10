@@ -203,8 +203,9 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/admin/documents/{id}',function($id){ 
         $teacher = User::find($id);
         $ed = EdInfo::where('user_id', $id)->get();
+        //return $teacher;
         return view('admin.admin-pages.documents')->with(compact('teacher','ed'));
-    });
+    })->name('documents');
     /////////////////////////////////ADMIN DOCUMENTS END///////////////////////////////////////
 });
 
@@ -262,30 +263,6 @@ Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function()
         return view('tportal.tportal-pages.enrolled-students.all-students')->with(compact('data'));
     })->name('all-enrolled-students');
     ///////////////////////////ALL ENROLLED STUDENTS END//////////////////////
-
-    /////////////////////////// TUTOR PROFILE START /////////////////////////
-    Route::get('/profile',function(){
-        $id = Auth::user()->id;
-        $user= User::find($id);
-        $teacher = User::find($id)->teacher;
-        $edinfos = User::find($id)->edinfos;
-        $certifications = User::find($id)->certifications;
-        $experiences = User::find($id)->experiences;
-        return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-    });
-    
-    Route::get('profile/{id}', function($id){
-        $user= User::find($id);
-        if($user->role == 2){
-            $teacher = User::find($id)->teacher;
-            $edinfos = User::find($id)->edinfos;
-            $certifications = User::find($id)->certifications;
-            $experiences = User::find($id)->experiences;
-            return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-        } 
-    })->name('profile.id');
-    /////////////////////////// END TUTOR PROFILE /////////////////////////
-
 });
 
 /// ========================================= END TUTOR ROUTES =====================================================//
@@ -362,6 +339,7 @@ Route::get('/inbox', function(){
                 'message_user' => $message->user_id,
                 'message' => $message->message,
                 'created_at' => $message->created_at,
+                'user2_profile_img' => $user2->profile_img
                 );
         }
     }
@@ -374,6 +352,8 @@ Route::get('/get-messages', function(Request $request){
     $input = $request->all();
     $conversation_id = $input['conversation_id'];
     $messages = Messages::where('conversation_id', $conversation_id)->get();
+    $conversationUser = ConversationUser::where('conversation_id', $conversation_id)->where('user_id', '!=', $id)->get();
+    $user = User::find($conversationUser[0]->user_id);
     foreach ($messages as $message){
         if ($message->user_id != $id){
             $m = Messages::find($message->id);
@@ -382,7 +362,8 @@ Route::get('/get-messages', function(Request $request){
         }
     }
     return response()->json([
-        'messages' => $messages
+        'messages' => $messages,
+        'user2_profile' => $user->profile_img 
     ]);
 })->name('getmessages');
 
@@ -618,16 +599,45 @@ Route::any('/searchresult',function(){
 // ============================ course ROUTES ======================================//
 
 Route::get('/courses',function(){
-    $courses = CourseTeacher::all();
-    //return $courses;
+    $courseTeacher = CourseTeacher::all();
+    $courses = array();
+    foreach($courseTeacher as $course){
+        $user = Teacher::find($course->teacher_id)->user;
+        $courses[] = array(
+            'id' => $course->id,
+            'teacher_id' => $course->teacher_id,
+            'course_id' => $course->course_id,
+            'title' => $course->title,
+            'area' => $course->area,
+            'city' => $course->city,
+            'class' => $course->class,
+            'fee' => $course->fee,
+            'created_at' => $course->created_at,
+            'type' => $course->type,
+            'user_id' => $user->id,
+            'tutor_name' => $user->name
+        );
+    };
+    // $courses = json_encode($data);;
+    // echo $courses;
     return view('current-tech-course.courses')->with(compact('courses'));
 })->name('courses');
 
 Route::get('course/{id}',function($id){
+    $check_enrolled = true;
     $course = CourseTeacher::find($id);
-    $user = User::find($course->user_id)->first();
+    $user = Teacher::find($course->teacher_id)->user;
+    $user_id = Auth::user()->id;
+    if(Auth::user()->role == 1){
+        $student = Student::where('user_id', $user_id);
+        $abc = CourseStudentTeacher::where('course_id', $id)->where('student_id', $user->id)->count();
+        if($abc > 0){
+            $check_enrolled = false;
+        }
+    }
+    //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
-    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject'));
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled'));
 })->name('course.view');
 
 Route::get('show-course', function(){
@@ -666,6 +676,51 @@ Route::get('/sprofile',function(){
 
     return view('sprofile.sprofile-pages.sprofile-page');
 });
+
+    /////////////////////////// TUTOR PROFILE START /////////////////////////
+    Route::get('/profile',function(){
+        $id = Auth::user()->id;
+        if(Auth::user()->role == 1){ //student
+            $user = User::find($id);
+            $edinfos = User::find($id)->edinfos;
+            $sid = Student::where('user_id', $id)->get();
+            $cst = CourseStudentTeacher::where('student_id', $sid[0]->id)->get();
+            $data = array();
+            foreach($cst as $item){
+                $tutor = Teacher::find($item->teacher_id)->user;
+                $course = Course::find($item->course_id);
+                $data[] = array(
+                    'logged_in' => $id,
+                    'id' => $tutor->id,
+                    'name' => $tutor->name,
+                    'profile_img' => $tutor->profile_img,
+                    'course_name' => $course->course_name
+                );
+            }
+            // $tprofile = json_encode($data);
+            return view('sprofile.sprofile-pages.sprofile-page')->with(compact('user', 'edinfos', 'data'));
+        }
+        if(Auth::user()->role == 2){ //student
+            $user= User::find($id);
+            $teacher = User::find($id)->teacher;
+            $edinfos = User::find($id)->edinfos;
+            $certifications = User::find($id)->certifications;
+            $experiences = User::find($id)->experiences;
+            return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+        }
+        
+    });
+    
+    Route::get('profile/{id}', function($id){
+        $user= User::find($id);
+        $teacher = User::find($id)->teacher;
+        $edinfos = User::find($id)->edinfos;
+        $certifications = User::find($id)->certifications;
+        $experiences = User::find($id)->experiences;
+        return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+        
+    })->name('profile.id');
+    /////////////////////////// END TUTOR PROFILE /////////////////////////
 
 
 

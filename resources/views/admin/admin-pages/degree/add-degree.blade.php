@@ -6,15 +6,15 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
-          <h4 class="card-title ">Add Course</h4>
+          <h4 class="card-title ">Add Degree Level</h4>
           {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
         </div>
         <div class="card-body">
             <form method="POST" action=" {{ route('degree.store') }}">
                 @csrf
                 <div class="form-group col-md-6">
-                    <label for="course_name">Degree Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Bechelors">
+                    <label for="name">Degree Name</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Bachelor's">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>

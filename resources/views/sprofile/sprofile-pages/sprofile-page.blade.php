@@ -7,28 +7,38 @@
 <br>
 <div class="row" >
 <div class="profile clearfix">
-        <div  class="imag">
-            <img src="images/team/team-member-8.jpg" class="img-cover">
-            <input style="top:5%;
-          right:82%"  type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-        </div>
-        <div class="user clearfix">
-            <div class="avatar">
-                <img src="images/team/team-member-8.jpg"class="img-thumbnail img-profile">
-                 <input style="bottom:0;
-               left:22%"  type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+    <div class="imag">
+        <img src="/storage/{{Auth::user()->cover_img}}" class="img-cover cover-img">
+        <form id="cover" method="post" action={{ route('ucover') }} enctype="multipart/form-data">
+          @csrf
+          <input type="hidden" value="{{ $user->id }}" name="id">
+          <div class="column width-2">
+          <input style="bottom:0%;left:40%" type="file" name="cover_img" id="cover_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white"></div>
+        </form>
+        <input style="top:5%;right:82%" type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+      </div>
+      <div class="user clearfix">
+          <div class="avatar">
+            <img src="/storage/{{Auth::user()->profile_img}}" class="img-thumbnail img-profile profile-img">
+            <form id="target" method="post" action={{ route('uprofile') }} enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" value="{{ $user->id }}" name="id">
+              <input style="bottom:0;left:22%" type="file" name="profile_img" id="profile_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+            </form>
+    
+          </div>
+          <br>
+          <div class="column width-2">
+            <div class="widget" >
+                <h4 class="widget-title weight-light"><a href=""></a></h4>
             </div>
-            <br>
-            <div class="column width-2">
-              <div class="widget" >
-                  <h4 class="widget-title weight-light"><a href=""></a></h4>
-              </div>
-            </div>
-            <div class="column width-4">
-            <h2>Aqeel Ahmad khan</h2></div>
-            <div class="column width-2" >
-                <p></span>  <span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-green-light color-hover-white thick"></span></p>
-            </div>
+          </div>
+          <div class="column width-4">
+            <h2>{{ $user->name }}</h2>
+          </div>
+          <div class="column width-2" >
+            <p>@if(Auth::user()->verified == 1) <span class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>@endif</p>
+          </div>
         </div>
         <div class="column width-2">
             <div class="widget" >
@@ -57,15 +67,17 @@
                   <h4 class="widget-title weight-light"><a href=""></a></h4>
               </div>
           </div>
-        <div class="column width-4">
+        <div class="column width-4">   
+          @if(Auth::user()->id != $user->id)
           <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-       </div>
+          @endif
+        </div>
     <div class="image"style="background-color:#E7DFDD ;width:1000px;height:1200px;left: 120px;">
       <!-- Boxed Feature Columns
 				<div class="section-block pb-0 bkg-grey-ultralight">-->
 
 					<div class="row flex boxes">
-						<div class="column width-12">
+						{{--  <div class="column width-12">
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;" data-threshold="1">
 
 								<div class="feature-text">
@@ -93,7 +105,18 @@
              </div>
 								</div>
 							</div>
-						</div>
+            </div>  --}}
+            <div class="column width-12">
+                <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
+                  <div class="feature-text">
+                    <h5>Education</h5>
+                    @foreach ($edinfos as $edinfo)
+                    <b>{{ $edinfo->degree_level}} - {{$edinfo->title }}</b>
+                    <p>{{ $edinfo->institute}} | {{ $edinfo->startdate }} - {{ $edinfo->enddate }}</p>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
 						<div class="column width-12">
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
 
@@ -124,20 +147,22 @@
 								<div class="row">
 									<div class="column width-12">
 										<div class="row grid content-grid-3">
+                      {{--  Loop HERE  --}}
+                      @foreach ($data as $profile)
 											<div class="grid-item grid-sizer product design">
 												<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
-													<span class="onsale">ABC</span>
+													<span class="onsale">{{ $profile['course_name'] }}</span>
 													<a class="overlay-link" href="single-product.html">
-														<img src="images/shop/grid/large-margins/product-related-1.jpg" alt=""/>
+                            <img src="/storage/{{$profile['profile_img']}}" class="img-thumbnail img-profile profile-img">
 													</a>
 													<div class="product-actions center">
-														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
+														<a onclick="getMessages({{ $user->id }})" class="button pill add-to-cart-button medium">Contact</a>
 													</div>
 												</div>
 												<div class="product-details center">
 													<h3 class="product-title">
-														<a href="#">
-															Aqeel
+														<a href="{{ route('profile.id', $profile['id']) }}">
+															{{ $profile['name'] }}
 														</a>
 													</h3>
 
@@ -145,50 +170,8 @@
 														<a href="#" class="button pill add-to-cart-button medium">Contactt</a>
 													</div>
 												</div>
-											</div>
-											<div class="grid-item product design identity">
-												<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
-													<span class="outofstock">AAAAAAAAA</span>
-													<a class="overlay-link" href="single-product.html">
-														<img src="images/shop/grid/large-margins/product-related-2.jpg" alt=""/>
-													</a>
-													<div class="product-actions center">
-														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
-													</div>
-												</div>
-												<div class="product-details center">
-													<h3 class="product-title">
-														<a href="#">
-															Mohsin
-														</a>
-													</h3>
-
-													<div class="product-actions-mobile">
-														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
-													</div>
-												</div>
-											</div>
-											<div class="grid-item product design identity">
-												<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
-													<a class="overlay-link" href="single-product.html">
-														<img src="images/shop/grid/large-margins/product-related-3.jpg" alt=""/>
-													</a>
-													<div class="product-actions center">
-														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
-													</div>
-												</div>
-												<div class="product-details center">
-													<h3 class="product-title">
-														<a href="#">
-															Mudassar
-														</a>
-													</h3>
-
-													<div class="product-actions-mobile">
-														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
-													</div>
-												</div>
-											</div>
+                      </div>
+                      @endforeach
 										</div>
 									</div>
 								</div>
@@ -236,15 +219,47 @@
 				</div>
         <br>
         <br>
-        <div class="column width-6">
+        {{--  <div class="column width-6">
           <input type="submit" value="Join a tution" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
         </div>
         <div class="column width-6">
          <input type="submit" value="post a review" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-        </div>
+        </div>  --}}
 				<!-- Boxed Feature Columns End -->
 
    </div>
 </div>
 </div>
+
+<script>
+    function getMessages(user_id){
+      $.ajax({
+          url: "{{ route('get-con') }}",
+          data: {
+              _token: '{{ csrf_token() }}',
+              user_id: user_id
+              },
+          success: function(data){
+              if(data.check == 1){
+                  window.location = "/inbox";
+                  console.log('check is 1');
+              }
+              else{
+                  window.location = "/new-chat/"+data.user2;
+              }
+
+          },
+          error: function(){
+          }
+      });
+  }
+
+    $('#profile_img').change(function() {
+      $('#target').submit();
+    });
+
+    $('#cover_img').change(function() {
+      $('#cover').submit();
+    });
+</script>
   @endsection

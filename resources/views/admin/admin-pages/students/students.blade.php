@@ -24,12 +24,12 @@
               @foreach ($students as $student)
                 <tr>
                     <td >
-                        <img src="{{asset("storage/$student->profile_img")}}" class="img-responsive avatar_all_students" >
+                        <img src="{{asset("/storage/$student->profile_img")}}" class="img-responsive avatar_all_students" >
                       </td>
                     <td>{{ $student->id }}</td>
                     <td>{{ $student->name }}</td>
                     <td>
-                        <form method="GET" action="./documents/{{ $student->id }}"><input type="submit" value="documents"></input></form>
+                        <form method="GET" action="./admin/documents/{{ $student->id }}"><input type="submit" value="documents"></input></form>
                     </td>
                     <td>
                         @if($student->verified == 0) Not Verified @else Verified @endif

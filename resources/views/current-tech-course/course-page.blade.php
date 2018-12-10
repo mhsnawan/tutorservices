@@ -15,15 +15,16 @@
 							<div style="left:200px" class="column width-12  left-on-mobile">
 								<div class="pu-100">
 									<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course->title }}</p>
-									<p class="mb-0">Posted By:{{ $user->name }}|Posted {{ $course->created_at->format('d/m/y') }}|Email<span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>|Phone
-										<span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>|Status</p><hr>
+									<p class="mb-0">Posted By : {{ $user->name }}  |  Posted On : {{ $course->created_at->format('d/m/y') }}
+										{{--  |Email<span  class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>|Phone  --}}
+										<span  ></span></p><hr>
 										<h4>Description</h4>
 										<p>{{ $course->description }}</p>
 										<hr>
 									<div class="row">
 										<div class="column width-6">
 											<h3>Course Information</h3>
-                       	<div class="column width-8">
+                       						<div class="column width-8">
 												<p class="project-attribute">
 													<span class="project-label">Course Name: </span><span class="project-value"> {{ $subject->course_name }}</span>
 												</p>
@@ -100,13 +101,17 @@
 										<input type="text" value="{{ $course->id }}" name="course_teacher_id" hidden>
 										<input type="text" value="{{ $course->teacher_id }}" name="teacher_id" hidden>
 										<input type="text" value="{{ $course->course_id }}" name="course_id" hidden>
-										@if(Auth::user()->role != 2)
-										<input type="submit" value="Enroll Now" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
+										@if(Auth::user()->role == 1)
+											@if($check_enrolled == true)
+											<input type="submit" value="Enroll Now" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
+											@else
+											<input type="submit" value="Enrolled" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme" disabled>
+											@endif
 										@endif
 									</div>
 								</form>
 
-								<a href="#" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
+								<a onclick="getMessages({{ $course['user_id'] }})" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
 							</div>
 
 					</div>
@@ -153,4 +158,28 @@
 
 	</div>
 </div>
+
+<script>
+		function getMessages(user_id){
+			$.ajax({
+				url: "{{ route('get-con') }}",
+				data: {
+					_token: '{{ csrf_token() }}',
+					user_id: user_id
+					},
+				success: function(data){
+					if(data.check == 1){
+						window.location = "/inbox";
+						console.log('check is 1');
+					}
+					else{
+						window.location = "/new-chat/"+data.user2;
+					}
+	
+				},
+				error: function(){
+				}
+			});
+		}
+	</script>
 @endsection

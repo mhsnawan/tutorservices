@@ -53,6 +53,7 @@ class CourseStudentTeacherController extends Controller
         $s = Student::where('user_id', $id)->first();
         $input['student_id'] = $s->id;
         CourseStudentTeacher::create($input);
+        return redirect('courses');
     }
 
     /**

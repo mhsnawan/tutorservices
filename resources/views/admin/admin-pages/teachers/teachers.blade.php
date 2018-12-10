@@ -24,13 +24,13 @@
                   @foreach ($teachers as $teacher)
                 <tr>
                     <td >
-                      <img src="{{asset("storage/$teacher->profile_img")}}" class="img-responsive avatar_all_students" >
+                      <img src="{{asset("/storage/$teacher->profile_img")}}" class="img-responsive avatar_all_students" >
                     </td>
                     
                     <td>{{ $teacher->id }}</td>
                     <td>{{ $teacher->name }}</td>
                     <td>
-                        <form method="GET" action="{{ route('admin-tutor.update', $teacher->id) }}">
+                        <form method="GET" action="./admin/documents/{{ $teacher->id }}">
                           <input type="submit" value="documents">
                         </form>
                     </td>
