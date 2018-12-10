@@ -21,6 +21,10 @@ class CreateTeachersTable extends Migration
             $table->string('day_to')->nullable();
             $table->string('time_from')->nullable();
             $table->string('time_to')->nullable();
+            $table->string('hourly_charges')->nullable();
+            $table->string('daily_charges')->nullable();
+            $table->string('weekly_charges')->nullable();
+            $table->string('monthly_charges')->nullable();
         });
     }
 

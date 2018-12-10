@@ -6,7 +6,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
-          <h4 class="card-title ">Add Course</h4>
+          <h4 class="card-title ">Add Sub Degree</h4>
           {{--  <p class="card-category"> Here is a subtitle for this table</p>  --}}
         </div>
         <div class="card-body">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Degree Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Bechelors">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="CS">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>

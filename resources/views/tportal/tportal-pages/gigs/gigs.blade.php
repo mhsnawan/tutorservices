@@ -5,10 +5,11 @@
 <!-- Cart Overview -->
 <div class="section-block cart-overview">
 	<div class="row">
-		<div class="column width-12"><h5>Gigs</h5>
+		<div class="column width-12">
+			{{--  <h5>Gigs</h5>  --}}
 			<div class="row">
 				<div class="offset width-5">
-					<a href="#" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Just Border</a>
+					<a href="#" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">ADD NEW</a>
 				</div>
 				</div>
 			<div class="payment-details box large">

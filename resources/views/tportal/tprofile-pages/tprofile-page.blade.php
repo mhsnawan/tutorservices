@@ -84,27 +84,25 @@
     <div class="image"style="background-color:gray;width:1110px;height:1000px;left: 120px;">
       <!-- Boxed Feature Columns -->
 				<div class="section-block pb-0 bkg-grey-ultralight">
-
 					<div class="row flex boxes">
 						<div class="column width-12">
 							<div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;" data-threshold="1">
                                 <div class="feature-text">
                                     <div class="column width-3">
                                         <h6>Hourly Rate</h6>
-
-                                        <p>PKR @if($teacher){{ $teacher->hourly_rate }} @endif</p>
+                                        <p>PKR @if($teacher){{ $teacher->hourly_charges }} @endif</p>
                                     </div>
                                     <div class="column width-3">
                                         <h6>Daily Rate</h6>
-                                        <p>PKR @if($teacher){{ $teacher->daily_rate }}@endif</p>
+                                        <p>PKR @if($teacher){{ $teacher->daily_charges }}@endif</p>
                                     </div>
                                     <div class="column width-3">
                                         <h6>Weekly Rate</h6>
-                                        <p>PKR @if($teacher){{ $teacher->weekly_rate }}@endif</p>
+                                        <p>PKR @if($teacher){{ $teacher->weekly_charges }}@endif</p>
                                     </div>
                                     <div class="column width-3">
                                         <h6>Monthly Rate</h6>
-                                        <p>PKR @if($teacher){{ $teacher->monthly_rate }}@endif</p>
+                                        <p>PKR @if($teacher){{ $teacher->monthly_charges }}@endif</p>
                                     </div>
                                 </div>
 

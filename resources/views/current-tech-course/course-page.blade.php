@@ -101,18 +101,17 @@
 										<input type="text" value="{{ $course->id }}" name="course_teacher_id" hidden>
 										<input type="text" value="{{ $course->teacher_id }}" name="teacher_id" hidden>
 										<input type="text" value="{{ $course->course_id }}" name="course_id" hidden>
-										@if(Auth::user()->role != 2)
+										@if(Auth::user()->role == 1)
 											@if($check_enrolled == true)
 											<input type="submit" value="Enroll Now" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
 											@else
-											<input disabled value="Enrolled" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
-										
+											<input type="submit" value="Enrolled" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme" disabled>
 											@endif
 										@endif
 									</div>
 								</form>
 
-								<a href="#" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
+								<a onclick="getMessages({{ $course['user_id'] }})" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
 							</div>
 
 					</div>
@@ -159,4 +158,28 @@
 
 	</div>
 </div>
+
+<script>
+		function getMessages(user_id){
+			$.ajax({
+				url: "{{ route('get-con') }}",
+				data: {
+					_token: '{{ csrf_token() }}',
+					user_id: user_id
+					},
+				success: function(data){
+					if(data.check == 1){
+						window.location = "/inbox";
+						console.log('check is 1');
+					}
+					else{
+						window.location = "/new-chat/"+data.user2;
+					}
+	
+				},
+				error: function(){
+				}
+			});
+		}
+	</script>
 @endsection

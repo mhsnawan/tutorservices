@@ -14,24 +14,24 @@
                 <div class="row">
                   <div class="column width-4">
                     <div class="field-wrapper">
-                      <input type="number" name="hourly_rate" value="{{ $rate->hourly_rate }}" class="form-fname form-element large" placeholder="Pkr Hourly" tabindex="1" required>
+                      <input type="number" name="hourly_charges" value="{{ $rate->hourly_charges }}" class="form-fname form-element large" placeholder="Pkr Hourly" tabindex="1" required>
                     </div>
                   </div>
                   <div class="column width-4">
                     <div class="field-wrapper">
-                      <input type="number" name="daily_rate" value="{{ $rate->daily_rate }}" class="form-lname form-element large" placeholder="Pkr Daily" tabindex="2">
+                      <input type="number" name="daily_charges" value="{{ $rate->daily_charges }}" class="form-lname form-element large" placeholder="Pkr Daily" tabindex="2">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="column width-4">
                     <div class="field-wrapper">
-                      <input type="number" name="weekly_rate" value="{{ $rate->weekly_rate }}" class="form-email form-element large" placeholder="Pkr Weekly" tabindex="3" required>
+                      <input type="number" name="weekly_charges" value="{{ $rate->weekly_charges }}" class="form-email form-element large" placeholder="Pkr Weekly" tabindex="3" required>
                     </div>
                   </div>
                   <div class="column width-4">
                     <div class="field-wrapper">
-                      <input type="number" name="monthly_rate" value="{{ $rate->monthly_rate }}" class="form-email form-element large" placeholder="Pkr Monthly" tabindex="3" required>
+                      <input type="number" name="monthly_charges" value="{{ $rate->monthly_charges }}" class="form-email form-element large" placeholder="Pkr Monthly" tabindex="3" required>
                     </div>
                   </div>
                 </div>

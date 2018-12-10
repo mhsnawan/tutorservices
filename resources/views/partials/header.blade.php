@@ -85,10 +85,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="{{ route('gigs.index') }}">Tutions</a>
+                            <a href="{{ route('gigs.index') }}">Tuitions</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ route('gigs.index') }}">Tutions</a>
+                                    <a href="{{ route('gigs.index') }}">Tuitions</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('gigs.create') }}">Create New</a>

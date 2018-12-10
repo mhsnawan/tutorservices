@@ -49,13 +49,13 @@
 
                                                         <div class="column width-6">
                                                             <div class="field-wrapper">
-                                                                <label for="startdate">Institute</label>
+                                                                <label for="startdate">From</label>
                                                                 <input type="date" name="startdate" id="startdate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
                                                             </div>
                                                         </div>
                                                         <div class="column width-6">
                                                             <div class="field-wrapper">
-                                                                <label for="enddate">Institute</label>
+                                                                <label for="enddate">To</label>
                                                                 <input type="date" name="enddate" id="enddate" class="form-email form-element large" placeholder="Year of passing*" tabindex="3" required>
                                                             </div>
                                                         </div>
