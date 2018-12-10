@@ -21,15 +21,7 @@
 	<div class="row">
 		<div class="column width-12">
 			<ul class="breadcrumb mb-50">
-				<li>
-					<a href="index.html">Demos</a>
-				</li>
-				<li>
-					<a href="index.html">Blog</a>
-				</li>
-				<li>
-					Blog Single Post
-				</li>
+
 			</ul>
 		</div>
 	</div>
@@ -67,7 +59,7 @@
 					</div>
 				</article>
 			</div>
-			
+
 			<!-- Post Comments -->
 			{{--  <div class="post-comments">
 				<h3 class="comments-title">3 Comments</h3>
@@ -81,7 +73,7 @@
 								<div class="comment-content">
 									<h5 class="name">John Andersson</h5>
 									<div class="comment-meta">
-										<span class="post-date">17 Jul 2015</span>/<a href="#" class="comment-reply-link">Reply</a>            
+										<span class="post-date">17 Jul 2015</span>/<a href="#" class="comment-reply-link">Reply</a>
 									</div>
 									<p>Whistler Mountain is a mountain in the Fitzsimmons Range of the Pacific Ranges of the Coast Mountains, located on the northwestern.</p>
 								</div>
@@ -95,7 +87,7 @@
 										<div class="comment-content">
 											<h5 class="name">Emma Courtier</h5>
 											<div class="comment-meta">
-												<span class="post-date">23 Jul 2015</span>/<a href="#" class="comment-reply-link">Reply</a>            
+												<span class="post-date">23 Jul 2015</span>/<a href="#" class="comment-reply-link">Reply</a>
 											</div>
 											<p>Whistler Mountain is a mountain in the Fitzsimmons Range of the Pacific Ranges of the Coast Mountains, located on the northwestern.</p>
 										</div>
@@ -111,7 +103,7 @@
 								<div class="comment-content">
 									<h5 class="name">Michael Cunningham</h5>
 									<div class="comment-meta">
-										<span class="post-date">24 Jul 2015</span>/<a href="#" class="comment-reply-link">Reply</a>            
+										<span class="post-date">24 Jul 2015</span>/<a href="#" class="comment-reply-link">Reply</a>
 									</div>
 									<p>Whistler Mountain is a mountain in the Fitzsimmons Range of the Pacific Ranges of the Coast Mountains, located on the northwestern.</p>
 								</div>
@@ -148,17 +140,17 @@
 		</div>
 		<!-- Content Inner End -->
 
-		<!-- Sidebar -->
+	 <!--	Sidebar -->
 		<aside class="column width-3 sidebar right">
 			<div class="sidebar-inner">
 				<div class="widget">
-					<h3 class="widget-title">Find Something</h3>
-					<div class="search-form-container site-search">
+					<!--	<h3 class="widget-title">Find Something</h3>
+					<div class="search-form-container site-search">-->
 						<form action="#" method="get" novalidate>
 							<div class="row">
 								<div class="column width-12">
 									<div class="field-wrapper">
-										<input type="text" name="search" class="form-search form-element" placeholder="type &amp; hit enter...">
+							<!--			<input type="text" name="search" class="form-search form-element" placeholder="type &amp; hit enter...">-->
 										<span class="border"></span>
 									</div>
 								</div>
@@ -168,46 +160,23 @@
 					</div>
 				</div>
 				<div class="widget">
-					<h3 class="widget-title">Categories</h3>
-					<ul>
-						<li><a href="#">Art</a></li>
-						<li><a href="#">Vintage</a></li>
-						<li><a href="#">Photography</a></li>
-						<li><a href="#">Illustration</a></li>
-						<li><a href="#">Design</a></li>
-						<li><a href="#">Conceptual</a></li>
-						<li><a href="#">Music</a></li>
-					</ul>
+
 				</div>
 				<div class="widget">
 					<div class="box bkg-grey-ultralight mb-50">
-						<h3 class="widget-title">About</h3>
-						<p><strong>Starting a new business?</strong> Then Warhol is for you! Warhol comes with a multitude of carfully designed page layouts and purpose built content blocks that when pieced together create stunning, professional layouts.<p>
+
 					</div>
 				</div>
 				<div class="widget">
-					<h3 class="widget-title">Recent Posts</h3>
+
 					<ul class="list-group">
-						<li>
-							<span class="post-info"><span class="post-date">27 Jul 2014</span></span>
-							<a href="#">Our New Los Angeles Downtown Office</a>
-						</li>
-						<li>
-							<span class="post-info"><span class="post-date">02 Jun 2014</span></span>
-							<a href="#">Tutorial - Hidden Gems of Sublime</a>
-						</li>
-						<li>
-							<span class="post-info"><span class="post-date">15 May 2014</span></span>
-							<a href="#">New Team Member - Jason Adams</a>
-						</li>
+
 					</ul>
 				</div>
 				<div class="widget">
-					<h3 class="widget-title">Tweets</h3>
+
 					<!-- twitter -->
-					<a class="twitter-timeline" href="https://twitter.com/thememountainco" data-chrome="noheader nofooter noborders transparent"  data-tweet-limit="2" data-link-color="#0cbacf" data-widget-id="572782546753429504">Tweets by @thememountainco</a> 
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				</div>
+
 			</div>
 		</aside>
 		<!-- Sidebar End -->
