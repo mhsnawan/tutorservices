@@ -46,7 +46,7 @@
 								</div>
 								<br>
                    				<div class="column width-6">
-							        <a href="checkout.html" class="button pill checkout no-margin-bottom fade-location">Send Message</a>
+					@if(Auth::user()->id != $course['user_id'])<a onclick="getMessages({{ $course['user_id'] }})" class="button pill checkout no-margin-bottom fade-location">Send Message</a> @endif
 								    <a href="{{ route('course.view', $course['id']) }}" class="button pill checkout no-margin-bottom fade-location">View Details</a>
 								</div>
 	                    		{{--  <a href="#">Requirements</a>  --}}
@@ -165,11 +165,11 @@
 					},
 				success: function(data){
 					if(data.check == 1){
-						window.location = "result";
+						window.location = "/result";
 						console.log('check is 1');
 					}
 					else{
-						window.location = "new-chat/"+data.user2;
+						window.location = "/new-chat/"+data.user2;
 					}
 	
 				},

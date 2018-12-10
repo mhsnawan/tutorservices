@@ -33,7 +33,7 @@
         <h2>{{ $user->name }}</h2>
       </div>
       <div class="column width-2" >
-        <p>@if(Auth::user()->verified == 1) <span class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>@endif</p>
+        <p>@if($user->verified == 1) <span class="icon-circled icon-check small rounded border-green-light color-green bkg-hover-blue-light color-hover-white thick"></span>@endif</p>
       </div>
     </div>
     <div class="column width-2">
@@ -65,7 +65,7 @@
     </div>
     <div class="column width-4">
       @if(Auth::user()->id != $user->id)
-      <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+      <input type="button" onclick="getMessages({{ $user->id }})" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
       @endif
     </div>
    <div class="image" style="background-color:#E7DFDD;width:1000px;height:1450px;left:120px;">
@@ -213,7 +213,7 @@
               </div>  --}}
             </div>
           </div>
-          <div class="column width-6">
+          <div class="column width-12">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:200ms;" data-threshold="1">
                 <div class="feature-text">
                   <h5>Experience</h5>
@@ -224,7 +224,7 @@
               </div>
             </div>
           </div>
-          <div class="column width-6">
+          {{--  <div class="column width-6">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:400ms;" data-threshold="1">
 
               <div class="feature-text">
@@ -250,7 +250,7 @@
               </div>
               </div>
             </div>
-          </div>
+          </div>  --}}
           <div class="column width-12">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:400ms;" data-threshold="1">
 
@@ -295,6 +295,28 @@
 </div>
 
 <script>
+    function getMessages(user_id){
+      $.ajax({
+          url: "{{ route('get-con') }}",
+          data: {
+              _token: '{{ csrf_token() }}',
+              user_id: user_id
+              },
+          success: function(data){
+              if(data.check == 1){
+                  window.location = "/inbox";
+                  console.log('check is 1');
+              }
+              else{
+                  window.location = "/new-chat/"+data.user2;
+              }
+
+          },
+          error: function(){
+          }
+      });
+  }
+
     $('#profile_img').change(function() {
       $('#target').submit();
     });
