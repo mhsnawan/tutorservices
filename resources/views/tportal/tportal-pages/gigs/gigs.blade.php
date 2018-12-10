@@ -63,7 +63,7 @@
 											@csrf
 											{{ method_field('DELETE') }}
 											<button type="submit" rel="tooltip" title="Delete Course" class="btn btn-danger btn-link btn-sm">
-												<i class="material-icons small">close</i>
+												<i class="material-icons">close</i>
 											</button>
 										</form>
 									</div>
