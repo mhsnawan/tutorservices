@@ -120,6 +120,11 @@ div.avatar input {
 </head>
 
 <body class="shop home-page">
+  <!-- Side Navigation Menu -->
+  <aside class="side-navigation-wrapper enter-right" data-no-scrollbar data-animation="scale-in">
+    @include('partials.sidebar')
+  </aside>
+  <!-- Side Navigation Menu End -->
 
 @include('partials.header')
 <div class="col-md-8">
