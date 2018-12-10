@@ -52,7 +52,7 @@
 	                    		{{--  <a href="#">Requirements</a>  --}}
 						  	</div>
 						</div>
-						@endforeach	
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -62,76 +62,35 @@
 			<aside class="column width-3 sidebar right">
 				<div class="sidebar-inner">
 					<div class="widget widget-product-tag-cloud">
-						<h3 class="widget-title">Corse Tags</h3>
 						<ul class="product-tag-cloud tag-cloud">
 							<li>
-								<a href="#">Vintage</a>
-								<a href="#">Sounds</a>
-								<a href="#">Photo Trends</a>
-								<a href="#">Hobby</a>
-								<a href="#">Illustrations</a>
-								<a href="#">Work</a>
-								<a href="#">Cultural</a>
-								<a href="#">Urban Design</a>
-								<a href="#">Oldschool</a>
 							</li>
 						</ul>
 					</div>
 					<div class="widget widget-shopping-cart-overview">
-						<h3 class="widget-title">Cart</h3>
 						<ul class="product-list cart-overview list-group">
-							<li class="cart-item">
-								<a href="#" class="product-remove icon-cancel"></a>
-								<a href="#">
-									<span class="product-thumbnail">
-										<img src="images/shop/cart/cart-thumb-small.jpg" alt="" />
-									</span>
-									<span class="product-title">Deep V-Nect</span>
-								</a>
-								<span class="product-price price"><del><span class="amount"></span></del><ins><span class="amount">17.00</span></ins></span>
+							<li >
 							</li>
 							<li class="cart-item">
-								<a href="#" class="product-remove icon-cancel"></a>
-								<a href="#">
-									<span class="product-thumbnail">
-										<img src="images/shop/cart/cart-thumb-small-3.jpg" alt="" />
-									</span>
-									<span class="product-title">Biology</span>
-								</a>
-								<span class="product-price price"><ins><span class="amount">17.00</span></ins></span>
+								
 							</li>
-
 							<li class="cart-actions">
-								<a href="cart.html" class="view-cart fade-location">View Cart</a>
-								<a href="checkout.html" class="checkout fade-location"><span class="icon-check"></span> Checkout</a>
 							</li>
 						</ul>
 					</div>
 					<!-- Recently Viewed -->
 					<div class="widget widget-recently-viewed-products">
-						<h3 class="widget-title">Recently Viewed</h3>
 						<ul class="product-list list-group">
 							<li>
 								<a href="#">
 									<span class="product-thumbnail">
-										<img src="images/shop/cart/cart-thumb-small-2.jpg" alt="" />
+
 									</span>
-									<span class="product-title">Cot</span>
+									<span class="product-title"></span>
 								</a>
-								<span class="product-price price"><del><span class="amount"></span></del><ins><span class="amount">17.00</span></ins></span>
-							</li>
-							<li>
-								<a href="#">
-									<span class="product-thumbnail">
-										<img src="images/shop/cart/cart-thumb-small-3.jpg" alt="" />
-									</span>
-									<span class="product-title">Cros</span>
-								</a>
-								<span class="product-price price"><ins><span class="amount">17.00</span></ins></span>
 							</li>
 						</ul>
 					</div>
-
 				</div>
 			</aside>
 			<!-- Sidebar End -->
@@ -171,7 +130,7 @@
 					else{
 						window.location = "/new-chat/"+data.user2;
 					}
-	
+
 				},
 				error: function(){
 				}
