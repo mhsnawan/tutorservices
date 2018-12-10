@@ -149,12 +149,12 @@
                       @foreach ($data as $profile)
 											<div class="grid-item grid-sizer product design">
 												<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
-													<span class="onsale">ABC</span>
+													<span class="onsale">{{ $profile['course_name'] }}</span>
 													<a class="overlay-link" href="single-product.html">
                             <img src="/storage/{{$profile['profile_img']}}" class="img-thumbnail img-profile profile-img">
 													</a>
 													<div class="product-actions center">
-														<a href="#" class="button pill add-to-cart-button medium">Contact</a>
+														<a onclick="getMessages({{ $user->id }})" class="button pill add-to-cart-button medium">Contact</a>
 													</div>
 												</div>
 												<div class="product-details center">
@@ -230,6 +230,28 @@
 </div>
 
 <script>
+    function getMessages(user_id){
+      $.ajax({
+          url: "{{ route('get-con') }}",
+          data: {
+              _token: '{{ csrf_token() }}',
+              user_id: user_id
+              },
+          success: function(data){
+              if(data.check == 1){
+                  window.location = "/inbox";
+                  console.log('check is 1');
+              }
+              else{
+                  window.location = "/new-chat/"+data.user2;
+              }
+
+          },
+          error: function(){
+          }
+      });
+  }
+
     $('#profile_img').change(function() {
       $('#target').submit();
     });

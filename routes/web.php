@@ -675,11 +675,13 @@ Route::get('/sprofile',function(){
             $data = array();
             foreach($cst as $item){
                 $tutor = Teacher::find($item->teacher_id)->user;
-                echo $item;
+                $course = Course::find($item->course_id);
                 $data[] = array(
+                    'logged_in' => $id,
                     'id' => $tutor->id,
                     'name' => $tutor->name,
-                    'profile_img' => $tutor->profile_img
+                    'profile_img' => $tutor->profile_img,
+                    'course_name' => $course->name
                 );
             }
             // $tprofile = json_encode($data);
