@@ -10,11 +10,7 @@
       @csrf
       <input type="hidden" value="{{ $user->id }}" name="id">
       <div class="column width-2">
-<<<<<<< HEAD
       <input style="bottom:0%;left:40%" type="file" name="cover_img" id="cover_img" value="Update" class="form-submit button pill small border-theme bkg-hover-theme color-theme color-hover-white"></div>
-=======
-      <input style="bottom:80%;left:40%" type="file" name="cover_img" id="cover_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white"></div>
->>>>>>> 837cecb712fdb84afbd9e314b6b8e09e2daa793b
     </form>
     @endif
     {{--  <input style="top:5%;right:82%" type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">  --}}
