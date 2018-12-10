@@ -99,63 +99,67 @@
                             <div  class="column width-12">
                               <div class="column width-12">
                                 <div class="field-wrapper">
-                                  <input type="text" name="company" id="company" class="form-lname form-element large" value="{{ $experience->company }}" placeholder="Company" tabindex="1">
+                                  <label>Company Name</label>
+                                  <input type="text" name="company" value="{{ $experience->company }}" id="company" class="form-lname form-element large" placeholder="Company" tabindex="1">
                                 </div>
                               </div>
                               <div class="column width-6">
                                 <div class="field-wrapper">
-                                  <input type="text" name="location" class="form-lname form-element large" value="{{ $experience->location }}" placeholder="Location" tabindex="2">
+                                    <label>Location</label>
+                                  <input type="text" name="location" value="{{ $experience->location }}" class="form-lname form-element large" placeholder="Location" tabindex="2">
                                 </div>
                               </div>
                               <div class="column width-6">
                                 <div class="field-wrapper">
-                                  <input type="text" name="country" class="form-lname form-element large" value="{{ $experience->country }}" placeholder="Country" tabindex="3">
+                                  <label>Country</label>
+                                  <input type="text" name="country" value="{{ $experience->country }}" class="form-lname form-element large" placeholder="Country" tabindex="3">
                                 </div>
                               </div>
                               <div class="column width-12">
                                 <div class="field-wrapper">
-                                  <input type="text" name="title" class="form-fname form-element large" value="{{ $experience->title }}" placeholder="Title*" tabindex="1" required>
+                                    <label>Title</label>
+                                  <input type="text" name="title" value="{{ $experience->title }}" class="form-fname form-element large" placeholder="Title*" tabindex="4" required>
                                 </div>
                               </div>
                               <div class="column width-6">
                                   <div class="field-wrapper">
                                       <label>To</label>
-                                      <input type="date" name="startdate" class="form-email form-element large" value="{{ $experience->startdate }}" placeholder="To*" tabindex="3" required>
+                                      <input type="date" name="startdate" value="{{ $experience->startdate }}" class="form-email form-element large" placeholder="To*" tabindex="5" required>
                                   </div>
                               </div>
                               <div class="column width-6">
                                   <div class="field-wrapper">
                                       <label>From</label>
-                                      <input type="date" name="enddate" id="enddate" class="form-email form-element large" value="{{ $experience->enddate }}" placeholder="From*" tabindex="3">
+                                      <input type="date" name="enddate" value="{{ $experience->enddate }}" class="form-email form-element large" placeholder="From*" tabindex="6" >
                                   </div>
                               </div>
                               <div class="column width-6"></div>
                               <div class="column width-6 push-6">
                                 <div class="coulumn width-2">
-                                    <input type="checkbox" class="custom-control-input" name="currently_working" id="defaultUnchecked">
+                                    <input type="checkbox" @if($experience->currently_working == 1) checked @endif class="custom-control-input" name="currently_working" id="currently_working">
                                 </div>
                                 <div class="column width-3">
-                                    <label for="defaultUnchecked">Currently Working</label>
+                                    <label for="currently_working">Currently Working</label>
                                 </div>
                               </div>
                             </div>
 
                               <div class="column width-12">
                                 <div class="field-wrapper">
-                                  <textarea name="description" class="form-message form-element large" value="{{ $experience->description }}" placeholder="Description*" tabindex="7" required></textarea>
+                                    <label>Description</label>
+                                  <textarea name="description" class="form-message form-element large" placeholder="Description*" tabindex="7" required>{{ $experience->description }}</textarea>
                                 </div>
                               </div>
                             <div class="column width-12">
                               <label>Upload Experience(Optional)</label>
                               <div class="field-wrapper">
-                                  <input type="file" name="experience_img" id="fileToUpload" value="{{ $experience->experience_img }}" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+                                  <input type="file" name="experience_img" id="fileToUpload" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                               </div>
                             </div>
                             <div class="column width-12">
                               <input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
                             </div>
                             <div class="column width-12"><br><br></div>
-
                           </form>
                         </div>
                       </div>
