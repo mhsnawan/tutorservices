@@ -279,14 +279,14 @@
             </div>
           </div>
         </div>
-        <br>
+        {{--  <br>
         <br>
         <div class="column width-6">
           <input type="submit" value="Join a tution" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
        </div>
        <div class="column width-6">
          <input type="submit" value="post a review" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-   </div>
+   <  /div>  --}}
       </div>
 				<!-- Boxed Feature Columns End -->
 

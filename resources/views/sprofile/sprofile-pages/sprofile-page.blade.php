@@ -67,9 +67,11 @@
                   <h4 class="widget-title weight-light"><a href=""></a></h4>
               </div>
           </div>
-        <div class="column width-4">
+        <div class="column width-4">   
+          @if(Auth::user()->id != $user->id)
           <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-       </div>
+          @endif
+        </div>
     <div class="image"style="background-color:#E7DFDD ;width:1000px;height:1200px;left: 120px;">
       <!-- Boxed Feature Columns
 				<div class="section-block pb-0 bkg-grey-ultralight">-->
@@ -217,12 +219,12 @@
 				</div>
         <br>
         <br>
-        <div class="column width-6">
+        {{--  <div class="column width-6">
           <input type="submit" value="Join a tution" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
         </div>
         <div class="column width-6">
          <input type="submit" value="post a review" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
-        </div>
+        </div>  --}}
 				<!-- Boxed Feature Columns End -->
 
    </div>

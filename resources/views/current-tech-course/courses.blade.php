@@ -165,7 +165,7 @@
 					},
 				success: function(data){
 					if(data.check == 1){
-						window.location = "/result";
+						window.location = "/inbox";
 						console.log('check is 1');
 					}
 					else{

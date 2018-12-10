@@ -620,11 +620,20 @@ Route::get('/courses',function(){
 })->name('courses');
 
 Route::get('course/{id}',function($id){
+    $check_enrolled = true;
     $course = CourseTeacher::find($id);
     $user = Teacher::find($course->teacher_id)->user;
+    $user_id = Auth::user()->id;
+    if(Auth::user()->role == 1){
+        $student = Student::where('user_id', $user_id);
+        $abc = CourseStudentTeacher::where('course_id', $id)->where('student_id', $user->id);
+        if($abc){
+            $check_enrolled = false;
+        }
+    }
     //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
-    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject'));
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled'));
 })->name('course.view');
 
 Route::get('show-course', function(){
@@ -681,7 +690,7 @@ Route::get('/sprofile',function(){
                     'id' => $tutor->id,
                     'name' => $tutor->name,
                     'profile_img' => $tutor->profile_img,
-                    'course_name' => $course->name
+                    'course_name' => $course->course_name
                 );
             }
             // $tprofile = json_encode($data);

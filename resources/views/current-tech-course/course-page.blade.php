@@ -102,7 +102,12 @@
 										<input type="text" value="{{ $course->teacher_id }}" name="teacher_id" hidden>
 										<input type="text" value="{{ $course->course_id }}" name="course_id" hidden>
 										@if(Auth::user()->role != 2)
-										<input type="submit" value="Enroll Now" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
+											@if($check_enrolled == true)
+											<input type="submit" value="Enroll Now" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
+											@else
+											<input disabled value="Enrolled" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
+										
+											@endif
 										@endif
 									</div>
 								</form>

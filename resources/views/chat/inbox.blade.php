@@ -36,7 +36,7 @@
 
         </div>
         <div class="mesgs">
-          <div class="msg_history">
+          <div class="msg_history" id="data">
             {{-- Incoming and outgoing messages will come here   --}}
           </div>
           <div class="type_msg">
@@ -172,6 +172,11 @@
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////
+        window.setInterval(function() {
+            var elem = document.getElementById('data');
+            elem.scrollTop = elem.scrollHeight;
+          }, 100);
+          
     </script>
 
     @endsection
