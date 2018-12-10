@@ -35,6 +35,7 @@
 		<!-- Content Inner -->
 		<div class="column width-9 content-inner blog-regular">
 			@foreach ($posts as $post)
+			<div class="column width-4">
 			<div class="post">
 				<div class="post-media">
 					<div class="thumbnail overlay-fade-img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
@@ -52,9 +53,11 @@
 					</div>
 				</div>
 				<div class="post-content with-background">
-					<p>{!! $post->description !!}</p>
+				<!--	<p>{!! $post->description !!}</p>-->
+				<h5>{{ $post->title }}</h5>
 					<a href="{{ route('blog.show', $post->id) }}" class="read-more"><span class="icon-right-open-mini"></span> More</a>
 				</div>
+			</div>
 			</div>
 			@endforeach
 		</div>
