@@ -110,7 +110,6 @@ class CourseStudentTeacherController extends Controller
             $student = Student::find($item->student_id)->user; //getting student info
             $course = Course::find($item->course_id); //getting course info
             $teacherCourse = CourseTeacher::find($item->course_teacher_id);
-            echo $teacherCourse->title;
             $data[] = array(
                 'id' => $item->id,
                 'tution_title' => $teacherCourse->title,

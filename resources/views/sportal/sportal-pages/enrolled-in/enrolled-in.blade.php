@@ -9,11 +9,12 @@
                         <thead>
                             <tr>
                                 <th class="product-thumbnail"></th>
-                                <th class="product-name">Student Name</th>
+                                <th class="product-name">Tutor Name</th>
                                 <th class="product-price">Course</th>
                                 <th class="product-price">Contact</th>
                                 <th class="product-quantity">Location</th>
                                 <th class="product-quantity">Tution Type</th>
+                                <th class="product-quantity">Status</th>
                                 <th class="product-quantity">Enrolled Date</th>
                             </tr>
                         </thead>
@@ -39,6 +40,9 @@
                                 </td>
                                 <td class="product-subtotal">
                                     <span class="amount">{{ $item['tution_type'] }}</span>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="amount">@if($item['tution_verified']==0) Pending @else Enrolled @endif</span>
                                 </td>
                                 <td class="product-quantity">
                                     <span class="amount">{{ $item['created_at']->format('d-m-Y') }}</span>

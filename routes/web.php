@@ -289,6 +289,7 @@ Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function()
                 'tution_type' => $st->type,
                 'tution_area' => $st->area,
                 'tution_city' => $st->city,
+                'tution_verified' => $item->verified,
                 'created_at' =>$st->updated_at
                 );
         }
