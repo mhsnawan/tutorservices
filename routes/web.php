@@ -203,8 +203,9 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/admin/documents/{id}',function($id){ 
         $teacher = User::find($id);
         $ed = EdInfo::where('user_id', $id)->get();
+        //return $teacher;
         return view('admin.admin-pages.documents')->with(compact('teacher','ed'));
-    });
+    })->name('documents');
     /////////////////////////////////ADMIN DOCUMENTS END///////////////////////////////////////
 });
 
@@ -262,30 +263,6 @@ Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function()
         return view('tportal.tportal-pages.enrolled-students.all-students')->with(compact('data'));
     })->name('all-enrolled-students');
     ///////////////////////////ALL ENROLLED STUDENTS END//////////////////////
-
-    /////////////////////////// TUTOR PROFILE START /////////////////////////
-    Route::get('/profile',function(){
-        $id = Auth::user()->id;
-        $user= User::find($id);
-        $teacher = User::find($id)->teacher;
-        $edinfos = User::find($id)->edinfos;
-        $certifications = User::find($id)->certifications;
-        $experiences = User::find($id)->experiences;
-        return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-    });
-    
-    Route::get('profile/{id}', function($id){
-        $user= User::find($id);
-        if($user->role == 2){
-            $teacher = User::find($id)->teacher;
-            $edinfos = User::find($id)->edinfos;
-            $certifications = User::find($id)->certifications;
-            $experiences = User::find($id)->experiences;
-            return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-        } 
-    })->name('profile.id');
-    /////////////////////////// END TUTOR PROFILE /////////////////////////
-
 });
 
 /// ========================================= END TUTOR ROUTES =====================================================//
@@ -686,6 +663,50 @@ Route::get('/sprofile',function(){
 
     return view('sprofile.sprofile-pages.sprofile-page');
 });
+
+    /////////////////////////// TUTOR PROFILE START /////////////////////////
+    Route::get('/profile',function(){
+        $id = Auth::user()->id;
+        if(Auth::user()->role == 1){ //student
+            $user = User::find($id);
+            $edinfos = User::find($id)->edinfos;
+            $sid = Student::where('user_id', $id)->get();
+            $cst = CourseStudentTeacher::where('student_id', $sid[0]->id)->get();
+            $data = array();
+            foreach($cst as $item){
+                $tutor = Teacher::find($item->teacher_id)->user;
+                echo $item;
+                $data[] = array(
+                    'id' => $tutor->id,
+                    'name' => $tutor->name,
+                    'profile_img' => $tutor->profile_img
+                );
+            }
+            // $tprofile = json_encode($data);
+            return view('sprofile.sprofile-pages.sprofile-page')->with(compact('user', 'edinfos', 'data'));
+        }
+        if(Auth::user()->role == 2){ //student
+            $user= User::find($id);
+            $teacher = User::find($id)->teacher;
+            $edinfos = User::find($id)->edinfos;
+            $certifications = User::find($id)->certifications;
+            $experiences = User::find($id)->experiences;
+            return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+        }
+        
+    });
+    
+    Route::get('profile/{id}', function($id){
+        $user= User::find($id);
+        if($user->role == 2){
+            $teacher = User::find($id)->teacher;
+            $edinfos = User::find($id)->edinfos;
+            $certifications = User::find($id)->certifications;
+            $experiences = User::find($id)->experiences;
+            return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
+        } 
+    })->name('profile.id');
+    /////////////////////////// END TUTOR PROFILE /////////////////////////
 
 
 
