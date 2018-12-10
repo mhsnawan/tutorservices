@@ -43,7 +43,7 @@
 			<div id="author" class="post-author">
 				<div class="post-author-aside">
 					<span class="author-title">Author</span>
-					<a href="#"><span class="icon-paper"></span>56 Articles</a>
+					<a href="#"><span class="icon-paper"></span>{{ $blog->created_at->format('d-m-y | H:i:s') }}</a>
 				</div>
 				<article class="author-bio">
 					<div class="author-avatar">

@@ -40,12 +40,12 @@
 				<div class="post-media">
 					<div class="thumbnail overlay-fade-img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
 						<a class="overlay-link" href="{{ route('blog.show', $post->id) }}">
-							<img src="images/blog/regular/image-regular-2.jpg" alt=""/>
+							<img src="/storage/{{ $post->img}}" alt=""/>
 							<span class="overlay-info">
 								<span>
 									<span>
-										<span class="post-title">{{ $post->title }}</span>
-										<span class="post-info"><span class="post-date">{{$post->updated_at}}</span>/<span class="post-autor">{{ $post->author }}</span></span>
+										{{--  <span class="post-title">{{ $post->title }}</span>  --}}
+										{{--  <span class="post-info"><span class="post-date">{{$post->updated_at}}</span>/<span class="post-autor">{{ $post->author }}</span></span>  --}}
 									</span>
 								</span>
 							</span>
@@ -53,8 +53,8 @@
 					</div>
 				</div>
 				<div class="post-content with-background">
-				<!--	<p>{!! $post->description !!}</p>-->
-				<h5>{{ $post->title }}</h5>
+				{{--  <!--	<p>{!! $post->description !!}</p>-->  --}}
+				<h5><a href="{{ route('blog.show', $post->id) }}"> {{ $post->title }}</a></h5>
 					<a href="{{ route('blog.show', $post->id) }}" class="read-more"><span class="icon-right-open-mini"></span> More</a>
 				</div>
 			</div>
