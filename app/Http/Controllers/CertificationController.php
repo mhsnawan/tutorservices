@@ -51,8 +51,10 @@ class CertificationController extends Controller
         
         $input = $request->all();
         if($request->certification_img != null){
-            $path = $request->file('certification_img')->store('uploads');
-            $input['certification_img'] = $path;
+            $filename =  $request->certification_img->getClientOriginalName();
+            $path = $request->file('certification_img')->storeAs('public/uploads',$filename);
+            $second =  $request->file('certification_img')->storeAs('uploads',$filename);
+            $input['certification_img'] = $second;
         }
         $input['user_id'] = Auth::user()->id;
         

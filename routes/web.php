@@ -24,6 +24,8 @@ use App\Conversations;
 use App\CourseStudentTeacher;
 use App\Student;
 use App\Post;
+use App\Experience;
+use App\certification;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -210,8 +212,12 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/admin/documents/{id}',function($id){ 
         $teacher = User::find($id);
         $ed = EdInfo::where('user_id', $id)->get();
+        $exp = Experience::where('user_id', $id)->get();
+        $cert = Certification::where('user_id', $id)->get();
+        
+
         //return $teacher;
-        return view('admin.admin-pages.documents')->with(compact('teacher','ed'));
+        return view('admin.admin-pages.documents')->with(compact('teacher','ed','exp','cert'));
     })->name('documents');
     /////////////////////////////////ADMIN DOCUMENTS END///////////////////////////////////////
 });

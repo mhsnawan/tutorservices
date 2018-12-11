@@ -48,12 +48,14 @@ class ExperienceController extends Controller
     {
         $input = $request->all();
         if($request->experience_img != null){
-            $path = $request->file('experience_img')->store('uploads');
-            $input['experience_img'] = $path;
+            $filename =  $request->experience_img->getClientOriginalName();
+            $path = $request->file('experience_img')->storeAs('public/uploads',$filename);
+            $second =  $request->file('experience_img')->storeAs('uploads',$filename);
+            $input['experience_img'] = $second;
         }
         $input['user_id'] = Auth::user()->id;
-        Experience::create($input)->experiences;
-        return redirect('experience');
+            Experience::create($input)->experiences;
+            return redirect('experience');
         // json_encode($response);
     }
 
