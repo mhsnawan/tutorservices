@@ -26,7 +26,8 @@ class UserController extends Controller
     {
         $userid = Auth::user()->id;
         $user = User::find($userid);
-        return view('tportal.tportal-pages.account.personalinfo')->with(compact(['user', 'teacher']));
+        $page = 'account';
+        return view('tportal.tportal-pages.account.personalinfo')->with(compact(['user', 'page']));
     }
 
     /**

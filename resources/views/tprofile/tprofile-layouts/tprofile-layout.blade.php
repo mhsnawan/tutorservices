@@ -133,15 +133,13 @@ div.avatar input {
 <footer  class="footer">
 @include('partials.footer')
 </footer>
-
 <!-- Js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?v=3"></script>
 <script src="{{ asset("js/timber.master.min.js") }}"></script>
 <!-- Js proofile -->
 
-
-</script>
+@include('partials.searchmodal')
 </body>
 
 </html>

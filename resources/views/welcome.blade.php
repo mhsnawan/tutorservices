@@ -82,20 +82,20 @@
         										<div class="row">
         											<div class="column width-12">
         												<h1 class="title-xlarge font-alt-2 weight-light color-white mb-40">
-        													<span class="tms-caption" data-animate-in="preset:slideInDownShort;duration:800ms;delay:200;" data-no-scale>Welcome To:</span>
-        													<span class="tms-caption" data-animate-in="preset:flipInX;duration:800ms;delay:500ms;" data-no-scale>Tutor</span>
-        													<span class="tms-caption" data-animate-in="preset:slideInUpShort;duration:800ms;delay:800ms;" data-no-scale>Services</span>
+        													<span class="tms-caption" data-animate-in="preset:slideInDownShort;duration:800ms;delay:200;" data-no-scale>Welcome To</span>
+        													<span class="tms-caption" data-animate-in="preset:flipInX;duration:800ms;delay:500ms;" data-no-scale>Online</span>
+        													<span class="tms-caption" data-animate-in="preset:slideInUpShort;duration:800ms;delay:800ms;" data-no-scale>Tutor</span>
         												</h1>
         												<div class="clear"></div>
-        												<a class="tms-caption button medium pill bkg-theme border-hover-white color-white color-hover-white text-uppercase"
+        												{{--  <a class="tms-caption button medium pill bkg-theme border-hover-white color-white color-hover-white text-uppercase"
         													data-animate-in="preset:scaleOut;duration:1000ms;delay:500ms;"
         													data-no-scale
-        												><span class="icon-play left"></span> Play Concept</a>
+        												><span class="icon-play left"></span> Play Concept</a>  --}}
         											</div>
         										</div>
         									</div>
         								</div>
-        								<img data-src="images/slider/slide-1-fs.jpg" data-retina src="images/blank.png" alt=""/>
+        								<img data-src="images/slider/1.jpg" data-retina src="images/blank.png" alt=""/>
         							</li>
         							<li class="tms-slide" data-video data-video-bkg data-animation="slideLeftRight" data-overlay-bkg-color="#000000" data-overlay-bkg-opacity="0.4">
         								<div class="tms-content">
@@ -125,7 +125,7 @@
         									<source type="video/mp4" src="images/slider/barber.mp4" />
         									<source type="video/webm" src="images/slider/barber.webm" />
         								</video>
-        								<img data-src="images/slider/slide-10-fs.jpg" data-retina src="images/blank.png" alt=""/>
+        								<img data-src="images/slider/2.jpg" data-retina src="images/2.jpg" alt=""/>
         							</li>
         							<li class="tms-slide" data-image data-force-fit data-animation="scaleOut" data-overlay-bkg-color="#000000" data-overlay-bkg-opacity="0.2">
         								<div class="tms-content">

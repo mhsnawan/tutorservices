@@ -79,9 +79,9 @@
                                 <li>
                                     <a href="{{ route('all-enrolled-students') }}">All Students</a>
                                 </li>
-                                <li>
+                                {{--  <li>
                                     <a href="{{ route('gigs.create') }}">Student by Course</a>
-                                </li>
+                                </li>  --}}
                             </ul>
                         </li>
                         <li>
