@@ -61,7 +61,7 @@
 										</form>
 										</div>
 										<div class="column width-2">
-											<form method="post" action="{{ route('gigs.destroy', $tution->id) }}">
+											<form method="DELETE" action="{{ route('gigs.destroy', $tution->id) }}">
 												@csrf
 												{{ method_field('DELETE') }}
 												<a href="{{ route('gigs.destroy', $tution->id) }} ">	<i class="material-icons">close</i></a>
