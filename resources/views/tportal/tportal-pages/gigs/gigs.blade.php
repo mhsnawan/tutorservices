@@ -54,19 +54,24 @@
 									<span class="amount">{{ $tution->type }}</span>
 								</td>
 								<td>
-									<div class="row">
-										<form method="GET" action="{{ route('gigs.edit', $tution->id) }}">
-											<button class="btn btn-primary btn-link btn-sm" type="submit" rel="tooltip" title="Edit Course">
-												<i class="material-icons">edit</i>
-											</button>
+									<div class="row"><!--action="{{ route('gigs.edit', $tution->id) }}"-->
+                    <div class="column width-2">
+										<form method="GET" action="{{ route('gigs.edit', $tution->id) }}" >
+										<!--	<button class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white" type="submit" rel="tooltip" title="Edit Course">-->
+											<a href="{{ route('gigs.edit', $tution->id) }}">	<i class="material-icons">edit</i></a>
+											<!--	</button>-->
 										</form>
+									</div>
+									<div class="column width-2">
 										<form method="post" action="{{ route('gigs.destroy', $tution->id) }}">
 											@csrf
-											{{ method_field('DELETE') }}
-											<button type="submit" rel="tooltip" title="Delete Course" class="btn btn-danger btn-link btn-sm">
-												<i class="material-icons">close</i>
-											</button>
+	 										{{ method_field('DELETE') }}
+										<!--	<button type="submit" rel="tooltip" title="Delete Course" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">-->
+
+											<a href="{{ route('gigs.destroy', $tution->id) }} ">	<i class="material-icons">close</i></a>
+										<!--	</button>-->
 										</form>
+									</div>
 									</div>
 								</td>
 								{{--  <td>
