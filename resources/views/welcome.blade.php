@@ -70,13 +70,8 @@
 <br>
 <br>
 <br>
-
-
-
-
         <!-- Content -->
         			<div class="content clearfix">
-
         				<!-- Fullscreen Slider Section -->
         				<section class="section-block featured-media window-height tm-slider-parallax-container">
         					<div class="tm-slider-container full-width-slider" data-featured-slider data-parallax data-scale-under="960" data-speed="1100">
@@ -189,13 +184,13 @@
         					</div>
         				</section>
         				<!-- Fullscreen Slider Section End -->
-<div class="row">
+					<div class="row">
         				<!-- Content -->
         				<div class="section-block replicable-content pb-0">
         					<div class="row">
         						<div class="column width-12 center left-on-mobile">
         							<div class="pu-10">
-        								<p class="lead text-large weight-bold mb-20 mb-mobile-0">Hello! We're  in Islamabad City Providing Tutors &amp; Students.</p>
+        								<p class="lead text-large weight-bold mb-20 mb-mobile-0">Hello! Were  in Islamabad City Providing Tutors &amp; Students.</p>
         							</div>
         						</div>
         					</div>
@@ -217,7 +212,7 @@
                 				<div class="section-block replicable-content pb-60 bkg-grey-ultralight">
                 					<div class="row">
                 						<div class="column width-12 center">
-                							<h2 class="mb-30">Creations</h2>
+                							<h2 class="mb-30">Courses</h2>
                 						</div>
                 					</div>
                 				</div>
@@ -374,42 +369,21 @@
                 						<div class="row">
                 							<div class="column width-12">
                 								<div class="row grid content-grid-3 clearfix flex">
+													{{--  LOOP HERE FOR POST  --}}
+													@foreach ($blogs as $blog)
                 									<div class="grid-item column grid-sizer">
                 										<article class="post">
                 											<div class="post-content with-background">
-                												<h2 class="post-title"><a href="blog-single-post-sidebar-right.html">New Vintage</a></h2>
+                												<h2 class="post-title"><a href="{{ route('blog.show', $blog->id) }}">{{ $blog->title }}</a></h2>
                 												<div class="post-info">
-                													<span class="post-date">25 Aug 2015</span>/<span class="post-autor">By Jayden</span>
+                													<span class="post-date">{{ $blog->created_at->format('d M Y h:i') }}</span>/<span class="post-autor">By Amin</span>
                 												</div>
-                												<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>
-                												<a href="blog-single-post-sidebar-right.html" class="read-more"><span class="icon-right-open-mini"></span> More</a>
+                												<p>{!! \Illuminate\Support\Str::words($blog->description, 50,'....')  !!}</p>
+                												<a href="{{ route('blog.show', $blog->id) }}" class="read-more"><span class="icon-right-open-mini"></span> More</a>
                 											</div>
                 										</article>
-                									</div>
-                									<div class="grid-item column">
-                										<article class="post">
-                											<div class="post-content with-background">
-                												<h2 class="post-title"><a href="blog-single-post-sidebar-right.html">From Plan to Execution</a></h2>
-                												<div class="post-info">
-                													<span class="post-date">25 Aug 2015</span>/<span class="post-autor">By Maddy</span>
-                												</div>
-                												<p>Mauris sodales in enim sit sodales dolor, placerat ultrices ut pede justo odio. In accumsan morbi at, mi luctus nullam volutpat facilisis cursus sed quis autem vel eum iure.</p>
-                												<a href="blog-single-post-sidebar-right.html" class="read-more"><span class="icon-right-open-mini"></span> More</a>
-                											</div>
-                										</article>
-                									</div>
-                									<div class="grid-item column">
-                										<article class="post">
-                											<div class="post-content with-background">
-                												<h2 class="post-title"><a href="blog-single-post-sidebar-right.html">New Team Member</a></h2>
-                												<div class="post-info">
-                													<span class="post-date">25 Aug 2015</span>/<span class="post-autor">By Haley</span>
-                												</div>
-                												<p>Tincidunt mauris sit suspendisse. Scelerisque lorem nec, tempus quis nullam nec gravida, convallis ac, nascetur id eget lectus nibh quam ad, in magna mi est adipiscing donec dui. </p>
-                												<a href="blog-single-post-sidebar-right.html" class="read-more"><span class="icon-right-open-mini"></span> More</a>
-                											</div>
-                										</article>
-                									</div>
+													</div>
+													@endforeach
                 								</div>
                 							</div>
                 						</div>
@@ -421,7 +395,7 @@
                 				<div class="section-block pt-70 pb-60 bkg-grey-ultralight">
                 					<div class="row flex">
                 						<div class="column width-12 center">
-                							<a href="blog.html" class="button pill medium left border-theme bkg-hover-theme color-theme color-hover-white text-uppercase fade-location">View All Posts</a>
+                							<a href="/blog" class="button pill medium left border-theme bkg-hover-theme color-theme color-hover-white text-uppercase fade-location">View All Posts</a>
                 						</div>
                 					</div>
                 				</div>

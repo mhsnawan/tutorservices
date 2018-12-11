@@ -135,5 +135,11 @@ class CourseStudentTeacherController extends Controller
         return redirect('/pending-request');
     }
 
+    public function cancel_request($id){
+        $cst = CourseStudentTeacher::find($id);
+        $cst->delete();
+        return redirect('/pending-request');
+    }
+
 
 }

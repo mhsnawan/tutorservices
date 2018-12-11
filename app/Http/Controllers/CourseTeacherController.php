@@ -112,8 +112,9 @@ class CourseTeacherController extends Controller
     public function destroy($courseTeacher)
     {
         $gig = CourseTeacher::find($courseTeacher);
-        $gig->delete();
-        return redirect('gigs');
+        echo $gig;
+        // $gig->delete();
+        // return redirect('gigs');
     }
 
 }

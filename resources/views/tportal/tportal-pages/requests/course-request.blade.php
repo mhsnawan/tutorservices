@@ -48,10 +48,10 @@
 												<i class="material-icons">verified_user</i>
 											</button>
 										</form>
-										<form method="post" action="">
+										<form method="POST" action="{{ route('verify.destroy', $item['id']) }}">
 											@csrf
 											{{ method_field('DELETE') }}
-											<button type="submit" rel="tooltip" title="Delete Course" class="btn btn-danger btn-link btn-sm">
+											<button type="submit" rel="tooltip" title="Not Verify" class="btn btn-danger btn-link btn-sm">
 												<i class="material-icons">clear</i>
 											</button>
 										</form>

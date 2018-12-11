@@ -23,10 +23,17 @@ use App\Messages;
 use App\Conversations;
 use App\CourseStudentTeacher;
 use App\Student;
+use App\Post;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('welcome');
+    $blogs = Post::all()->take(4);
+    $course = CourseTeacher::all()->take(6);
+    // foreach($course as $item){
+    //     $user = CourseTeacher::find($course->user_id)->user;
+    //     echo $user;
+    // }
+    return view('welcome')->with(compact('blogs', 'course'));
 });
 
 Auth::routes();
@@ -235,6 +242,7 @@ Route::group(['middleware' => 'App\Http\Middleware\TutorMiddleware'], function()
     ////////////////////////////TUTOR PENDING REQUEST START/////////////////////
     Route::get('/pending-request', 'CourseStudentTeacherController@pending_request')->name('pending.request');
     Route::get('verify/{id}', 'CourseStudentTeacherController@verify')->name('verify.enroll');
+    Route::delete('cancel-request/{id}', 'CourseStudentTeacherController@cancel_request')->name('verify.destroy');
     ////////////////////////////TUTOR PENDING REQUEST END///////////////////////
 
     ///////////////////////////ALL ENROLLED STUDENTS START//////////////////////
