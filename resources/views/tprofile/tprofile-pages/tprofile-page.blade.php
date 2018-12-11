@@ -32,7 +32,7 @@
             <h4 class="widget-title weight-light"><a href=""></a></h4>
         </div>
       </div>
-      <div class="column width-4">
+      <div >
         <h2>{{ $user->name }}</h2>
       </div>
       <div class="column width-2" >
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="column width-2">
-      <div class="widget" >
+      <div class="widget">
         <h4 class="widget-title weight-light"><a href=""></a></h4>
       </div>
     </div>
@@ -68,7 +68,7 @@
     </div>
     <div class="column width-4">
       @if(Auth::user()->id != $user->id)
-      <input type="button" onclick="getMessages({{ $user->id }})" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+      <input type="button" onclick="getMessages({{ $user->id }})" value="contact {{ $user->name }}" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
       @endif
     </div>
    <div class="image" style="background-color:#E7DFDD;width:1000px;left:120px;">
