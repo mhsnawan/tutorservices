@@ -81,7 +81,7 @@
         <br>
         <br>
         <br>
-    <div class="image"style="background-color:gray;width:1110px;height:1000px;left: 120px;">
+    <div class="image"style="background-color:gray;width:1110px;left: 120px;">
       <!-- Boxed Feature Columns -->
 				<div class="section-block pb-0 bkg-grey-ultralight">
 					<div class="row flex boxes">

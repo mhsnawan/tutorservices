@@ -72,7 +72,7 @@
           <input type="submit" value="contact" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
           @endif
         </div>
-    <div class="image"style="background-color:#E7DFDD ;width:1000px;height:1200px;left: 120px;">
+    <div class="image"style="background-color:#E7DFDD ;width:1000px;left: 120px;">
       <!-- Boxed Feature Columns
 				<div class="section-block pb-0 bkg-grey-ultralight">-->
 
