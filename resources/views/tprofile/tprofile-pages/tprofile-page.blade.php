@@ -254,7 +254,7 @@
               </div>
             </div>
           </div>  --}}
-          <div class="column width-12">
+          {{--  <div class="column width-12">
             <div class="feature-column box rounded large bkg-white center horizon" data-animate-in="preset:flipInY;duration:1000ms;delay:400ms;" data-threshold="1">
 
               <div class="feature-text">
@@ -281,7 +281,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>  --}}
         {{--  <br>
         <br>
         <div class="column width-6">
