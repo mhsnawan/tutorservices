@@ -23,7 +23,7 @@
               @foreach ($data as $record)
                 <tr>
                     <td >
-                        <img style="width:70px;height:70px;cover;border-radius:50%;" src="{{asset("storage/$record->cnic_img")}}" class="img-responsive" >
+                        <img style="width:70px;height:70px;cover;border-radius:50%;" src="{{asset("storage/$record->profile_img")}}" class="img-responsive" >
                       </td>
                     <td>{{ $record->id }}</td>
                     <td>{{ $record->name }}</td>
