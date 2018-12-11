@@ -41,9 +41,11 @@ class PostController extends Controller
         $input['author'] = 'admin';
         //echo $request->img;
         if($request->img != null){
-            $path = $request->file('img')->store('uploads');
-            $input['img'] = $path;
-        }
+            $fileName =  $request->img->getClientOriginalName();
+             $path = $request->file('img')->storeAs('public/uploads',$fileName);
+             $second =  $request->file('img')->storeAs('uploads',$fileName);
+             $input['img'] = $second;
+         }
         Post::create($input);
         return redirect('admin/posts');
     }
@@ -81,7 +83,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        Post::findOrFail($post)->first()->fill($request->all())->save();
+        $input = $request->all();
+        if($request->img != null){
+            $fileName =  $request->img->getClientOriginalName();
+             $path = $request->file('img')->storeAs('public/uploads',$fileName);
+             $second =  $request->file('img')->storeAs('uploads',$fileName);
+             $input['img'] = $second;
+         }
+        Post::findOrFail($post->id)->fill($input)->save();;
+        //$p->fill($input)->save();
         return redirect('admin/posts');
     }
 
