@@ -24,12 +24,12 @@
 								<th class="product-price">Enrolled</th>
 								<th class="product-price">Charges Type</th>
 								<th class="product-price">Charges</th>
-								<th class="product-price">Tution Type</th>
+								<th class="product-price">Tuition Type</th>
 								<th class="product-quantity">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($tutions as $tution)
+							@foreach($tuitions as $tuition)
 							<tr class="cart-item">
 								{{--  <td class="product-remove center">
 									<a href="#" class="product-remove icon-cancel"></a>
@@ -40,32 +40,32 @@
 									</a>
 								</td>  --}}
 								<td class="product-name">
-									<a href="" class="product-title">{{ $tution->title }}</a>
+									<a href="" class="product-title">{{ $tuition->title }}</a>
 								</td>
 								<td class="product-price">
-									<span class="amount">{{ $tution->area }}, {{ $tution->city }}</span>
+									<span class="amount">{{ $tuition->area }}, {{ $tuition->city }}</span>
 								</td>
 								<td class="product-quantity">
 									<span class="amount">1</span>
 								</td>
 								<td class="product-quantity">
-									<span class="amount">{{ $tution->charges_type }}</span>
+									<span class="amount">{{ $tuition->charges_type }}</span>
 								</td>
 								<td class="product-quantity">
-									<span class="amount">{{ $tution->charges }}</span>
+									<span class="amount">{{ $tuition->charges }}</span>
 								</td>
 								<td class="product-quantity">
-									<span class="amount">{{ $tution->type }}</span>
+									<span class="amount">{{ $tuition->type }}</span>
 								</td>
 								<td>
-									<div class="row"><!--action="{{ route('gigs.edit', $tution->id) }}"-->
+									<div class="row"><!--action="{{ route('gigs.edit', $tuition->id) }}"-->
                     					<div class="column width-2">
-										<form method="GET" action="{{ route('gigs.edit', $tution->id) }}" >
-											<a href="{{ route('gigs.edit', $tution->id) }}">	<i class="material-icons">edit</i></a>
+										<form method="GET" action="{{ route('gigs.edit', $tuition->id) }}" >
+											<a href="{{ route('gigs.edit', $tuition->id) }}">	<i class="material-icons">edit</i></a>
 										</form>
 										</div>
 										<div class="column width-2">
-											<form method="POST" action="{{ route('gigs.destroy', $tution->id) }}">
+											<form method="POST" action="{{ route('gigs.destroy', $tuition->id) }}">
 												@csrf
 												{{ method_field('DELETE') }}
 												<button type="submit"><a>	<i class="material-icons">close</i></a></button>
@@ -74,8 +74,8 @@
 									</div>
 								</td>
 								{{--  <td>
-									<a href="{{ route('gigs.destroy', $tution->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
-									<a href="{{ route('gigs.edit', $tution->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
+									<a href="{{ route('gigs.destroy', $tuition->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a>
+									<a href="{{ route('gigs.edit', $tuition->id) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Edit</a>
 
 								</td>  --}}
 							</tr>

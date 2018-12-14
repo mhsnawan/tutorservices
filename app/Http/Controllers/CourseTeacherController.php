@@ -28,8 +28,25 @@ class CourseTeacherController extends Controller
         $id = Auth::user()->id;
         $teacher_id = Teacher::where('user_id', $id)->get();
         $tid = $teacher_id[0]->id;
-        $tutions = Teacher::find($tid)->course_teachers;
-        return view('tportal.tportal-pages.gigs.gigs')->with(compact('tutions', 'enrolled'));
+        $tuitions = Teacher::find($tid)->course_teachers;
+        // $tuitions = array();
+        // foreach($data as $tuition){
+        //     $enroll = CourseStudentTeacher::where('teacher_id', $tid)->where('course_id', $tuition->course_id)->where('verified', 1)->count();
+        //     $tuitions[] = array(
+        //         'id' => $tuition->id,
+        //         'title' => $tuition->title,
+        //         'area' => $tuition->area,
+        //         'city' => $tuition->city,
+        //         'class' => $tuition->class,
+        //         'charges_type' => $tuition->charges_type,
+        //         'charges' => $tuition->charges,
+        //         'tution_type' => $tuition->tution_type,
+        //         'enroll' => $enroll
+        //     );
+        // }
+        
+        //return $data;
+        return view('tportal.tportal-pages.gigs.gigs')->with(compact('tuitions', 'enrolled'));
     }
 
     /**
