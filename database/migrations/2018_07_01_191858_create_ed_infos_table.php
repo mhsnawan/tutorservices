@@ -16,7 +16,7 @@ class CreateEdInfosTable extends Migration
         Schema::create('ed_infos', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('degree_level');
             $table->string('title')->nullable();
             $table->string('institute')->nullable();

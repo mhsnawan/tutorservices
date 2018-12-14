@@ -10,8 +10,8 @@ class CourseTeacher extends Model
 {
 
     protected $fillable = [
-        'id','teacher_id','course_id', 'user_id', 'title', 'area', 'city', 'class',
-        'fee', 'type', 'day_from', 'day_to', 'time_from', 'time_to', 'availability', 'description'
+        'id','teacher_id','course_id', 'user_id', 'title', 'area', 'city', 'class', 'charges_type',
+        'charges', 'type', 'day_from', 'day_to', 'time_from', 'time_to', 'availability', 'description'
     ];
 
     public function course()

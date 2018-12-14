@@ -52,11 +52,24 @@
         <div class="row">
             <div class="column width-2">
                 <div class="field-wrapper">
-                    <label>Budget</label>
-                    <input type="text" name="fee" value={{ $tution->fee }} class="form-fname form-element large" placeholder="Course Budget*" tabindex="6" required>
+                    <label>Charges Type</label>
+                    <div class="form-select form-element large">
+                        <select class="form-aux" name="charges_type" data-live-search="true" tabindex="7" required>
+                            <option disabled selected>Choose Type</option>
+                            <option value="Weekly" @if($tution->charges_type == "Weekly") selected @endif>Weekly</option>
+                            <option value="Monthly" @if($tution->charges_type == "Monthly") selected @endif>Monthly</option>
+                            <option value="Full Course" @if($tution->charges_type == "Full Course") selected @endif>Full Course</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="column width-2">
+                <div class="field-wrapper">
+                    <label>Budget</label>
+                    <input type="text" name="charges" value={{ $tution->charges }} class="form-fname form-element large" placeholder="Course Budget*" tabindex="6" required>
+                </div>
+            </div>
+            <div class="column width-4">
                 <div class="field-wrapper">
                     <label>Course Type</label>
                     <div class="form-select form-element large">

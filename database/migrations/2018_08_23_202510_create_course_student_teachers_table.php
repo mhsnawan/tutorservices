@@ -16,13 +16,13 @@ class CreateCourseStudentTeachersTable extends Migration
         Schema::create('course_student_teachers', function (Blueprint $table) {
             $table->increments('id');
             $table->Integer('course_teacher_id')->unsigned();
-            $table->foreign('course_teacher_id')->references('id')->on('course_teachers');
+            $table->foreign('course_teacher_id')->references('id')->on('course_teachers')->onDelete('cascade');
             $table->Integer('teacher_id')->unsigned();
-            $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->Integer('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('students');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->Integer('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->integer('verified')->default(0);
             $table->timestamps();
         });

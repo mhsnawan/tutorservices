@@ -16,7 +16,7 @@ class CreateSubDegreesTable extends Migration
         Schema::create('sub_degrees', function (Blueprint $table) {
             $table->increments('id');
             $table->Integer('degree_id')->unsigned();
-            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');;
+            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
         });

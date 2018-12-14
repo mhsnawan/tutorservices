@@ -9,7 +9,7 @@
 			{{--  <h5>Gigs</h5>  --}}
 			<div class="row">
 				<div class="offset width-5">
-					<a href="#" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">ADD NEW</a>
+					<a href="{{ route('gigs.create') }}" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">ADD NEW</a>
 				</div>
 				</div>
 			<div class="payment-details box large">
@@ -22,7 +22,8 @@
 								<th class="product-name">Course Title</th>
 								<th class="product-quantity">Location</th>
 								<th class="product-price">Enrolled</th>
-								<th class="product-price">Budget</th>
+								<th class="product-price">Charges Type</th>
+								<th class="product-price">Charges</th>
 								<th class="product-price">Tution Type</th>
 								<th class="product-quantity">Action</th>
 							</tr>
@@ -48,7 +49,10 @@
 									<span class="amount">1</span>
 								</td>
 								<td class="product-quantity">
-									<span class="amount">{{ $tution->fee }}</span>
+									<span class="amount">{{ $tution->charges_type }}</span>
+								</td>
+								<td class="product-quantity">
+									<span class="amount">{{ $tution->charges }}</span>
 								</td>
 								<td class="product-quantity">
 									<span class="amount">{{ $tution->type }}</span>
@@ -61,10 +65,10 @@
 										</form>
 										</div>
 										<div class="column width-2">
-											<form method="DELETE" action="{{ route('gigs.destroy', $tution->id) }}">
+											<form method="POST" action="{{ route('gigs.destroy', $tution->id) }}">
 												@csrf
 												{{ method_field('DELETE') }}
-												<a href="{{ route('gigs.destroy', $tution->id) }} ">	<i class="material-icons">close</i></a>
+												<button type="submit"><a>	<i class="material-icons">close</i></a></button>
 											</form>
 										</div>
 									</div>

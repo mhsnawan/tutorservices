@@ -110,7 +110,7 @@
 										@endif
 									</div>
 								</form>
-
+								
 								<a onclick="getMessages({{ $course['user_id'] }})" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
 							</div>
 

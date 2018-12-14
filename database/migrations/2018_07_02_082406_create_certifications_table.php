@@ -16,7 +16,7 @@ class CreateCertificationsTable extends Migration
         Schema::create('certifications', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('institute')->nullable();
             $table->string('year')->nullable();

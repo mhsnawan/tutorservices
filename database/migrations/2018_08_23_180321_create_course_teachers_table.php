@@ -16,16 +16,17 @@ class CreateCourseTeachersTable extends Migration
         Schema::create('course_teachers', function (Blueprint $table) {
             $table->increments('id');
             $table->Integer('teacher_id')->unsigned();
-            $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->Integer('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->Integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->string('area');
             $table->string('city');
             $table->string('class');
-            $table->Integer('fee')->unsigned();
+            $table->string('charges_type');
+            $table->Integer('charges')->unsigned();
             $table->string('type');
             $table->string('day_from');
             $table->string('day_to');
