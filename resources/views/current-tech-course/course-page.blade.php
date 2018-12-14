@@ -110,8 +110,9 @@
 										@endif
 									</div>
 								</form>
-								
+								@if($course->user_id != Auth::user()->id)
 								<a onclick="getMessages({{ $course['user_id'] }})" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
+								@endif
 							</div>
 
 					</div>
