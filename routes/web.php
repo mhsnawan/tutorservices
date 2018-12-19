@@ -48,6 +48,7 @@ Route::resource('student', 'StudentController');
 
 Route::resource('enroll', 'CourseStudentTeacherController');
 Route::resource('blog', 'BlogController');
+Route::resource('reviews', 'ReviewsController');
 Route::get('/search/{queryString}', 'CourseTeacherController@search');
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -652,7 +653,7 @@ Route::get('course/{id}',function($id){
     }
     //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
-    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled'));
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'id'));
 })->name('course.view');
 
 Route::get('show-course', function(){

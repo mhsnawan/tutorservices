@@ -156,7 +156,36 @@
 			</div>
 		</aside>
 		<!-- Sidebar End -->
-
+		<form method="post" action="{{ route('reviews.store') }}">
+			@csrf
+			<input type="hidden" value="{{ $id }}" name="course_teacher_id">
+			<div class="column width-4">
+				<span>Rating</span>
+				<div class="widget">
+					<span class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+					<input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+					<input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+					<input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+					<input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+					<input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+					</span>
+				</div>
+			</div>
+			<div class="column width-10">
+				<div class="field-wrapper">
+					<label>Comment</label>
+					<input type="text" name="comment" class="form-lname form-element large" placeholder="" tabindex="2">
+				</div>
+			</div>			
+			<div class="column width-12">
+				<input type="submit" value="Save" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+			</div>
+		</form>
 	</div>
 </div>
 

@@ -75,9 +75,10 @@ class User extends Authenticatable
     public function messages(){
         return $this->hasMany('App\Messages', 'conversation_id', 'id');
     }
-
-    
-
     ////////////////////////////////////////////////////////////
+
+    public function reviews(){
+        return $this->hasMany('App\Reviews');
+    }
 
 }
