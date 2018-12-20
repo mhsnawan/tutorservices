@@ -5,7 +5,7 @@
 <head>
 @include("partials.head")
 </head>
-
+  <link rel="stylesheet" href={{ asset("css/a.css") }}>
 <body class="shop cart">
   <!-- Side Navigation Menu -->
   <aside class="side-navigation-wrapper enter-right" data-no-scrollbar data-animation="scale-in">
