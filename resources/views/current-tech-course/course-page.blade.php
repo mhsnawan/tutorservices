@@ -143,6 +143,7 @@
 				</div>
 			</div>
 		</aside>
+		@if(!$check_enrolled)
 		<!-- Sidebar End -->
 		<form method="post" action="{{ route('reviews.store') }}">
 			@csrf
@@ -282,6 +283,7 @@
 				</div>
 			</div>
 		</form>
+		@endif
 	</div>
 </div>
 
