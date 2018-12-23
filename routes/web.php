@@ -25,7 +25,8 @@ use App\CourseStudentTeacher;
 use App\Student;
 use App\Post;
 use App\Experience;
-use App\certification;
+use App\Certification;
+use App\Reviews;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -641,6 +642,7 @@ Route::get('/courses',function(){
 
 Route::get('course/{id}',function($id){
     $check_enrolled = true;
+    $check_review = true;
     $course = CourseTeacher::find($id);
     $user = Teacher::find($course->teacher_id)->user;
     $user_id = Auth::user()->id;
@@ -648,14 +650,17 @@ Route::get('course/{id}',function($id){
     $count = $reviews->count();
     if(Auth::user()->role == 1){
         $student = Student::where('user_id', $user_id);
-        $abc = CourseStudentTeacher::where('course_id', $id)->where('student_id', $user->id)->count();
-        if($abc > 0){
+        $check1 = CourseStudentTeacher::where('course_id', $id)->where('student_id', $user->id)->count();
+        if($check1 > 0){
             $check_enrolled = false;
         }
+        $check2 = Reviews::where('course_teacher_id', $id)->where('user_id', $user_id)->count();
+        if($check2 > 0)
+            $check_review = false;
     }
     //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
-    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'id', 'reviews', 'count'));
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'check_review', 'id', 'reviews', 'count'));
 })->name('course.view');
 
 Route::get('show-course', function(){

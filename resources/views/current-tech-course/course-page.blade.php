@@ -146,7 +146,7 @@
 				</div>
 			</div>
 		</aside>
-		@if(!$check_enrolled)
+		@if(Auth::user()->role == 1 && $check_review)
 		<!-- Sidebar End -->
 		<form method="post" action="{{ route('reviews.store') }}">
 			@csrf

@@ -12,7 +12,7 @@
       text-align: center;
       border: 5px solid #FFF;}
       div.imag:hover img{
-          opacity:0.5;
+          opacity:100;
       }
       div.imag:hover input {
           display: block;
@@ -103,7 +103,7 @@
   }
 }
 div.avatar:hover img{
-    opacity:0.5;
+    opacity:100;
 }
 div.avatar:hover input {
     display: block;
