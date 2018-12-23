@@ -34,7 +34,10 @@
 													<span class="project-label">Tution Type: </span><span class="project-value"> {{ $course->type }}</span>
 												</p>
 												<p class="project-attribute">
-													<span class="project-label">Budget: </span><span class="project-value"> {{ $course->fee }}</span>
+													<span class="project-label">Charges Type: </span><span class="project-value"> {{ $course->charges_type }}</span>
+												</p>
+												<p class="project-attribute">
+													<span class="project-label">Charges: </span><span class="project-value"> {{ $course->charges }}</span>
 												</p>
 												<p class="project-attribute">
 													<span class="project-label">Location:</span><span class="project-value">{{ $course->area }}, {{ $course->city }}</span>
