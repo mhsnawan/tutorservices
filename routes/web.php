@@ -644,6 +644,8 @@ Route::get('course/{id}',function($id){
     $course = CourseTeacher::find($id);
     $user = Teacher::find($course->teacher_id)->user;
     $user_id = Auth::user()->id;
+    $reviews = CourseTeacher::find($id)->reviews;
+    $count = $reviews->count();
     if(Auth::user()->role == 1){
         $student = Student::where('user_id', $user_id);
         $abc = CourseStudentTeacher::where('course_id', $id)->where('student_id', $user->id)->count();
@@ -653,7 +655,7 @@ Route::get('course/{id}',function($id){
     }
     //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
-    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'id'));
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'id', 'reviews', 'count'));
 })->name('course.view');
 
 Route::get('show-course', function(){
@@ -738,6 +740,10 @@ Route::get('/sprofile',function(){
     })->name('profile.id');
     /////////////////////////// END TUTOR PROFILE /////////////////////////
 
+
+Route::any('search', function(){
+    
+});
 
 
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reviews extends Model
 {
     protected $fillable = [
-        'id', 'course_teacher_id', 'user_id', 'rating', 'comment', 'approved'
+        'id', 'course_teacher_id', 'user_id','rating', 'overall_rating', 'punctual_rating', 'subject_rating', 'ability_rating', 'demands_rating', 'comment', 'approved'
     ];
 
     public function user(){
@@ -15,6 +15,6 @@ class Reviews extends Model
     }
 
     public function course_teacher(){
-        return $this->belongsTo('App\CourseTeacher');
+        return $this->belongsTo('App\CourseTeacher', 'course_teacher_id');
     }
 }

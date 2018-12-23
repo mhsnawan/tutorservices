@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Reviews;
+use App\CourseTeacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,10 +40,14 @@ class ReviewsController extends Controller
         $id = Auth::user()->id;
         $input = $request->all();
         $input['user_id'] = $id;
+        $input['rating'] = ($request->overall_rating+ $request->punctual_rating+ $request->subject_rating+  $request->ability_rating+ $request->demands_rating)/5;
         $input['approved'] = true;
-        //return $input;
         Reviews::create($input);
         return redirect()->back();
+        // $wanted = Reviews::where('course_teacher_id', 1)->whereHas('users', function($offerQuery){
+        //     $offerQuery->where('id', '=', $offer_id);
+        // })->get();
+        // echo $wanted;
     }
 
     /**

@@ -19,7 +19,12 @@ class CreateReviewsTable extends Migration
             $table->foreign('course_teacher_id')->references('id')->on('course_teachers')->onDelete('cascade');
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('rating');
+            $table->float('rating');
+            $table->float('overall_rating');
+            $table->float('punctual_rating');
+            $table->float('subject_rating');
+            $table->float('ability_rating');
+            $table->float('demands_rating');
             $table->string('comment');
             $table->boolean('approved');
             $table->timestamps();
