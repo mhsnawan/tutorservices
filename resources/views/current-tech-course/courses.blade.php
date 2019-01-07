@@ -12,10 +12,10 @@
 					<div class="row">
 						<div class="column width-4">
 							<div class="product-result-count pd-10">
-								<p>Showing 1–10 of 46 results</p>
+								<p>Showing {{ count($courses) }} results</p>
 							</div>
 						</div>
-						<div class="column width-3 offset-2">
+						{{--  <div class="column width-3 offset-2">
 							<div class="form-select form-element medium pull-right">
 								<select name="type">
 									<option selected="selected" value="">Category: All</option>
@@ -26,7 +26,7 @@
 									<option value="">Arts</option>
 								</select>
 							</div>
-						</div>
+						</div>  --}}
 					</div>
 				</div>
 				<!-- Filter End -->
