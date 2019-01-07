@@ -93,6 +93,7 @@
 									<input type="text" value="{{ $course->id }}" name="course_teacher_id" hidden>
 									<input type="text" value="{{ $course->teacher_id }}" name="teacher_id" hidden>
 									<input type="text" value="{{ $course->course_id }}" name="course_id" hidden>
+									@if(Auth::check())
 									@if(Auth::user()->role == 1)
 										@if($check_enrolled == true)
 										<input type="submit" value="Enroll Now" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">
@@ -100,10 +101,12 @@
 										<input type="submit" value="Enrolled" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme" disabled>
 										@endif
 									@endif
+									
 								</div>
 							</form>
 							@if($course->user_id != Auth::user()->id)
 							<a onclick="getMessages({{ $course['user_id'] }})" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme">Message</a><br>
+							@endif
 							@endif
 						</div>
 					</div>
@@ -146,6 +149,7 @@
 				</div>
 			</div>
 		</aside>
+		@if(Auth::check())
 		@if(Auth::user()->role == 1 && $check_review)
 		<!-- Sidebar End -->
 		<form method="post" action="{{ route('reviews.store') }}">
@@ -286,6 +290,7 @@
 				</div>
 			</div>
 		</form>
+		@endif
 		@endif
 	</div>
 </div>

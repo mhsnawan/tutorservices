@@ -587,7 +587,7 @@ Route::any('/advancesearch',function()
 
 Route::any('/searchresult',function(){
     //  dd(Input::get('search'));
-    $user = User::find(Auth::user()->id);
+    //$user = User::find(Auth::user()->id);
     $cities= User::select('city')->distinct()->get();
     $courses = Course::all();
     $message = "No Result Found";
@@ -611,7 +611,7 @@ Route::any('/searchresult',function(){
 
     $data = User::paginate(3);
      return view('tportal.tportal-pages.searchresult')->with(compact(['data', 'cities','courses', 'user']));
-});
+})->name('search');
 
 // ============================ course ROUTES ======================================//
 
@@ -641,23 +641,27 @@ Route::get('/courses',function(){
 })->name('courses');
 
 Route::get('course/{id}',function($id){
-    $check_enrolled = true;
-    $check_review = true;
+    $check_enrolled = false;
+    $check_review = false;
     $course = CourseTeacher::find($id);
     $user = Teacher::find($course->teacher_id)->user;
-    $user_id = Auth::user()->id;
+    if(Auth::check())
+        $user_id = Auth::user()->id;
     $reviews = CourseTeacher::find($id)->reviews;
     $count = $reviews->count();
-    if(Auth::user()->role == 1){
-        $student = Student::where('user_id', $user_id);
-        $check1 = CourseStudentTeacher::where('course_id', $id)->where('student_id', $user->id)->count();
-        if($check1 > 0){
-            $check_enrolled = false;
+    if(Auth::check()){
+        if(Auth::user()->role == 1){
+            $student = Student::where('user_id', $user_id);
+            $check1 = CourseStudentTeacher::where('course_id', $id)->where('student_id', $user->id)->count();
+            if($check1 > 0){
+                $check_enrolled = true;
+            }
+            $check2 = Reviews::where('course_teacher_id', $id)->where('user_id', $user_id)->count();
+            if($check2 > 0)
+                $check_review = true;
         }
-        $check2 = Reviews::where('course_teacher_id', $id)->where('user_id', $user_id)->count();
-        if($check2 > 0)
-            $check_review = false;
     }
+    
     //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
     return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'check_review', 'id', 'reviews', 'count'));
@@ -746,9 +750,42 @@ Route::get('/sprofile',function(){
     /////////////////////////// END TUTOR PROFILE /////////////////////////
 
 
-Route::any('search', function(){
+    Route::post('/searchresult1',function(Request $request){
+        //  dd(Input::get('search'));
+        $input = $request->all();
+        $search = $input['search'];
+        return $search;
+    })->name('search1');
     
-});
+    // Route::get('test', function(){
+    //     $courses = Course::all();
+    //     $classes = CourseTeacher::distinct('class')->get();
+    //     $cities = CourseTeacher::distinct('city')->get();
+    //     $selectedCourseId = '';
+    //     $selectedCity = '';
+    //     $selectedClass = '';
+    //     // $courseId = $request->subject;
+    //     $results = App\CourseTeacher::with(['user', 'course'])->where('course_id', $selectedCourseId)->where('city', $selectedCity)
+    //     ->where('class', $selectedClass)->get();
+    //     return view('pages.searchresult')->with(compact('courses', 'classes', 'cities', 'results', 'selectedCourseId', 'selectedCity', 'selectedClass'));
+    // });
+
+    Route::any('test', function(Request $request){
+        $courses = Course::all();
+        $classes = CourseTeacher::distinct('class')->get();
+        $cities = CourseTeacher::distinct('city')->get();
+        $selectedCourseId = $request->subject;
+        $selectedCity = $request->city;
+        $selectedClass = $request->class;
+        $results = CourseTeacher::with(['user', 'course'])->where('course_id', $selectedCourseId)->where('city', 'LIKE', '%'.$selectedCity.'%')
+        ->where('class', 'LIKE', '%'.$selectedClass.'%')->paginate(3);
+        //return $results;
+        return view('pages.testsearch')->with(compact('courses', 'classes', 'cities', 'results', 'selectedCourseId', 'selectedCity', 'selectedClass'));
+    })->name('test');
+
+    Route::get('testsearch', function(){
+        return view('pages.testsearch');
+    });
 
 
 

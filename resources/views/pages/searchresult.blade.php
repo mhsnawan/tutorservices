@@ -1,17 +1,14 @@
 @extends('tportal.tportal-layouts.forsearchresults')
 
 @section('content')
-<!-- Product Details -->
-               <br><br><br>
-
-
+<br><br><br>
 <div class="container-fluid">
 
 <aside class="column width-3 sidebar " style="float:left">
   <div class="sidebar-inner">
     <div class="widget">
       <h1 class="widget-title">Filter tutor by type</h1>
-	 <form method="POST" action="./advancesearch">
+	 <form method="POST" action="{{ route('test') }}">
 		{{csrf_field()}}
         {{-- <div class="column width-12">
            <div class="column width-12">
@@ -41,26 +38,27 @@
 		<select class="form-control dropdown" id="education" name="subject">
 			<option value="" selected="selected" disabled="disabled">-- select one --</option>
 				@foreach($courses as $course)		 
-						<option value="{{$course->id}}">{{$course->course_name}}</option>
+					<option value="{{ $course->id }}"  @if($selectedCourseId == $course->id) selected @endif>{{$course->course_name}}</option>
 				@endforeach
 		</select>
    </fieldset>
    <fieldset>
    <legend>Filter By Class</legend>
-   <select class="form-control dropdown" id="education" name="education">
+   <select class="form-control dropdown" id="education" name="class">
         <option value="" selected="selected" disabled="disabled">-- select one --</option>
-        <option value="No formal education">1</option>
+        @foreach($classes as $class)
+        <option value="{{ $class->class }}" @if($selectedClass == $class->class ) selected @endif>{{ $class->class }}</option>
+        @endforeach
 
     </select>
   </fieldset>
   <fieldset>
   <legend>Filter By city</legend>
   <select class="form-control dropdown" id="education" name="city">
-		<option value="" selected="selected" disabled="disabled">-- select one --</option>
-@foreach($cities as $city)
-       
-	   <option value="{{$city->city}}">{{$city->city}}</option>
-@endforeach
+    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+    @foreach($cities as $city)
+    <option value="{{ $city->city }}" @if($selectedCity == $city->city ) selected @endif>{{$city->city}}</option>
+    @endforeach
    </select>
  </fieldset>
 
@@ -85,15 +83,15 @@
     </div> -->
   </div>
 </aside>
-@if(isset($data))
+
  <div id="general" class="column width-9">
-					<h3 class="mb-30 color-grey inline pull-left">Displaying {{count($data)}} results</h3>
+					<h3 class="mb-30 color-grey inline pull-left">Displaying 3 results</h3>
 				</div> 
 
-@foreach($data as $user)
+
 		<div class="column width-9" style="float:right;">
 
-		<div class="  bkg-white">
+		<div class="bkg-white">
 			<div class="row">
 
 				{{-- <div id="general" class="column width-9">
@@ -111,8 +109,8 @@
 											<div class="thumbnail product-thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
 												<a class="overlay-link lightbox-link" data-group="product-lightbox-gallery" href="images/shop/single/product-1.jpg">
 													<img src="images/shop/single/product-1.jpg" alt=""/>
-														<li>  <span >{{$user->age}} years</span></li>
-														<li><a href="#">Lives in {{$user->city}}</a></li>
+														<li>  <span >5 years</span></li>
+														<li><a href="#">Lives in </a></li>
 													<span class="overlay-info">
 														<span>
 															<span>
@@ -131,7 +129,7 @@
 				<div class="column width-9 offset-.5">
 				<div class="product-summary">
 
-					<h1 class="product-title">{{$user->name}}</h1>
+					<h1 class="product-title"></h1>
 						<div class="column width-1" >
 							<p></span>  <span  class="icon-circled icon-check small rounded border-green-light color-white bkg-hover-green-light color-hover-white thick"></span></p>
 						</div>
@@ -182,15 +180,14 @@
 			</div>
 
 </div>
-@endforeach
-{{-- {!! $data->render() !!} --}}
-{{$data->links()}}
-@else
-{{$message}}
-@endif
+
+
 
 	
-					
+@foreach ($results as $result)
+    {{ $result->user }}
+    <hr>
+@endforeach
 					<!-- Product Details End -->
 
 
@@ -233,7 +230,7 @@
 									<div class="column width-12">
 										<div class="search-result box large bkg-grey-ultralight">
 											<h4>Tutor1</h5>
-											<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+                                              
 											<hr>
 											<a href="#" class="read-more"><span class="icon-right-open-mini"></span> More</a>
 										</div>
