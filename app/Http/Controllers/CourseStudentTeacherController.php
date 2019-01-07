@@ -26,7 +26,6 @@ class CourseStudentTeacherController extends Controller
     public function index()
     {
         $courses = CourseTeacher::all();
-        //echo $courses;
         return view('tportal.tportal-pages.enroll')->with(compact('courses'));
     }
 

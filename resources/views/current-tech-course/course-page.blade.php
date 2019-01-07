@@ -150,7 +150,7 @@
 			</div>
 		</aside>
 		@if(Auth::check())
-		@if(Auth::user()->role == 1 && $check_review)
+		@if(Auth::user()->role == 1 && !$check_enrolled && !$check_review)
 		<!-- Sidebar End -->
 		<form method="post" action="{{ route('reviews.store') }}">
 			@csrf
