@@ -6,11 +6,11 @@
     <aside class="column width-3 sidebar " style="float:left">
         <div class="sidebar-inner">
             <div class="widget">
-                <h1 class="widget-title">Filter tutor by type</h1>
-                <form method="POST" action="{{ route('test') }}">
+                <h1 class="widget-title">Filter Course By Type</h1>
+                <form method="POST" action="{{ route('advance-results') }}">
                     {{ csrf_field() }}
                     <fieldset>
-                        <legend>Filter By Subject</legend>
+                        <legend>Filter By Subject *</legend>
                         <select class="form-control dropdown" id="education" name="subject">
                             <option value="" selected="selected" disabled="disabled">-- select one --</option>
                                 @foreach($courses as $course)		 
@@ -54,9 +54,9 @@
                 @foreach ($results as $result)
                 <div class="column width-12">
                     <div class="cart-totals box xlarge bkg-grey-ultralight">
-                            <p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $result->title }}</p>
+                            <p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" ><a href="{{ route('course.view', $result->course->id) }}"> {{ $result->title }}</a></p>
                             <div class="column width-3">
-                                <p class="mb-0">Posted By : {{ $result->user->name }}<br>Posted : {{ $result->created_at->format('d M, Y') }}</p>
+                                <p class="mb-0">Posted By : <a href="{{ route('profile.id', $result->user->id) }}"> {{ $result->user->name }} </a><br>Posted : {{ $result->created_at->format('d M, Y') }}</p>
                         </div>
                             <div class="column width-3">
                             <span class="text-small weight-bold"><span class="icon-location"></span>{{ $result->area }}, {{ $result->city }}</span>

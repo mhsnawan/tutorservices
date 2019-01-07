@@ -3,7 +3,7 @@
     <div class="row">
         <div class="column width-12 center">
             <div class="search-form-container site-search">
-                <form action="{{ route('search') }}" method="POST">
+                <form action="{{ route('search-results') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="column width-12">

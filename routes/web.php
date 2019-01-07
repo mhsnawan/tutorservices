@@ -586,8 +586,6 @@ Route::any('/advancesearch',function()
 });
 
 Route::any('/searchresult',function(){
-    //  dd(Input::get('search'));
-    //$user = User::find(Auth::user()->id);
     $cities= User::select('city')->distinct()->get();
     $courses = Course::all();
     $message = "No Result Found";
@@ -750,40 +748,27 @@ Route::get('/sprofile',function(){
         
     })->name('profile.id');
     /////////////////////////// END TUTOR PROFILE /////////////////////////
-
-
-    Route::post('/searchresult1',function(Request $request){
-        //  dd(Input::get('search'));
-        $input = $request->all();
-        $search = $input['search'];
-        return $search;
-    })->name('search1');
-    
-    // Route::get('test', function(){
-    //     $courses = Course::all();
-    //     $classes = CourseTeacher::distinct('class')->get();
-    //     $cities = CourseTeacher::distinct('city')->get();
-    //     $selectedCourseId = '';
-    //     $selectedCity = '';
-    //     $selectedClass = '';
-    //     // $courseId = $request->subject;
-    //     $results = App\CourseTeacher::with(['user', 'course'])->where('course_id', $selectedCourseId)->where('city', $selectedCity)
-    //     ->where('class', $selectedClass)->get();
-    //     return view('pages.searchresult')->with(compact('courses', 'classes', 'cities', 'results', 'selectedCourseId', 'selectedCity', 'selectedClass'));
-    // });
-
-    Route::any('test', function(Request $request){
+    Route::post('searchresults', function(Request $request){
         $courses = Course::all();
-        $classes = CourseTeacher::distinct('class')->get();
-        $cities = CourseTeacher::distinct('city')->get();
+        $classes = CourseTeacher::select('class')->distinct('class')->get();
+        $cities = CourseTeacher::select('city')->distinct('city')->get();
+        $search = $request->search;
+        $results = CourseTeacher::with(['user', 'course'])->where('title', 'LIKE', '%'.$search.'%')->paginate(15);
+        return view('pages.simplesearch')->with(compact('courses', 'classes', 'cities', 'results'));
+    })->name('search-results');
+
+    Route::any('advanceresults', function(Request $request){
+        $courses = Course::all();
+        $classes = CourseTeacher::select('class')->distinct('class')->get();
+        $cities = CourseTeacher::select('city')->distinct('city')->get();
         $selectedCourseId = $request->subject;
         $selectedCity = $request->city;
         $selectedClass = $request->class;
         $results = CourseTeacher::with(['user', 'course'])->where('course_id', $selectedCourseId)->where('city', 'LIKE', '%'.$selectedCity.'%')
-        ->where('class', 'LIKE', '%'.$selectedClass.'%')->paginate(3);
+        ->where('class', 'LIKE', '%'.$selectedClass.'%')->paginate(15);
         //return $results;
-        return view('pages.testsearch')->with(compact('courses', 'classes', 'cities', 'results', 'selectedCourseId', 'selectedCity', 'selectedClass'));
-    })->name('test');
+        return view('pages.searchresults')->with(compact('courses', 'classes', 'cities', 'results', 'selectedCourseId', 'selectedCity', 'selectedClass'));
+    })->name('advance-results');
 
     Route::get('testsearch', function(){
         return view('pages.testsearch');
