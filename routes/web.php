@@ -748,6 +748,8 @@ Route::get('/sprofile',function(){
         
     })->name('profile.id');
     /////////////////////////// END TUTOR PROFILE /////////////////////////
+
+// ====================================== SEARCH ROUTES ==================================================//
     Route::post('searchresults', function(Request $request){
         $courses = Course::all();
         $classes = CourseTeacher::select('class')->distinct('class')->get();
@@ -774,5 +776,5 @@ Route::get('/sprofile',function(){
         return view('pages.testsearch');
     });
 
-
+// ======================================END SEARCH ROUTES ==================================================//
 

@@ -37,9 +37,9 @@
 						@foreach ($courses as $course)
 						<div class="column width-12">
 							<div class="cart-totals box xlarge bkg-grey-ultralight">
-                 				<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" >{{ $course['title'] }}</p>
+                 				<p class="title-medium font-alt-2 weight-light color-theme pu-10 mb-0" ><a href="{{ route('course.view', $course['id']) }}">{{ $course['title'] }}</a></p>
                   				<div class="column width-3">
-							       	<p class="mb-0">Posted By : {{ $course['tutor_name'] }}<br>Posted : {{ $course['created_at']->format('d-m-Y') }}</p>
+							       	<p class="mb-0">Posted By : <a href="{{ route('profile.id', $course['user_id']) }}">{{ $course['tutor_name'] }}</a><br>Posted : {{ $course['created_at']->format('d-m-Y') }}</p>
 							    </div>
                   				<div class="column width-3">
 								    <span class="text-small weight-bold"><span class="icon-location"></span>{{ $course['area'] }}, {{ $course['city'] }}</span>
