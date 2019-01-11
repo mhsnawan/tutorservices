@@ -5,25 +5,29 @@
 <div class="profile clearfix">
   <div class="imag">
     <img src="/storage/{{ $user->cover_img}}" class="img-cover cover-img">
-    @if (Auth::user()->id == $user->id)
+    @if(Auth::check())
+      @if (Auth::user()->id == $user->id)
     <form id="cover" method="post" action={{ route('ucover') }} enctype="multipart/form-data">
       @csrf
       <input type="hidden" value="{{ $user->id }}" name="id">
       <div class="column width-2">
       <input style="bottom:0%;left:40%" type="file" name="cover_img" id="cover_img" value="Update" class="form-submit button pill small border-theme bkg-hover-theme color-theme color-hover-white"></div>
     </form>
+      @endif
     @endif
     {{--  <input style="top:5%;right:82%" type="submit" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">  --}}
   </div>
     <div class="user clearfix">
       <div class="avatar">
         <img src="/storage/{{ $user->profile_img}}" class="img-thumbnail img-profile profile-img">
-        @if (Auth::user()->id == $user->id)
+        @if(Auth::check())
+          @if (Auth::user()->id == $user->id)
         <form id="target" method="post" action={{ route('uprofile') }} enctype="multipart/form-data">
           @csrf
           <input type="hidden" value="{{ $user->id }}" name="id">
           <input style="bottom:0;left:22%" type="file" name="profile_img" id="profile_img" value="Update" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
         </form>
+          @endif
         @endif
       </div>
       <br>
@@ -67,8 +71,10 @@
       </div>
     </div>
     <div class="column width-4">
-      @if(Auth::user()->id != $user->id)
+      @if(Auth::check())
+        @if(Auth::user()->id != $user->id)
       <input type="button" onclick="getMessages({{ $user->id }})" value="contact {{ $user->name }}" class="form-submit button pill medium border-theme bkg-hover-theme color-theme color-hover-white">
+        @endif
       @endif
     </div>
    <div class="image" style="background-color:#E7DFDD;width:1000px;left:120px;">

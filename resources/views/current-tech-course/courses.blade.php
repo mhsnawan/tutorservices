@@ -46,7 +46,9 @@
 								</div>
 								<br>
                    				<div class="column width-6">
-								@if(Auth::user()->id != $course['user_id'])<a onclick="getMessages({{ $course['user_id'] }})" class="button pill checkout no-margin-bottom fade-location">Send Message</a> @endif
+								@if(Auth::check())
+									@if(Auth::user()->id != $course['user_id'])<a onclick="getMessages({{ $course['user_id'] }})" class="button pill checkout no-margin-bottom fade-location">Send Message</a> @endif
+								@endif
 								    <a href="{{ route('course.view', $course['id']) }}" class="button pill checkout no-margin-bottom fade-location">View Details</a>
 								</div>
 	                    		{{--  <a href="#">Requirements</a>  --}}

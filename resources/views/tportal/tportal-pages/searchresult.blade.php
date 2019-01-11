@@ -183,7 +183,7 @@
 
 </div>
 @endforeach
-{{-- {!! $data->render() !!} --}}
+{{ --!!$data->render()!!-- }}
 {{$data->links()}}
 @else
 {{$message}}

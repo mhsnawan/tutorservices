@@ -12,8 +12,12 @@ class User extends Authenticatable
 
     const ADMIN_TYPE = '3';
     const DEFAULT_TYPE = 'default';
-    public function isAdmin(){        
-        return $this->role === self::ADMIN_TYPE;    
+    // public function isAdmin(){        
+    //     return $this->role === self::ADMIN_TYPE;    
+    // }
+    public function isAdmin()
+    {
+        return $this->role; // this looks for an admin column in your users table
     }
 
     /**

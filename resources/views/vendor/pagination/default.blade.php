@@ -2,7 +2,7 @@
 <div class="section-block pagination-3 pt-0">
     <div class="row">
         <div class="column width-9">
-@if ($paginator->hasPages())
+    @if ($paginator->count > 0)
     <ul class="pagination" role="navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())

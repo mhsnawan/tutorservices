@@ -79,7 +79,8 @@
         <div class="row">
             <div class="column width-9">
                 <ul>
-                    {{ $results->links() }}
+                    {{ $results->render() }}
+                  
                     {{--  <li><a class="pagination-previous icon-left-open" href="#"><span class="icon-left-open-mini"></span></a></li>
                     <li><a class="current" href="#">1</a></li>
                     <li><a href="#">2</a></li>

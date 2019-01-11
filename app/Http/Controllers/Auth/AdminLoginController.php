@@ -3,8 +3,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+
 class AdminLoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest:admin')->except('logout');
+    }
+
     /**
      * Show the application’s login form.
      *
@@ -14,6 +20,11 @@ class AdminLoginController extends Controller
     {
         return view('admin.admin-pages.admin-login');
     }
+
+    public function login(){
+
+    }
+
     protected function guard(){
         return Auth::guard('admin');
     }
@@ -30,8 +41,5 @@ class AdminLoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest:admin')->except('logout');
-    }
+    
 }

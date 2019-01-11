@@ -37,6 +37,7 @@
                                 <span class="icon-magnifying-glass"></span>
                             </a>  --}}
                         </li>
+                        
                         <li>
                             <!-- Search -->
                             <a href="#search-modal" data-content="inline" data-toolbar="" data-aux-classes="tml-search-modal" data-modal-mode data-modal-width="1000" data-lightbox-animation="fade" data-nav-exit="false" class="lightbox-link nav-icon">
@@ -56,17 +57,19 @@
                         <li>
                             <a href="/blog">Blog</a>
                         </li>
+                        <li><a href="{{ route('courses') }}">Courses</a></li>
                     @guest
-
+                        
                         <li>
                             <a href="{{ route('login') }}">Sign In</a>
                         </li>
                         <li>
                             <a href="{{ route('register') }}">Join</a>
                         </li>
+                        
                         @else
 
-                        <li><a href="{{ route('courses') }}">Courses</a></li>
+                        
                         
                         @if (Auth::user()->role == 1)
                         <li><a href="{{ route('enrolledin') }}">Enrolled In</a></li>

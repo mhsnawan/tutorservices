@@ -32,21 +32,16 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     $blogs = Post::all()->take(4);
     $course = CourseTeacher::all()->take(6);
-    // foreach($course as $item){
-    //     $user = CourseTeacher::find($course->user_id)->user;
-    //     echo $user;
-    // }
     return view('welcome')->with(compact('blogs', 'course'));
 });
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::resource('account', 'UserController');
 Route::resource('edinfo', 'EdInfoController');
-
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
-
 Route::resource('enroll', 'CourseStudentTeacherController');
 Route::resource('blog', 'BlogController');
 Route::resource('reviews', 'ReviewsController');
@@ -90,7 +85,9 @@ Route::get('/example',function(){
 
 
 // ====================================== ADMIN ROUTES ==================================================//
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth:admin'],function(){
+    // Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    // Route::post('login', 'Auth\AdminLoginController@login')->name('admin.submit');
     Route::resource('posts', 'PostController');
     Route::resource('course', 'CourseController');
     Route::resource('degree', 'DegreeController');
@@ -222,6 +219,7 @@ Route::group(['prefix'=>'admin'],function(){
         return view('admin.admin-pages.documents')->with(compact('teacher','ed','exp','cert'));
     })->name('documents');
     /////////////////////////////////ADMIN DOCUMENTS END///////////////////////////////////////
+    return view('admin.admin-pages.admin-login');
 });
 
 // ========================================= END ADMIN ROUTES =================================================//
@@ -767,8 +765,7 @@ Route::get('/sprofile',function(){
         $selectedCity = $request->city;
         $selectedClass = $request->class;
         $results = CourseTeacher::with(['user', 'course'])->where('course_id', $selectedCourseId)->where('city', 'LIKE', '%'.$selectedCity.'%')
-        ->where('class', 'LIKE', '%'.$selectedClass.'%')->paginate(15);
-        //return $results;
+        ->where('class', 'LIKE', '%'.$selectedClass.'%')->paginate(1);
         return view('pages.searchresults')->with(compact('courses', 'classes', 'cities', 'results', 'selectedCourseId', 'selectedCity', 'selectedClass'));
     })->name('advance-results');
 
