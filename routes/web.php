@@ -753,7 +753,7 @@ Route::get('/sprofile',function(){
         $classes = CourseTeacher::select('class')->distinct('class')->get();
         $cities = CourseTeacher::select('city')->distinct('city')->get();
         $search = $request->search;
-        $results = CourseTeacher::with(['user', 'course'])->where('title', 'LIKE', '%'.$search.'%')->paginate(15);
+        $results = CourseTeacher::with(['user', 'course'])->where('title', 'LIKE', '%'.$search.'%')->paginate(20);
         return view('pages.simplesearch')->with(compact('courses', 'classes', 'cities', 'results'));
     })->name('search-results');
 
@@ -765,7 +765,7 @@ Route::get('/sprofile',function(){
         $selectedCity = $request->city;
         $selectedClass = $request->class;
         $results = CourseTeacher::with(['user', 'course'])->where('course_id', $selectedCourseId)->where('city', 'LIKE', '%'.$selectedCity.'%')
-        ->where('class', 'LIKE', '%'.$selectedClass.'%')->paginate(1);
+        ->where('class', 'LIKE', '%'.$selectedClass.'%')->paginate(20);
         return view('pages.searchresults')->with(compact('courses', 'classes', 'cities', 'results', 'selectedCourseId', 'selectedCity', 'selectedClass'));
     })->name('advance-results');
 
