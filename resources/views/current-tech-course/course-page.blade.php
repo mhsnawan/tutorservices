@@ -101,7 +101,7 @@
 										<input type="submit" value="Enrolled" class="button pill thick border-theme border-hover-theme color-theme color-hover-theme" disabled>
 										@endif
 									@endif
-									
+
 								</div>
 							</form>
 							@if($course->user_id != Auth::user()->id)
@@ -201,7 +201,7 @@
 												<input type="radio" id="starhalf2" name="punctual_rating" value="0.5" /><label class="half" for="starhalf2" title="Sucks big time - 0.5 stars"></label>
 											</span>
 										</div>
-									</div>	
+									</div>
 								</td>
 							</tr>
 							<tr class="payment-method-3">
@@ -252,7 +252,7 @@
 							</tr>
 							<tr class="payment-method-5">
 								<td>
-									<div class="column width-4">	
+									<div class="column width-4">
 										<p>His method of teaching meet your demands?</p>
 									</div>
 									<div class="column width-4">
@@ -327,18 +327,39 @@
 						<div class="review-comments">
 							<div class="comments">
 								<ul class="comment-list">
-									@foreach($reviews as $review)										
+									@foreach($reviews as $review)
 									<li>
 										<article class="comment">
 											<div class="user-avatar">
 												<img class="avatar_all_students" src="/storage/{{ App\User::find($review->user_id)->profile_img}}" alt="Avatar"/>
 											</div>
 											<div class="comment-content">
-												<h5 class="name">{{ App\User::find($review->user_id)->name }}</h5>
+									<h5 class="name">{{ App\User::find($review->user_id)->name }}</h5>
+
 												<div class="comment-meta">
-													<span class="post-date">{{ $review->created_at->format('d M,Y') }}</span><span class="review-star-rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-outlined"></span></span>
+															<div class="column width-2">
+													<span class="post-date">{{ $review->created_at->format('d M,Y') }}</span></div>{{--<span class="review-star-rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-outlined"></span></span>--}}
+													<div class="column width-3">
+														<div class="widget">
+															<span class="rating">
+															<input type="radio" id="star55" name="demands_rating" value="5" /><label class = "full" for="star55" title="Awesome - 5 stars"></label>
+															<input type="radio" id="star4half5" name="demands_rating" value="4.5" /><label class="half" for="star4half5" title="Pretty good - 4.5 stars"></label>
+															<input type="radio" id="star45" name="demands_rating" value="4" /><label class = "full" for="star45" title="Pretty good - 4 stars"></label>
+															<input type="radio" id="star3half5" name="demands_rating" value="3.5" /><label class="half" for="star3half5" title="Meh - 3.5 stars"></label>
+															<input type="radio" id="star35" name="demands_rating" value="3" /><label class = "full" for="star35" title="Meh - 3 stars"></label>
+															<input type="radio" id="star2half5" name="demands_rating" value="2.5" /><label class="half" for="star2half5" title="Kinda bad - 2.5 stars"></label>
+															<input type="radio" id="star25" name="demands_rating" value="2" /><label class = "full" for="star25" title="Kinda bad - 2 stars"></label>
+															<input type="radio" id="star1half5" name="demands_rating" value="1.5" /><label class="half" for="star1half5" title="Meh - 1.5 stars"></label>
+															<input type="radio" id="star15" name="demands_rating" value="1" /><label class = "full" for="star15" title="Sucks big time - 1 star"></label>
+															<input type="radio" id="starhalf5" name="demands_rating" value="0.5" /><label class="half" for="starhalf5" title="Sucks big time - 0.5 stars"></label>
+															</span>
+														</div>
+													</div>
 												</div>
+                       <br>
+											 <br>
 												<p>{{ $review->comment }}</p>
+
 											</div>
 										</article>
 									</li>

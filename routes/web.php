@@ -85,7 +85,7 @@ Route::get('/example',function(){
 
 
 // ====================================== ADMIN ROUTES ==================================================//
-Route::group(['prefix'=>'admin', 'middleware'=>'auth:admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
     // Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     // Route::post('login', 'Auth\AdminLoginController@login')->name('admin.submit');
     Route::resource('posts', 'PostController');
@@ -208,12 +208,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth:admin'],function(){
     /////////////////////////////////ADMIN SEARCH END//////////////////////////////////////////
 
     /////////////////////////////////ADMIN DOCUMENTS START/////////////////////////////////////
-    Route::get('/admin/documents/{id}',function($id){ 
+    Route::get('/admin/documents/{id}',function($id){
         $teacher = User::find($id);
         $ed = EdInfo::where('user_id', $id)->get();
         $exp = Experience::where('user_id', $id)->get();
         $cert = Certification::where('user_id', $id)->get();
-        
+
 
         //return $teacher;
         return view('admin.admin-pages.documents')->with(compact('teacher','ed','exp','cert'));
@@ -378,7 +378,7 @@ Route::get('/get-messages', function(Request $request){
     }
     return response()->json([
         'messages' => $messages,
-        'user2_profile' => $user->profile_img 
+        'user2_profile' => $user->profile_img
     ]);
 })->name('getmessages');
 
@@ -658,7 +658,7 @@ Route::get('course/{id}',function($id){
                 $check_review = true;
         }
     }
-    
+
     //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
     //return $course;
@@ -733,9 +733,9 @@ Route::get('/sprofile',function(){
             $experiences = User::find($id)->experiences;
             return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
         }
-        
+
     });
-    
+
     Route::get('profile/{id}', function($id){
         $user= User::find($id);
         $teacher = User::find($id)->teacher;
@@ -743,7 +743,7 @@ Route::get('/sprofile',function(){
         $certifications = User::find($id)->certifications;
         $experiences = User::find($id)->experiences;
         return view('tprofile.tprofile-pages.tprofile-page')->with(compact(['user', 'teacher', 'edinfos', 'certifications', 'experiences']));
-        
+
     })->name('profile.id');
     /////////////////////////// END TUTOR PROFILE /////////////////////////
 
@@ -774,4 +774,3 @@ Route::get('/sprofile',function(){
     });
 
 // ======================================END SEARCH ROUTES ==================================================//
-
