@@ -335,7 +335,6 @@
 											</div>
 											<div class="comment-content">
 									<h5 class="name">{{ App\User::find($review->user_id)->name }}</h5>
-
 												<div class="comment-meta">
 															<div class="column width-2">
 													<span class="post-date">{{ $review->created_at->format('d M,Y') }}</span></div>{{--<span class="review-star-rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-outlined"></span></span>--}}
@@ -359,7 +358,6 @@
                        <br>
 											 <br>
 												<p>{{ $review->comment }}</p>
-
 											</div>
 										</article>
 									</li>

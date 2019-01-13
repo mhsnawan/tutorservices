@@ -59,9 +59,9 @@
 								</td>
 								<td>
 									<div class="row"><!--action="{{ route('gigs.edit', $tuition->id) }}"-->
-                    					<div class="column width-2">
+                    					<div class="column width-4">
 										<form method="GET" action="{{ route('gigs.edit', $tuition->id) }}" >
-											<a href="{{ route('gigs.edit', $tuition->id) }}">	<i class="material-icons">edit</i></a>
+								<button href="{{ route('gigs.edit', $tuition->id) }}">	<i class="material-icons">edit</i></button>
 										</form>
 										</div>
 										<div class="column width-2">
