@@ -30,9 +30,9 @@ use App\Reviews;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    $blogs = Post::all()->take(4);
-    $course = CourseTeacher::all()->take(6);
-    return view('welcome')->with(compact('blogs', 'course'));
+    $blogs = Post::all()->take(3);
+    $courses = CourseTeacher::with(['course'])->take(6)->get();
+    return view('welcome')->with(compact('blogs', 'courses'));
 });
 
 Auth::routes();
@@ -86,8 +86,8 @@ Route::get('/example',function(){
 
 // ====================================== ADMIN ROUTES ==================================================//
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
-    // Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    // Route::post('login', 'Auth\AdminLoginController@login')->name('admin.submit');
+    Route::get('login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::resource('posts', 'PostController');
     Route::resource('course', 'CourseController');
     Route::resource('degree', 'DegreeController');

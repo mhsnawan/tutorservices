@@ -220,6 +220,7 @@
                 					<div class="row">
                 						<div class="column width-12">
                 							<div class="row grid content-grid-3">
+												@foreach ($courses as $course)
                 								<div class="grid-item grid-sizer">
                 									<div class="thumbnail overlay-fade-img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.1">
                 										<a class="overlay-link" href="project-style-one.html">
@@ -227,15 +228,16 @@
                 											<span class="overlay-info">
                 												<span>
                 													<span>
-                														<span class="project-title">Palm <span class="font-alt-2">&amp;</span> Bananas</span>
-                														<span class="project-description">for Cinque</span>
+                														<span class="project-title">{{ $course->title }}</span>
+                														<span class="project-description">{{ $course->course->course_name }}</span>
                 													</span>
                 												</span>
                 											</span>
                 										</a>
                 									</div>
-                								</div>
-                								<div class="grid-item">
+												</div>
+												@endforeach
+                								<!-- <div class="grid-item">
                 									<div class="thumbnail overlay-fade-img-scale-in" data-hover-easing="easeInOut" data-hover-speed="700" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.01">
                 										<a class="overlay-link" href="project-style-one.html">
                 											<img src="images/portfolio/grid/large-margins/project-15-landscape.jpg" alt=""/>
@@ -309,7 +311,7 @@
                 											</span>
                 										</a>
                 									</div>
-                								</div>
+                								</div> -->
                 							</div>
                 						</div>
                 					</div>

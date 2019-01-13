@@ -4,8 +4,8 @@
 <div class="section-block cart-overview">
     <div class="row">
         <div class="push-3 column width-6">
-          <p style="Margin-top:-50px"><p><h2>Log in to Online Tutor</h2></p>
-            <h5>Tutors and students can log in here...</h5></p>
+          <p style="Margin-top:-50px"><p><h2>Admin Log in to Online Tutor</h2></p>
+            <h5>Admin Login Here...</h5></p>
             <div class="payment-details box large">
               <div class="cart-totals box xlarge bkg-grey-ultralight">
                 <div class="tabs style-2">
@@ -19,7 +19,7 @@
                         <div id="tabs-1-pane-1" class="active animate">
                             <div class="tab-content">
                                 <div class="billing-form-container">
-                                    <form method="POST" action="{{ route('login') }}">
+                                    <form method="POST" action="{{ route('admin.login.submit') }}">
                                             @csrf
                                         <div class="row">
                                             <div class="column width-12">
