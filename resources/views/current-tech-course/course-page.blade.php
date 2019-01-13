@@ -166,7 +166,7 @@
 									<div class="column width-4">
 										<div class="widget">
 											<span class="rating">
-											<input type="radio" id="star51" name="overall_rating" value="5" /><label class = "full" for="star51" title="Awesome - 5 stars"></label>
+											<input type="radio" id="star51" name="overall_rating" value="5"/><label class = "full" for="star51" title="Awesome - 5 stars"></label>
 											<input type="radio" id="star4half1" name="overall_rating" value="4.5" /><label class="half" for="star4half1" title="Pretty good - 4.5 stars"></label>
 											<input type="radio" id="star41" name="overall_rating" value="4" /><label class = "full" for="star41" title="Pretty good - 4 stars"></label>
 											<input type="radio" id="star3half1" name="overall_rating" value="3.5" /><label class="half" for="star3half1" title="Meh - 3.5 stars"></label>
@@ -327,7 +327,7 @@
 						<div class="review-comments">
 							<div class="comments">
 								<ul class="comment-list">
-									@foreach($reviews as $review)
+									@foreach($reviews as $key=>$review)
 									<li>
 										<article class="comment">
 											<div class="user-avatar">
@@ -342,21 +342,17 @@
 													<div class="column width-3">
 														<div class="widget">
 															<span class="rating">
-															<input type="radio" id="star55" name="demands_rating" value="5" /><label class = "full" for="star55" title="Awesome - 5 stars"></label>
-															<input type="radio" id="star4half5" name="demands_rating" value="4.5" /><label class="half" for="star4half5" title="Pretty good - 4.5 stars"></label>
-															<input type="radio" id="star45" name="demands_rating" value="4" /><label class = "full" for="star45" title="Pretty good - 4 stars"></label>
-															<input type="radio" id="star3half5" name="demands_rating" value="3.5" /><label class="half" for="star3half5" title="Meh - 3.5 stars"></label>
-															<input type="radio" id="star35" name="demands_rating" value="3" /><label class = "full" for="star35" title="Meh - 3 stars"></label>
-															<input type="radio" id="star2half5" name="demands_rating" value="2.5" /><label class="half" for="star2half5" title="Kinda bad - 2.5 stars"></label>
-															<input type="radio" id="star25" name="demands_rating" value="2" /><label class = "full" for="star25" title="Kinda bad - 2 stars"></label>
-															<input type="radio" id="star1half5" name="demands_rating" value="1.5" /><label class="half" for="star1half5" title="Meh - 1.5 stars"></label>
-															<input type="radio" id="star15" name="demands_rating" value="1" /><label class = "full" for="star15" title="Sucks big time - 1 star"></label>
-															<input type="radio" id="starhalf5" name="demands_rating" value="0.5" /><label class="half" for="starhalf5" title="Sucks big time - 0.5 stars"></label>
+																@for($a=5.0; $a>=0.5; $a=$a-0.5)
+																@php
+																{{ $odd++; }}
+																@endphp
+																<input type="radio" id="{{ $a+$odd }}" name="demands_rating{{ $key }}" value="{{ $a }}" @if($review->rating <= $a+0.5 && $review->rating >= $a) checked @endif/><label @if($odd%2 == 1)class="full"@else class="half" @endif for="{{ $a+$odd }}" title="{{ $a }} stars"></label>
+																@endfor
 															</span>
 														</div>
 													</div>
 												</div>
-                       <br>
+                       							<br>
 											 <br>
 												<p>{{ $review->comment }}</p>
 

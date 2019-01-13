@@ -645,6 +645,7 @@ Route::get('course/{id}',function($id){
         $user_id = Auth::user()->id;
     $reviews = CourseTeacher::find($id)->reviews;
     $count = $reviews->count();
+    $odd = 10;
     if(Auth::check()){
         if(Auth::user()->role == 1){
             $student = Student::where('user_id', $user_id)->get();
@@ -662,7 +663,7 @@ Route::get('course/{id}',function($id){
     //$user = User::find($course->user_id)->first();
     $subject = Course::find($course->course_id)->first();
     //return $course;
-    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'check_review', 'id', 'reviews', 'count'));
+    return view('current-tech-course.course-page')->with(compact('course', 'user', 'subject' ,'check_enrolled', 'check_review', 'id', 'reviews', 'count', 'odd'));
 })->name('course.view');
 
 Route::get('show-course', function(){
